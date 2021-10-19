@@ -5,6 +5,10 @@ export const useDashboardStyles = makeStyles(
   (theme) => ({
     root: {
       display: "flex",
+      backgroundColor: theme.palette.primary.drawer,
+      "& .MuiDrawer-paperAnchorDockedLeft": {
+        border: "none",
+      },
     },
 
     drawer: {
@@ -18,7 +22,6 @@ export const useDashboardStyles = makeStyles(
     drawerPaper: {
       width: drawerWidth,
       backgroundColor: theme.palette.primary.drawer,
-      top: "102.5px",
       [theme.breakpoints.down("sm")]: {
         width: 222,
       },
@@ -35,14 +38,14 @@ export const useDashboardStyles = makeStyles(
 
     appBar: {
       backgroundColor: theme.palette.secondary.main,
-      height: "4.5rem",
-      transition: theme.transitions.create(["width", "margin"], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-      [theme.breakpoints.down("sm")]: {
-        paddingRight: "10px",
-      },
+      borderRadius: "20px 20px 0 0",
+      height: "4.1rem",
+      
+    },
+    mainRoutes: {
+      backgroundColor: '#e5e5e5',
+      padding: 10,
+      
     },
     logoContainer: {
       backgroundColor: theme.palette.primary.drawer,

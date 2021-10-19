@@ -8,6 +8,8 @@ import {
   Drawer,
   List,
   Tooltip,
+  Typography,
+  Button,
 } from "@material-ui/core";
 import {
   Notifications as NotificationsIcon,
@@ -23,7 +25,7 @@ import SideBarList from "./components/SideBar/SideBarList";
 import Logo from "../../common/Assets/loginImage/logo.png";
 
 import routes from "./routes";
-import { SimpleBreadcrumbs, Alert } from "../../components";
+import SimpleBreadcrumbs from "../../components/breadcrumbs/breadcrumbs.container";
 
 import "font-awesome/css/font-awesome.min.css";
 
@@ -69,9 +71,13 @@ const Dashboard = () => {
       document.removeEventListener("keydown", drawerNavigationKey, true);
     };
   }, [open]);
+
   const drawerRoutes = routes();
   const drawer = (
     <>
+      <div className={classes.logoContainer}>
+        <img src={Logo} alt='logo' className={classes.logo} />
+      </div>
       <List className={classes.list}>
         {drawerRoutes?.map((item, index) => (
           <SideBarList
@@ -87,66 +93,49 @@ const Dashboard = () => {
       </List>
     </>
   );
-  function refreshPage() {
-    window.location.reload();
-  }
+
   return (
     <>
       <div className={classes.root}>
         <Drawer
-          variant="permanent"
+          variant='permanent'
           className={classes.drawer}
           onClose={handleDrawerOpen}
-          anchor="left"
+          anchor='left'
           open={open}
           classes={{
             paper: classes.drawerPaper,
-          }}
-        >
+          }}>
           {drawer}
         </Drawer>
 
-        <main onClick={handleDrawerClose} className={classes.content}>
-          <AppBar elevation={0} position="fixed" className={classes.appBar}>
-            <Toolbar className={classes.mainToolbar}>
-              <div onClick={handleDrawerOpen} className={classes.logoContainer}>
-                <img src={Logo} alt="logo" className={classes.logo} />
-                {/* <Divider className={classes.logoDividerBottom} />
-            </div>
+        <main
+          style={{
+            width: "1250px",
+            height: "97vh",
+            borderRadius: "25px 25px 0 0",
 
-            <div className={classes.breadcrumbs}>
-              {/* <SimpleBreadcrumbs name={appBarUrl} /> */}
-              </div>
-              <Tooltip title="Notifications">
-                <IconButton>
-                  <NotificationsIcon
-                    onClick={() => setAlertOpen(!alertOpen)}
-                    className={classes.notificationsIcon}
-                  />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Refresh Data">
-                <IconButton>
-                  <RefreshIcon
-                    onClick={refreshPage}
-                    className={classes.notificationsIcon}
-                  />
-                </IconButton>
-              </Tooltip>
-
-              <Divider
-                orientation="vertical"
-                flexItem
-                className={classes.appBarDivider}
-                classes={{ root: classes.divider }}
-              />
-              <Header />
-            </Toolbar>
-
-            <Divider className={classes.appBarDividerBottom} />
-          </AppBar>
-          <div className={classes.toolbar}></div>
-          <AppRoutes />
+            marginTop: 20,
+            backgroundColor: "#e5e5e5",
+          }}>
+          <div style={{ flexGrow: 1 }}>
+            <AppBar className={classes.appBar} position='static'>
+              <Toolbar>
+                <IconButton
+                  edge='start'
+                  className={classes.menuButton}
+                  color='inherit'
+                  aria-label='menu'></IconButton>
+                <div className={classes.breadcrumbs}>
+                  <SimpleBreadcrumbs name={appBarUrl} />
+                </div>
+                <Button color='inherit'>Login</Button>
+              </Toolbar>
+            </AppBar>
+          </div>
+          <div className={classes.mainRoutes}>
+            <AppRoutes />
+          </div>
         </main>
       </div>
     </>

@@ -46,7 +46,11 @@ const themePrimary = createMuiTheme({
       dark: "#282c34",
     },
   },
-
+  typography: {
+    "fontFamily": `"Nunito Sans", "Helvetica", "Arial", sans-serif`,
+    
+    
+   },
   overrides: {
     MuiListItem: {
       root: {
