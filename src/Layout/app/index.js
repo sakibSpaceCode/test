@@ -20,6 +20,7 @@ import AppRoutes from "../../routes/AppRoutes";
 import Header from "./components/Header/Header";
 import SideBarList from "./components/SideBar/SideBarList";
 // import Alert from './components/alert/alert.container';
+import Logo from "../../common/Assets/loginImage/logo.png";
 
 import routes from "./routes";
 import { SimpleBreadcrumbs, Alert } from "../../components";
@@ -92,59 +93,58 @@ const Dashboard = () => {
   return (
     <>
       <div className={classes.root}>
-        <AppBar elevation={0} position='fixed' className={classes.appBar}>
-          <Toolbar className={classes.mainToolbar}>
-            <div onClick={handleDrawerOpen} className={classes.logoContainer}>
-              {/* <img src={logo} alt="logo" className={classes.logo} /> */}
-              {/* <Divider className={classes.logoDividerBottom} /> */}
-            </div>
-
-            <div className={classes.breadcrumbs}>
-              {/* <SimpleBreadcrumbs name={appBarUrl} /> */}
-            </div>
-            <Tooltip title='Notifications'>
-              <IconButton>
-                <NotificationsIcon
-                  onClick={() => setAlertOpen(!alertOpen)}
-                  className={classes.notificationsIcon}
-                />
-              </IconButton>
-            </Tooltip>
-            <Tooltip title='Refresh Data'>
-              <IconButton>
-                <RefreshIcon
-                  onClick={refreshPage}
-                  className={classes.notificationsIcon}
-                />
-              </IconButton>
-            </Tooltip>
-
-            <Divider
-              orientation='vertical'
-              flexItem
-              className={classes.appBarDivider}
-              classes={{ root: classes.divider }}
-            />
-            <Header />
-          </Toolbar>
-
-          <Divider className={classes.appBarDividerBottom} />
-        </AppBar>
-
-        
         <Drawer
           variant="permanent"
           className={classes.drawer}
           onClose={handleDrawerOpen}
-          anchor='left'
+          anchor="left"
           open={open}
           classes={{
             paper: classes.drawerPaper,
-          }}>
+          }}
+        >
           {drawer}
         </Drawer>
 
         <main onClick={handleDrawerClose} className={classes.content}>
+          <AppBar elevation={0} position="fixed" className={classes.appBar}>
+            <Toolbar className={classes.mainToolbar}>
+              <div onClick={handleDrawerOpen} className={classes.logoContainer}>
+                <img src={Logo} alt="logo" className={classes.logo} />
+                {/* <Divider className={classes.logoDividerBottom} />
+            </div>
+
+            <div className={classes.breadcrumbs}>
+              {/* <SimpleBreadcrumbs name={appBarUrl} /> */}
+              </div>
+              <Tooltip title="Notifications">
+                <IconButton>
+                  <NotificationsIcon
+                    onClick={() => setAlertOpen(!alertOpen)}
+                    className={classes.notificationsIcon}
+                  />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Refresh Data">
+                <IconButton>
+                  <RefreshIcon
+                    onClick={refreshPage}
+                    className={classes.notificationsIcon}
+                  />
+                </IconButton>
+              </Tooltip>
+
+              <Divider
+                orientation="vertical"
+                flexItem
+                className={classes.appBarDivider}
+                classes={{ root: classes.divider }}
+              />
+              <Header />
+            </Toolbar>
+
+            <Divider className={classes.appBarDividerBottom} />
+          </AppBar>
           <div className={classes.toolbar}></div>
           <AppRoutes />
         </main>

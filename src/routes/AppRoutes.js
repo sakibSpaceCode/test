@@ -10,29 +10,29 @@ const AppRoutes = () => {
   console.log(mOption);
   return (
     <Switch>
-      <PrivateRoute path='/dashboard/employees' component={DashboardPage} />
+      <PrivateRoute path="/dashboard/employees" component={DashboardPage} />
 
-      <PrivateRoute exact path='/dashboard/clients' component={DashboardPage} />
+      <PrivateRoute exact path="/dashboard/clients" component={DashboardPage} />
 
       <PrivateRoute
         exact
-        path='/dashboard/design-department/design-details'
+        path="/dashboard/design-department/design-details"
         component={DashboardPage}
       />
 
       <PrivateRoute
         exact
-        path='/dashboard/design-department/checklist'
+        path="/dashboard/design-department/checklist"
         component={DashboardPage}
       />
       <PrivateRoute
         exact
-        path='/dashboard/design-department/corrective-action'
+        path="/dashboard/design-department/corrective-action"
         component={DashboardPage}
       />
       <PrivateRoute
         exact
-        path='/dashboard/design-department/daily-updates'
+        path="/dashboard/design-department/daily-updates"
         component={DashboardPage}
       />
     </Switch>
