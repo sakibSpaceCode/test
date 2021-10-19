@@ -3,6 +3,10 @@ import { makeStyles } from "@material-ui/core";
 const drawerWidth = 260;
 export const useDashboardStyles = makeStyles(
   (theme) => ({
+    root: {
+      display: "flex",
+    },
+
     drawer: {
       width: drawerWidth,
 
@@ -32,7 +36,13 @@ export const useDashboardStyles = makeStyles(
     appBar: {
       backgroundColor: theme.palette.secondary.main,
       height: "4.5rem",
-      width: "calc(100 % -260px) !important",
+      transition: theme.transitions.create(["width", "margin"], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+      [theme.breakpoints.down("sm")]: {
+        paddingRight: "10px",
+      },
     },
     logoContainer: {
       backgroundColor: theme.palette.primary.drawer,
