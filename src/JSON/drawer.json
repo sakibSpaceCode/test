@@ -1,0 +1,52 @@
+[
+  {
+    "path": "/dashboard",
+    "name": "Dashboard",
+    "urlEndPoint": "/dashboard",
+    "icon": "fa fa-tachometer"
+  },
+  {
+    "path": "/dashboard/employees",
+    "name": "Employees",
+    "urlEndPoint": "/employees",
+    "icon": "fa fa-tachometer"
+  },
+
+  {
+    "path": "/dashboard/clients",
+    "name": "Clients",
+    "urlEndPoint": "/clients",
+    "icon": "fa fa-tachometer"
+  },
+
+  {
+    "name": "Design Department",
+    "icon": "fa fa-area-chart",
+    "items": [
+      {
+        "name": "Design Details",
+        "path": "/dashboard/design-department/design-details",
+        "urlEndPoint": "/design-department/design-details",
+        "type": "report"
+      },
+      {
+        "name": "Checklist",
+        "path": "/dashboard/design-department/checklist",
+        "urlEndPoint": "/design-department/checklist",
+        "type": "report"
+      },
+      {
+        "name": "Corrective Action",
+        "path": "/dashboard/design-department/corrective-action",
+        "urlEndPoint": "/design-department/corrective-action",
+        "type": "report"
+      },
+      {
+        "name": "Daily Updates",
+        "path": "/dashboard/design-department/daily-updates",
+        "urlEndPoint": "/design-department/daily-updates",
+        "type": "report"
+      }
+    ]
+  }
+]
