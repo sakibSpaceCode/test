@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-const drawerWidth = 260;
+const drawerWidth = 280;
 export const useDashboardStyles = makeStyles(
   (theme) => ({
     root: {
@@ -40,12 +40,10 @@ export const useDashboardStyles = makeStyles(
       backgroundColor: theme.palette.secondary.main,
       borderRadius: "20px 20px 0 0",
       height: "4.1rem",
-      
     },
     mainRoutes: {
-      backgroundColor: '#e5e5e5',
-      padding: 10,
-      
+      backgroundColor: "#e5e5e5",
+      padding: "30px 20px",
     },
     logoContainer: {
       backgroundColor: theme.palette.primary.drawer,
@@ -70,7 +68,7 @@ export const useDashboardStyles = makeStyles(
       marginTop: 64,
 
       zIndex: 999,
-      height: "60px",
+      height: "70px",
       cursor: "pointer",
       [theme.breakpoints.down("sm")]: {
         marginRight: "50px",
@@ -123,8 +121,8 @@ export const useDashboardStyles = makeStyles(
       marginLeft: 10,
       overflowY: "auto",
       margin: 0,
-      paddingTop: 30,
-      marginBottom: 65,
+      paddingTop: 60,
+
       listStyle: "none",
       overflowX: "hidden",
       "&::-webkit-scrollbar": {

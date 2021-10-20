@@ -5,7 +5,13 @@ import {
   ExpandLess as IconExpandLess,
   ExpandMore as IconExpandMore,
 } from "@material-ui/icons";
-import { List, ListItem, ListItemText, Collapse } from "@material-ui/core";
+import {
+  List,
+  ListItem,
+  ListItemText,
+  Collapse,
+  Divider,
+} from "@material-ui/core";
 
 // local imports
 import Logo from "../../../../common/Assets/loginImage/logo.png";
@@ -53,7 +59,8 @@ const SideBarList = (props) => {
       selected={isLinkActive}
       classes={{
         button: classes.listItemButton,
-      }}>
+      }}
+    >
       <div className={classes.icon}>{icon}</div>
       <ListItemText primary={name} className={classes.listitemText} />
 
@@ -63,21 +70,30 @@ const SideBarList = (props) => {
   );
 
   const MenuItemChildren = isExpandable ? (
-    <Collapse in={openList} timeout='auto' unmountOnExit>
-      <List component='div' disablePadding>
-        {items.map((item, index) => (
-          <Sublist
-            {...item}
-            key={index}
-            handleDrawerClose={handleDrawerClose}
-          />
-        ))}
+    <Collapse in={openList} timeout="auto" unmountOnExit>
+      <List component="div" disablePadding>
+        <div
+          style={{
+            backgroundColor: "#fff",
+            width: "80%",
+
+            borderRadius: "1px 1px 20px 20px",
+          }}
+          className={classes.sublist}
+        >
+          {items.map((item, index) => (
+            <Sublist
+              {...item}
+              key={index}
+              handleDrawerClose={handleDrawerClose}
+            />
+          ))}
+        </div>
       </List>
     </Collapse>
   ) : null;
   return (
     <>
-      
       {MenuItemRoot}
       {MenuItemChildren}
     </>
@@ -94,19 +110,24 @@ const Sublist = (props) => {
   }
 
   return (
-    <ListItem
-      button
-      component={path && Link}
-      to={path}
-      onClick={handleClick}
-      className={classes.menuItem}
-      selected={isLinkActive}
-      classes={{
-        selected: classes.listItemSelected,
-        button: classes.listItemButton,
-      }}>
-      <ListItemText primary={name} inset={!icon} />
-    </ListItem>
+    <>
+      <ListItem
+        button
+        component={path && Link}
+        to={path}
+        onClick={handleClick}
+        className={classes.sublist}
+        selected={isLinkActive}
+        classes={{
+          selected: classes.listItemSelected,
+          button: classes.listItemButtonNested,
+          sublist: classes.sublist,
+        }}
+      >
+        <ListItemText className={classes.subListText} primary={name} />
+      </ListItem>
+      <Divider />
+    </>
   );
 };
 

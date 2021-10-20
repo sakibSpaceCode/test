@@ -76,7 +76,7 @@ const Dashboard = () => {
   const drawer = (
     <>
       <div className={classes.logoContainer}>
-        <img src={Logo} alt='logo' className={classes.logo} />
+        <img src={Logo} alt="logo" className={classes.logo} />
       </div>
       <List className={classes.list}>
         {drawerRoutes?.map((item, index) => (
@@ -98,45 +98,49 @@ const Dashboard = () => {
     <>
       <div className={classes.root}>
         <Drawer
-          variant='permanent'
+          variant="permanent"
           className={classes.drawer}
           onClose={handleDrawerOpen}
-          anchor='left'
+          anchor="left"
           open={open}
           classes={{
             paper: classes.drawerPaper,
-          }}>
+          }}
+        >
           {drawer}
         </Drawer>
+        <div style={{ width: "100%" }}>
+          <main
+            style={{
+              width: "calc(100% - 20px)",
+              height: "97vh",
+              borderRadius: "25px 25px 0 0",
 
-        <main
-          style={{
-            width: "1250px",
-            height: "97vh",
-            borderRadius: "25px 25px 0 0",
-
-            marginTop: 20,
-            backgroundColor: "#e5e5e5",
-          }}>
-          <div style={{ flexGrow: 1 }}>
-            <AppBar className={classes.appBar} position='static'>
-              <Toolbar>
-                <IconButton
-                  edge='start'
-                  className={classes.menuButton}
-                  color='inherit'
-                  aria-label='menu'></IconButton>
-                <div className={classes.breadcrumbs}>
-                  <SimpleBreadcrumbs name={appBarUrl} />
-                </div>
-                <Button color='inherit'>Login</Button>
-              </Toolbar>
-            </AppBar>
-          </div>
-          <div className={classes.mainRoutes}>
-            <AppRoutes />
-          </div>
-        </main>
+              marginTop: 20,
+              backgroundColor: "#e5e5e5",
+            }}
+          >
+            <div style={{ flexGrow: 1 }}>
+              <AppBar className={classes.appBar} position="static">
+                <Toolbar>
+                  <IconButton
+                    edge="start"
+                    className={classes.menuButton}
+                    color="inherit"
+                    aria-label="menu"
+                  ></IconButton>
+                  <div className={classes.breadcrumbs}>
+                    <SimpleBreadcrumbs name={appBarUrl} />
+                  </div>
+                  <Button color="inherit">Login</Button>
+                </Toolbar>
+              </AppBar>
+            </div>
+            <div className={classes.mainRoutes}>
+              <AppRoutes />
+            </div>
+          </main>
+        </div>
       </div>
     </>
   );

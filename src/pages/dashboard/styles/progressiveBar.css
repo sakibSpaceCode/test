@@ -1,0 +1,41 @@
+.projectsContainer {
+  margin-top: 25px;
+}
+
+.headerContainer {
+  background-color: #618eff;
+  padding: 0.5px;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerContainer h2 {
+  color: #fff;
+  margin-left: 12px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.projectDetails {
+  border: 1px solid #618eff;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-around;
+}
+
+.details h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.imgUpdate {
+  width: 80%;
+  height: 40%;
+  margin-top: 12px;
+}

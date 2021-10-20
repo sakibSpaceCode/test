@@ -4,11 +4,10 @@ export const breadcrumbsStyles = makeStyles(
   (theme) => ({
     breadcrumbs: {
       "& .MuiBreadcrumbs-separator": {
-        fontSize: "2rem",
-        fontWeight: "bold",
-        marginLeft: "10px",
-        marginRight: "-18px",
-        color: theme.palette.primary.main,
+        fontWeight: 600,
+        fontSize: 20,
+
+        color: "#303030",
       },
     },
     disabled: {

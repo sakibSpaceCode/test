@@ -48,5 +48,23 @@
         "type": "report"
       }
     ]
+  },
+  {
+    "path": "/dashboard/job-card",
+    "name": "Job Card",
+    "urlEndPoint": "//job-card",
+    "icon": "fa fa-tachometer"
+  },
+  {
+    "path": "/dashboard/new-option",
+    "name": "New Option",
+    "urlEndPoint": "/new-Option",
+    "icon": "fa fa-tachometer"
+  },
+  {
+    "path": "/dashboard/saban",
+    "name": "Saban",
+    "urlEndPoint": "/saban",
+    "icon": "fa fa-tachometer"
   }
 ]

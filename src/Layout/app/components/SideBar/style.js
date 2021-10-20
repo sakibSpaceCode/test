@@ -2,10 +2,13 @@ import { makeStyles } from "@material-ui/core";
 
 export const useSidebarStyles = makeStyles((theme) => ({
   listItemButton: {
-    width: "210px",
-    borderRadius: "3px",
+    width: "240px",
+    borderRadius: "0 50px 50px 0",
     color: theme.palette.secondary.main,
     marginBottom: "8px",
+    "& .MuiCollapse-wrapperInner": {
+      backgroundColor: theme.palette.secondary.main,
+    },
     "&:hover": {
       backgroundColor: theme.palette.secondary.main,
       color: theme.palette.primary.drawer,
@@ -20,8 +23,18 @@ export const useSidebarStyles = makeStyles((theme) => ({
       fontSize: "10px",
     },
   },
+  subList: {
+    backgroundColor: theme.palette.secondary.main,
+  },
+  subListText: {
+    color: theme.palette.primary.drawer,
+    textAlign: "center",
+  },
   icon: {
     width: 20,
+  },
+  listItemButtonNested: {
+    padding: 1,
   },
   listitemText: {
     marginLeft: "18px",
