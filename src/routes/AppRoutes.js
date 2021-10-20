@@ -3,6 +3,7 @@ import { Switch } from "react-router-dom";
 import pageBreadcrumbsMappings from "../components/breadcrumbs/page-breadcrumbs-mappings";
 import DashboardPage from "../pages/dashboard";
 import EmployeesPage from "../pages/employees";
+import JobCardPage from "../pages/jobCard";
 
 import PrivateRoute from "./PrivateRoute";
 
@@ -13,6 +14,7 @@ const AppRoutes = () => {
     <Switch>
       <PrivateRoute exact path='/dashboard' component={DashboardPage} />
       <PrivateRoute exact path='/dashboard/employees' component={EmployeesPage} />
+      <PrivateRoute exact path='/dashboard/job-card' component={JobCardPage} />
 
       <PrivateRoute exact path='/dashboard/clients' component={DashboardPage} />
 

@@ -70,13 +70,25 @@ const useStyles = makeStyles({
     width: "100%",
   },
   container: {
-    maxHeight: 300,
+    maxHeight: (height) => height || 300,
     padding: "20px 25px",
+  },
+  completed: {
+    backgroundColor: "#29D60D",
+    padding: "8px 15px",
+    borderRadius: "10px",
+    color: "#FFFFFF",
+  },
+  pending: {
+    backgroundColor: "#FBB752",
+    padding: "8px 23px",
+    borderRadius: "10px",
+    color: "#FFFFFF",
   },
 });
 
-export default function CustomTable() {
-  const classes = useStyles();
+export default function CustomTable({ height }) {
+  const classes = useStyles(height);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -91,7 +103,7 @@ export default function CustomTable() {
 
   return (
     <TableContainer className={classes.container}>
-      <Table aria-label="sticky table">
+      <Table aria-label='sticky table'>
         <TableHead>
           <TableRow>
             {columns.map((column) => (
@@ -104,8 +116,7 @@ export default function CustomTable() {
                   color: "#618EFF",
                   fontWeight: "600",
                   fontSize: "16px",
-                }}
-              >
+                }}>
                 {column.label}
               </TableCell>
             ))}
@@ -116,16 +127,16 @@ export default function CustomTable() {
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((row) => {
               return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                <TableRow hover role='checkbox' tabIndex={-1} key={row.code}>
                   {columns.map((column) => {
                     const value = row[column.id];
                     return value === "Completed" ? (
                       <TableCell key={column.id} align={column.align}>
-                        {value}
+                        <span className={classes.completed}>{value}</span>
                       </TableCell>
                     ) : value === "Pending" ? (
                       <TableCell key={column.id} align={column.align}>
-                        {value}
+                        <span className={classes.pending}> {value}</span>
                       </TableCell>
                     ) : (
                       <TableCell key={column.id} align={column.align}>

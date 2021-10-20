@@ -11,15 +11,12 @@ import {
   Typography,
   Button,
 } from "@material-ui/core";
-import {
-  Notifications as NotificationsIcon,
-  Refresh as RefreshIcon,
-} from "@material-ui/icons";
-
+import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
+import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 // local imports
 import { useDashboardStyles } from "./style";
 import AppRoutes from "../../routes/AppRoutes";
-import Header from "./components/Header/Header";
 import SideBarList from "./components/SideBar/SideBarList";
 // import Alert from './components/alert/alert.container';
 import Logo from "../../common/Assets/loginImage/logo.png";
@@ -33,7 +30,6 @@ const Dashboard = () => {
   const location = useLocation();
   const classes = useDashboardStyles();
   const [open, setOpen] = useState(false);
-  const [alertOpen, setAlertOpen] = useState(false);
 
   let url = location.pathname.split("/");
   let filterUrl = url.filter((x, i) => i < 4);
@@ -76,7 +72,7 @@ const Dashboard = () => {
   const drawer = (
     <>
       <div className={classes.logoContainer}>
-        <img src={Logo} alt="logo" className={classes.logo} />
+        <img src={Logo} alt='logo' className={classes.logo} />
       </div>
       <List className={classes.list}>
         {drawerRoutes?.map((item, index) => (
@@ -98,15 +94,14 @@ const Dashboard = () => {
     <>
       <div className={classes.root}>
         <Drawer
-          variant="permanent"
+          variant='permanent'
           className={classes.drawer}
           onClose={handleDrawerOpen}
-          anchor="left"
+          anchor='left'
           open={open}
           classes={{
             paper: classes.drawerPaper,
-          }}
-        >
+          }}>
           {drawer}
         </Drawer>
         <div style={{ width: "100%" }}>
@@ -118,21 +113,22 @@ const Dashboard = () => {
 
               marginTop: 20,
               backgroundColor: "#e5e5e5",
-            }}
-          >
+            }}>
             <div style={{ flexGrow: 1 }}>
-              <AppBar className={classes.appBar} position="static">
+              <AppBar className={classes.appBar} position='static'>
                 <Toolbar>
-                  <IconButton
-                    edge="start"
-                    className={classes.menuButton}
-                    color="inherit"
-                    aria-label="menu"
-                  ></IconButton>
                   <div className={classes.breadcrumbs}>
                     <SimpleBreadcrumbs name={appBarUrl} />
                   </div>
-                  <Button color="inherit">Login</Button>
+                  <IconButton>
+                    <ChatBubbleOutlineOutlinedIcon />
+                  </IconButton>
+                  <IconButton>
+                    <NotificationsNoneOutlinedIcon />
+                  </IconButton>
+                  <IconButton>
+                    <AccountCircleOutlinedIcon />
+                  </IconButton>
                 </Toolbar>
               </AppBar>
             </div>

@@ -67,10 +67,10 @@ const EmployeesPage = () => {
                       <CustomButton>All</CustomButton>
                     </td>
                     <td>
-                      <CustomButton>Yes</CustomButton>
+                      <CustomButton disabled>Yes</CustomButton>
                     </td>
                     <td>
-                      <CustomButton>No</CustomButton>
+                      <CustomButton disabled>No</CustomButton>
                     </td>
                   </tr>
                   <tr>
@@ -79,10 +79,10 @@ const EmployeesPage = () => {
                       <CustomButton>All</CustomButton>
                     </td>
                     <td>
-                      <CustomButton>Yes</CustomButton>
+                      <CustomButton disabled>Yes</CustomButton>
                     </td>
                     <td>
-                      <CustomButton>No</CustomButton>
+                      <CustomButton disabled>No</CustomButton>
                     </td>
                   </tr>
                   <tr>
@@ -91,10 +91,10 @@ const EmployeesPage = () => {
                       <CustomButton>All</CustomButton>
                     </td>
                     <td>
-                      <CustomButton>Yes</CustomButton>
+                      <CustomButton disabled>Yes</CustomButton>
                     </td>
                     <td>
-                      <CustomButton>No</CustomButton>
+                      <CustomButton disabled>No</CustomButton>
                     </td>
                   </tr>
                 </table>
@@ -103,16 +103,18 @@ const EmployeesPage = () => {
           </Grid>
         </Grid>
       </Grid>
+      <div style={{ marginTop:30}}>
       <BorderPaper>
         <CustomTable />
       </BorderPaper>
+      </div>
     </>
   );
 };
-const CustomButton = ({ children }) => {
+const CustomButton = ({ children, disabled }) => {
   const classes = useStyles();
   return (
-    <Button className={classes.btns} variant="contained" color="primary">
+    <Button className={classes.btns} disabled={disabled} variant="contained" color="primary">
       <span className={classes.btnText}>{children}</span>
     </Button>
   );
