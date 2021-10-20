@@ -23,6 +23,11 @@
   border: 1px solid #618eff;
   border-radius: 0px 0px 20px 20px;
 }
+.projectDetails1 {
+  border: 1px solid #618eff;
+  border-radius: 20px 20px 20px 20px;
+  padding: 10px;
+}
 
 .details {
   display: flex;
