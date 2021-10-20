@@ -11,11 +11,11 @@ const EmployeesPage = () => {
   const classes = useStyles();
   return (
     <>
-      <Grid container justify='space-between' spacing={8}>
+      <Grid container justify="space-between" spacing={8}>
         <Grid item xs={6}>
-          <Grid container direction='column' spacing={2}>
+          <Grid container direction="column" spacing={2}>
             <Grid item xs={12}>
-              <CustomSearch placeholder='Search for employees' />
+              <CustomSearch placeholder="Search for employees" />
             </Grid>
             <Grid item xs={10}>
               <Grid container>
@@ -28,7 +28,8 @@ const EmployeesPage = () => {
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
-                      }}>
+                      }}
+                    >
                       <RemoveIcon />
                       <Typography>Delete User</Typography>
                     </div>
@@ -43,7 +44,8 @@ const EmployeesPage = () => {
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
-                      }}>
+                      }}
+                    >
                       <AddIcon />
                       <Typography>Add User</Typography>
                     </div>
@@ -54,47 +56,51 @@ const EmployeesPage = () => {
           </Grid>
         </Grid>
         <Grid item xs={6}>
-          <Paper className={classes.filterpaper}>
-            <Typography className={classes.filterBy}>Filter By</Typography>
-            <table className={classes.filterTable}>
-              <tr>
-                <td>Employee Status:</td>
-                <td className={classes.firstBtn}>
-                  <CustomButton>All</CustomButton>
-                </td>
-                <td>
-                  <CustomButton>Yes</CustomButton>
-                </td>
-                <td>
-                  <CustomButton>No</CustomButton>
-                </td>
-              </tr>
-              <tr>
-                <td>Superuser Status:</td>
-                <td className={classes.firstBtn}>
-                  <CustomButton>All</CustomButton>
-                </td>
-                <td>
-                  <CustomButton>Yes</CustomButton>
-                </td>
-                <td>
-                  <CustomButton>No</CustomButton>
-                </td>
-              </tr>
-              <tr>
-                <td>Active:</td>
-                <td className={classes.firstBtn}>
-                  <CustomButton>All</CustomButton>
-                </td>
-                <td>
-                  <CustomButton>Yes</CustomButton>
-                </td>
-                <td>
-                  <CustomButton>No</CustomButton>
-                </td>
-              </tr>
-            </table>
-          </Paper>
+          <Grid container justify="flex-end">
+            <Grid item>
+              <Paper className={classes.filterpaper}>
+                <Typography className={classes.filterBy}>Filter By</Typography>
+                <table className={classes.filterTable}>
+                  <tr>
+                    <td>Employee Status:</td>
+                    <td className={classes.firstBtn}>
+                      <CustomButton>All</CustomButton>
+                    </td>
+                    <td>
+                      <CustomButton>Yes</CustomButton>
+                    </td>
+                    <td>
+                      <CustomButton>No</CustomButton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Superuser Status:</td>
+                    <td className={classes.firstBtn}>
+                      <CustomButton>All</CustomButton>
+                    </td>
+                    <td>
+                      <CustomButton>Yes</CustomButton>
+                    </td>
+                    <td>
+                      <CustomButton>No</CustomButton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Active:</td>
+                    <td className={classes.firstBtn}>
+                      <CustomButton>All</CustomButton>
+                    </td>
+                    <td>
+                      <CustomButton>Yes</CustomButton>
+                    </td>
+                    <td>
+                      <CustomButton>No</CustomButton>
+                    </td>
+                  </tr>
+                </table>
+              </Paper>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
       <BorderPaper>
@@ -106,7 +112,7 @@ const EmployeesPage = () => {
 const CustomButton = ({ children }) => {
   const classes = useStyles();
   return (
-    <Button className={classes.btns} variant='contained' color='primary'>
+    <Button className={classes.btns} variant="contained" color="primary">
       <span className={classes.btnText}>{children}</span>
     </Button>
   );

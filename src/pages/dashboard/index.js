@@ -10,6 +10,148 @@ import state1 from "../../common/Assets/progressive/1.png";
 
 import { Grid } from "@material-ui/core";
 import ProgressBar from "./progressBar";
+import EventUpcoming from "./eventUpcoming";
+
+const progressData = [
+  {
+    name: "Project 1",
+    data: [
+      {
+        label: "Design  Process",
+        status: "Completed",
+      },
+      {
+        label: "Joinery",
+        status: "Completed",
+      },
+      {
+        label: "Metal",
+        status: "Completed",
+      },
+      {
+        label: "Paint",
+        status: "Completed",
+      },
+      {
+        label: "Final",
+        status: "Completed",
+      },
+      {
+        label: "Dispatch",
+        status: "Completed",
+      },
+      {
+        label: "Delivery",
+        status: "Completed",
+      },
+      {
+        label: "Installation",
+        status: "Completed",
+      },
+      {
+        label: "Handover",
+        status: "active",
+      },
+
+      {
+        label: "Completed",
+        status: "pending",
+      },
+    ],
+  },
+  {
+    name: "Project 1",
+    data: [
+      {
+        label: "Design  Process",
+        status: "Completed",
+      },
+      {
+        label: "Joinery",
+        status: "Completed",
+      },
+      {
+        label: "Metal",
+        status: "Completed",
+      },
+      {
+        label: "Paint",
+        status: "Completed",
+      },
+      {
+        label: "Final",
+        status: "Completed",
+      },
+      {
+        label: "Dispatch",
+        status: "Completed",
+      },
+      {
+        label: "Delivery",
+        status: "Completed",
+      },
+      {
+        label: "Installation",
+        status: "Completed",
+      },
+      {
+        label: "Handover",
+        status: "Completed",
+      },
+
+      {
+        label: "Completed",
+        status: "active",
+      },
+    ],
+  },
+  {
+    name: "Project 1",
+    data: [
+      {
+        label: "Design  Process",
+        status: "Completed",
+      },
+      {
+        label: "Joinery",
+        status: "Completed",
+      },
+      {
+        label: "Metal",
+        status: "Completed",
+      },
+      {
+        label: "Paint",
+        status: "Completed",
+      },
+      {
+        label: "Final",
+        status: "Completed",
+      },
+      {
+        label: "Dispatch",
+        status: "Completed",
+      },
+      {
+        label: "Delivery",
+        status: "Completed",
+      },
+      {
+        label: "Installation",
+        status: "Completed",
+      },
+      {
+        label: "Handover",
+        status: "Completed",
+      },
+
+      {
+        label: "Completed",
+        status: "Completed",
+      },
+    ],
+  },
+];
 
 const DashboardPage = () => {
   return (
@@ -36,7 +178,10 @@ const DashboardPage = () => {
         </Grid>
       </Grid>
       <Grid container>
-        <ProgressBar pname="Project1" pname2="Project2" pname3="Project3" />
+        <ProgressBar data={progressData} />
+      </Grid>
+      <Grid container>
+        <EventUpcoming />
       </Grid>
     </>
   );

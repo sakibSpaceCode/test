@@ -64,6 +64,7 @@ const useStyles = makeStyles({
   },
   container: {
     maxHeight: 300,
+    padding: "20px 25px",
   },
 });
 
@@ -92,10 +93,10 @@ export default function CustomTable() {
                 align={column.align}
                 style={{
                   minWidth: column.minWidth,
-                  background: "transparent",
+                  background: "#F4F7FE",
                   color: "#618EFF",
                   fontWeight: "600",
-                  fontSize: "18px",
+                  fontSize: "16px",
                 }}
               >
                 {column.label}

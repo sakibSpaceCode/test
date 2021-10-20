@@ -1,0 +1,32 @@
+.eventContainer {
+}
+
+.calender {
+  padding: 12px;
+}
+
+.projectList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headingProjects {
+  display: flex;
+  align-items: center;
+}
+
+.ProjectheadText {
+  /* margin-right: 15px; */
+  padding: 12px;
+  color: #618eff;
+  font-weight: 500;
+  font-size: 17px;
+}
+.calenderReal {
+  background-color: #f4f7fe !important;
+  border: none !important;
+}
+.eventDetail {
+  background-color: #f4f7fe !important;
+}
