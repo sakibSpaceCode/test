@@ -5,7 +5,7 @@ const themePrimary = createMuiTheme({
     primary: {
       drawer: "#303030",
 
-      main: "#004372",
+      main: "#618EFF",
       darkBlue: "#0e6cad",
       icon: "#777777",
     },
@@ -47,10 +47,8 @@ const themePrimary = createMuiTheme({
     },
   },
   typography: {
-    "fontFamily": `"Nunito Sans", "Helvetica", "Arial", sans-serif`,
-    
-    
-   },
+    fontFamily: `"Nunito Sans", "Helvetica", "Arial", sans-serif`,
+  },
   overrides: {
     MuiListItem: {
       root: {
