@@ -61,6 +61,13 @@
     "urlEndPoint": "/retro-plan",
     "icon": "fa fa-tachometer"
   },
+
+  {
+    "path": "/dashboard/project-department",
+    "name": "Project Department",
+    "urlEndPoint": "/project-department",
+    "icon": "fa fa-tachometer"
+  },
   {
     "path": "/dashboard/new-option",
     "name": "New Option",
