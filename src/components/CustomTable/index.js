@@ -70,7 +70,7 @@ const useStyles = makeStyles({
     width: "100%",
   },
   container: {
-    maxHeight: (height) => height || 300,
+    maxHeight: (props) => props.height || 300,
     padding: "20px 25px",
   },
   completed: {
@@ -88,7 +88,7 @@ const useStyles = makeStyles({
 });
 
 export default function CustomTable({ height }) {
-  const classes = useStyles(height);
+  const classes = useStyles({ height: height });
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -103,7 +103,7 @@ export default function CustomTable({ height }) {
 
   return (
     <TableContainer className={classes.container}>
-      <Table aria-label='sticky table'>
+      <Table aria-label="sticky table">
         <TableHead>
           <TableRow>
             {columns.map((column) => (
@@ -116,7 +116,8 @@ export default function CustomTable({ height }) {
                   color: "#618EFF",
                   fontWeight: "600",
                   fontSize: "16px",
-                }}>
+                }}
+              >
                 {column.label}
               </TableCell>
             ))}
@@ -127,7 +128,7 @@ export default function CustomTable({ height }) {
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((row) => {
               return (
-                <TableRow hover role='checkbox' tabIndex={-1} key={row.code}>
+                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                   {columns.map((column) => {
                     const value = row[column.id];
                     return value === "Completed" ? (

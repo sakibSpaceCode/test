@@ -19,10 +19,17 @@ import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
+    "& .MuiStepConnector-line": {
+      borderColor: theme.palette.primary.main,
+    },
+    "& .Mui-disabled .MuiStepConnector-line": {
+      borderColor: "#959595",
+    },
     "& .MuiPaper-root": {
       backgroundColor: "#F4F7FE",
       borderRadius: "0px 0px 20px 20px",
@@ -47,6 +54,20 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.primary.main,
       fontSize: "13px",
       fontWeight: "500",
+    },
+  },
+  pending: {
+    "&  .MuiStepIcon-root": {
+      width: "30px",
+      height: "30px",
+      fill: "#fff",
+    },
+    "&   .MuiStepIcon-text": {
+      fill: "#618EFF",
+    },
+    "& .MuiStepLabel-iconContainer": {
+      border: `2px solid ${theme.palette.primary.main}`,
+      borderRadius: 50,
     },
   },
   backButton: {
@@ -100,11 +121,14 @@ export default function ProgressBar({ data }) {
     <div className={classes.root}>
       <HeaderBox title={"Running Projects"}>
         {data.map((value, i) => {
-          const active = value.data.findIndex((x) => x.status === "active") + 1;
+          const active = value.data.findIndex((x) => x.status === "active");
           return (
             <Stepper activeStep={active} alternativeLabel>
               {value.data.map((step) => (
-                <Step key={step.label}>
+                <Step
+                  className={step.status === "pending" && classes.pending}
+                  key={step.label}
+                >
                   <StepLabel>{step.label}</StepLabel>
                 </Step>
               ))}

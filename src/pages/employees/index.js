@@ -30,8 +30,13 @@ const EmployeesPage = () => {
                         alignItems: "center",
                       }}
                     >
-                      <RemoveIcon />
-                      <Typography>Delete User</Typography>
+                      <RemoveIcon fontSize="large" />
+                      <Typography
+                        style={{ fontWeight: "bold" }}
+                        variant="subtitle1"
+                      >
+                        Delete User
+                      </Typography>
                     </div>
                   </CustomPaper>
                 </Grid>
@@ -46,8 +51,14 @@ const EmployeesPage = () => {
                         alignItems: "center",
                       }}
                     >
-                      <AddIcon />
-                      <Typography>Add User</Typography>
+                      <AddIcon fontSize="large" />
+                      <Typography
+                        style={{ fontWeight: "bold" }}
+                        variant="subtitle1"
+                        fontWeight="bold"
+                      >
+                        Add User
+                      </Typography>
                     </div>
                   </CustomPaper>
                 </Grid>
@@ -61,7 +72,7 @@ const EmployeesPage = () => {
               <Paper className={classes.filterpaper}>
                 <Typography className={classes.filterBy}>Filter By</Typography>
                 <table className={classes.filterTable}>
-                  <tr>
+                  <tr style={{ marginBottom: 10 }}>
                     <td>Employee Status:</td>
                     <td className={classes.firstBtn}>
                       <CustomButton>All</CustomButton>
@@ -73,7 +84,7 @@ const EmployeesPage = () => {
                       <CustomButton disabled>No</CustomButton>
                     </td>
                   </tr>
-                  <tr>
+                  <tr style={{ marginBottom: 10 }}>
                     <td>Superuser Status:</td>
                     <td className={classes.firstBtn}>
                       <CustomButton>All</CustomButton>
@@ -85,7 +96,7 @@ const EmployeesPage = () => {
                       <CustomButton disabled>No</CustomButton>
                     </td>
                   </tr>
-                  <tr>
+                  <tr style={{ marginBottom: 10 }}>
                     <td>Active:</td>
                     <td className={classes.firstBtn}>
                       <CustomButton>All</CustomButton>
@@ -103,10 +114,10 @@ const EmployeesPage = () => {
           </Grid>
         </Grid>
       </Grid>
-      <div style={{ marginTop:30}}>
-      <BorderPaper>
-        <CustomTable />
-      </BorderPaper>
+      <div style={{ marginTop: 30 }}>
+        <BorderPaper>
+          <CustomTable height={420} />
+        </BorderPaper>
       </div>
     </>
   );
@@ -114,14 +125,27 @@ const EmployeesPage = () => {
 const CustomButton = ({ children, disabled }) => {
   const classes = useStyles();
   return (
-    <Button className={classes.btns} disabled={disabled} variant="contained" color="primary">
+    <Button
+      className={classes.btns}
+      disabled={disabled}
+      variant="contained"
+      color="primary"
+    >
       <span className={classes.btnText}>{children}</span>
     </Button>
   );
 };
 const CustomPaper = ({ children }) => {
   const classes = useStyles();
-  return <Paper className={classes.papers}>{children}</Paper>;
+  return (
+    <Paper
+      elevation={0}
+      className={classes.papers}
+      style={{ cursor: "pointer" }}
+    >
+      {children}
+    </Paper>
+  );
 };
 
 export default EmployeesPage;

@@ -1,0 +1,17 @@
+.overviewContainer {
+  width: 97%;
+  margin: auto;
+}
+
+.iconStyle {
+  color: #fff;
+  margin-right: 12px;
+}
+
+.disabledBtn {
+  background: none;
+  border: none;
+}
+.projectContainer {
+  padding: 0px 40px;
+}

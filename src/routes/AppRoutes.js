@@ -4,6 +4,7 @@ import pageBreadcrumbsMappings from "../components/breadcrumbs/page-breadcrumbs-
 import DashboardPage from "../pages/dashboard";
 import EmployeesPage from "../pages/employees";
 import JobCardPage from "../pages/jobCard";
+import RetroPlanPage from "../pages/retroPlan";
 
 import PrivateRoute from "./PrivateRoute";
 
@@ -12,31 +13,40 @@ const AppRoutes = () => {
   console.log(mOption);
   return (
     <Switch>
-      <PrivateRoute exact path='/dashboard' component={DashboardPage} />
-      <PrivateRoute exact path='/dashboard/employees' component={EmployeesPage} />
-      <PrivateRoute exact path='/dashboard/job-card' component={JobCardPage} />
+      <PrivateRoute exact path="/dashboard" component={DashboardPage} />
+      <PrivateRoute
+        exact
+        path="/dashboard/employees"
+        component={EmployeesPage}
+      />
+      <PrivateRoute exact path="/dashboard/job-card" component={JobCardPage} />
+      <PrivateRoute
+        exact
+        path="/dashboard/retro-plan"
+        component={RetroPlanPage}
+      />
 
-      <PrivateRoute exact path='/dashboard/clients' component={DashboardPage} />
+      <PrivateRoute exact path="/dashboard/clients" component={DashboardPage} />
 
       <PrivateRoute
         exact
-        path='/dashboard/design-department/design-details'
+        path="/dashboard/design-department/design-details"
         component={DashboardPage}
       />
 
       <PrivateRoute
         exact
-        path='/dashboard/design-department/checklist'
+        path="/dashboard/design-department/checklist"
         component={DashboardPage}
       />
       <PrivateRoute
         exact
-        path='/dashboard/design-department/corrective-action'
+        path="/dashboard/design-department/corrective-action"
         component={DashboardPage}
       />
       <PrivateRoute
         exact
-        path='/dashboard/design-department/daily-updates'
+        path="/dashboard/design-department/daily-updates"
         component={DashboardPage}
       />
     </Switch>

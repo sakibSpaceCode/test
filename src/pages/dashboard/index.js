@@ -11,6 +11,9 @@ import state1 from "../../common/Assets/progressive/1.png";
 import { Grid } from "@material-ui/core";
 import ProgressBar from "./progressBar";
 import EventUpcoming from "./eventUpcoming";
+import ProjectOverview from "./projectOverview";
+import HeaderBox from "../../components/headerBox";
+import CustomTable from "../../components/CustomTable";
 
 const progressData = [
   {
@@ -138,16 +141,16 @@ const progressData = [
       },
       {
         label: "Installation",
-        status: "Completed",
+        status: "active",
       },
       {
         label: "Handover",
-        status: "Completed",
+        status: "pending",
       },
 
       {
         label: "Completed",
-        status: "Completed",
+        status: "pending",
       },
     ],
   },
@@ -182,6 +185,16 @@ const DashboardPage = () => {
       </Grid>
       <Grid container>
         <EventUpcoming />
+      </Grid>
+      <Grid container>
+        <ProjectOverview />
+      </Grid>
+      <Grid container>
+        <Grid item xs={8}>
+          <HeaderBox title="Completed Project">
+            <CustomTable />
+          </HeaderBox>
+        </Grid>
       </Grid>
     </>
   );

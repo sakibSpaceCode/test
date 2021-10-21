@@ -5,7 +5,7 @@ export const breadcrumbsStyles = makeStyles(
     breadcrumbs: {
       "& .MuiBreadcrumbs-separator": {
         fontWeight: 600,
-        fontSize: 20,
+        fontSize: 22,
 
         color: "#303030",
       },
@@ -20,7 +20,7 @@ export const breadcrumbsStyles = makeStyles(
     },
     typography: {
       fontWeight: 600,
-      fontSize: 20,
+      fontSize: 22,
 
       color: "#303030",
     },

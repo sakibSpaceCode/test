@@ -4,7 +4,10 @@ export const useStyles = makeStyles((theme) => ({
   filterpaper: {
     width: 500,
     height: 150,
-    borderRadius: 10,
+    border: "1px solid #E4E4E4",
+    borderRadius: "20px",
+
+    boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.15)",
   },
   filterBy: {
     fontSize: 18,
@@ -31,9 +34,8 @@ export const useStyles = makeStyles((theme) => ({
   },
   papers: {
     width: 200,
-      height: 80,
-      borderRadius: 10,
-      border: "2px solid #618EFF"
-    
+    height: 80,
+    borderRadius: 15,
+    border: "2px solid #618EFF",
   },
 }));
