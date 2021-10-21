@@ -6,6 +6,7 @@ import AddIcon from "@material-ui/icons/Add";
 import { useStyles } from "./style";
 import BorderPaper from "../../components/BorderPaper";
 import CustomTable from "../../components/CustomTable";
+import CustomButton from "../../components/button";
 
 const RetroPlanPage = () => {
   const classes = useStyles();
@@ -52,24 +53,7 @@ const RetroPlanPage = () => {
     </>
   );
 };
-const CustomButton = ({ children, disabled, variant, width }) => {
-  const classes = useStyles();
-  return (
-    <Button
-      className={classes.btns}
-      disabled={disabled}
-      variant={variant}
-      className={classes.btnText}
-      color="primary"
-      style={{
-        backgroundColor: variant === "outlined" && "#fff",
-        minWidth: width,
-      }}
-    >
-      <span>{children}</span>
-    </Button>
-  );
-};
+
 const CustomPaper = ({ children }) => {
   const classes = useStyles();
   return <Paper className={classes.papers}>{children}</Paper>;
