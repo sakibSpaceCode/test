@@ -4,7 +4,9 @@ import pageBreadcrumbsMappings from "../components/breadcrumbs/page-breadcrumbs-
 import DashboardPage from "../pages/dashboard";
 import EmployeesPage from "../pages/employees";
 import JobCardPage from "../pages/jobCard";
+import ProjectDetails from "../pages/projectDepartment";
 import RetroPlanPage from "../pages/retroPlan";
+
 
 import PrivateRoute from "./PrivateRoute";
 
@@ -27,6 +29,11 @@ const AppRoutes = () => {
       />
 
       <PrivateRoute exact path="/dashboard/clients" component={DashboardPage} />
+      <PrivateRoute
+        exact
+        path="/dashboard/project-department"
+        component={ProjectDetails}
+      />
 
       <PrivateRoute
         exact

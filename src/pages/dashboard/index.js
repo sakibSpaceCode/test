@@ -14,6 +14,7 @@ import EventUpcoming from "./eventUpcoming";
 import ProjectOverview from "./projectOverview";
 import HeaderBox from "../../components/headerBox";
 import CustomTable from "../../components/CustomTable";
+import { useStyles } from "./style";
 
 const progressData = [
   {
@@ -157,26 +158,27 @@ const progressData = [
 ];
 
 const DashboardPage = () => {
+  const classes = useStyles();
   return (
     <>
       <Grid container justify="space-between">
-        <Grid item>
+        <Grid item xs={2} className={classes.root}>
           <Cards image={Active} number="30" status="Active Projects" />
         </Grid>
-        <Grid item>
+        <Grid item xs={2} className={classes.root}>
           <Cards
             image={duration}
             number="25"
             status="Active Projects in Subassembly"
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={2} className={classes.root}>
           <Cards image={final} number="54" status=" Paint" />
         </Grid>
-        <Grid item>
+        <Grid item xs={2} className={classes.root}>
           <Cards image={paint} number="100" status=" Final Assembly" />
         </Grid>
-        <Grid item>
+        <Grid item xs={2} className={classes.root}>
           <Cards image={Delivered} number="32" status="Delivery" />
         </Grid>
       </Grid>

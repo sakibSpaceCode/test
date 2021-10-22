@@ -65,6 +65,12 @@ const themePrimary = createMuiTheme({
     },
     MuiCssBaseline: {
       "@global": {
+        p: {
+          marginBlockStart: 0,
+          marginBlockEnd: 0,
+          marginInlineStart: 0,
+          marginInlineEnd: 0,
+        },
         "*": {
           "scrollbar-width": "thin",
         },

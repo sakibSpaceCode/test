@@ -111,12 +111,15 @@ const Dashboard = () => {
               width: "calc(100% - 20px)",
               height: "97vh",
               borderRadius: "25px 25px 0 0",
+              position: "relative",
 
               marginTop: 20,
               backgroundColor: "#e5e5e5",
             }}
           >
-            <div style={{ flexGrow: 1 }}>
+            <div
+              style={{ flexGrow: 1, position: "sticky", top: 0, zIndex: 999 }}
+            >
               <AppBar className={classes.appBar} position="sticky">
                 <Toolbar>
                   <div className={classes.breadcrumbs}>
