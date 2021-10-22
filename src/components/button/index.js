@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomButton = ({ children, disabled, variant, width }) => {
+const CustomButton = ({ children, disabled, variant, width, onClick }) => {
   const classes = useStyles();
   return (
     <Button
@@ -33,6 +33,7 @@ const CustomButton = ({ children, disabled, variant, width }) => {
       variant={variant}
       className={classes.btnText}
       color="primary"
+      onClick={onClick}
       style={{
         backgroundColor: variant === "outlined" && "#fff",
         minWidth: width,

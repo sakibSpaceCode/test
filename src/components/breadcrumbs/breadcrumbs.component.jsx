@@ -23,7 +23,6 @@ const SimpleBreadcrumbsComponent = (props) => {
     <Breadcrumbs aria-label="breadcrumb" className={classes.breadcrumbs}>
       {pathObj?.breadcrumbs ? (
         pathObj?.breadcrumbs?.map((item, index) => {
-          console.log(item.label);
           return (
             <Link
               key={index}

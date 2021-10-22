@@ -9,69 +9,454 @@
     "path": "/dashboard/employees",
     "name": "Employees",
     "urlEndPoint": "/employees",
-    "icon": "fa fa-tachometer"
+    "icon": "fa fa-users"
   },
 
   {
     "path": "/dashboard/clients",
     "name": "Clients",
     "urlEndPoint": "/clients",
-    "icon": "fa fa-tachometer"
+    "icon": "fa fa-user"
   },
-
   {
-    "name": "Design Department",
-    "icon": "fa fa-area-chart",
-    "items": [
-      {
-        "name": "Design Details",
-        "path": "/dashboard/design-department/design-details",
-        "urlEndPoint": "/design-department/design-details",
-        "type": "report"
-      },
-      {
-        "name": "Checklist",
-        "path": "/dashboard/design-department/checklist",
-        "urlEndPoint": "/design-department/checklist",
-        "type": "report"
-      },
-      {
-        "name": "Corrective Action",
-        "path": "/dashboard/design-department/corrective-action",
-        "urlEndPoint": "/design-department/corrective-action",
-        "type": "report"
-      },
-      {
-        "name": "Daily Updates",
-        "path": "/dashboard/design-department/daily-updates",
-        "urlEndPoint": "/design-department/daily-updates",
-        "type": "report"
-      }
-    ]
+    "path": "/dashboard/account-department",
+    "name": "Account Department",
+    "urlEndPoint": "/account-department",
+    "icon": "fa fa-database"
   },
   {
     "path": "/dashboard/job-card",
     "name": "Job Card",
     "urlEndPoint": "/job-card",
-    "icon": "fa fa-tachometer"
+    "icon": "fa fa-id-card-o",
+    "type": "common",
+    "fields": [
+      {
+          "name": "name",
+          "label": "Name *",
+          "type": "text"
+      },
+      {
+          "name": "code",
+          "label": "Code *",
+          "type": "text"
+      },
+      {
+          "name": "description",
+          "label": "Description *",
+          "type": "text"
+      }
+  ]
   },
   {
     "path": "/dashboard/retro-plan",
     "name": "Retro Plan",
     "urlEndPoint": "/retro-plan",
-    "icon": "fa fa-tachometer"
+    "icon": "fa fa-sticky-note-o"
+  },
+  {
+    "name": "Design Department",
+    "icon": "fa fa-pencil-square-o",
+    "items": [
+      {
+        "name": "Design Details",
+        "path": "/dashboard/design-department/design-details",
+        "urlEndPoint": "/design-department/design-details",
+        "type": "common",
+        "fields": [
+          {
+            "name": "designerName",
+            "label": "Designer Name",
+            "type": "text"
+        },
+        {
+            "name": "jobId",
+            "label": "Job ID",
+            "type": "text"
+        },
+        {
+            "name": "drawingName",
+            "label": "Drawing Name",
+            "type": "text"
+        },
+        {
+            "name": "requiredHours",
+            "label": "Required Hours",
+            "type": "text"
+        },
+        {
+            "name": "usedWorkingHours",
+            "label": "Used Working Hours",
+            "type": "text"
+        },
+        {
+            "name": "startDate",
+            "label": "Start Date",
+            "type": "text"
+        }
+      ]
+      },
+      {
+        "name": "Checklist",
+        "path": "/dashboard/design-department/checklist",
+        "urlEndPoint": "/design-department/checklist",
+        "type": "common",
+        "fields": [
+          {
+              "name": "name",
+              "label": "Name *",
+              "type": "text"
+          },
+          {
+              "name": "code",
+              "label": "Code *",
+              "type": "text"
+          },
+          {
+              "name": "description",
+              "label": "Description *",
+              "type": "text"
+          }
+      ]
+      },
+      {
+        "name": "Corrective Action",
+        "path": "/dashboard/design-department/corrective-action",
+        "urlEndPoint": "/design-department/corrective-action",
+        "type": "common",
+        "fields": [
+          {
+              "name": "name",
+              "label": "Name *",
+              "type": "text"
+          },
+          {
+              "name": "code",
+              "label": "Code *",
+              "type": "text"
+          },
+          {
+              "name": "description",
+              "label": "Description *",
+              "type": "text"
+          }
+      ]
+      },
+      {
+        "name": "Daily Updates",
+        "path": "/dashboard/design-department/daily-updates",
+        "urlEndPoint": "/design-department/daily-updates",
+        "type": "common",
+        "fields": [
+          {
+              "name": "designerName",
+              "label": "Designer Name",
+              "type": "text"
+          },
+          {
+              "name": "jobId",
+              "label": "Job ID",
+              "type": "text"
+          },
+          {
+              "name": "drawingName",
+              "label": "Drawing Name",
+              "type": "text"
+          },
+          {
+              "name": "requiredHours",
+              "label": "Required Hours",
+              "type": "text"
+          },
+          {
+              "name": "usedWorkingHours",
+              "label": "Used Working Hours",
+              "type": "text"
+          },
+          {
+              "name": "startDate",
+              "label": "Start Date",
+              "type": "text"
+          }
+      ]
+      }
+    ]
   },
 
   {
     "path": "/dashboard/project-department",
     "name": "Project Department",
     "urlEndPoint": "/project-department",
-    "icon": "fa fa-tachometer"
+    "icon": "fa fa-stack-exchange"
   },
   {
-    "path": "/dashboard/new-option",
-    "name": "New Option",
-    "urlEndPoint": "/new-Option",
-    "icon": "fa fa-tachometer"
+    "name": "Production",
+    "icon": "fa fa-archive",
+    "items": [
+      {
+        "name": "Status Update",
+        "path": "/dashboard/production/status-update",
+        "urlEndPoint": "/production/status-update",
+        "type": "common",
+        "fields": [
+          {
+              "name": "name",
+              "label": "Name *",
+              "type": "text"
+          },
+          {
+              "name": "code",
+              "label": "Code *",
+              "type": "text"
+          },
+          {
+              "name": "description",
+              "label": "Description *",
+              "type": "text"
+          }
+      ]
+      },
+      {
+        "name": "Joinery",
+        "path": "/dashboard/production/joinery",
+        "urlEndPoint": "/production/joinery",
+        "type": "common",
+        "fields": [
+          {
+              "name": "name",
+              "label": "Name *",
+              "type": "text"
+          },
+          {
+              "name": "code",
+              "label": "Code *",
+              "type": "text"
+          },
+          {
+              "name": "description",
+              "label": "Description *",
+              "type": "text"
+          }
+      ]
+      },
+      {
+        "name": "Metal",
+        "path": "/dashboard/production/metal",
+        "urlEndPoint": "/production/metal",
+        "type": "common",
+        "fields": [
+          {
+              "name": "name",
+              "label": "Name *",
+              "type": "text"
+          },
+          {
+              "name": "code",
+              "label": "Code *",
+              "type": "text"
+          },
+          {
+              "name": "description",
+              "label": "Description *",
+              "type": "text"
+          }
+      ]
+      },
+      {
+        "name": "Paint",
+        "path": "/dashboard/production/paint",
+        "urlEndPoint": "/production/paint",
+        "type": "common",
+        "fields": [
+          {
+              "name": "name",
+              "label": "Name *",
+              "type": "text"
+          },
+          {
+              "name": "code",
+              "label": "Code *",
+              "type": "text"
+          },
+          {
+              "name": "description",
+              "label": "Description *",
+              "type": "text"
+          }
+      ]
+      },
+      {
+        "name": "Electrical",
+        "path": "/dashboard/production/electrical",
+        "urlEndPoint": "/production/electrical",
+        "type": "common",
+        "fields": [
+          {
+              "name": "name",
+              "label": "Name *",
+              "type": "text"
+          },
+          {
+              "name": "code",
+              "label": "Code *",
+              "type": "text"
+          },
+          {
+              "name": "description",
+              "label": "Description *",
+              "type": "text"
+          }
+      ]
+      },
+      {
+        "name": "Final",
+        "path": "/dashboard/production/final",
+        "urlEndPoint": "/production/final",
+        "type": "common",
+        "fields": [
+          {
+              "name": "name",
+              "label": "Name *",
+              "type": "text"
+          },
+          {
+              "name": "code",
+              "label": "Code *",
+              "type": "text"
+          },
+          {
+              "name": "description",
+              "label": "Description *",
+              "type": "text"
+          }
+      ]
+      }
+    ]
+  },
+  {
+    "path": "/dashboard/purchace-department",
+    "name": "Purchace Department",
+    "urlEndPoint": "/purchace-department",
+    "icon": "fa fa-shopping-cart"
+  },
+  {
+    "path": "/dashboard/problems",
+    "name": "Problems",
+    "urlEndPoint": "/problems",
+    "icon": "fa fa-exclamation-triangle",
+    "type": "common",
+    "fields": [
+      {
+          "name": "name",
+          "label": "Name *",
+          "type": "text"
+      },
+      {
+          "name": "code",
+          "label": "Code *",
+          "type": "text"
+      },
+      {
+          "name": "description",
+          "label": "Description *",
+          "type": "text"
+      }
+  ]
+  },
+  {
+    "path": "/dashboard/design-changes",
+    "name": "Design Changes",
+    "urlEndPoint": "/design-changes",
+    "icon": "fa fa-refresh",
+    "type": "common",
+    "fields": [
+      {
+          "name": "name",
+          "label": "Name *",
+          "type": "text"
+      },
+      {
+          "name": "code",
+          "label": "Code *",
+          "type": "text"
+      },
+      {
+          "name": "description",
+          "label": "Description *",
+          "type": "text"
+      }
+  ]
+  },
+  {
+    "path": "/dashboard/corrective-action-report",
+    "name": "Corrective Action Report",
+    "urlEndPoint": "/corrective-action-report",
+    "icon": "fa fa-sticky-note",
+    "type": "common",
+    "fields": [
+      {
+          "name": "name",
+          "label": "Name *",
+          "type": "text"
+      },
+      {
+          "name": "code",
+          "label": "Code *",
+          "type": "text"
+      },
+      {
+          "name": "description",
+          "label": "Description *",
+          "type": "text"
+      }
+  ]
+  },
+  {
+    "path": "/dashboard/logistic",
+    "name": "Logistic",
+    "urlEndPoint": "/logistic",
+    "icon": "fa fa-puzzle-piece",
+    "type": "common",
+    "fields": [
+      {
+          "name": "name",
+          "label": "Name *",
+          "type": "text"
+      },
+      {
+          "name": "code",
+          "label": "Code *",
+          "type": "text"
+      },
+      {
+          "name": "description",
+          "label": "Description *",
+          "type": "text"
+      }
+  ]
+  },
+  {
+    "path": "/dashboard/installation",
+    "name": "Installation",
+    "urlEndPoint": "/installation",
+    "icon": "fa fa-cogs",
+    "type": "common",
+    "fields": [
+      {
+          "name": "name",
+          "label": "Name *",
+          "type": "text"
+      },
+      {
+          "name": "code",
+          "label": "Code *",
+          "type": "text"
+      },
+      {
+          "name": "description",
+          "label": "Description *",
+          "type": "text"
+      }
+  ]
   }
 ]

@@ -13,6 +13,5 @@ export default function routes() {
         drawerOption.items = objElement.items;
         mObj.push(drawerOption);
     }
-    console.log(mObj);
     return mObj;
 }

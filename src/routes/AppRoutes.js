@@ -1,61 +1,60 @@
 import React from "react";
 import { Switch } from "react-router-dom";
 import pageBreadcrumbsMappings from "../components/breadcrumbs/page-breadcrumbs-mappings";
+import CommonPage from "../pages/commonPage";
 import DashboardPage from "../pages/dashboard";
 import EmployeesPage from "../pages/employees";
-import JobCardPage from "../pages/jobCard";
 import ProjectDetails from "../pages/projectDepartment";
 import RetroPlanPage from "../pages/retroPlan";
-
 
 import PrivateRoute from "./PrivateRoute";
 
 const AppRoutes = () => {
   let mOption = pageBreadcrumbsMappings();
-  console.log(mOption);
   return (
     <Switch>
-      <PrivateRoute exact path="/dashboard" component={DashboardPage} />
-      <PrivateRoute
-        exact
-        path="/dashboard/employees"
-        component={EmployeesPage}
-      />
-      <PrivateRoute exact path="/dashboard/job-card" component={JobCardPage} />
-      <PrivateRoute
-        exact
-        path="/dashboard/retro-plan"
-        component={RetroPlanPage}
-      />
-
-      <PrivateRoute exact path="/dashboard/clients" component={DashboardPage} />
-      <PrivateRoute
-        exact
-        path="/dashboard/project-department"
-        component={ProjectDetails}
-      />
-
-      <PrivateRoute
-        exact
-        path="/dashboard/design-department/design-details"
-        component={DashboardPage}
-      />
-
-      <PrivateRoute
-        exact
-        path="/dashboard/design-department/checklist"
-        component={DashboardPage}
-      />
-      <PrivateRoute
-        exact
-        path="/dashboard/design-department/corrective-action"
-        component={DashboardPage}
-      />
-      <PrivateRoute
-        exact
-        path="/dashboard/design-department/daily-updates"
-        component={DashboardPage}
-      />
+      {mOption.map((item, index) =>
+        item.name === "/dashboard/employees" ? (
+          <PrivateRoute
+            exact
+            path='/dashboard/employees'
+            data={item.breadcrumbs}
+            component={EmployeesPage}
+          />
+        ) : item.name === "/dashboard/retro-plan" ? (
+          <PrivateRoute
+            exact
+            path='/dashboard/retro-plan'
+            component={RetroPlanPage}
+          />
+        ) : item.name === "/dashboard/clients" ? (
+          <PrivateRoute
+            exact
+            path='/dashboard/clients'
+            component={DashboardPage}
+          />
+        ) : item.type === "common" ? (
+          <PrivateRoute
+            exact
+            path={item.name}
+            data={item.breadcrumbs}
+            component={CommonPage}
+          />
+        ) : item.name === "/dashboard/project-department" ? (
+          <PrivateRoute
+            exact
+            path='/dashboard/project-department'
+            component={ProjectDetails}
+          />
+        ) : (
+          <PrivateRoute
+            path={item.name}
+            exact
+            key={item.id || index} // add new id to the data itself
+            component={DashboardPage}
+          />
+        )
+      )}
     </Switch>
   );
 };
