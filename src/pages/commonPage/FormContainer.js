@@ -67,7 +67,7 @@ const FormContainer = (props) => {
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomInput
           key={input.name}
-          onChange={handleEditChange}
+          onChange={onFormChange}
           name={input.name}
           value={input.value}
           type={input.type}
