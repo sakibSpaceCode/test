@@ -8,13 +8,16 @@ import Delivered from "../../common/Assets/dashboardImage/delivered.png";
 
 import state1 from "../../common/Assets/progressive/1.png";
 
-import { Grid } from "@material-ui/core";
+import { Grid, Paper } from "@material-ui/core";
 import ProgressBar from "./progressBar";
 import EventUpcoming from "./eventUpcoming";
 import ProjectOverview from "./projectOverview";
 import HeaderBox from "../../components/headerBox";
 import CustomTable from "../../components/CustomTable";
 import { useStyles } from "./style";
+import PieChartSelection from "./pieChart";
+import BorderPaper from "../../components/BorderPaper";
+import BarChart from "./barChart";
 
 const progressData = [
   {
@@ -196,6 +199,33 @@ const DashboardPage = () => {
           <HeaderBox title="Completed Project">
             <CustomTable />
           </HeaderBox>
+        </Grid>
+      </Grid>
+      <Grid container className={classes.cont}>
+        <Grid item xs>
+          <BorderPaper>
+            <Paper className={classes.pieChart}>
+              <BarChart />
+            </Paper>
+          </BorderPaper>
+        </Grid>
+      </Grid>
+      <Grid container className={classes.cont}>
+        <Grid item xs>
+          <BorderPaper>
+            <Paper className={classes.pieChart}>
+              <BarChart />
+            </Paper>
+          </BorderPaper>
+        </Grid>
+      </Grid>
+      <Grid container className={classes.cont}>
+        <Grid item xs>
+          <BorderPaper>
+            <Paper className={classes.pieChart}>
+              <PieChartSelection />
+            </Paper>
+          </BorderPaper>
         </Grid>
       </Grid>
     </>

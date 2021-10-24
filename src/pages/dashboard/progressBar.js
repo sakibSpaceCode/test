@@ -70,6 +70,10 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: 50,
     },
   },
+  typo: {
+    fontWeight: 600,
+    marginTop: "-30px",
+  },
   backButton: {
     marginRight: theme.spacing(1),
   },
@@ -123,16 +127,29 @@ export default function ProgressBar({ data }) {
         {data.map((value, i) => {
           const active = value.data.findIndex((x) => x.status === "active");
           return (
-            <Stepper activeStep={active} alternativeLabel>
-              {value.data.map((step) => (
-                <Step
-                  className={step.status === "pending" && classes.pending}
-                  key={step.label}
-                >
-                  <StepLabel>{step.label}</StepLabel>
-                </Step>
-              ))}
-            </Stepper>
+            <Grid container justify={"space-between"} alignItems="center">
+              <Grid item xs={1}>
+                <Grid container justify="flex-end">
+                  <Grid item>
+                    <Typography className={classes.typo} variant="h6">
+                      {value.name}
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={11}>
+                <Stepper activeStep={active} alternativeLabel>
+                  {value.data.map((step) => (
+                    <Step
+                      className={step.status === "pending" && classes.pending}
+                      key={step.label}
+                    >
+                      <StepLabel>{step.label}</StepLabel>
+                    </Step>
+                  ))}
+                </Stepper>
+              </Grid>
+            </Grid>
           );
         })}
         <div>

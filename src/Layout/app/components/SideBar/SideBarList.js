@@ -75,7 +75,7 @@ const SideBarList = (props) => {
         <div
           style={{
             backgroundColor: "#fff",
-            width: "80%",
+            zIndex: "999",
 
             borderRadius: "1px 1px 20px 20px",
           }}

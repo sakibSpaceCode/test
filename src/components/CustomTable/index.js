@@ -37,7 +37,7 @@ const columns = [
     id: "status",
     label: "Status",
     minWidth: 170,
-    align: "right",
+    align: "center",
     format: (value) => value.toFixed(2),
   },
 ];
@@ -71,7 +71,7 @@ const useStyles = makeStyles({
   },
   container: {
     maxHeight: (props) => props.height || 300,
-    padding: "20px 25px",
+    padding: "0px 25px",
   },
   completed: {
     backgroundColor: "#29D60D",
@@ -103,7 +103,7 @@ export default function CustomTable({ height }) {
 
   return (
     <TableContainer className={classes.container}>
-      <Table aria-label="sticky table">
+      <Table stickyHeader aria-label="sticky table">
         <TableHead>
           <TableRow>
             {columns.map((column) => (

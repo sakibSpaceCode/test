@@ -90,9 +90,7 @@ function ProjectOverview() {
               <CustomTable height={280} />
             </Grid>
             <Grid item className="projectContainer">
-              <h4 style={{ marginBottom: "-10px", fontSize: "18px" }}>
-                Next Week
-              </h4>
+              <h4 style={{ fontSize: "18px" }}>Next Week</h4>
             </Grid>
             <Grid item>
               <CustomTable height={280} />

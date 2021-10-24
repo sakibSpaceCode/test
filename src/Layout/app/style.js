@@ -47,11 +47,7 @@ export const useDashboardStyles = makeStyles(
     },
     logoContainer: {
       backgroundColor: theme.palette.primary.drawer,
-      fontSize: "3.2rem",
-      marginLeft: -24,
-      marginTop: -23,
-      marginBottom: -20,
-      height: "8.5rem",
+
       width: drawerWidth,
       [theme.breakpoints.down("sm")]: {
         marginRight: "5px",
@@ -65,10 +61,10 @@ export const useDashboardStyles = makeStyles(
     },
     logo: {
       marginBottom: 4,
-      marginTop: 64,
+      marginTop: 34,
 
       zIndex: 999,
-      height: "70px",
+      height: "60px",
       cursor: "pointer",
       [theme.breakpoints.down("sm")]: {
         marginRight: "50px",

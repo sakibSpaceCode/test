@@ -105,13 +105,14 @@ const Dashboard = () => {
         >
           {drawer}
         </Drawer>
-        <div style={{ width: "100%", overflowY: "auto" }}>
+        <div style={{ width: "100%" }}>
           <main
             style={{
               width: "calc(100% - 20px)",
               height: "97vh",
               borderRadius: "25px 25px 0 0",
               position: "relative",
+              overflowY: "auto",
 
               marginTop: 20,
               backgroundColor: "#e5e5e5",

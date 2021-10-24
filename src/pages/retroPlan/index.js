@@ -1,18 +1,18 @@
-import { Button, Grid, Paper, Typography } from "@material-ui/core";
+import { Grid, Paper } from "@material-ui/core";
+
 import React from "react";
-import CustomSearch from "../../components/CustomSearch";
-import RemoveIcon from "@material-ui/icons/Remove";
-import AddIcon from "@material-ui/icons/Add";
-import { useStyles } from "./style";
 import BorderPaper from "../../components/BorderPaper";
-import CustomTable from "../../components/CustomTable";
 import CustomButton from "../../components/button";
+import CustomSearch from "../../components/CustomSearch";
+import CustomTable from "../../components/CustomTable";
+import { useStyles } from "./style";
+import RetroTimeLine from "./timeline";
 
 const RetroPlanPage = () => {
   const classes = useStyles();
   return (
     <>
-      <Grid container justify="space-between" spacing={8}>
+      {/* <Grid container justify="space-between" spacing={8}>
         <Grid item xs={6}>
           <Grid container direction="column" spacing={2}>
             <Grid item xs={12}>
@@ -49,7 +49,8 @@ const RetroPlanPage = () => {
         <BorderPaper>
           <CustomTable height={500} />
         </BorderPaper>
-      </div>
+      </div> */}
+      <RetroTimeLine />
     </>
   );
 };
