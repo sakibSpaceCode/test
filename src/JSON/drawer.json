@@ -32,19 +32,44 @@
     "type": "common",
     "fields": [
       {
-        "name": "name",
-        "label": "Name *",
+        "name": "quotationNumber",
+        "label": "Quotation Number",
         "type": "text"
       },
       {
-        "name": "code",
-        "label": "Code *",
+        "name": "jobNumber",
+        "label": "Job Number",
         "type": "text"
       },
       {
-        "name": "description",
-        "label": "Description *",
+        "name": "date",
+        "label": "Date",
+        "type": "date"
+      },
+      {
+        "name": "quotationApprovalDate",
+        "label": "Quotation Approval Date",
+        "type": "date"
+      },
+      {
+        "name": "projectReference",
+        "label": "Project Reference",
+        "type": "select"
+      },
+      {
+        "name": "projectType",
+        "label": "Project Type",
+        "type": "select"
+      },
+      {
+        "name": "projectTitle",
+        "label": "Project Title",
         "type": "text"
+      },
+      {
+        "name": "projectCoordinator",
+        "label": "Project Coordinator",
+        "type": "select"
       }
     ]
   },
@@ -65,19 +90,29 @@
         "type": "common",
         "fields": [
           {
-            "name": "designerName",
-            "label": "Designer Name",
-            "type": "text"
-          },
-          {
             "name": "jobId",
             "label": "Job ID",
             "type": "text"
           },
           {
-            "name": "drawingName",
-            "label": "Drawing Name",
+            "name": "brandName",
+            "label": "Brand Name",
             "type": "text"
+          },
+          {
+            "name": "mailAndStreet",
+            "label": "Mail And Street",
+            "type": "text"
+          },
+          {
+            "name": "assignedTo",
+            "label": "Assigned To",
+            "type": "select"
+          },
+          {
+            "name": "status",
+            "label": "Status",
+            "type": "select"
           },
           {
             "name": "requiredHours",
@@ -85,14 +120,40 @@
             "type": "text"
           },
           {
-            "name": "usedWorkingHours",
-            "label": "Used Working Hours",
+            "name": "startDate",
+            "label": "Start Date",
+            "type": "date"
+          },
+          {
+            "name": "1stSetSubmission",
+            "label": "1st Set Submission",
+            "type": "date"
+          },
+          {
+            "name": "1stCommentDate",
+            "label": "1st Comment Date",
+            "type": "date"
+          },
+          {
+            "name": "revision",
+            "label": "Revision",
+            "type": "select"
+          },
+          {
+            "name": "finalApproval",
+            "label": "Final Approval",
+            "type": "date"
+          },
+          {
+            "name": "totalHoursTaken",
+            "label": "Total Hours Taken",
             "type": "text"
           },
           {
-            "name": "startDate",
-            "label": "Start Date",
-            "type": "text"
+            "name": "updatedBy",
+            "label": "Updated By",
+            "type": "text",
+            "bigSize": true
           }
         ]
       },
@@ -103,19 +164,170 @@
         "type": "common",
         "fields": [
           {
-            "name": "name",
-            "label": "Name *",
+            "name": "jobId",
+            "label": "Job ID",
             "type": "text"
           },
           {
-            "name": "code",
-            "label": "Code *",
+            "name": "brandName",
+            "label": "Brand Name",
             "type": "text"
           },
           {
-            "name": "description",
-            "label": "Description *",
-            "type": "text"
+            "name": "checkedCorrectiveAction",
+            "label": "Checked Corrective Action",
+            "type": "select"
+          },
+          {
+            "name": "lodAndOrientation",
+            "label": "Lod And Orientation",
+            "type": "select"
+          },
+          {
+            "name": "siteSurveyReportAndPictures",
+            "label": "Site Survey Report And Pictures",
+            "type": "select"
+          },
+          {
+            "name": "brandGuidelinesBriefing",
+            "label": "Brand Guidelines/Briefing",
+            "type": "select"
+          },
+          {
+            "name": "materialSampleApproval",
+            "label": "Material Sample Approval",
+            "type": "select"
+          },
+          {
+            "name": "epsFiles",
+            "label": "Eps Files of Logo,Text",
+            "type": "select"
+          },
+          {
+            "name": "posm",
+            "label": "POSM/ Product Sample(or measurements)",
+            "type": "select"
+          },
+          {
+            "name": "coverLetter",
+            "label": "Cover Letter - New Format",
+            "type": "select"
+          },
+          {
+            "name": "materialList",
+            "label": "Material List with ref/ Supplier and Material Code",
+            "type": "select"
+          },
+          {
+            "name": "vendorPack",
+            "label": "Vendor Pack/ Site Survey Details",
+            "type": "select"
+          },
+          {
+            "name": "3DViews",
+            "label": "3D-Views",
+            "type": "select"
+          },
+          {
+            "name": "overAllElevationAndPlans",
+            "label": "Over All Elevation And Plans",
+            "type": "select"
+          },
+          {
+            "name": "flooringMaterialDetails",
+            "label": "Flooring Material Details + Transition Details",
+            "type": "select"
+          },
+          {
+            "name": "partitionGypsumWallHordingDetail",
+            "label": "partition/Gypsum Wall/HordingDetail",
+            "type": "select"
+          },
+          {
+            "name": "mepCoordinatedReflectedCeilingPlan",
+            "label": "MEP Coordinated Reflected CeilingPlan",
+            "type": "select"
+          },
+          {
+            "name": "storeFrontDetailsAsPerMailSpecs",
+            "label": "Store Front Details as per Mail Specs",
+            "type": "select"
+          },
+          {
+            "name": "signatureAndPelmetDetailsasperRetailerSpecs",
+            "label": "Signature And Pelmet Details as per Retailer Specs",
+            "type": "select"
+          },
+          {
+            "name": "individualFurnitureDetailsWithFittingSpotDetails",
+            "label": "Individual Furniture Details with Fitting Spot Details",
+            "type": "select"
+          },
+          {
+            "name": "glassFixingDetailsAndAnyGlue",
+            "label": "Glass Fixing Details and Any glue",
+            "type": "select"
+          },
+          {
+            "name": "detailedMeasurementAndMaterialSpecification",
+            "label": "Detailed Measurement and Material Specification",
+            "type": "select"
+          },
+          {
+            "name": "metalStructureDrawing",
+            "label": "Metal Structure Drawing(if necessary)",
+            "type": "select"
+          },
+          {
+            "name": "specifyMetalTypeanditsFinish",
+            "label": "Specify Metal type and its Finish",
+            "type": "select"
+          },
+          {
+            "name": "electricalWiring",
+            "label": "Electrical Wiring",
+            "type": "select"
+          },
+          {
+            "name": "ventilationAndTransformationLocation",
+            "label": "Ventilation And Transformation Location",
+            "type": "select"
+          },
+          {
+            "name": "colorTemperatureAndReferenceOfSpecialFitting",
+            "label": "Color Temperature and Reference of Special Fitting",
+            "type": "select"
+          },
+          {
+            "name": "kickRailDetailsWithBendedEnds",
+            "label": "Kick Rail Details with Bended ends(if required)",
+            "type": "select"
+          },
+          {
+            "name": "detailedDrawingOfCustomizedHingesTiltingFramesFittings",
+            "label": "Detailed Drawing of Customized Hinges Tilting Frames Fittings",
+            "type": "select"
+          },
+          {
+            "name": "generalPageInformation",
+            "label": "General Page Information",
+            "type": "select"
+          },
+          {
+            "name": "materialLegendsAndKeyPlansInEveryPage",
+            "label": "Material Legends and Key Plans in EveryPage",
+            "type": "select"
+          },
+          {
+            "name": "hyperlinksToTheMasterFilesofLogosAndTexts",
+            "label": "Hyperlinks to the Master Files of Logos and Texts",
+            "type": "select"
+          },
+          {
+            "name": "preparedBy",
+            "label": "Prepared By",
+            "type": "text",
+            "bigSize": true
           }
         ]
       },
@@ -126,19 +338,41 @@
         "type": "common",
         "fields": [
           {
-            "name": "name",
-            "label": "Name *",
+            "name": "jobId",
+            "label": "Job ID",
             "type": "text"
           },
           {
-            "name": "code",
-            "label": "Code *",
+            "name": "brandName",
+            "label": "Brand Name",
             "type": "text"
           },
           {
-            "name": "description",
-            "label": "Description *",
+            "name": "previousDesigner",
+            "label": "Previous Designer",
             "type": "text"
+          },
+          {
+            "name": "assignedTo",
+            "label": "Assigned To",
+            "type": "text"
+          },
+          {
+            "name": "reason",
+            "label": "Reason",
+            "type": "text"
+          },
+          {
+            "name": "timeRequired",
+            "label": "Time Required",
+            "type": "text"
+          },
+          {
+            "name": "solution",
+            "label": "Solution",
+            "type": "text",
+            "bigSize": true,
+            "bigInput": true
           }
         ]
       },
@@ -166,7 +400,7 @@
           {
             "name": "requiredHours",
             "label": "Required Hours",
-            "type": "text"
+            "type": "select"
           },
           {
             "name": "usedWorkingHours",
@@ -176,7 +410,7 @@
           {
             "name": "startDate",
             "label": "Start Date",
-            "type": "text"
+            "type": "date"
           }
         ]
       }
@@ -200,13 +434,13 @@
         "type": "common",
         "fields": [
           {
-            "name": "name",
-            "label": "Name *",
+            "name": "jobId",
+            "label": "Job ID",
             "type": "text"
           },
           {
-            "name": "code",
-            "label": "Code *",
+            "name": "name",
+            "label": "Name",
             "type": "text"
           },
           {

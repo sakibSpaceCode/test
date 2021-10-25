@@ -22,7 +22,7 @@ import { makeStyles } from '@material-ui/core';
             borderRadius: '3px',
 
             '& .MuiOutlinedInput-input': {
-                padding: '14px 12px'
+                padding: '28px 12px'
             },
             '& .MuiOutlinedInput-input:focus': {
                 backgroundColor: theme.palette.background.default

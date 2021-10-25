@@ -70,7 +70,7 @@ const CommonPage = (props) => {
         </BorderPaper>
       </div>
       <CustomDialog
-        title={`Change ${label}`}
+        title={`Add ${label}`}
         open={editDialogOpen}
         onClose={handleEditDialogClose}
         onCancelClick={handleEditDialogClose}

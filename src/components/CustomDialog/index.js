@@ -84,7 +84,7 @@ const CustomDialog = (props) => {
       className={classes.root}>
       <>
         <DialogActions>
-          <IconButton>
+          <IconButton onClick={onClose}>
             <KeyboardBackspaceIcon />
           </IconButton>
 

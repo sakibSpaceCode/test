@@ -12,6 +12,8 @@ import {
   Typography,
 } from "@material-ui/core";
 import CustomInput from "../../components/CustomInput";
+import CustomSelect from "../../components/CustomSelect";
+import DatePicker from "../../components/CustomDate/date-picker.container";
 // import MultipleSelect from "components/multiSelection";
 // import { DatePicker } from "common";
 // import CustomInput from "components/inputfeild";
@@ -19,12 +21,12 @@ import CustomInput from "../../components/CustomInput";
 // import { useDispatch, useSelector } from 'react-redux';
 const useStyles = makeStyles((theme) => ({
   inputLabel: {
-        marginBottom: 5,
-      color: '#000'
-    },
-    inputField: {
-        marginBottom:15,
-    }
+    marginBottom: 5,
+    color: "#000",
+  },
+  inputField: {
+    marginBottom: 15,
+  },
 }));
 
 const FormContainer = (props) => {
@@ -59,9 +61,7 @@ const FormContainer = (props) => {
     return input?.type === "text" ? (
       <Grid
         item
-        xs={12}
-        md={6}
-        lg={6}
+        md={input.bigSize ? 12 : 6}
         className={classes.inputField}
         key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
@@ -76,7 +76,48 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
+          size={input.bigInput ? "lg" : "md"}
+        />
+      </Grid>
+    ) : input?.type === "select" ? (
+      <Grid
+        item
+        xs={12}
+        md={6}
+        lg={6}
+        className={classes.inputField}
+        key={input.name}>
+        <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
+        <CustomSelect
+          key={input.name}
+          onChange={onFormChange}
+          name={input.name}
+          value={input.value}
+          type={input.type}
+          helperText={input.alert}
+          autoFocus
+          fullWidth
+          style={{ width: 300 }}
+          className={classes.textField}
           size='lg'
+        />
+      </Grid>
+    ) : input?.type === "date" ? (
+      <Grid
+        item
+        xs={12}
+        md={6}
+        lg={6}
+        className={classes.inputField}
+        key={input.name}>
+        <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
+        <DatePicker
+          inputVariant='outlined'
+          format='dd/MM/yyyy'
+          placeholder='DD/MM/YYYY'
+          fullWidth
+          width={"100%"}
+          height={45}
         />
       </Grid>
     ) : (
