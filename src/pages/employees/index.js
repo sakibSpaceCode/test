@@ -6,9 +6,18 @@ import AddIcon from "@material-ui/icons/Add";
 import { useStyles } from "./style";
 import BorderPaper from "../../components/BorderPaper";
 import CustomTable from "../../components/CustomTable";
+import CustomDialog from "../../components/CustomDialog";
+import AddEmployeeForm from "./addEmployeeForm";
 
 const EmployeesPage = () => {
   const classes = useStyles();
+  const [dialogOpen, setDialogOpen] = React.useState(false);
+  const handleOpenDialog = () => {
+    setDialogOpen(true);
+  };
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  };
   return (
     <>
       <Grid container justify="space-between" spacing={8}>
@@ -49,7 +58,9 @@ const EmployeesPage = () => {
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
+                        
                       }}
+                      onClick={handleOpenDialog}
                     >
                       <AddIcon fontSize="large" />
                       <Typography
@@ -119,6 +130,21 @@ const EmployeesPage = () => {
           <CustomTable height={420} />
         </BorderPaper>
       </div>
+      <CustomDialog
+        title={`Add Employee Details`}
+        open={dialogOpen}
+        onClose={handleDialogClose}
+        onCancelClick={handleDialogClose}
+        // onNextClick={handleNextClick}
+        // onCompleteClick={handleCompleteButtonClick}
+        // onSaveClick={handleCompleteButtonClick}
+        // isSave={isEdit || isClone ? true : false}
+        // loading={isEdit ? putLoading : postLoading}
+        // error={errorMessage}
+        // disabled={inputs?.length === 0}>
+      >
+        <AddEmployeeForm />
+      </CustomDialog>
     </>
   );
 };

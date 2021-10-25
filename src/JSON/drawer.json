@@ -444,9 +444,67 @@
             "type": "text"
           },
           {
-            "name": "description",
-            "label": "Description *",
-            "type": "text"
+            "name": "status",
+            "label": "Status",
+            "type": "select"
+          },
+          {
+            "name": "pleaseSpecify",
+            "label": "Please Specify",
+            "type": "select"
+          },
+          {
+            "name": "structureInspection",
+            "label": "Structure Inspection",
+            "type": "date"
+          },
+          {
+            "name": "structureInspectionSelect",
+            "label": "Structure Inspection",
+            "type": "select"
+          },
+          {
+            "name": "paintInspection",
+            "label": "Paint Inspection",
+            "type": "date"
+          },
+          {
+            "name": "paintInspectionSelect",
+            "label": "Paint Inspection",
+            "type": "select"
+          },
+          {
+            "name": "finalInspection",
+            "label": "Final Inspection",
+            "type": "date"
+          },
+          {
+            "name": "finalInspectionSelect",
+            "label": "Final Inspection",
+            "type": "select"
+          },
+          {
+            "name": "onTime",
+            "label": "On Time",
+            "type": "select"
+          },
+          {
+            "name": "lastUpdated",
+            "label": "Last Updated",
+            "type": "date"
+          },
+          {
+            "name": "updatedBy",
+            "label": "Updated By",
+            "type": "text",
+            "bigSize": true
+          },
+          {
+            "name": "note",
+            "label": "Note",
+            "type": "text",
+            "bigSize": true,
+            "bigInput": true
           }
         ]
       },
@@ -457,19 +515,62 @@
         "type": "common",
         "fields": [
           {
+            "name": "jobId",
+            "label": "Job ID",
+            "type": "text"
+          },
+          {
             "name": "name",
-            "label": "Name *",
+            "label": "Name",
             "type": "text"
           },
           {
-            "name": "code",
-            "label": "Code *",
-            "type": "text"
+            "name": "materialUsed",
+            "label": "Material Used",
+            "type": "select"
           },
           {
-            "name": "description",
-            "label": "Description *",
-            "type": "text"
+            "name": "completionDate",
+            "label": "Completion Date",
+            "type": "date"
+          },
+          {
+            "name": "woodenStructure",
+            "label": "Wooden Structure",
+            "type": "select"
+          },
+          {
+            "name": "hardwareFixing",
+            "label": "Hardware Fixing",
+            "type": "select"
+          },
+          {
+            "name": "cladding",
+            "label": "Cladding",
+            "type": "select"
+          },
+          {
+            "name": "metalFrames",
+            "label": "Metal Frames",
+            "type": "select"
+          },
+          {
+            "name": "qualityInspection",
+            "label": "Quality Inspection",
+            "type": "select"
+          },
+          {
+            "name": "qualityInspectionBy",
+            "label": "Quality Inspection By",
+            "type": "text",
+            "bigSize": true
+          },
+          {
+            "name": "note",
+            "label": "Note",
+            "type": "text",
+            "bigSize": true,
+            "bigInput": true
           }
         ]
       },
@@ -480,19 +581,57 @@
         "type": "common",
         "fields": [
           {
+            "name": "jobId",
+            "label": "Job ID",
+            "type": "text"
+          },
+          {
             "name": "name",
-            "label": "Name *",
+            "label": "Name",
             "type": "text"
           },
           {
-            "name": "code",
-            "label": "Code *",
-            "type": "text"
+            "name": "materialUsed",
+            "label": "Material Used",
+            "type": "select"
           },
           {
-            "name": "description",
-            "label": "Description *",
-            "type": "text"
+            "name": "completionDate",
+            "label": "Completion Date",
+            "type": "date"
+          },
+          {
+            "name": "laserCutting",
+            "label": "Laser Cutting",
+            "type": "select"
+          },
+          {
+            "name": "fabrication",
+            "label": "Fabrication",
+            "type": "select"
+          },
+          {
+            "name": "polishing",
+            "label": "Polishing",
+            "type": "select"
+          },
+          {
+            "name": "qualityInspection",
+            "label": "Quality Inspection",
+            "type": "select"
+          },
+          {
+            "name": "qualityInspectionBy",
+            "label": "Quality Inspection By",
+            "type": "text",
+            "bigSize": true
+          },
+          {
+            "name": "note",
+            "label": "Note",
+            "type": "text",
+            "bigSize": true,
+            "bigInput": true
           }
         ]
       },
@@ -503,19 +642,62 @@
         "type": "common",
         "fields": [
           {
+            "name": "jobId",
+            "label": "Job ID",
+            "type": "text"
+          },
+          {
             "name": "name",
-            "label": "Name *",
+            "label": "Name",
             "type": "text"
           },
           {
-            "name": "code",
-            "label": "Code *",
-            "type": "text"
+            "name": "materialUsed",
+            "label": "Material Used",
+            "type": "select"
           },
           {
-            "name": "description",
-            "label": "Description *",
-            "type": "text"
+            "name": "completionDate",
+            "label": "Completion Date",
+            "type": "date"
+          },
+          {
+            "name": "primer",
+            "label": "Primer",
+            "type": "select"
+          },
+          {
+            "name": "sanding",
+            "label": "Sanding",
+            "type": "select"
+          },
+          {
+            "name": "finalPaint",
+            "label": "Final Paint",
+            "type": "select"
+          },
+          {
+            "name": "polishing",
+            "label": "Polishing",
+            "type": "select"
+          },
+          {
+            "name": "qualityInspection",
+            "label": "Quality Inspection",
+            "type": "select"
+          },
+          {
+            "name": "qualityInspectionBy",
+            "label": "Quality Inspection By",
+            "type": "text",
+            "bigSize": true
+          },
+          {
+            "name": "note",
+            "label": "Note",
+            "type": "text",
+            "bigSize": true,
+            "bigInput": true
           }
         ]
       },
@@ -526,19 +708,57 @@
         "type": "common",
         "fields": [
           {
+            "name": "jobId",
+            "label": "Job ID",
+            "type": "text"
+          },
+          {
             "name": "name",
-            "label": "Name *",
+            "label": "Name",
             "type": "text"
           },
           {
-            "name": "code",
-            "label": "Code *",
-            "type": "text"
+            "name": "materialUsed",
+            "label": "Material Used",
+            "type": "select"
           },
           {
-            "name": "description",
-            "label": "Description *",
-            "type": "text"
+            "name": "completionDate",
+            "label": "Completion Date",
+            "type": "date"
+          },
+          {
+            "name": "importedMaterial",
+            "label": "Imported Material",
+            "type": "select"
+          },
+          {
+            "name": "locallySourcedMaterial",
+            "label": "Locally Sourced Material",
+            "type": "select"
+          },
+          {
+            "name": "fixing",
+            "label": "Fixing",
+            "type": "select"
+          },
+          {
+            "name": "qualityInspection",
+            "label": "Quality Inspection",
+            "type": "select"
+          },
+          {
+            "name": "qualityInspectionBy",
+            "label": "Quality Inspection By",
+            "type": "text",
+            "bigSize": true
+          },
+          {
+            "name": "note",
+            "label": "Note",
+            "type": "text",
+            "bigSize": true,
+            "bigInput": true
           }
         ]
       },
@@ -549,19 +769,77 @@
         "type": "common",
         "fields": [
           {
+            "name": "jobId",
+            "label": "Job ID",
+            "type": "text"
+          },
+          {
             "name": "name",
-            "label": "Name *",
+            "label": "Name",
             "type": "text"
           },
           {
-            "name": "code",
-            "label": "Code *",
-            "type": "text"
+            "name": "materialUsed",
+            "label": "Material Used",
+            "type": "select"
           },
           {
-            "name": "description",
-            "label": "Description *",
-            "type": "text"
+            "name": "completionDate",
+            "label": "Completion Date",
+            "type": "date"
+          },
+          {
+            "name": "furnitureAssembly",
+            "label": "Furniture Assembly",
+            "type": "select"
+          },
+          {
+            "name": "painting",
+            "label": "Painting",
+            "type": "select"
+          },
+          {
+            "name": "glass",
+            "label": "Glass",
+            "type": "select"
+          },
+          {
+            "name": "acrylic",
+            "label": "Acrylic",
+            "type": "select"
+          },
+          {
+            "name": "visualAndArtWork",
+            "label": "Visual And ArtWork",
+            "type": "select"
+          },
+          {
+            "name": "posm",
+            "label": "POSM",
+            "type": "select"
+          },
+          {
+            "name": "packingBox",
+            "label": "Packing Box",
+            "type": "select"
+          },
+          {
+            "name": "qualityInspection",
+            "label": "Quality Inspection",
+            "type": "select"
+          },
+          {
+            "name": "qualityInspectionBy",
+            "label": "Quality Inspection By",
+            "type": "text",
+            "bigSize": true
+          },
+          {
+            "name": "note",
+            "label": "Note",
+            "type": "text",
+            "bigSize": true,
+            "bigInput": true
           }
         ]
       }
