@@ -16,8 +16,10 @@ import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 
 const useStyles = makeStyles((theme) => ({
   typoGraphy: {
-    fontWeight: 500,
+    fontWeight: 600,
+    fontSize: "20px",
     textTransform: "capitalize",
+    borderBottom: "2px solid black",
     // marginBottom: 10,
   },
   content: {
@@ -71,63 +73,86 @@ const CustomDialog = (props) => {
   return (
     <Dialog
       open={open}
-      maxWidth='sm'
+      maxWidth="sm"
       PaperProps={{
         style: {
           borderRadius: "10px",
           backgroundColor: "#fff",
-          padding: 15,
-          minWidth: minWidth || "950px",
+          padding: 20,
+          minWidth: minWidth || "1000px",
+          backdropFilter: "blur(4px)",
         },
       }}
       onClose={onClose}
-      className={classes.root}>
+      className={classes.root}
+    >
       <>
-        <DialogActions>
-          <IconButton onClick={onClose}>
-            <KeyboardBackspaceIcon />
-          </IconButton>
+        <Grid
+          container
+          style={{ padding: "15px 35px", marginBottom: "30px" }}
+          alignItems="center"
+        >
+          <Grid item style={{ marginLeft: "-10px" }}>
+            <IconButton onClick={onClose}>
+              <KeyboardBackspaceIcon />
+            </IconButton>
+          </Grid>
 
-          <DialogTitle>
-            <Typography
-              variant='body'
-              className={classes.typoGraphy}>
+          <Grid item>
+            <Typography variant="body" className={classes.typoGraphy}>
               {title}
             </Typography>
-          </DialogTitle>
-          <div style={{ marginLeft: "220px", display: "flex", gap: 10 }}>
-            <CustomButton
-              disabled={disabled}
-              variant='outLined'
-              color='primary'
-              onClick={onSaveClick}>
-              Save
-            </CustomButton>
-            <CustomButton
-              disabled={disabled}
-              variant='outLined'
-              color='primary'
-              onClick={onSaveClick}>
-              Save and add another
-            </CustomButton>
-            <CustomButton
-              disabled={disabled}
-              variant='outLined'
-              color='primary'
-              onClick={onSaveClick}>
-              Delete
-            </CustomButton>
-          </div>
-        </DialogActions>
+          </Grid>
+          <Grid item xs>
+            <Grid container justify="flex-end" alignItems="center" spacing={1}>
+              <Grid item>
+                <CustomButton
+                  disabled={disabled}
+                  variant="outLined"
+                  color="primary"
+                  onClick={onSaveClick}
+                  textColor="#618EFF"
+                >
+                  Save
+                </CustomButton>
+              </Grid>
+              <Grid item>
+                <CustomButton
+                  disabled={disabled}
+                  variant="outLined"
+                  color="primary"
+                  onClick={onSaveClick}
+                  textColor="#618EFF"
+                >
+                  Save and add another
+                </CustomButton>
+              </Grid>
+              <Grid item>
+                <CustomButton
+                  disabled={disabled}
+                  variant="outLined"
+                  color="primary"
+                  onClick={onSaveClick}
+                  textColor="#618EFF"
+                >
+                  Delete
+                </CustomButton>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
       </>
-      <DialogContent className={isDelete || classes.content}>
+      <Grid
+        style={{ padding: "15px 35px", marginBottom: "10px" }}
+        className={isDelete || classes.content}
+      >
         {children}
-      </DialogContent>
+      </Grid>
 
       {error && (
         <div className={classes.errorContainer}>
           <ErrorIcon className={classes.errorIcon} />
-          <Typography variant='body2' className={classes.errorMessage}>
+          <Typography variant="body2" className={classes.errorMessage}>
             {error}
           </Typography>
         </div>

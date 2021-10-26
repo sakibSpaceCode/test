@@ -17,10 +17,14 @@ const MenuStyles = makeStyles((theme) => ({
   form: {
     backgroundColor: theme.palette.colors.white,
     "& .MuiSelect-outlined.MuiSelect-outlined": {
-      padding: "14px 20px",
+      padding: "15px 20px",
+      background: "#F4F7FE",
+      outline: "1px solid #618EFF",
+
+      borderRadius: "8px",
     },
     "& .MuiSelect-select:focus": {
-      backgroundColor: theme.palette.background.default,
+      background: "#F4F7FE",
     },
   },
 }));
@@ -46,10 +50,11 @@ const CustomSelect = (props) => {
   return (
     <div>
       <FormControl
-        variant='outlined'
+        variant="outlined"
         className={classes.form}
         fullWidth
-        error={error}>
+        error={error}
+      >
         <Select
           defaultValue={defaultValue}
           disabled={disabled}
@@ -70,12 +75,14 @@ const CustomSelect = (props) => {
               maxHeight: "450px",
               maxWidth: "400px",
             },
-          }}>
+          }}
+        >
           {noLabel || (
             <MenuItem
               onClick={onLabelClick}
               value={label}
-              disabled={disabledLabel}>
+              disabled={disabledLabel}
+            >
               {label}
             </MenuItem>
           )}

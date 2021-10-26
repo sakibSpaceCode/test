@@ -24,7 +24,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomButton = ({ children, disabled, variant, width, onClick }) => {
+const CustomButton = ({
+  children,
+  disabled,
+  variant,
+  width,
+  onClick,
+  textColor,
+}) => {
   const classes = useStyles();
   return (
     <Button
@@ -39,7 +46,7 @@ const CustomButton = ({ children, disabled, variant, width, onClick }) => {
         minWidth: width,
       }}
     >
-      <span>{children}</span>
+      <span style={{ color: textColor }}>{children}</span>
     </Button>
   );
 };

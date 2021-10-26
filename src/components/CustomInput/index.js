@@ -13,30 +13,32 @@ const useInputStyles = makeStyles((theme) => ({
     minWidth: "290px",
 
     "& .MuiOutlinedInput-root": {
-      borderRadius: "3px",
+      background: "#F4F7FE",
+      outline: "1px solid #618EFF",
+
+      borderRadius: "8px",
     },
     "& .MuiOutlinedInput-input": {
-      padding: "13px 12px",
+      padding: "15px 12px",
     },
-    "& .MuiOutlinedInput-input:focus": {
-      backgroundColor: theme.palette.background.default,
-    },
+    "& .MuiOutlinedInput-input:focus": {},
   },
   sm: {
     minWidth: "290px",
 
-    "& .MuiOutlinedInput-root": {
-      borderRadius: "3px",
-    },
     "& .MuiInputBase-fullWidth": {
-        width: "96%"
+      width: "95%",
+    },
+    "& .MuiOutlinedInput-root": {
+      background: "#F4F7FE",
+      outline: "1px solid #618EFF",
+
+      borderRadius: "8px",
     },
     "& .MuiOutlinedInput-input": {
-      padding: "13px 12px",
+      padding: "15px 12px",
     },
-    "& .MuiOutlinedInput-input:focus": {
-      backgroundColor: theme.palette.background.default,
-    },
+    "& .MuiOutlinedInput-input:focus": {},
   },
   lg: {
     borderRadius: "3px",
@@ -96,7 +98,7 @@ const CustomInput = (props) => {
       className={
         size === "md" ? classes.md : size === "lg" ? classes.lg : classes.sm
       }
-      autoComplete='off'
+      autoComplete="off"
       // autoFocus={focus}
       fullWidth={fullWidth}
       // inputProps={{ autoFocus: focus }}
@@ -124,7 +126,7 @@ const CustomInput = (props) => {
       multiline={multiline}
       InputProps={{
         endAdornment: Icon && (
-          <InputAdornment position='end'>
+          <InputAdornment position="end">
             <Tooltip title={toolTipLabel} l>
               <IconButton onClick={onIconClick}>
                 {" "}
