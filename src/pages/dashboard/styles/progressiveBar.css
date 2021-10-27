@@ -15,9 +15,10 @@
 
 .headerContainer h2 {
   color: #fff;
-  margin-left: 12px;
+  margin-left: 15px;
   font-size: 19px;
   font-weight: 600;
+  margin-top: 10px !important;
 }
 
 .projectDetails {

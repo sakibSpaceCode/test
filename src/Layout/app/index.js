@@ -113,13 +113,14 @@ const Dashboard = () => {
               borderRadius: "25px 25px 0 0",
               position: "relative",
               overflowY: "auto",
+              overFlowX: "hidden",
 
               marginTop: 20,
               backgroundColor: "#e5e5e5",
             }}
           >
             <div
-              style={{ flexGrow: 1, position: "sticky", top: 0, zIndex: 999 }}
+              style={{ flexGrow: 1, position: "sticky", top: 0, zIndex: 99999 }}
             >
               <AppBar className={classes.appBar} position="sticky">
                 <Toolbar>

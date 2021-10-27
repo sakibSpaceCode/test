@@ -28,6 +28,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
+import TestTransferList from "../../components/transferList";
 const useStyles = makeStyles((theme) => ({
   inputLabel: {
     marginBottom: 8,
@@ -270,7 +271,8 @@ const AddEmployeeForm = (props) => {
             alignItems="center"
             className={classes.root}
           >
-            <Grid item>{customList("Choices", left)}</Grid>
+            <Grid item xs>
+              {/* <Grid item>{customList("Choices", left)}</Grid>
             <Grid item>
               <Grid container direction="column" alignItems="center">
                 <Button
@@ -295,7 +297,9 @@ const AddEmployeeForm = (props) => {
                 </Button>
               </Grid>
             </Grid>
-            <Grid item>{customList("Chosen", right)}</Grid>
+            <Grid item>{customList("Chosen", right)}</Grid> */}
+              <TestTransferList />
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

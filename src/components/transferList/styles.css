@@ -1,0 +1,35 @@
+.transfer-list-header {
+  display: none;
+}
+.transfer-list-search-wapper {
+  unset: all;
+}
+.transfer-list {
+  background: #f4f7fe;
+  border: 1px solid #618eff !important;
+  box-sizing: border-box;
+  border-radius: 10px !important;
+}
+.transfer-list-search-wapper {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #f4f7fe;
+  border: none;
+  border-bottom: 1px solid #618eff !important ;
+  border-radius: 10px 10px 0 0 !important;
+  line-height: 0 !important;
+}
+.ant-input:placeholder-shown {
+  padding: 5px 10px;
+  background: #f4f7fe;
+  border-radius: 10px 10px 0 0;
+  border: none !important;
+}
+.transfer-list-content-item {
+  min-height: 40px !important;
+}
+.ant-checkbox-wrapper + span {
+  margin-left: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
