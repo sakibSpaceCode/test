@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500,
   },
   root: {
+    zIndex: 99999999,
     "& .MuiDialogActions-root": {
       padding: 0,
       justifyContent: "flex-start",
@@ -81,6 +82,7 @@ const CustomDialog = (props) => {
           padding: 20,
           minWidth: minWidth || "1000px",
           backdropFilter: "blur(4px)",
+          zIndex: 999
         },
       }}
       onClose={onClose}

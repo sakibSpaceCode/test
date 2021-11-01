@@ -51,7 +51,7 @@ const ProjectDetailsForm = (props) => {
 
 
   return (
-    <Grid>
+    <Grid style={{  zIndex: 999999999}}>
       <Grid container spacing={2}>
         <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>

@@ -120,7 +120,7 @@ const Dashboard = () => {
             }}
           >
             <div
-              style={{ flexGrow: 1, position: "sticky", top: 0, zIndex: 99999 }}
+              style={{ flexGrow: 1, position: "sticky", top: 0, zIndex: 999 }}
             >
               <AppBar className={classes.appBar} position="sticky">
                 <Toolbar>
@@ -150,3 +150,10 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+<Snackbar
+anchorOrigin={{vertical: 'top', horizontal: 'right' }}
+open={open}
+onClose={handleClose}
+message="I love snacks"
+key={vertical + horizontal}
+/>

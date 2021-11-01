@@ -5,9 +5,14 @@ import WhiteLogo from "../../../common/Assets/loginImage/logo.png";
 import BlackLogo from "../../../common/Assets/loginImage/blackLogo.png";
 import { useStyles } from "./styles";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import { useHistory } from "react-router";
 
 const LoginPage = () => {
   const classes = useStyles();
+  const history = useHistory()
+  const handleLogin = () =>{
+    history.push('/dashboard')
+  }
   return (
     <Grid container style={{ height: "100vh", overflow: "hidden" }}>
       <Grid
@@ -53,7 +58,7 @@ const LoginPage = () => {
                 </Grid>
               </Grid>
               <Grid item>
-                <button className={classes.btn}>
+                <button className={classes.btn} onClick={handleLogin}>
                   Login
                   <ArrowForwardIcon
                     style={{ position: "absolute", right: "14px", top: "11px" }}

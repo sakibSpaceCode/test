@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     margin: "auto",
+    zIndex: 999999999
   },
   cardHeader: {
     padding: theme.spacing(1, 2),
