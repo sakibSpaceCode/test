@@ -1,4 +1,4 @@
-const userLogin = { loading: false, userInfo: {}, error: null };
+const userLogin = { loading: false, userInfo: false, error: null };
 export const userLoginReducer = (state = userLogin, action) => {
   switch (action.type) {
     case "USER_LOGIN_REQUEST":
@@ -8,7 +8,7 @@ export const userLoginReducer = (state = userLogin, action) => {
     case "USER_LOGIN_FAIL":
       return { loading: false, error: action.payload };
     case "USER_LOGOUT":
-      return userLogin;
+      return {userInfo: false};
     case "CLEAR_LOGIN_STATE":
       return { loading: false, userInfo: null, error: null };
     default:

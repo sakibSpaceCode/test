@@ -11,6 +11,7 @@ import {
   Typography,
   Button,
 } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
 import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
 import NotificationsNoneOutlinedIcon from "@material-ui/icons/NotificationsNoneOutlined";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
@@ -25,8 +26,10 @@ import routes from "./routes";
 import SimpleBreadcrumbs from "../../components/breadcrumbs/breadcrumbs.container";
 
 import "font-awesome/css/font-awesome.min.css";
+import { logout } from "../../redux/actions/authActions";
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
   const location = useLocation();
   const classes = useDashboardStyles();
   const [open, setOpen] = useState(false);
@@ -72,7 +75,7 @@ const Dashboard = () => {
   const drawer = (
     <>
       <div className={classes.logoContainer}>
-        <img src={Logo} alt="logo" className={classes.logo} />
+        <img src={Logo} alt='logo' className={classes.logo} />
       </div>
       <List className={classes.list}>
         {drawerRoutes?.map((item, index) => (
@@ -89,20 +92,21 @@ const Dashboard = () => {
       </List>
     </>
   );
-
+  const handlelogoutClick = () => {
+    dispatch(logout());
+  };
   return (
     <>
       <div className={classes.root}>
         <Drawer
-          variant="permanent"
+          variant='permanent'
           className={classes.drawer}
           onClose={handleDrawerOpen}
-          anchor="left"
+          anchor='left'
           open={open}
           classes={{
             paper: classes.drawerPaper,
-          }}
-        >
+          }}>
           {drawer}
         </Drawer>
         <div style={{ width: "100%" }}>
@@ -117,8 +121,7 @@ const Dashboard = () => {
 
               marginTop: 20,
               backgroundColor: "#e5e5e5",
-            }}
-          >
+            }}>
             <div
               style={{ flexGrow: 1, position: "sticky", top: 0, zIndex: 999 }}
             >
@@ -133,7 +136,7 @@ const Dashboard = () => {
                   <IconButton>
                     <NotificationsNoneOutlinedIcon />
                   </IconButton>
-                  <IconButton>
+                  <IconButton onClick={handlelogoutClick}>
                     <AccountCircleOutlinedIcon />
                   </IconButton>
                 </Toolbar>
@@ -150,10 +153,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-<Snackbar
-anchorOrigin={{vertical: 'top', horizontal: 'right' }}
-open={open}
-onClose={handleClose}
-message="I love snacks"
-key={vertical + horizontal}
-/>

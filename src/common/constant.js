@@ -1,5 +1,5 @@
 const CONSTANTS = {};
 
-CONSTANTS.BASEURL = "/api/v1/";
+CONSTANTS.BASEURL = "/v1/api/";
 
 export default CONSTANTS;

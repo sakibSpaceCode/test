@@ -7,34 +7,29 @@ const config = {
   },
 };
 
-export const login = (username, password) => async (dispatch) => {
+export const login = (email, password) => async (dispatch) => {
   dispatch({ type: "USER_LOGIN_REQUEST" });
 
-  try {
-    let url = `${CONSTANTS.BASEURL}user/admin_login`;
-    const loginResponse = await axios.post(url, { username, password }, config);
-    const { data } = loginResponse;
-    if (data.status === true) {
-      dispatch({
-        type: "USER_LOGIN_SUCCESS",
-        payload: data,
-      });
-      dispatch({
-        type: "USER_IS_LOGGEDIN",
-        payload: true,
-      });
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      localStorage.setItem("isLoggedIn", true);
-    } else {
-      dispatch({
-        type: "USER_LOGIN_FAIL",
-        payload: data.error.errorMessage,
-      });
-    }
-  } catch (error) {
+  let url = `${CONSTANTS.BASEURL}user/admin_login`;
+  const loginResponse = await axios.post(url, { email, password }, config);
+  const { data } = loginResponse;
+  console.log(data);
+
+  if (data.success === true) {
+    dispatch({
+      type: "USER_LOGIN_SUCCESS",
+      payload: data,
+    });
+    dispatch({
+      type: "USER_IS_LOGGEDIN",
+      payload: true,
+    });
+    localStorage.setItem("userInfo", JSON.stringify(data));
+    localStorage.setItem("isLoggedIn", true);
+  } else {
     dispatch({
       type: "USER_LOGIN_FAIL",
-      payload: error?.response?.statusText,
+      payload: data.message,
     });
   }
 };
