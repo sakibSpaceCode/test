@@ -4,7 +4,11 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { isLoggedInReducer, userLoginReducer } from "./reducers/authReducers";
+import {
+  isLoggedInReducer,
+  userLoginReducer,
+  userLoginValidateReducer,
+} from "./reducers/authReducers";
 import {
   deleteFieldReducer,
   postFieldsReducer,
@@ -21,7 +25,8 @@ const reducer = combineReducers({
   postFields: postFieldsReducer,
   putFields: putFieldsReducer,
   deleteField: deleteFieldReducer,
-  getDataReducer: getDataReducer,
+  getData: getDataReducer,
+  userLoginValidateReducer: userLoginValidateReducer,
   getDetails: getDetailsReducer,
 });
 const persistConfig = {

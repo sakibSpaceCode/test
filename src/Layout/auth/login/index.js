@@ -8,20 +8,23 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { login, clearLoginState } from "../../../redux/actions/authActions";
-import { Alert } from "antd";
+import Snackbar from "@material-ui/core/Snackbar";
 
 const LoginPage = () => {
   const classes = useStyles();
   const history = useHistory();
   const [email, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
-  const { loading, error, userInfo } = userLogin;
+  const { loading, userInfo } = userLogin;
+  const {error} = useSelector((state) => state.userLoginValidateReducer)
   const checkAtLeastLength = (expression, length) =>
     expression && expression.trim().length >= length;
   const isValidFun = (expression) => checkAtLeastLength(expression, 0);
-  console.log(userInfo);
+  console.log(userInfo, error);
   React.useEffect(() => {
     if (userInfo) {
       history.push("/dashboard");
@@ -37,11 +40,17 @@ const LoginPage = () => {
   function onSubmitLogin() {
     dispatch(login(email, password));
   }
+ 
+  console.log("user info", userInfo?.data?.token);
+  const handleClose = () => {
+    setMessage('')
+    setOpen(false);
+  };
   useEffect(() => {
-    return () => {
-      dispatch(clearLoginState());
-    };
-  }, []);
+    if (error) {
+      setMessage(error);
+    }
+  }, [error]);
   return (
     <Grid container style={{ height: "100vh", overflow: "hidden" }}>
       <Grid
@@ -105,12 +114,19 @@ const LoginPage = () => {
                     />
                   )}
                 </button>
-                <Alert message={error} type='error' />
               </Grid>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={message}
+        onClose={handleClose}
+        message={message}
+        autoHideDuration={3000}
+        key={open}
+      />
     </Grid>
   );
 };

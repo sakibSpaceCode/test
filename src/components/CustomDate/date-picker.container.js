@@ -46,9 +46,9 @@ const DatePicker = (props) => {
             height={height}
             onFocus={onFocus}
             onBlur={onBlur}
-            error={error}
+            
             maxDate={maxDate}
-            helperText={helperText}
+            
             minDate={minDate}
             variant={variant}
             fontSize={fontSize}

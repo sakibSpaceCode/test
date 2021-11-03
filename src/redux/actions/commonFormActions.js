@@ -7,15 +7,16 @@ export const postFormData =
     const {
       userLogin: { userInfo },
     } = getState();
+    
     const config = {
       headers: {
         "Content-Type": "application/json",
-        authorization: userInfo?.data.token,
+        Authorization: userInfo?.data?.token,
       },
     };
     let url = `${CONSTANTS.BASEURL}${collection}/add`;
     const { data } = await axios.post(url, formData, config);
-    if (data.status === true) {
+    if (data.success === true) {
       dispatch({
         type: "POST_FIELDS_SUCCESS",
         payload: data,
@@ -23,7 +24,7 @@ export const postFormData =
     } else {
       dispatch({
         type: "POST_FIELDS_ERROR",
-        payload: data.error,
+        payload: data.message,
       });
     }
   };
@@ -44,7 +45,7 @@ export const putFormData =
     let url = `${CONSTANTS.BASEURL}${collection}/edit`;
 
     const { data } = await axios.put(url, formData, config);
-    if (data.status === true) {
+    if (data.success === true) {
       dispatch({
         type: "PUT_FIELDS_SUCCESS",
         payload: data,
@@ -73,7 +74,7 @@ export const deleteFormData =
     let url = `${CONSTANTS.BASEURL}${collection}/delete`;
 
     const { data } = await axios.delete(url, id, config);
-    if (data.status === true) {
+    if (data.success === true) {
       dispatch({
         type: "DELETE_FIELD_SUCCESS",
         payload: data,

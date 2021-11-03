@@ -28,6 +28,13 @@ const useStyles = makeStyles((theme) => ({
   inputField: {
     // marginBottom: 2,
   },
+  selectAlert: {
+    color: "#f00",
+    fontSize: 12,
+    marginLeft: 14,
+    marginTop: 5,
+    position: "absolute",
+  },
 }));
 
 const FormContainer = (props) => {
@@ -57,6 +64,11 @@ const FormContainer = (props) => {
     { name: "Female", value: "Female" },
     { name: "Other", value: "Other" },
   ];
+  const options = [
+    { name: "test", value: "test" },
+    { name: "test2", value: "test2" },
+    { name: "test3", value: "test3" },
+  ];
 
   const renderInput = (input) => {
     return input?.type === "text" ? (
@@ -64,8 +76,7 @@ const FormContainer = (props) => {
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomInput
           key={input.name}
@@ -73,13 +84,17 @@ const FormContainer = (props) => {
           name={input.name}
           value={input.value}
           type={input.type}
-          helperText={input.alert}
           autoFocus
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
           size={input.bigInput ? "lg" : "md"}
         />
+        {input.alert && (
+          <div className={classes.selectAlert}>
+            {input.label} {input.alert}
+          </div>
+        )}
       </Grid>
     ) : input?.type === "select" ? (
       <Grid
@@ -88,8 +103,7 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomSelect
           key={input.name}
@@ -102,8 +116,14 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          size="lg"
+          size='lg'
+          options={options}
         />
+        {input.alert && (
+          <div className={classes.selectAlert}>
+            {input.label} {input.alert}
+          </div>
+        )}
       </Grid>
     ) : input?.type === "date" ? (
       <Grid
@@ -112,17 +132,23 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <DatePicker
-          inputVariant="outlined"
-          format="dd-MM-yyyy"
-          placeholder="DD-MM-YYYY"
+          inputVariant='outlined'
+          format='dd-MM-yyyy'
+          placeholder='DD-MM-YYYY'
           fullWidth
           width={"100%"}
           height={50}
+          value={input.value}
+          handleDate={(date) => handleDateChange(input.name, date)}
         />
+        {input.alert && (
+          <div className={classes.selectAlert}>
+            {input.label} {input.alert}
+          </div>
+        )}
       </Grid>
     ) : (
       ""
@@ -133,7 +159,7 @@ const FormContainer = (props) => {
     <Grid>
       <Grid container spacing={5}>
         {inputs?.length === 0 ? (
-          <Typography variant="body2" className={classes.nofields}>
+          <Typography variant='body2' className={classes.nofields}>
             No Fields Available.
           </Typography>
         ) : (

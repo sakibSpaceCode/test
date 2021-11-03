@@ -22,7 +22,7 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
       if (i.name === e?.target?.name) {
         i.value = e.target.value;
         parseInput(i);
-        i?.label?.includes("*") && validateInput(i);
+        validateInput(i);
       }
     });
     setInputs([...inputs]);
@@ -30,17 +30,17 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
 
   const handleDateChange = (name, date) => {
     let Date = moment.utc(date).format();
-    let temp = rowData;
-    temp[name] = Date;
-    setRowData({ ...rowData, temp });
+    // let temp = rowData;
+    // temp[name] = Date;
+    // setRowData({ ...rowData, temp });
     inputs?.forEach((i) => {
-      // if (i.name === name) {
-      //     if (i['fieldtype-code'] === 'SC-FT-005') {
-      //         i.value = Date;
-      //         parseInput(i);
-      //         validateInput(i);
-      //     }
-      // }
+      if (i.name === name) {
+        if (i.type === "date") {
+          i.value = Date;
+          parseInput(i);
+          validateInput(i);
+        }
+      }
     });
     setInputs([...inputs]);
   };
@@ -59,11 +59,7 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
   };
 
   const handleSubmit = (nextClick) => {
-    let filteredInputs;
-
-    filteredInputs = inputs?.filter((input) => input.label.includes("*"));
-
-    filteredInputs.forEach((i) => validateInput(i));
+    inputs.forEach((i) => validateInput(i));
     inputs?.some((i) => i.alert)
       ? setInputs([...inputs])
       : submitCallback(nextClick);
@@ -73,29 +69,22 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
     (input.value = input.parseFun ? input.parseFun(input.value) : input.value);
   const isValidFun = (expression) => checkAtLeastLength(expression, 0);
 
+  console.log(inputs);
   const validateInput = (input) => {
     let alert = null;
 
-    // input?.validatorId.forEach((v) => {
-    //   if (v.code === "SC-VA-001") {
-    //     alert = !isValidFun(input.value) ? v.errorMessage : alert;
-    //   }
-    //   if (v.code === "SC-VA-002") {
-    //     alert = !checkOnlyNumberPattern(input.value) ? v.errorMessage : alert;
-    //   }
-    //   if (v.code === "SC-VA-006") {
-    //     alert = !checkEmailPattern(input.value) ? v.errorMessage : alert;
-    //   }
-    //   if (v.code === "SC-VA-007") {
-    //     alert = !checkPhonePattern(input.value) ? v.errorMessage : alert;
-    //   }
-    //   if (v.code === "SC-VA-008") {
-    //     alert = !checkIpAddressPattern(input.value) ? v.errorMessage : alert;
-    //   }
-    //   if (v.code === "SC-VA-010") {
-    //     alert = !checkIsfilled(input.value) ? v.errorMessage : alert;
-    //   }
-    // });
+    input?.validators.forEach((v) => {
+      if (v.valId === "SCVAL001") {
+        alert = !isValidFun(input.value) ? v.alert : alert;
+      }
+
+      // if (v.valId === "SC-VA-006") {
+      //   alert = !checkEmailPattern(input.value) ? v.errorMessage : alert;
+      // }
+      // if (v.valId === "SC-VA-010") {
+      //   alert = !checkIsfilled(input.value) ? v.errorMessage : alert;
+      // }
+    });
     input.alert = alert;
   };
   const resetFormData = () => {

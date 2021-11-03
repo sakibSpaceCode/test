@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Grid, Paper, Typography } from "@material-ui/core";
 import CustomSearch from "../../components/CustomSearch";
 import { useStyles } from "./style";
@@ -10,34 +10,67 @@ import FormContainer from "./FormContainer";
 import CustomDialog from "../../components/CustomDialog";
 import ImportDialog from "./importDialog";
 import ExportDialog from "./exportDilog";
+import { useDispatch, useSelector } from "react-redux";
+import { clearData, getData } from "../../redux/actions/commonGetDataActions";
+import {
+  clearPostResponse,
+  postFormData,
+} from "../../redux/actions/commonFormActions";
+import Alert from "../../components/alert/alert.container";
 
 const CommonPage = (props) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const { data } = props;
   const mData = data.length > 1 ? data[1] : data[0];
   const label = mData.label;
-  const urlEndPoint = mData.urlEndPoint;
+  const urlEndPoint = mData.urlEndPoint.substr(1);
+  const apiURL = mData.apiUrl;
+  let url = props.path.split("/")[2];
 
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [importDialogOpen, setImportDialogOpen] = useState(false);
   const [exportDialogOpen, setExportDialogOpen] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [rowData, setRowData] = useState({});
-
+  const { loading, error, responseData } = useSelector(
+    (state) => state.getData
+  );
+  const { postLoading, postResponse, postError } = useSelector(
+    (state) => state.postFields
+  );
   const submitCallback = (e) => {
-    // setOpenAdd(false);
-    setEditDialogOpen(false);
-    resetFormData();
+    let object = {};
+
+    mData?.fields?.map((m) => (object[m.name] = m.value));
+
+    let json = JSON.stringify(object);
+
+    dispatch(postFormData(apiURL, json));
   };
-  const [inputs, onFormChange, handleEditChange, setSubmit, resetFormData] =
-    useForm(mData.fields, submitCallback);
+
+  const [
+    inputs,
+    onFormChange,
+    handleEditChange,
+    setSubmit,
+    resetFormData,
+    handleDateChange,
+  ] = useForm(mData?.fields, submitCallback);
 
   const handleEditDialog = () => {
     setEditDialogOpen(true);
   };
   const handleEditDialogClose = () => {
     setEditDialogOpen(false);
+    setErrorMessage(null);
+    resetFormData();
+    setErrorMessage("");
   };
-  const handleCompleteButtonClick = () => {};
+  const handleCompleteButtonClick = () => {
+    setSubmit("nextClick");
+  };
   const handleImportDialog = () => {
     setImportDialogOpen(true);
   };
@@ -50,6 +83,34 @@ const CommonPage = (props) => {
   const handleExportDialogClose = () => {
     setExportDialogOpen(false);
   };
+  useEffect(() => {
+    dispatch(getData(apiURL));
+    return () => {
+      dispatch(clearData());
+    };
+  }, [apiURL]);
+
+  useEffect(() => {
+    postResponse?.success === true && setAlertOpen(true);
+    
+    postResponse?.success === true && dispatch(getData(apiURL));
+    // if (!nextClick) {
+    //   if (isClone) {
+    //     postResponse?.success === false && setCloneDialogOpen(true);
+    //   } else {
+    //     postResponse?.success === false && setOpenAdd(true);
+    //   }
+    // }
+    postResponse?.success === true && resetFormData();
+    postResponse?.success === true && setEditDialogOpen(false);
+    console.log(postError, "postError");
+    postError && dispatch(clearPostResponse());
+    postError && setErrorMessage(postError);
+    setTimeout(() => {
+      dispatch(clearPostResponse());
+    }, 3000);
+  }, [postResponse, postError]);
+  console.log("url", apiURL);
   return (
     <>
       <Grid container alignItems='center' justify='space-between' spacing={8}>
@@ -104,7 +165,7 @@ const CommonPage = (props) => {
         onSaveClick={handleCompleteButtonClick}
         // isSave={isEdit || isClone ? true : false}
         // loading={isEdit ? putLoading : postLoading}
-        // error={errorMessage}
+        error={errorMessage}
         // disabled={inputs?.length === 0}>
       >
         <FormContainer
@@ -113,6 +174,7 @@ const CommonPage = (props) => {
           onFormChange={onFormChange}
           handleEditChange={handleEditChange}
           rowData={rowData}
+          handleDateChange={handleDateChange}
         />
       </CustomDialog>
       <ImportDialog
@@ -125,6 +187,18 @@ const CommonPage = (props) => {
         onClose={handleExportDialogClose}
         onSaveClick={handleCompleteButtonClick}
       />
+      {alertOpen && (
+        <Alert
+          open={alertOpen}
+          message={`${label} added successfully.`}
+          duration={2000}
+          onClose={() => setAlertOpen(false)}
+          vertical={"bottom"}
+          horizontal={"center"}
+          severity='success'
+          actions={false}
+        />
+      )}
     </>
   );
 };

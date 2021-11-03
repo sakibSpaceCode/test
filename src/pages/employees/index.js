@@ -1,5 +1,5 @@
 import { Button, Grid, Paper, Typography } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import CustomSearch from "../../components/CustomSearch";
 import RemoveIcon from "@material-ui/icons/Remove";
 import AddIcon from "@material-ui/icons/Add";
@@ -8,23 +8,38 @@ import BorderPaper from "../../components/BorderPaper";
 import CustomTable from "../../components/CustomTable";
 import CustomDialog from "../../components/CustomDialog";
 import AddEmployeeForm from "./addEmployeeForm";
+import { useDispatch, useSelector } from "react-redux";
+import { postFormData } from "../../redux/actions/commonFormActions";
 
 const EmployeesPage = () => {
   const classes = useStyles();
-  const [dialogOpen, setDialogOpen] = React.useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    username: "",
+    first_name: "",
+    last_name: "",
+    email: "",
+    is_staff: true,
+    is_active: true,
+    is_superuser: false,
+  });
+  const dispatch = useDispatch();
   const handleOpenDialog = () => {
     setDialogOpen(true);
   };
   const handleDialogClose = () => {
     setDialogOpen(false);
   };
+  const handleCompleteButtonClick = () => {
+    dispatch(postFormData("user", formData));
+  };
   return (
     <>
-      <Grid container justify="space-between" spacing={8}>
+      <Grid container justify='space-between' spacing={8}>
         <Grid item xs={6}>
-          <Grid container direction="column" spacing={2}>
+          <Grid container direction='column' spacing={2}>
             <Grid item xs={12}>
-              <CustomSearch placeholder="Search for employees" />
+              <CustomSearch placeholder='Search for employees' />
             </Grid>
             <Grid item xs={10}>
               <Grid container>
@@ -37,13 +52,11 @@ const EmployeesPage = () => {
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
-                      }}
-                    >
-                      <RemoveIcon fontSize="large" />
+                      }}>
+                      <RemoveIcon fontSize='large' />
                       <Typography
                         style={{ fontWeight: "bold" }}
-                        variant="subtitle1"
-                      >
+                        variant='subtitle1'>
                         Delete User
                       </Typography>
                     </div>
@@ -58,16 +71,13 @@ const EmployeesPage = () => {
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
-                        
                       }}
-                      onClick={handleOpenDialog}
-                    >
-                      <AddIcon fontSize="large" />
+                      onClick={handleOpenDialog}>
+                      <AddIcon fontSize='large' />
                       <Typography
                         style={{ fontWeight: "bold" }}
-                        variant="subtitle1"
-                        fontWeight="bold"
-                      >
+                        variant='subtitle1'
+                        fontWeight='bold'>
                         Add User
                       </Typography>
                     </div>
@@ -78,7 +88,7 @@ const EmployeesPage = () => {
           </Grid>
         </Grid>
         <Grid item xs={6}>
-          <Grid container justify="flex-end">
+          <Grid container justify='flex-end'>
             <Grid item>
               <Paper className={classes.filterpaper}>
                 <Typography className={classes.filterBy}>Filter By</Typography>
@@ -137,13 +147,13 @@ const EmployeesPage = () => {
         onCancelClick={handleDialogClose}
         // onNextClick={handleNextClick}
         // onCompleteClick={handleCompleteButtonClick}
-        // onSaveClick={handleCompleteButtonClick}
+        onSaveClick={handleCompleteButtonClick}
         // isSave={isEdit || isClone ? true : false}
         // loading={isEdit ? putLoading : postLoading}
         // error={errorMessage}
         // disabled={inputs?.length === 0}>
       >
-        <AddEmployeeForm />
+        <AddEmployeeForm formData={formData} setFormData={setFormData} />
       </CustomDialog>
     </>
   );
@@ -154,9 +164,8 @@ const CustomButton = ({ children, disabled }) => {
     <Button
       className={classes.btns}
       disabled={disabled}
-      variant="contained"
-      color="primary"
-    >
+      variant='contained'
+      color='primary'>
       <span className={classes.btnText}>{children}</span>
     </Button>
   );
@@ -167,8 +176,7 @@ const CustomPaper = ({ children }) => {
     <Paper
       elevation={0}
       className={classes.papers}
-      style={{ cursor: "pointer" }}
-    >
+      style={{ cursor: "pointer" }}>
       {children}
     </Paper>
   );

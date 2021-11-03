@@ -69,7 +69,7 @@ const DatePickerComponent = (props) => {
         okLabel={"Done"}
         onBlur={onBlur}
         onFocus={onFocus}
-        error={error}
+        
         // helperText={error && `${CONSTANTS.INVALID} ${helperText}`}
         maxDate={maxDate}
         minDate={minDate}

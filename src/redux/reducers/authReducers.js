@@ -4,13 +4,26 @@ export const userLoginReducer = (state = userLogin, action) => {
     case "USER_LOGIN_REQUEST":
       return { loading: true };
     case "USER_LOGIN_SUCCESS":
-      return { loading: false, userInfo: action.payload };
+      return { loading: false, userInfo: action.payload, error: "" };
+      case "USER_LOGIN_FAIL":
+        return { loading: false };
+
+    case "USER_LOGOUT":
+      return { userInfo: false, error: "" };
+    case "CLEAR_LOGIN_STATE":
+      return { loading: false, userInfo: null, error: "" };
+    case "CLEAR_TEMP_DATA":
+      return { ...userLogin, loading: false, error: "" };
+    default:
+      return state;
+  }
+}
+export const userLoginValidateReducer = (state = userLogin, action) => {
+  switch (action.type) {
+   
     case "USER_LOGIN_FAIL":
       return { loading: false, error: action.payload };
-    case "USER_LOGOUT":
-      return {userInfo: false};
-    case "CLEAR_LOGIN_STATE":
-      return { loading: false, userInfo: null, error: null };
+
     default:
       return state;
   }

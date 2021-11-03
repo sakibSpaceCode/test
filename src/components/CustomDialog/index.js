@@ -144,13 +144,7 @@ const CustomDialog = (props) => {
           </Grid>
         </Grid>
       </>
-      <Grid
-        style={{ padding: "15px 35px", marginBottom: "10px" }}
-        className={isDelete || classes.content}
-      >
-        {children}
-      </Grid>
-
+      
       {error && (
         <div className={classes.errorContainer}>
           <ErrorIcon className={classes.errorIcon} />
@@ -159,6 +153,14 @@ const CustomDialog = (props) => {
           </Typography>
         </div>
       )}
+      <DialogContent>
+      <Grid
+        style={{ padding: "15px 35px", marginBottom: "10px" }}
+        className={isDelete || classes.content}
+      >
+        {children}
+      </Grid>
+      </DialogContent>
     </Dialog>
   );
 };

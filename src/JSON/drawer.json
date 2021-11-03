@@ -3,81 +3,169 @@
     "path": "/dashboard",
     "name": "Dashboard",
     "urlEndPoint": "/dashboard",
-    "icon": "fa fa-tachometer"
+    "icon": "fa fa-tachometer",
+    "apiUrl": "dashboard"
   },
   {
     "path": "/dashboard/employees",
     "name": "Employees",
     "urlEndPoint": "/employees",
-    "icon": "fa fa-users"
+    "icon": "fa fa-users",
+    "apiUrl": "user"
   },
 
   {
     "path": "/dashboard/clients",
     "name": "Clients",
     "urlEndPoint": "/clients",
-    "icon": "fa fa-user"
+    "icon": "fa fa-user",
+    "apiUrl": "clients"
   },
   {
     "path": "/dashboard/account-department",
     "name": "Account Department",
     "urlEndPoint": "/account-department",
-    "icon": "fa fa-database"
+    "icon": "fa fa-database",
+    "apiUrl": "account-department"
   },
   {
     "path": "/dashboard/job-card",
     "name": "Job Card",
     "urlEndPoint": "/job-card",
     "icon": "fa fa-id-card-o",
+
     "type": "common",
     "fields": [
       {
-        "name": "quotationNumber",
+        "name": "Quotation",
         "label": "Quotation Number",
-        "type": "text"
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
-        "name": "jobNumber",
+        "name": "Job_No",
         "label": "Job Number",
-        "type": "text"
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
-        "name": "date",
+        "name": "Date",
         "label": "Date",
-        "type": "date"
+        "type": "date",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
-        "name": "quotationApprovalDate",
+        "name": "Quotation_Approval_Date",
         "label": "Quotation Approval Date",
-        "type": "date"
+        "type": "date",
+        "validators": [
+          {
+              "alert": "is required",
+              "valId": "SCVAL001"
+          }
+      ]
       },
       {
-        "name": "projectReference",
+        "name": "Project_Reference",
         "label": "Project Reference",
-        "type": "select"
+        "type": "select",
+        "validators": [
+          {
+              "alert": "is required",
+              "valId": "SCVAL001"
+          }
+      ]
       },
       {
-        "name": "projectType",
+        "name": "Project_type",
         "label": "Project Type",
-        "type": "select"
+        "type": "select",
+        "validators": [
+          {
+              "alert": "is required",
+              "valId": "SCVAL001"
+          }
+      ]
       },
       {
-        "name": "projectTitle",
+        "name": "Project_Title",
         "label": "Project Title",
-        "type": "text"
+        "type": "text",
+        "validators": [
+          {
+              "alert": "is required",
+              "valId": "SCVAL001"
+          }
+      ]
       },
       {
-        "name": "projectCoordinator",
+        "name": "Project_Co",
         "label": "Project Coordinator",
-        "type": "select"
+        "type": "select",
+        "validators": [
+          {
+              "alert": "is required",
+              "valId": "SCVAL001"
+          }
+      ]
+      },
+      {
+        "name": "Drawing_Start_Date",
+        "label": "Drawing Start Date",
+        "type": "date",
+        "validators": [
+          {
+              "alert": "is required",
+              "valId": "SCVAL001"
+          }
+      ]
+      },
+      {
+        "name": "Production_Start_Date",
+        "label": "Production Start Date",
+        "type": "date",
+        "validators": [
+          {
+              "alert": "is required",
+              "valId": "SCVAL001"
+          }
+      ]
+      },
+      {
+        "name": "Production_Completion_Date",
+        "label": "Production Completion Date",
+        "type": "date",
+        "validators": [
+          {
+              "alert": "is required",
+              "valId": "SCVAL001"
+          }
+      ]
       }
-    ]
+    ],
+    "apiUrl": "job_card"
   },
   {
     "path": "/dashboard/retro-plan",
     "name": "Retro Plan",
     "urlEndPoint": "/retro-plan",
-    "icon": "fa fa-sticky-note-o"
+    "icon": "fa fa-sticky-note-o",
+    "apiUrl": "retro_plan"
   },
   {
     "name": "Design Department",
@@ -88,72 +176,372 @@
         "path": "/dashboard/design-department/design-details",
         "urlEndPoint": "/design-department/design-details",
         "type": "common",
+        "apiUrl": "design_detail",
         "fields": [
           {
-            "name": "jobId",
+            "name": "job_id",
             "label": "Job ID",
-            "type": "text"
-          },
-          {
-            "name": "brandName",
-            "label": "Brand Name",
-            "type": "text"
-          },
-          {
-            "name": "mailAndStreet",
-            "label": "Mail And Street",
-            "type": "text"
-          },
-          {
-            "name": "assignedTo",
-            "label": "Assigned To",
-            "type": "select"
-          },
-          {
-            "name": "status",
-            "label": "Status",
-            "type": "select"
-          },
-          {
-            "name": "requiredHours",
-            "label": "Required Hours",
-            "type": "text"
-          },
-          {
-            "name": "startDate",
-            "label": "Start Date",
-            "type": "date"
-          },
-          {
-            "name": "1stSetSubmission",
-            "label": "1st Set Submission",
-            "type": "date"
-          },
-          {
-            "name": "1stCommentDate",
-            "label": "1st Comment Date",
-            "type": "date"
-          },
-          {
-            "name": "revision",
-            "label": "Revision",
-            "type": "select"
-          },
-          {
-            "name": "finalApproval",
-            "label": "Final Approval",
-            "type": "date"
-          },
-          {
-            "name": "totalHoursTaken",
-            "label": "Total Hours Taken",
-            "type": "text"
-          },
-          {
-            "name": "updatedBy",
-            "label": "Updated By",
             "type": "text",
-            "bigSize": true
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "brand_name",
+            "label": "Brand Name",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "checked_corrective_action",
+            "label": "Checked corrective action",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "lod",
+            "label": "Lod",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "site_survey",
+            "label": "Site Survey",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "brand_guidelines",
+            "label": "Brand Guidelines",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "material_sample_approval",
+            "label": "Material Sample Approval",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "files_of_logo",
+            "label": "Files of Logo",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "posm",
+            "label": "POSM",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "cover_letter",
+            "label": "Cover Letter",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "material_list_with_ref",
+            "label": "Material list with ref",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "vendor_pack",
+            "label": "Vendor pack",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "views",
+            "label": "Views",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "over_all_elevation",
+            "label": "Overall Elevation",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "flooring_material",
+            "label": "Flooring Material",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "partition",
+            "label": "Partition",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "mep_coordinated",
+            "label": "MEP coordinated",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "store_front",
+            "label": "Store front",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "signage",
+            "label": "Signage",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "individual_furniture",
+            "label": "Individual furniture",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "glass_fixing",
+            "label": "Glass fixing",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "detailed_measurement",
+            "label": "Detailed Measurement",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "metal_structure",
+            "label": "Metal structure",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "specify_metal",
+            "label": "Specify Metal",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "electrical_wiring",
+            "label": "Electrical wiring",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "ventilation",
+            "label": "Ventilation",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "colour_Temp",
+            "label": "Colour Temp",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "Kick_rail",
+            "label": "Kick Rail",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "detailed_drawing",
+            "label": "Detailed Drawing",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "general_page",
+            "label": "General page",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "material_legend",
+            "label": "Material Legend",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "hyperlink",
+            "label": "Hyperlink",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+
+          {
+            "name": "prepared_by",
+            "label": "Prepared by",
+            "type": "text",
+            "bigSize": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           }
         ]
       },
@@ -162,172 +550,372 @@
         "path": "/dashboard/design-department/checklist",
         "urlEndPoint": "/design-department/checklist",
         "type": "common",
+        "apiUrl": "checklist",
         "fields": [
           {
-            "name": "jobId",
+            "name": "job_id",
             "label": "Job ID",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "brandName",
+            "name": "brand_name",
             "label": "Brand Name",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "checkedCorrectiveAction",
-            "label": "Checked Corrective Action",
-            "type": "select"
+            "name": "checked_corrective_action",
+            "label": "Checked corrective action",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "lodAndOrientation",
-            "label": "Lod And Orientation",
-            "type": "select"
+            "name": "lod",
+            "label": "Lod",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "siteSurveyReportAndPictures",
-            "label": "Site Survey Report And Pictures",
-            "type": "select"
+            "name": "site_survey",
+            "label": "Site Survey",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "brandGuidelinesBriefing",
-            "label": "Brand Guidelines/Briefing",
-            "type": "select"
+            "name": "brand_guidelines",
+            "label": "Brand Guidelines",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "materialSampleApproval",
+            "name": "material_sample_approval",
             "label": "Material Sample Approval",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "epsFiles",
-            "label": "Eps Files of Logo,Text",
-            "type": "select"
+            "name": "files_of_logo",
+            "label": "Files of Logo",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
             "name": "posm",
-            "label": "POSM/ Product Sample(or measurements)",
-            "type": "select"
-          },
-          {
-            "name": "coverLetter",
-            "label": "Cover Letter - New Format",
-            "type": "select"
-          },
-          {
-            "name": "materialList",
-            "label": "Material List with ref/ Supplier and Material Code",
-            "type": "select"
-          },
-          {
-            "name": "vendorPack",
-            "label": "Vendor Pack/ Site Survey Details",
-            "type": "select"
-          },
-          {
-            "name": "3DViews",
-            "label": "3D-Views",
-            "type": "select"
-          },
-          {
-            "name": "overAllElevationAndPlans",
-            "label": "Over All Elevation And Plans",
-            "type": "select"
-          },
-          {
-            "name": "flooringMaterialDetails",
-            "label": "Flooring Material Details + Transition Details",
-            "type": "select"
-          },
-          {
-            "name": "partitionGypsumWallHordingDetail",
-            "label": "partition/Gypsum Wall/HordingDetail",
-            "type": "select"
-          },
-          {
-            "name": "mepCoordinatedReflectedCeilingPlan",
-            "label": "MEP Coordinated Reflected CeilingPlan",
-            "type": "select"
-          },
-          {
-            "name": "storeFrontDetailsAsPerMailSpecs",
-            "label": "Store Front Details as per Mail Specs",
-            "type": "select"
-          },
-          {
-            "name": "signatureAndPelmetDetailsasperRetailerSpecs",
-            "label": "Signature And Pelmet Details as per Retailer Specs",
-            "type": "select"
-          },
-          {
-            "name": "individualFurnitureDetailsWithFittingSpotDetails",
-            "label": "Individual Furniture Details with Fitting Spot Details",
-            "type": "select"
-          },
-          {
-            "name": "glassFixingDetailsAndAnyGlue",
-            "label": "Glass Fixing Details and Any glue",
-            "type": "select"
-          },
-          {
-            "name": "detailedMeasurementAndMaterialSpecification",
-            "label": "Detailed Measurement and Material Specification",
-            "type": "select"
-          },
-          {
-            "name": "metalStructureDrawing",
-            "label": "Metal Structure Drawing(if necessary)",
-            "type": "select"
-          },
-          {
-            "name": "specifyMetalTypeanditsFinish",
-            "label": "Specify Metal type and its Finish",
-            "type": "select"
-          },
-          {
-            "name": "electricalWiring",
-            "label": "Electrical Wiring",
-            "type": "select"
-          },
-          {
-            "name": "ventilationAndTransformationLocation",
-            "label": "Ventilation And Transformation Location",
-            "type": "select"
-          },
-          {
-            "name": "colorTemperatureAndReferenceOfSpecialFitting",
-            "label": "Color Temperature and Reference of Special Fitting",
-            "type": "select"
-          },
-          {
-            "name": "kickRailDetailsWithBendedEnds",
-            "label": "Kick Rail Details with Bended ends(if required)",
-            "type": "select"
-          },
-          {
-            "name": "detailedDrawingOfCustomizedHingesTiltingFramesFittings",
-            "label": "Detailed Drawing of Customized Hinges Tilting Frames Fittings",
-            "type": "select"
-          },
-          {
-            "name": "generalPageInformation",
-            "label": "General Page Information",
-            "type": "select"
-          },
-          {
-            "name": "materialLegendsAndKeyPlansInEveryPage",
-            "label": "Material Legends and Key Plans in EveryPage",
-            "type": "select"
-          },
-          {
-            "name": "hyperlinksToTheMasterFilesofLogosAndTexts",
-            "label": "Hyperlinks to the Master Files of Logos and Texts",
-            "type": "select"
-          },
-          {
-            "name": "preparedBy",
-            "label": "Prepared By",
+            "label": "POSM",
             "type": "text",
-            "bigSize": true
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "cover_letter",
+            "label": "Cover Letter",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "material_list_with_ref",
+            "label": "Material list with ref",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "vendor_pack",
+            "label": "Vendor pack",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "views",
+            "label": "Views",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "over_all_elevation",
+            "label": "Overall Elevation",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "flooring_material",
+            "label": "Flooring Material",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "partition",
+            "label": "Partition",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "mep_coordinated",
+            "label": "MEP coordinated",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "store_front",
+            "label": "Store front",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "signage",
+            "label": "Signage",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "individual_furniture",
+            "label": "Individual furniture",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "glass_fixing",
+            "label": "Glass fixing",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "detailed_measurement",
+            "label": "Detailed Measurement",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "metal_structure",
+            "label": "Metal structure",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "specify_metal",
+            "label": "Specify Metal",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "electrical_wiring",
+            "label": "Electrical wiring",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "ventilation",
+            "label": "Ventilation",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "colour_Temp",
+            "label": "Colour Temp",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "Kick_rail",
+            "label": "Kick Rail",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "detailed_drawing",
+            "label": "Detailed Drawing",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "general_page",
+            "label": "General page",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "material_legend",
+            "label": "Material Legend",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "hyperlink",
+            "label": "Hyperlink",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+
+          {
+            "name": "prepared_by",
+            "label": "Prepared by",
+            "type": "text",
+            "bigSize": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           }
         ]
       },
@@ -336,43 +924,86 @@
         "path": "/dashboard/design-department/corrective-action",
         "urlEndPoint": "/design-department/corrective-action",
         "type": "common",
+        "apiUrl": "corrective",
         "fields": [
           {
-            "name": "jobId",
+            "name": "job_id",
             "label": "Job ID",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "brandName",
+            "name": "brand_name",
             "label": "Brand Name",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "previousDesigner",
+            "name": "previous_designer",
             "label": "Previous Designer",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "assignedTo",
+            "name": "assigned_to",
             "label": "Assigned To",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
             "name": "reason",
             "label": "Reason",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "timeRequired",
+            "name": "time_required",
             "label": "Time Required",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
             "name": "solution",
             "label": "Solution",
             "type": "text",
             "bigSize": true,
-            "bigInput": true
+            "bigInput": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           }
         ]
       },
@@ -381,36 +1012,73 @@
         "path": "/dashboard/design-department/daily-updates",
         "urlEndPoint": "/design-department/daily-updates",
         "type": "common",
+        "apiUrl": "daily_update",
         "fields": [
           {
-            "name": "designerName",
-            "label": "Designer Name",
-            "type": "text"
+            "name": "name",
+            "label": "name",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "jobId",
+            "name": "job_id",
             "label": "Job ID",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "drawingName",
+            "name": "drawing_name",
             "label": "Drawing Name",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "requiredHours",
+            "name": "required_hours",
             "label": "Required Hours",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "usedWorkingHours",
+            "name": "used_hour",
             "label": "Used Working Hours",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "startDate",
+            "name": "date",
             "label": "Start Date",
-            "type": "date"
+            "type": "date",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           }
         ]
       }
@@ -426,85 +1094,182 @@
   {
     "name": "Production",
     "icon": "fa fa-archive",
+
     "items": [
       {
         "name": "Status Update",
         "path": "/dashboard/production/status-update",
         "urlEndPoint": "/production/status-update",
         "type": "common",
+        "apiUrl": "status",
         "fields": [
           {
-            "name": "jobId",
+            "name": "Job_ID_id",
             "label": "Job ID",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "name",
+            "name": "Name",
             "label": "Name",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "status",
+            "name": "Status",
             "label": "Status",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "stage",
+            "label": "stage",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
             "name": "pleaseSpecify",
             "label": "Please Specify",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "structureInspection",
+            "name": "Structure",
             "label": "Structure Inspection",
-            "type": "date"
+            "type": "date",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "structureInspectionSelect",
+            "name": "inspect_struct",
             "label": "Structure Inspection",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "paintInspection",
+            "name": "paint",
             "label": "Paint Inspection",
-            "type": "date"
+            "type": "date",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "paintInspectionSelect",
+            "name": "inspect_paint",
             "label": "Paint Inspection",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "finalInspection",
+            "name": "Final",
             "label": "Final Inspection",
-            "type": "date"
+            "type": "date",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "finalInspectionSelect",
+            "name": "inspect_final",
             "label": "Final Inspection",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "onTime",
+            "name": "on_time",
             "label": "On Time",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "lastUpdated",
+            "name": "Last",
             "label": "Last Updated",
-            "type": "date"
+            "type": "date",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "updatedBy",
+            "name": "Updated_by",
             "label": "Updated By",
             "type": "text",
-            "bigSize": true
+            "bigSize": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "note",
+            "name": "Note",
             "label": "Note",
             "type": "text",
             "bigSize": true,
-            "bigInput": true
+            "bigInput": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           }
         ]
       },
@@ -513,64 +1278,131 @@
         "path": "/dashboard/production/joinery",
         "urlEndPoint": "/production/joinery",
         "type": "common",
+        "apiUrl": "joinery",
         "fields": [
           {
-            "name": "jobId",
+            "name": "Job_ID_id",
             "label": "Job ID",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "name",
+            "name": "Name",
             "label": "Name",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "materialUsed",
-            "label": "Material Used",
-            "type": "select"
+            "name": "Material_Received",
+            "label": "Material Received",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "completionDate",
+            "name": "Completion_Date",
             "label": "Completion Date",
-            "type": "date"
+            "type": "date",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "woodenStructure",
+            "name": "Wooden_structure",
             "label": "Wooden Structure",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "hardwareFixing",
+            "name": "Hardware_Fixing",
             "label": "Hardware Fixing",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "cladding",
+            "name": "Cladding",
             "label": "Cladding",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "metalFrames",
+            "name": "Metal_Frames",
             "label": "Metal Frames",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "qualityInspection",
+            "name": "Quality_Inspection",
             "label": "Quality Inspection",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "qualityInspectionBy",
+            "name": "Quality_Inspection_by",
             "label": "Quality Inspection By",
             "type": "text",
-            "bigSize": true
+            "bigSize": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "note",
+            "name": "Note",
             "label": "Note",
             "type": "text",
             "bigSize": true,
-            "bigInput": true
+            "bigInput": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           }
         ]
       },
@@ -579,59 +1411,120 @@
         "path": "/dashboard/production/metal",
         "urlEndPoint": "/production/metal",
         "type": "common",
+        "apiUrl": "metal",
         "fields": [
           {
-            "name": "jobId",
+            "name": "Job_ID_id",
             "label": "Job ID",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "name",
+            "name": "Name",
             "label": "Name",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "materialUsed",
-            "label": "Material Used",
-            "type": "select"
+            "name": "Material_Received",
+            "label": "Material Received",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "completionDate",
+            "name": "Completion_Date",
             "label": "Completion Date",
-            "type": "date"
+            "type": "date",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "laserCutting",
+            "name": "Laser_Cutting",
             "label": "Laser Cutting",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "fabrication",
+            "name": "Fabrication",
             "label": "Fabrication",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "polishing",
+            "name": "Polishing",
             "label": "Polishing",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "qualityInspection",
+            "name": "Quality_Inspection",
             "label": "Quality Inspection",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "qualityInspectionBy",
+            "name": "Quality_Inspection_by",
             "label": "Quality Inspection By",
             "type": "text",
-            "bigSize": true
+            "bigSize": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "note",
+            "name": "Note",
             "label": "Note",
             "type": "text",
             "bigSize": true,
-            "bigInput": true
+            "bigInput": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           }
         ]
       },
@@ -640,64 +1533,131 @@
         "path": "/dashboard/production/paint",
         "urlEndPoint": "/production/paint",
         "type": "common",
+        "apiUrl": "paint",
         "fields": [
           {
-            "name": "jobId",
+            "name": "Job_ID_id",
             "label": "Job ID",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "name",
+            "name": "Name",
             "label": "Name",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "materialUsed",
-            "label": "Material Used",
-            "type": "select"
+            "name": "Material_Received",
+            "label": "Material Received",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "completionDate",
+            "name": "Completion_Date",
             "label": "Completion Date",
-            "type": "date"
+            "type": "date",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "primer",
+            "name": "Primer",
             "label": "Primer",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "sanding",
+            "name": "Sanding",
             "label": "Sanding",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "finalPaint",
+            "name": "Final_Paint",
             "label": "Final Paint",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "polishing",
+            "name": "Polishing",
             "label": "Polishing",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "qualityInspection",
+            "name": "Quality_Inspection",
             "label": "Quality Inspection",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "qualityInspectionBy",
+            "name": "Quality_Inspection_by",
             "label": "Quality Inspection By",
             "type": "text",
-            "bigSize": true
+            "bigSize": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "note",
+            "name": "Note",
             "label": "Note",
             "type": "text",
             "bigSize": true,
-            "bigInput": true
+            "bigInput": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           }
         ]
       },
@@ -706,59 +1666,120 @@
         "path": "/dashboard/production/electrical",
         "urlEndPoint": "/production/electrical",
         "type": "common",
+        "apiUrl": "electrical",
         "fields": [
           {
-            "name": "jobId",
+            "name": "Job_ID_id",
             "label": "Job ID",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "name",
+            "name": "Name",
             "label": "Name",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "materialUsed",
-            "label": "Material Used",
-            "type": "select"
+            "name": "Material_Received",
+            "label": "Material Received",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "completionDate",
+            "name": "Completion_Date",
             "label": "Completion Date",
-            "type": "date"
+            "type": "date",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "importedMaterial",
+            "name": "Imported_Material",
             "label": "Imported Material",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "locallySourcedMaterial",
+            "name": "Locally_Sourced_Material",
             "label": "Locally Sourced Material",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "fixing",
+            "name": "Fixing",
             "label": "Fixing",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "qualityInspection",
+            "name": "Quality_Inspection",
             "label": "Quality Inspection",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "qualityInspectionBy",
+            "name": "Quality_Inspection_by",
             "label": "Quality Inspection By",
             "type": "text",
-            "bigSize": true
+            "bigSize": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "note",
+            "name": "Note",
             "label": "Note",
             "type": "text",
             "bigSize": true,
-            "bigInput": true
+            "bigInput": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           }
         ]
       },
@@ -767,79 +1788,175 @@
         "path": "/dashboard/production/final",
         "urlEndPoint": "/production/final",
         "type": "common",
+        "apiUrl": "final",
         "fields": [
           {
-            "name": "jobId",
+            "name": "Job_ID_id",
             "label": "Job ID",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "name",
+            "name": "Name",
             "label": "Name",
-            "type": "text"
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "materialUsed",
-            "label": "Material Used",
-            "type": "select"
+            "name": "Material_Received",
+            "label": "Material Received",
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "completionDate",
+            "name": "Completion_Date",
             "label": "Completion Date",
-            "type": "date"
+            "type": "date",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "furnitureAssembly",
+            "name": "Furniture_Assembly",
             "label": "Furniture Assembly",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "painting",
+            "name": "Painting",
             "label": "Painting",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "glass",
+            "name": "Glass",
             "label": "Glass",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "acrylic",
+            "name": "Acrylic",
             "label": "Acrylic",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "visualAndArtWork",
+            "name": "Visual_and_Artwork",
             "label": "Visual And ArtWork",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "posm",
+            "name": "POSM",
             "label": "POSM",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "packingBox",
+            "name": "Packing_Box",
             "label": "Packing Box",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "qualityInspection",
+            "name": "Quality_Inspection",
             "label": "Quality Inspection",
-            "type": "select"
+            "type": "select",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "qualityInspectionBy",
+            "name": "Quality_Inspection_by",
             "label": "Quality Inspection By",
             "type": "text",
-            "bigSize": true
+            "bigSize": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           },
           {
-            "name": "note",
+            "name": "Packing",
+            "label": "Packing",
+            "type": "text",
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
+          },
+          {
+            "name": "Note",
             "label": "Note",
             "type": "text",
             "bigSize": true,
-            "bigInput": true
+            "bigInput": true,
+            "validators": [
+              {
+                  "alert": "is required",
+                  "valId": "SCVAL001"
+              }
+          ]
           }
         ]
       }
