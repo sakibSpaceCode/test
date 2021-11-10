@@ -75,7 +75,7 @@ const Dashboard = () => {
   const drawer = (
     <>
       <div className={classes.logoContainer}>
-        <img src={Logo} alt='logo' className={classes.logo} />
+        <img src={Logo} alt="logo" className={classes.logo} />
       </div>
       <List className={classes.list}>
         {drawerRoutes?.map((item, index) => (
@@ -95,33 +95,36 @@ const Dashboard = () => {
   const handlelogoutClick = () => {
     dispatch(logout());
   };
+
   return (
     <>
       <div className={classes.root}>
         <Drawer
-          variant='permanent'
+          variant="permanent"
           className={classes.drawer}
           onClose={handleDrawerOpen}
-          anchor='left'
+          anchor="left"
           open={open}
           classes={{
             paper: classes.drawerPaper,
-          }}>
+          }}
+        >
           {drawer}
         </Drawer>
-        <div style={{ width: "100%" }}>
+        <div style={{ width: "100%", overflowX: "hidden" }}>
           <main
             style={{
               width: "calc(100% - 20px)",
               height: "97vh",
               borderRadius: "25px 25px 0 0",
               position: "relative",
-              overflowY: "auto",
+
               overFlowX: "hidden",
 
               marginTop: 20,
               backgroundColor: "#e5e5e5",
-            }}>
+            }}
+          >
             <div
               style={{ flexGrow: 1, position: "sticky", top: 0, zIndex: 999 }}
             >

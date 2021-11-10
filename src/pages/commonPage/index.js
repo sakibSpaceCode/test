@@ -17,6 +17,7 @@ import {
   postFormData,
 } from "../../redux/actions/commonFormActions";
 import Alert from "../../components/alert/alert.container";
+import Loader from "../../components/loader";
 
 const CommonPage = (props) => {
   const classes = useStyles();
@@ -37,9 +38,7 @@ const CommonPage = (props) => {
   const { loading, error, responseData } = useSelector(
     (state) => state.getData
   );
-  const { postLoading, postResponse, postError } = useSelector(
-    (state) => state.postFields
-  );
+
   const submitCallback = (e) => {
     let object = {};
 
@@ -58,7 +57,7 @@ const CommonPage = (props) => {
     resetFormData,
     handleDateChange,
   ] = useForm(mData?.fields, submitCallback);
-
+ 
   const handleEditDialog = () => {
     setEditDialogOpen(true);
   };
@@ -83,16 +82,21 @@ const CommonPage = (props) => {
   const handleExportDialogClose = () => {
     setExportDialogOpen(false);
   };
+  const { postLoading, postResponse, postError } = useSelector(
+    (state) => state.postFields
+  );
   useEffect(() => {
     dispatch(getData(apiURL));
     return () => {
       dispatch(clearData());
     };
   }, [apiURL]);
+  console.log(responseData);
+ 
 
   useEffect(() => {
     postResponse?.success === true && setAlertOpen(true);
-    
+
     postResponse?.success === true && dispatch(getData(apiURL));
     // if (!nextClick) {
     //   if (isClone) {
@@ -110,94 +114,110 @@ const CommonPage = (props) => {
       dispatch(clearPostResponse());
     }, 3000);
   }, [postResponse, postError]);
-  console.log("url", apiURL);
+  console.log("url", urlEndPoint, apiURL, props.path.split("/")[2]);
   return (
     <>
-      <Grid container alignItems='center' justify='space-between' spacing={8}>
-        <Grid item xs={6}>
-          <Grid container direction='column' spacing={2}>
-            <Grid item xs={12}>
-              <CustomSearch placeholder={`Search ${label} to view`} />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Grid
+            container
+            alignItems="center"
+            justify="space-between"
+            spacing={8}
+          >
+            <Grid item xs={6}>
+              <Grid container direction="column" spacing={2}>
+                <Grid item xs={12}>
+                  <CustomSearch placeholder={`Search ${label} to view`} />
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={6}>
+              <Grid container justify="flex-end" spacing={2}>
+                {props.path.split("/")[2] === "production" || (
+                  <Grid item>
+                    <CustomButton
+                      width="150px"
+                      variant="outlined"
+                      onClick={handleEditDialog}
+                    >
+                      {label === "Job Card" ? "Add Job Card" : "Add"}
+                    </CustomButton>
+                  </Grid>
+                )}
+                <Grid item>
+                  <CustomButton
+                    onClick={handleImportDialog}
+                    width="150px"
+                    variant="outlined"
+                  >
+                    Import
+                  </CustomButton>
+                </Grid>
+                <Grid item>
+                  <CustomButton
+                    onClick={handleExportDialog}
+                    width="150px"
+                    variant="outlined"
+                  >
+                    Export
+                  </CustomButton>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={6}>
-          <Grid container justify='flex-end' spacing={2}>
-            <Grid item>
-              <CustomButton
-                width='150px'
-                variant='outlined'
-                onClick={handleEditDialog}>
-                {label === "Job Card" ? "Add Job Card" : "Add"}
-              </CustomButton>
-            </Grid>
-            <Grid item>
-              <CustomButton
-                onClick={handleImportDialog}
-                width='150px'
-                variant='outlined'>
-                Import
-              </CustomButton>
-            </Grid>
-            <Grid item>
-              <CustomButton
-                onClick={handleExportDialog}
-                width='150px'
-                variant='outlined'>
-                Export
-              </CustomButton>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
-      <div style={{ marginTop: 30 }}>
-        <BorderPaper>
-          <CustomTable height={500} />
-        </BorderPaper>
-      </div>
-      <CustomDialog
-        title={`Add ${label}`}
-        open={editDialogOpen}
-        onClose={handleEditDialogClose}
-        onCancelClick={handleEditDialogClose}
-        // onNextClick={handleNextClick}
-        // onCompleteClick={handleCompleteButtonClick}
-        onSaveClick={handleCompleteButtonClick}
-        // isSave={isEdit || isClone ? true : false}
-        // loading={isEdit ? putLoading : postLoading}
-        error={errorMessage}
-        // disabled={inputs?.length === 0}>
-      >
-        <FormContainer
-          inputs={inputs}
-          urlEndPoint={urlEndPoint}
-          onFormChange={onFormChange}
-          handleEditChange={handleEditChange}
-          rowData={rowData}
-          handleDateChange={handleDateChange}
-        />
-      </CustomDialog>
-      <ImportDialog
-        open={importDialogOpen}
-        onClose={handleImportDialogClose}
-        onSaveClick={handleCompleteButtonClick}
-      />
-      <ExportDialog
-        open={exportDialogOpen}
-        onClose={handleExportDialogClose}
-        onSaveClick={handleCompleteButtonClick}
-      />
-      {alertOpen && (
-        <Alert
-          open={alertOpen}
-          message={`${label} added successfully.`}
-          duration={2000}
-          onClose={() => setAlertOpen(false)}
-          vertical={"bottom"}
-          horizontal={"center"}
-          severity='success'
-          actions={false}
-        />
+          <div style={{ marginTop: 30 }}>
+            <BorderPaper>
+              <CustomTable height={500} response={responseData} />
+            </BorderPaper>
+          </div>
+          <CustomDialog
+            title={`Add ${label}`}
+            open={editDialogOpen}
+            onClose={handleEditDialogClose}
+            onCancelClick={handleEditDialogClose}
+            // onNextClick={handleNextClick}
+            // onCompleteClick={handleCompleteButtonClick}
+            onSaveClick={handleCompleteButtonClick}
+            // isSave={isEdit || isClone ? true : false}
+            // loading={isEdit ? putLoading : postLoading}
+            error={errorMessage}
+            // disabled={inputs?.length === 0}>
+          >
+            <FormContainer
+              inputs={inputs}
+              urlEndPoint={urlEndPoint}
+              onFormChange={onFormChange}
+              handleEditChange={handleEditChange}
+              rowData={rowData}
+              handleDateChange={handleDateChange}
+            />
+          </CustomDialog>
+          <ImportDialog
+            open={importDialogOpen}
+            onClose={handleImportDialogClose}
+            onSaveClick={handleCompleteButtonClick}
+          />
+          <ExportDialog
+            open={exportDialogOpen}
+            onClose={handleExportDialogClose}
+            onSaveClick={handleCompleteButtonClick}
+          />
+          {alertOpen && (
+            <Alert
+              open={alertOpen}
+              message={`${label} added successfully.`}
+              duration={2000}
+              onClose={() => setAlertOpen(false)}
+              vertical={"bottom"}
+              horizontal={"center"}
+              severity="success"
+              actions={false}
+            />
+          )}
+        </>
       )}
     </>
   );

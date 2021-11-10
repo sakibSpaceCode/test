@@ -10,7 +10,6 @@ import { makeStyles } from "@material-ui/core";
 const useInputStyles = makeStyles((theme) => ({
   md: {
     width: "100%",
-    minWidth: "290px",
 
     "& .MuiOutlinedInput-root": {
       background: "#F4F7FE",
@@ -19,16 +18,14 @@ const useInputStyles = makeStyles((theme) => ({
       borderRadius: "8px",
     },
     "& .MuiOutlinedInput-input": {
-      padding: "15px 12px",
+      padding: "13px 12px",
     },
-    "& .MuiOutlinedInput-input:focus": {},
+    "& .MuiOutlinedInput-input:focus": {
+      outline: "none",
+    },
   },
   sm: {
-    minWidth: "290px",
-
-    "& .MuiInputBase-fullWidth": {
-      width: "95%",
-    },
+    "& .MuiInputBase-fullWidth": {},
     "& .MuiOutlinedInput-root": {
       background: "#F4F7FE",
       outline: "1px solid #618EFF",
@@ -36,18 +33,27 @@ const useInputStyles = makeStyles((theme) => ({
       borderRadius: "8px",
     },
     "& .MuiOutlinedInput-input": {
-      padding: "15px 12px",
+      padding: "13px 12px",
     },
-    "& .MuiOutlinedInput-input:focus": {},
+    "& .MuiOutlinedInput-input:focus": {
+      outline: "none",
+    },
   },
   lg: {
     borderRadius: "3px",
+    "& .MuiOutlinedInput-root": {
+      background: "#F4F7FE",
+      outline: "1px solid #618EFF",
+
+      borderRadius: "8px",
+    },
 
     "& .MuiOutlinedInput-input": {
       padding: "28px 12px",
     },
     "& .MuiOutlinedInput-input:focus": {
       backgroundColor: theme.palette.background.default,
+      outline: "none",
     },
   },
 }));

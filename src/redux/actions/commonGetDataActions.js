@@ -19,7 +19,7 @@ export const getData =
     // getData(urlEndPoint)
     let url = `${CONSTANTS.BASEURL}${collectionName}/list?offset=0&limit=10`;
     const { data } = await axios.get(url, config);
-    if (data.status === true) {
+    if (data.success === true) {
       dispatch({
         type: "GET_DATA_SUCCESS",
         payload: data,

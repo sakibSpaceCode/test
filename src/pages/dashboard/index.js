@@ -197,7 +197,7 @@ const DashboardPage = () => {
       <Grid container>
         <Grid item xs={8}>
           <HeaderBox title="Completed Project">
-            <CustomTable />
+            <CustomTable local />
           </HeaderBox>
         </Grid>
       </Grid>

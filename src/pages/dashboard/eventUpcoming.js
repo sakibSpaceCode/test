@@ -21,7 +21,7 @@ function EventUpcoming() {
           />
         </Grid>
         <Grid item xs={8} className="projectList">
-          <CustomTable />
+          <CustomTable local />
         </Grid>
       </Grid>
     </HeaderBox>

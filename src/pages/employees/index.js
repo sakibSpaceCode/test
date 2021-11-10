@@ -1,5 +1,5 @@
 import { Button, Grid, Paper, Typography } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomSearch from "../../components/CustomSearch";
 import RemoveIcon from "@material-ui/icons/Remove";
 import AddIcon from "@material-ui/icons/Add";
@@ -10,6 +10,8 @@ import CustomDialog from "../../components/CustomDialog";
 import AddEmployeeForm from "./addEmployeeForm";
 import { useDispatch, useSelector } from "react-redux";
 import { postFormData } from "../../redux/actions/commonFormActions";
+import { clearData, getData } from "../../redux/actions/commonGetDataActions";
+import Loader from "../../components/loader";
 
 const EmployeesPage = () => {
   const classes = useStyles();
@@ -33,128 +35,150 @@ const EmployeesPage = () => {
   const handleCompleteButtonClick = () => {
     dispatch(postFormData("user", formData));
   };
+  const { loading, error, responseData } = useSelector(
+    (state) => state.getData
+  );
+
+  useEffect(() => {
+    dispatch(getData("user"));
+    return () => {
+      dispatch(clearData());
+    };
+  }, []);
   return (
     <>
-      <Grid container justify='space-between' spacing={8}>
-        <Grid item xs={6}>
-          <Grid container direction='column' spacing={2}>
-            <Grid item xs={12}>
-              <CustomSearch placeholder='Search for employees' />
-            </Grid>
-            <Grid item xs={10}>
-              <Grid container>
-                <Grid item xs={6}>
-                  <CustomPaper>
-                    <div
-                      style={{
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}>
-                      <RemoveIcon fontSize='large' />
-                      <Typography
-                        style={{ fontWeight: "bold" }}
-                        variant='subtitle1'>
-                        Delete User
-                      </Typography>
-                    </div>
-                  </CustomPaper>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Grid container justify="space-between" spacing={8}>
+            <Grid item xs={6}>
+              <Grid container direction="column" spacing={2}>
+                <Grid item xs={12}>
+                  <CustomSearch placeholder="Search for employees" />
                 </Grid>
-                <Grid item xs={6}>
-                  <CustomPaper>
-                    <div
-                      style={{
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                      onClick={handleOpenDialog}>
-                      <AddIcon fontSize='large' />
-                      <Typography
-                        style={{ fontWeight: "bold" }}
-                        variant='subtitle1'
-                        fontWeight='bold'>
-                        Add User
-                      </Typography>
-                    </div>
-                  </CustomPaper>
+                <Grid item xs={10}>
+                  <Grid container>
+                    <Grid item xs={6}>
+                      <CustomPaper>
+                        <div
+                          style={{
+                            height: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <RemoveIcon fontSize="large" />
+                          <Typography
+                            style={{ fontWeight: "bold" }}
+                            variant="subtitle1"
+                          >
+                            Delete User
+                          </Typography>
+                        </div>
+                      </CustomPaper>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <CustomPaper>
+                        <div
+                          style={{
+                            height: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                          onClick={handleOpenDialog}
+                        >
+                          <AddIcon fontSize="large" />
+                          <Typography
+                            style={{ fontWeight: "bold" }}
+                            variant="subtitle1"
+                            fontWeight="bold"
+                          >
+                            Add User
+                          </Typography>
+                        </div>
+                      </CustomPaper>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={6}>
+              <Grid container justify="flex-end">
+                <Grid item>
+                  <Paper className={classes.filterpaper}>
+                    <Typography className={classes.filterBy}>
+                      Filter By
+                    </Typography>
+                    <table className={classes.filterTable}>
+                      <tr style={{ marginBottom: 10 }}>
+                        <td>Employee Status:</td>
+                        <td className={classes.firstBtn}>
+                          <CustomButton>All</CustomButton>
+                        </td>
+                        <td>
+                          <CustomButton disabled>Yes</CustomButton>
+                        </td>
+                        <td>
+                          <CustomButton disabled>No</CustomButton>
+                        </td>
+                      </tr>
+                      <tr style={{ marginBottom: 10 }}>
+                        <td>Superuser Status:</td>
+                        <td className={classes.firstBtn}>
+                          <CustomButton>All</CustomButton>
+                        </td>
+                        <td>
+                          <CustomButton disabled>Yes</CustomButton>
+                        </td>
+                        <td>
+                          <CustomButton disabled>No</CustomButton>
+                        </td>
+                      </tr>
+                      <tr style={{ marginBottom: 10 }}>
+                        <td>Active:</td>
+                        <td className={classes.firstBtn}>
+                          <CustomButton>All</CustomButton>
+                        </td>
+                        <td>
+                          <CustomButton disabled>Yes</CustomButton>
+                        </td>
+                        <td>
+                          <CustomButton disabled>No</CustomButton>
+                        </td>
+                      </tr>
+                    </table>
+                  </Paper>
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={6}>
-          <Grid container justify='flex-end'>
-            <Grid item>
-              <Paper className={classes.filterpaper}>
-                <Typography className={classes.filterBy}>Filter By</Typography>
-                <table className={classes.filterTable}>
-                  <tr style={{ marginBottom: 10 }}>
-                    <td>Employee Status:</td>
-                    <td className={classes.firstBtn}>
-                      <CustomButton>All</CustomButton>
-                    </td>
-                    <td>
-                      <CustomButton disabled>Yes</CustomButton>
-                    </td>
-                    <td>
-                      <CustomButton disabled>No</CustomButton>
-                    </td>
-                  </tr>
-                  <tr style={{ marginBottom: 10 }}>
-                    <td>Superuser Status:</td>
-                    <td className={classes.firstBtn}>
-                      <CustomButton>All</CustomButton>
-                    </td>
-                    <td>
-                      <CustomButton disabled>Yes</CustomButton>
-                    </td>
-                    <td>
-                      <CustomButton disabled>No</CustomButton>
-                    </td>
-                  </tr>
-                  <tr style={{ marginBottom: 10 }}>
-                    <td>Active:</td>
-                    <td className={classes.firstBtn}>
-                      <CustomButton>All</CustomButton>
-                    </td>
-                    <td>
-                      <CustomButton disabled>Yes</CustomButton>
-                    </td>
-                    <td>
-                      <CustomButton disabled>No</CustomButton>
-                    </td>
-                  </tr>
-                </table>
-              </Paper>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
-      <div style={{ marginTop: 30 }}>
-        <BorderPaper>
-          <CustomTable height={420} />
-        </BorderPaper>
-      </div>
-      <CustomDialog
-        title={`Add Employee Details`}
-        open={dialogOpen}
-        onClose={handleDialogClose}
-        onCancelClick={handleDialogClose}
-        // onNextClick={handleNextClick}
-        // onCompleteClick={handleCompleteButtonClick}
-        onSaveClick={handleCompleteButtonClick}
-        // isSave={isEdit || isClone ? true : false}
-        // loading={isEdit ? putLoading : postLoading}
-        // error={errorMessage}
-        // disabled={inputs?.length === 0}>
-      >
-        <AddEmployeeForm formData={formData} setFormData={setFormData} />
-      </CustomDialog>
+          <div style={{ marginTop: 30 }}>
+            <BorderPaper>
+              <CustomTable height={420} response={responseData} />
+            </BorderPaper>
+          </div>
+          <CustomDialog
+            title={`Add Employee Details`}
+            open={dialogOpen}
+            onClose={handleDialogClose}
+            onCancelClick={handleDialogClose}
+            // onNextClick={handleNextClick}
+            // onCompleteClick={handleCompleteButtonClick}
+            onSaveClick={handleCompleteButtonClick}
+            // isSave={isEdit || isClone ? true : false}
+            // loading={isEdit ? putLoading : postLoading}
+            // error={errorMessage}
+            // disabled={inputs?.length === 0}>
+          >
+            <AddEmployeeForm formData={formData} setFormData={setFormData} />
+          </CustomDialog>
+        </>
+      )}
     </>
   );
 };
@@ -164,8 +188,9 @@ const CustomButton = ({ children, disabled }) => {
     <Button
       className={classes.btns}
       disabled={disabled}
-      variant='contained'
-      color='primary'>
+      variant="contained"
+      color="primary"
+    >
       <span className={classes.btnText}>{children}</span>
     </Button>
   );
@@ -176,7 +201,8 @@ const CustomPaper = ({ children }) => {
     <Paper
       elevation={0}
       className={classes.papers}
-      style={{ cursor: "pointer" }}>
+      style={{ cursor: "pointer" }}
+    >
       {children}
     </Paper>
   );

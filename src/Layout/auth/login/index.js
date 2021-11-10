@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { login, clearLoginState } from "../../../redux/actions/authActions";
 import Snackbar from "@material-ui/core/Snackbar";
+import Loader from "../../../components/loader";
 
 const LoginPage = () => {
   const classes = useStyles();
@@ -20,7 +21,7 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, userInfo } = userLogin;
-  const {error} = useSelector((state) => state.userLoginValidateReducer)
+  const { error } = useSelector((state) => state.userLoginValidateReducer);
   const checkAtLeastLength = (expression, length) =>
     expression && expression.trim().length >= length;
   const isValidFun = (expression) => checkAtLeastLength(expression, 0);
@@ -40,10 +41,10 @@ const LoginPage = () => {
   function onSubmitLogin() {
     dispatch(login(email, password));
   }
- 
+
   console.log("user info", userInfo?.data?.token);
   const handleClose = () => {
-    setMessage('')
+    setMessage("");
     setOpen(false);
   };
   useEffect(() => {
@@ -51,83 +52,101 @@ const LoginPage = () => {
       setMessage(error);
     }
   }, [error]);
+  const [pageLoading, setPageLoading] = useState(true);
+  React.useEffect(() => {
+    console.log("h");
+    setPageLoading(false);
+  }, []);
   return (
-    <Grid container style={{ height: "100vh", overflow: "hidden" }}>
-      <Grid
-        item
-        xs={6}
-        className={`${classes.backImage} blur`}
-        style={{
-          backgroundImage: `url(${BackImage})`,
-          backgroudSize: "cover",
-        }}>
-        <img src={WhiteLogo} className={classes.whiteLogo} />
-      </Grid>
-      <Grid item xs={6}>
-        <Grid container direction='column'>
-          <Grid item className={classes.welcomeContainer}>
-            <Typography className={classes.welTypo} varaint='h6'>
-              Welcome
-            </Typography>
+    <>
+      {pageLoading ? (
+        <Loader />
+      ) : (
+        <Grid container style={{ height: "100vh", overflow: "hidden" }}>
+          <Grid
+            item
+            xs={6}
+            className={`${classes.backImage} blur`}
+            style={{
+              backgroundImage: `url(${BackImage})`,
+              backgroudSize: "cover",
+            }}
+          >
+            <img src={WhiteLogo} className={classes.whiteLogo} />
           </Grid>
-          <Grid item>
-            <Grid
-              container
-              direction='column'
-              alignItems='center'
-              style={{ marginTop: 40 }}
-              spacing={6}>
-              <Grid item>
-                <img src={BlackLogo} className={classes.blackimage} />
+          <Grid item xs={6}>
+            <Grid container direction="column">
+              <Grid item className={classes.welcomeContainer}>
+                <Typography className={classes.welTypo} varaint="h6">
+                  Welcome
+                </Typography>
               </Grid>
               <Grid item>
-                <Grid container direction='column' spacing={2}>
+                <Grid
+                  container
+                  direction="column"
+                  alignItems="center"
+                  style={{ marginTop: 40 }}
+                  spacing={6}
+                >
                   <Grid item>
-                    <input
-                      onChange={handleEmailChange}
-                      className={classes.input}
-                      placeholder='Username'></input>
+                    <img src={BlackLogo} className={classes.blackimage} />
                   </Grid>
                   <Grid item>
-                    <input
-                      type='password'
-                      onChange={handlePasswordChange}
-                      className={classes.input}
-                      placeholder='password'></input>
+                    <Grid container direction="column" spacing={2}>
+                      <Grid item>
+                        <input
+                          onChange={handleEmailChange}
+                          className={classes.input}
+                          placeholder="Username"
+                        ></input>
+                      </Grid>
+                      <Grid item>
+                        <input
+                          type="password"
+                          onChange={handlePasswordChange}
+                          className={classes.input}
+                          placeholder="password"
+                        ></input>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Grid item>
+                    <button
+                      className={classes.btn}
+                      onClick={() => onSubmitLogin()}
+                    >
+                      {loading ? (
+                        <CircularProgress color="inherit" size={20} />
+                      ) : (
+                        "Login"
+                      )}
+                      {!loading && (
+                        <ArrowForwardIcon
+                          style={{
+                            position: "absolute",
+                            right: "14px",
+                            top: "11px",
+                          }}
+                        />
+                      )}
+                    </button>
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item>
-                <button className={classes.btn} onClick={() => onSubmitLogin()}>
-                  {loading ? (
-                    <CircularProgress color='inherit' size={20} />
-                  ) : (
-                    "Login"
-                  )}
-                  {!loading && (
-                    <ArrowForwardIcon
-                      style={{
-                        position: "absolute",
-                        right: "14px",
-                        top: "11px",
-                      }}
-                    />
-                  )}
-                </button>
-              </Grid>
             </Grid>
           </Grid>
+          <Snackbar
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            open={message}
+            onClose={handleClose}
+            message={message}
+            autoHideDuration={3000}
+            key={open}
+          />
         </Grid>
-      </Grid>
-      <Snackbar
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        open={message}
-        onClose={handleClose}
-        message={message}
-        autoHideDuration={3000}
-        key={open}
-      />
-    </Grid>
+      )}
+    </>
   );
 };
 

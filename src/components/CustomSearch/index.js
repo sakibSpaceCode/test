@@ -32,7 +32,7 @@ const useSearchStyles = makeStyles((theme) => ({
       boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.15)",
     },
     "& .MuiButton-root": {
-      zIndex: 999,
+      zIndex: 99,
       borderRadius: "10px",
       width: "110px",
       height: "48px",
@@ -40,7 +40,7 @@ const useSearchStyles = makeStyles((theme) => ({
       top: "-1px",
     },
     "& .MuiInputAdornment-root": {
-      zIndex: 999,
+      zIndex: 98,
         color: theme.palette.primary.main,
       marginLeft: 10
     },

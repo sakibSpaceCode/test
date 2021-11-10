@@ -82,16 +82,16 @@ function ProjectOverview() {
         <Grid item>
           <Grid container direction="column">
             <Grid item className="projectContainer">
-              <h4 style={{ fontSize: "18px" }}>This Week</h4>
+              <h4 style={{ fontSize: "18px", marginTop: 30 }}>This Week</h4>
             </Grid>
             <Grid item>
-              <CustomTable height={280} />
+              <CustomTable height={280} local />
             </Grid>
             <Grid item className="projectContainer">
-              <h4 style={{ fontSize: "18px" }}>Next Week</h4>
+              <h4 style={{ fontSize: "18px", marginTop: 30 }}>Next Week</h4>
             </Grid>
             <Grid item>
-              <CustomTable height={280} />
+              <CustomTable height={280} local />
             </Grid>
           </Grid>
         </Grid>

@@ -87,7 +87,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CustomTable({ height }) {
+export default function CustomTable({ height, response, local }) {
   const classes = useStyles({ height: height });
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -95,6 +95,7 @@ export default function CustomTable({ height }) {
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
+  console.log(response);
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
@@ -102,54 +103,111 @@ export default function CustomTable({ height }) {
   };
 
   return (
-    <TableContainer className={classes.container}>
-      <Table stickyHeader aria-label="sticky table">
-        <TableHead>
-          <TableRow>
-            {columns.map((column) => (
-              <TableCell
-                key={column.id}
-                align={column.align}
-                style={{
-                  minWidth: column.minWidth,
-                  background: "#F4F7FE",
-                  color: "#618EFF",
-                  fontWeight: "600",
-                  fontSize: "16px",
-                }}
-              >
-                {column.label}
-              </TableCell>
-            ))}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows
-            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map((row) => {
-              return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                  {columns.map((column) => {
-                    const value = row[column.id];
-                    return value === "Completed" ? (
-                      <TableCell key={column.id} align={column.align}>
-                        <span className={classes.completed}>{value}</span>
-                      </TableCell>
-                    ) : value === "Pending" ? (
-                      <TableCell key={column.id} align={column.align}>
-                        <span className={classes.pending}> {value}</span>
-                      </TableCell>
-                    ) : (
-                      <TableCell key={column.id} align={column.align}>
-                        {value}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              );
-            })}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <>
+      {local ? (
+        <TableContainer className={classes.container}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                {columns.map((column) => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{
+                      minWidth: column.minWidth,
+                      background: "#F4F7FE",
+                      color: "#618EFF",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    }}
+                  >
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row) => {
+                  return (
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      key={row.code}
+                    >
+                      {columns.map((column) => {
+                        const value = row[column.id];
+                        return value === "Completed" ? (
+                          <TableCell key={column.id} align={column.align}>
+                            <span className={classes.completed}>{value}</span>
+                          </TableCell>
+                        ) : value === "Pending" ? (
+                          <TableCell key={column.id} align={column.align}>
+                            <span className={classes.pending}> {value}</span>
+                          </TableCell>
+                        ) : (
+                          <TableCell key={column.id} align={column.align}>
+                            {value}
+                          </TableCell>
+                        );
+                      })}
+                    </TableRow>
+                  );
+                })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <TableContainer className={classes.container}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                {response?.data?.header?.map((column) => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{
+                      minWidth: column.minWidth,
+                      background: "#F4F7FE",
+                      color: "#618EFF",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    }}
+                  >
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {response?.data?.data?.map((row) => {
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.key}>
+                    {response?.data?.header?.map((column) => {
+                      const value = row[column.key];
+                      return value === "Completed" ? (
+                        <TableCell key={column.id} align={column.align}>
+                          <span className={classes.completed}>{value}</span>
+                        </TableCell>
+                      ) : value === "Pending" ? (
+                        <TableCell key={column.id} align={column.align}>
+                          <span className={classes.pending}> {value}</span>
+                        </TableCell>
+                      ) : (
+                        <TableCell key={column.id} align={column.align}>
+                          {value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      )}
+    </>
   );
 }

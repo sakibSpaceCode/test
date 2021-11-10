@@ -82,7 +82,7 @@ const CustomDialog = (props) => {
           padding: 20,
           minWidth: minWidth || "1000px",
           backdropFilter: "blur(4px)",
-          zIndex: 999
+          zIndex: 99999
         },
       }}
       onClose={onClose}
