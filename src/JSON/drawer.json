@@ -49,8 +49,8 @@
       },
       {
         "name": "Job_No",
-        "label": "Job Number",
-        "type": "number",
+        "label": "Job Number *",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -180,7 +180,7 @@
         "fields": [
           {
             "name": "job_id",
-            "label": "Job ID",
+            "label": "Job ID *",
             "type": "text",
             "validators": [
               {
@@ -191,7 +191,7 @@
           },
           {
             "name": "brand_name",
-            "label": "Brand Name",
+            "label": "Brand Name *",
             "type": "text",
             "validators": [
               {
@@ -554,7 +554,7 @@
         "fields": [
           {
             "name": "job_id",
-            "label": "Job ID",
+            "label": "Job ID *",
             "type": "text",
             "validators": [
               {
@@ -565,7 +565,7 @@
           },
           {
             "name": "brand_name",
-            "label": "Brand Name",
+            "label": "Brand Name *",
             "type": "text",
             "validators": [
               {
@@ -576,7 +576,7 @@
           },
           {
             "name": "checked_corrective_action",
-            "label": "Checked corrective action",
+            "label": "Checked corrective action *",
             "type": "select",
             "validators": [
               {
@@ -928,7 +928,7 @@
         "fields": [
           {
             "name": "job_id",
-            "label": "Job ID",
+            "label": "Job ID *",
             "type": "text",
             "validators": [
               {
@@ -939,7 +939,7 @@
           },
           {
             "name": "brand_name",
-            "label": "Brand Name",
+            "label": "Brand Name *",
             "type": "text",
             "validators": [
               {
@@ -1015,8 +1015,8 @@
         "apiUrl": "daily_update",
         "fields": [
           {
-            "name": "name",
-            "label": "name",
+            "name": "job_id",
+            "label": "Job ID *",
             "type": "text",
             "validators": [
               {
@@ -1026,9 +1026,9 @@
             ]
           },
           {
-            "name": "job_id",
-            "label": "Job ID",
-            "type": "number",
+            "name": "name",
+            "label": "Name",
+            "type": "text",
             "validators": [
               {
                 "alert": "is required",
@@ -1036,6 +1036,7 @@
               }
             ]
           },
+
           {
             "name": "drawing_name",
             "label": "Drawing Name",
@@ -1050,7 +1051,7 @@
           {
             "name": "required_hours",
             "label": "Required Hours",
-            "type": "select",
+            "type": "text",
             "validators": [
               {
                 "alert": "is required",
@@ -1105,7 +1106,7 @@
         "fields": [
           {
             "name": "Job_ID_id",
-            "label": "Job ID",
+            "label": "Job ID *",
             "type": "text",
             "validators": [
               {
@@ -1282,7 +1283,7 @@
         "fields": [
           {
             "name": "Job_ID_id",
-            "label": "Job ID",
+            "label": "Job ID *",
             "type": "text",
             "validators": [
               {
@@ -1415,7 +1416,7 @@
         "fields": [
           {
             "name": "Job_ID_id",
-            "label": "Job ID",
+            "label": "Job ID *",
             "type": "text",
             "validators": [
               {
@@ -1537,7 +1538,7 @@
         "fields": [
           {
             "name": "Job_ID_id",
-            "label": "Job ID",
+            "label": "Job ID *",
             "type": "text",
             "validators": [
               {
@@ -1670,7 +1671,7 @@
         "fields": [
           {
             "name": "Job_ID_id",
-            "label": "Job ID",
+            "label": "Job ID *",
             "type": "text",
             "validators": [
               {
@@ -1792,7 +1793,7 @@
         "fields": [
           {
             "name": "Job_ID_id",
-            "label": "Job ID",
+            "label": "Job ID *",
             "type": "text",
             "validators": [
               {

@@ -17,7 +17,7 @@ export const getData =
       },
     };
     // getData(urlEndPoint)
-    let url = `${CONSTANTS.BASEURL}${collectionName}/list?offset=0&limit=10`;
+    let url = `${CONSTANTS.BASEURL}${collectionName}/list?offset=0&limit=100`;
     const { data } = await axios.get(url, config);
     if (data.success === true) {
       dispatch({

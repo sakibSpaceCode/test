@@ -14,6 +14,7 @@ import {
 import CustomInput from "../../components/CustomInput";
 import CustomSelect from "../../components/CustomSelect";
 import DatePicker from "../../components/CustomDate/date-picker.container";
+import CustomCheckbox from "../../components/checkbox/checkbox.container";
 // import MultipleSelect from "components/multiSelection";
 // import { DatePicker } from "common";
 // import CustomInput from "components/inputfeild";
@@ -74,6 +75,9 @@ const AddEmployeeForm = (props) => {
   }
   const onFormChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const onFormCheckboxChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.checked });
   };
   const [checked, setChecked] = React.useState([]);
   const [left, setLeft] = React.useState([0, 1, 2, 3]);
@@ -255,7 +259,36 @@ const AddEmployeeForm = (props) => {
           />
         </Grid>
         <Grid item md={12}>
-          {" "}
+          <Typography variant='subtitle'>Permissions</Typography>
+        </Grid>
+        <Grid item md={4} className={classes.inputField}>
+          <CustomCheckbox
+            label='Active'
+            // size={size}
+            handleChange={onFormCheckboxChange}
+            checked={formData.is_active}
+            name='is_active'
+          />
+        </Grid>
+        <Grid item md={4} className={classes.inputField}>
+          <CustomCheckbox
+            label='Staff'
+            // size={size}
+            handleChange={onFormCheckboxChange}
+            checked={formData.is_staff}
+            name='is_staff'
+          />
+        </Grid>
+        <Grid item md={4} className={classes.inputField}>
+          <CustomCheckbox
+            label='Superuser'
+            // size={size}
+            handleChange={onFormCheckboxChange}
+            checked={formData.is_superuser}
+            name='is_superuser'
+          />
+        </Grid>
+        <Grid item md={12}>
           <Typography variant='subtitle'>User Permission</Typography>
         </Grid>
         <Grid item md={12}>

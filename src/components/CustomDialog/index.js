@@ -74,7 +74,7 @@ const CustomDialog = (props) => {
   return (
     <Dialog
       open={open}
-      maxWidth="sm"
+      maxWidth='sm'
       PaperProps={{
         style: {
           borderRadius: "10px",
@@ -82,18 +82,16 @@ const CustomDialog = (props) => {
           padding: 20,
           minWidth: minWidth || "1000px",
           backdropFilter: "blur(4px)",
-          zIndex: 99999
+          zIndex: 99999,
         },
       }}
       onClose={onClose}
-      className={classes.root}
-    >
+      className={classes.root}>
       <>
         <Grid
           container
           style={{ padding: "15px 35px", marginBottom: "30px" }}
-          alignItems="center"
-        >
+          alignItems='center'>
           <Grid item style={{ marginLeft: "-10px" }}>
             <IconButton onClick={onClose}>
               <KeyboardBackspaceIcon />
@@ -101,42 +99,43 @@ const CustomDialog = (props) => {
           </Grid>
 
           <Grid item>
-            <Typography variant="body" className={classes.typoGraphy}>
+            <Typography variant='body' className={classes.typoGraphy}>
               {title}
             </Typography>
           </Grid>
           <Grid item xs>
-            <Grid container justify="flex-end" alignItems="center" spacing={1}>
+            <Grid container justify='flex-end' alignItems='center' spacing={1}>
               <Grid item>
                 <CustomButton
                   disabled={disabled}
-                  variant="outLined"
-                  color="primary"
+                  variant='outLined'
+                  color='primary'
                   onClick={onSaveClick}
-                  textColor="#618EFF"
-                >
-                  Save
+                  textColor='#618EFF'>
+                  {loading ? (
+                    <CircularProgress color='white' size='20px' />
+                  ) : (
+                    "Save"
+                  )}
                 </CustomButton>
               </Grid>
               <Grid item>
                 <CustomButton
                   disabled={disabled}
-                  variant="outLined"
-                  color="primary"
+                  variant='outLined'
+                  color='primary'
                   onClick={onSaveClick}
-                  textColor="#618EFF"
-                >
+                  textColor='#618EFF'>
                   Save and add another
                 </CustomButton>
               </Grid>
               <Grid item>
                 <CustomButton
                   disabled={disabled}
-                  variant="outLined"
-                  color="primary"
+                  variant='outLined'
+                  color='primary'
                   onClick={onSaveClick}
-                  textColor="#618EFF"
-                >
+                  textColor='#618EFF'>
                   Delete
                 </CustomButton>
               </Grid>
@@ -144,22 +143,21 @@ const CustomDialog = (props) => {
           </Grid>
         </Grid>
       </>
-      
+
       {error && (
         <div className={classes.errorContainer}>
           <ErrorIcon className={classes.errorIcon} />
-          <Typography variant="body2" className={classes.errorMessage}>
+          <Typography variant='body2' className={classes.errorMessage}>
             {error}
           </Typography>
         </div>
       )}
       <DialogContent>
-      <Grid
-        style={{ padding: "15px 35px", marginBottom: "10px" }}
-        className={isDelete || classes.content}
-      >
-        {children}
-      </Grid>
+        <Grid
+          style={{ padding: "15px 35px", marginBottom: "10px" }}
+          className={isDelete || classes.content}>
+          {children}
+        </Grid>
       </DialogContent>
     </Dialog>
   );

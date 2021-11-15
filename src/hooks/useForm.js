@@ -20,9 +20,12 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
   const handleChange = (e) => {
     inputs?.forEach((i) => {
       if (i.name === e?.target?.name) {
-        i.value = e.target.value;
+        i.value =
+          e.target.name === "job_id"
+            ? parseInt(e.target.value)
+            : e.target.value;
         parseInput(i);
-        validateInput(i);
+        i?.label?.includes('*') && validateInput(i);
       }
     });
     setInputs([...inputs]);
@@ -59,10 +62,12 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
   };
 
   const handleSubmit = (nextClick) => {
-    inputs.forEach((i) => validateInput(i));
+    
+    // inputs.forEach((i) => validateInput(i));
     inputs?.some((i) => i.alert)
       ? setInputs([...inputs])
       : submitCallback(nextClick);
+      
   };
 
   const parseInput = (input) =>

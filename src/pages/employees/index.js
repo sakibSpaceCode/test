@@ -9,13 +9,20 @@ import CustomTable from "../../components/CustomTable";
 import CustomDialog from "../../components/CustomDialog";
 import AddEmployeeForm from "./addEmployeeForm";
 import { useDispatch, useSelector } from "react-redux";
-import { postFormData } from "../../redux/actions/commonFormActions";
+import {
+  clearPostResponse,
+  postFormData,
+} from "../../redux/actions/commonFormActions";
 import { clearData, getData } from "../../redux/actions/commonGetDataActions";
 import Loader from "../../components/loader";
+import Alert from "../../components/alert/alert.container";
+import { set } from "date-fns";
 
 const EmployeesPage = () => {
   const classes = useStyles();
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     username: "",
     first_name: "",
@@ -23,7 +30,7 @@ const EmployeesPage = () => {
     email: "",
     is_staff: true,
     is_active: true,
-    is_superuser: false,
+    is_superuser: true,
   });
   const dispatch = useDispatch();
   const handleOpenDialog = () => {
@@ -31,6 +38,8 @@ const EmployeesPage = () => {
   };
   const handleDialogClose = () => {
     setDialogOpen(false);
+    setErrorMessage(null);
+    setFormData({});
   };
   const handleCompleteButtonClick = () => {
     dispatch(postFormData("user", formData));
@@ -38,7 +47,19 @@ const EmployeesPage = () => {
   const { loading, error, responseData } = useSelector(
     (state) => state.getData
   );
-
+  const { postLoading, postResponse, postError } = useSelector(
+    (state) => state.postFields
+  );
+  useEffect(() => {
+    postResponse?.success === true && setAlertOpen(true);
+    postResponse?.success === true && dispatch(getData("user"));
+    postResponse?.success === true && setDialogOpen(false);
+    postError && dispatch(clearPostResponse());
+    postError && setErrorMessage(postError);
+    setTimeout(() => {
+      dispatch(clearPostResponse());
+    }, 3000);
+  }, [postResponse, postError]);
   useEffect(() => {
     dispatch(getData("user"));
     return () => {
@@ -51,11 +72,11 @@ const EmployeesPage = () => {
         <Loader />
       ) : (
         <>
-          <Grid container justify="space-between" spacing={8}>
+          <Grid container justify='space-between' spacing={8}>
             <Grid item xs={6}>
-              <Grid container direction="column" spacing={2}>
+              <Grid container direction='column' spacing={2}>
                 <Grid item xs={12}>
-                  <CustomSearch placeholder="Search for employees" />
+                  <CustomSearch placeholder='Search for employees' />
                 </Grid>
                 <Grid item xs={10}>
                   <Grid container>
@@ -68,13 +89,11 @@ const EmployeesPage = () => {
                             flexDirection: "column",
                             justifyContent: "center",
                             alignItems: "center",
-                          }}
-                        >
-                          <RemoveIcon fontSize="large" />
+                          }}>
+                          <RemoveIcon fontSize='large' />
                           <Typography
                             style={{ fontWeight: "bold" }}
-                            variant="subtitle1"
-                          >
+                            variant='subtitle1'>
                             Delete User
                           </Typography>
                         </div>
@@ -90,14 +109,12 @@ const EmployeesPage = () => {
                             justifyContent: "center",
                             alignItems: "center",
                           }}
-                          onClick={handleOpenDialog}
-                        >
-                          <AddIcon fontSize="large" />
+                          onClick={handleOpenDialog}>
+                          <AddIcon fontSize='large' />
                           <Typography
                             style={{ fontWeight: "bold" }}
-                            variant="subtitle1"
-                            fontWeight="bold"
-                          >
+                            variant='subtitle1'
+                            fontWeight='bold'>
                             Add User
                           </Typography>
                         </div>
@@ -108,7 +125,7 @@ const EmployeesPage = () => {
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justify="flex-end">
+              <Grid container justify='flex-end'>
                 <Grid item>
                   <Paper className={classes.filterpaper}>
                     <Typography className={classes.filterBy}>
@@ -171,12 +188,24 @@ const EmployeesPage = () => {
             // onCompleteClick={handleCompleteButtonClick}
             onSaveClick={handleCompleteButtonClick}
             // isSave={isEdit || isClone ? true : false}
-            // loading={isEdit ? putLoading : postLoading}
-            // error={errorMessage}
+            loading={postLoading}
+            error={errorMessage}
             // disabled={inputs?.length === 0}>
           >
             <AddEmployeeForm formData={formData} setFormData={setFormData} />
           </CustomDialog>
+          {alertOpen && (
+            <Alert
+              open={alertOpen}
+              message={`Employee added successfully.`}
+              duration={2000}
+              onClose={() => setAlertOpen(false)}
+              vertical={"bottom"}
+              horizontal={"center"}
+              severity='success'
+              actions={false}
+            />
+          )}
         </>
       )}
     </>
@@ -188,9 +217,8 @@ const CustomButton = ({ children, disabled }) => {
     <Button
       className={classes.btns}
       disabled={disabled}
-      variant="contained"
-      color="primary"
-    >
+      variant='contained'
+      color='primary'>
       <span className={classes.btnText}>{children}</span>
     </Button>
   );
@@ -201,8 +229,7 @@ const CustomPaper = ({ children }) => {
     <Paper
       elevation={0}
       className={classes.papers}
-      style={{ cursor: "pointer" }}
-    >
+      style={{ cursor: "pointer" }}>
       {children}
     </Paper>
   );

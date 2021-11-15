@@ -57,7 +57,7 @@ const CommonPage = (props) => {
     resetFormData,
     handleDateChange,
   ] = useForm(mData?.fields, submitCallback);
- 
+
   const handleEditDialog = () => {
     setEditDialogOpen(true);
   };
@@ -91,8 +91,6 @@ const CommonPage = (props) => {
       dispatch(clearData());
     };
   }, [apiURL]);
-  console.log(responseData);
- 
 
   useEffect(() => {
     postResponse?.success === true && setAlertOpen(true);
@@ -114,7 +112,7 @@ const CommonPage = (props) => {
       dispatch(clearPostResponse());
     }, 3000);
   }, [postResponse, postError]);
-  console.log("url", urlEndPoint, apiURL, props.path.split("/")[2]);
+  
   return (
     <>
       {loading ? (
@@ -123,26 +121,24 @@ const CommonPage = (props) => {
         <>
           <Grid
             container
-            alignItems="center"
-            justify="space-between"
-            spacing={8}
-          >
+            alignItems='center'
+            justify='space-between'
+            spacing={8}>
             <Grid item xs={6}>
-              <Grid container direction="column" spacing={2}>
+              <Grid container direction='column' spacing={2}>
                 <Grid item xs={12}>
                   <CustomSearch placeholder={`Search ${label} to view`} />
                 </Grid>
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justify="flex-end" spacing={2}>
+              <Grid container justify='flex-end' spacing={2}>
                 {props.path.split("/")[2] === "production" || (
                   <Grid item>
                     <CustomButton
-                      width="150px"
-                      variant="outlined"
-                      onClick={handleEditDialog}
-                    >
+                      width='150px'
+                      variant='outlined'
+                      onClick={handleEditDialog}>
                       {label === "Job Card" ? "Add Job Card" : "Add"}
                     </CustomButton>
                   </Grid>
@@ -150,18 +146,16 @@ const CommonPage = (props) => {
                 <Grid item>
                   <CustomButton
                     onClick={handleImportDialog}
-                    width="150px"
-                    variant="outlined"
-                  >
+                    width='150px'
+                    variant='outlined'>
                     Import
                   </CustomButton>
                 </Grid>
                 <Grid item>
                   <CustomButton
                     onClick={handleExportDialog}
-                    width="150px"
-                    variant="outlined"
-                  >
+                    width='150px'
+                    variant='outlined'>
                     Export
                   </CustomButton>
                 </Grid>
@@ -182,7 +176,7 @@ const CommonPage = (props) => {
             // onCompleteClick={handleCompleteButtonClick}
             onSaveClick={handleCompleteButtonClick}
             // isSave={isEdit || isClone ? true : false}
-            // loading={isEdit ? putLoading : postLoading}
+            loading={ postLoading}
             error={errorMessage}
             // disabled={inputs?.length === 0}>
           >
@@ -213,7 +207,7 @@ const CommonPage = (props) => {
               onClose={() => setAlertOpen(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity="success"
+              severity='success'
               actions={false}
             />
           )}

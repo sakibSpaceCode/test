@@ -40,8 +40,7 @@ const DatePickerComponent = (props) => {
       <KeyboardDatePicker
         id={id}
         className={classes.root}
-        value={value}
-        
+        value={value ? value : null}
         allowKeyboardControl={allowKeyboardControl}
         inputVariant={inputVariant}
         size={size}
@@ -52,8 +51,8 @@ const DatePickerComponent = (props) => {
         disablePast={disablePast}
         ampm={true}
         disableToolbar={disableToolbar}
-        keyboardIcon={<DateRangeOutlinedIcon color="primary" />}
-        adornmentPosition="start"
+        keyboardIcon={<DateRangeOutlinedIcon color='primary' />}
+        adornmentPosition='start'
         InputProps={{
           adornmentPosition: "start",
           disableunderline: "true",
@@ -69,7 +68,6 @@ const DatePickerComponent = (props) => {
         okLabel={"Done"}
         onBlur={onBlur}
         onFocus={onFocus}
-        
         // helperText={error && `${CONSTANTS.INVALID} ${helperText}`}
         maxDate={maxDate}
         minDate={minDate}

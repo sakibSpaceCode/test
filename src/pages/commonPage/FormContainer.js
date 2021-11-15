@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 12,
     marginLeft: 14,
     marginTop: 5,
-    position: "absolute",
+    // position: "absolute",
   },
 }));
 
@@ -59,15 +59,10 @@ const FormContainer = (props) => {
   // const { options8 } = useSelector((state) => state.get8thDropdown);
   // const { collectionData } = useSelector((state) => state.getCollectionDropdown);
   // const { userInfo } = useSelector((state) => state.userLogin);
-  const genderOptions = [
-    { name: "Male", value: "Male" },
-    { name: "Female", value: "Female" },
-    { name: "Other", value: "Other" },
-  ];
+
   const options = [
-    { name: "test", value: "test" },
-    { name: "test2", value: "test2" },
-    { name: "test3", value: "test3" },
+    { name: "Yes", value: "yes" },
+    { name: "No", value: "no" }
   ];
 
   const renderInput = (input) => {
