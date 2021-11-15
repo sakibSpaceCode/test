@@ -41,7 +41,7 @@ const DatePickerComponent = (props) => {
         id={id}
         className={classes.root}
         value={value}
-        autoOk={true}
+        
         allowKeyboardControl={allowKeyboardControl}
         inputVariant={inputVariant}
         size={size}

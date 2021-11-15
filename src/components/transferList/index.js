@@ -1,7 +1,8 @@
 import React from "react";
 import Transfer from "react-virtualized-transfer";
 import "./styles.css";
-
+import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
+import KeyboardArrowLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
 require("react-virtualized-transfer/lib/css");
 export default class TestTransferList extends React.Component {
   constructor(props) {
@@ -75,7 +76,7 @@ export default class TestTransferList extends React.Component {
           width: "50%",
           height: 300,
         }}
-        operations={["to right", "to left"]}
+        operations={[<KeyboardArrowRightIcon />, <KeyboardArrowLeftIcon />]}
         showSearch
         notFoundContent={"not found"}
         searchPlaceholder={"Search"}

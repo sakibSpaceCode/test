@@ -38,6 +38,11 @@ const LoginPage = () => {
   function handlePasswordChange(e) {
     setPassword(e.target.value);
   }
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      onSubmitLogin();
+    }
+  };
   function onSubmitLogin() {
     dispatch(login(email, password));
   }
@@ -105,6 +110,7 @@ const LoginPage = () => {
                         <input
                           type="password"
                           onChange={handlePasswordChange}
+                          onKeyDown={handleKeyDown}
                           className={classes.input}
                           placeholder="password"
                         ></input>
