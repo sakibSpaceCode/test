@@ -181,7 +181,7 @@
           {
             "name": "job_id",
             "label": "Job ID *",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -555,7 +555,7 @@
           {
             "name": "job_id",
             "label": "Job ID *",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -929,7 +929,7 @@
           {
             "name": "job_id",
             "label": "Job ID *",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -1017,7 +1017,7 @@
           {
             "name": "job_id",
             "label": "Job ID *",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -1107,7 +1107,7 @@
           {
             "name": "Job_ID_id",
             "label": "Job ID *",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -1284,7 +1284,7 @@
           {
             "name": "Job_ID_id",
             "label": "Job ID *",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -1417,7 +1417,7 @@
           {
             "name": "Job_ID_id",
             "label": "Job ID *",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -1539,7 +1539,7 @@
           {
             "name": "Job_ID_id",
             "label": "Job ID *",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -1672,7 +1672,7 @@
           {
             "name": "Job_ID_id",
             "label": "Job ID *",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -1794,7 +1794,7 @@
           {
             "name": "Job_ID_id",
             "label": "Job ID *",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",

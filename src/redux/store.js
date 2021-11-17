@@ -11,6 +11,7 @@ import {
 } from "./reducers/authReducers";
 import {
   deleteFieldReducer,
+  getDropdownReducer,
   postFieldsReducer,
   putFieldsReducer,
 } from "./reducers/commonFormReducers";
@@ -28,6 +29,7 @@ const reducer = combineReducers({
   getData: getDataReducer,
   userLoginValidateReducer: userLoginValidateReducer,
   getDetails: getDetailsReducer,
+  getDropdown: getDropdownReducer
 });
 const persistConfig = {
   key: "root",

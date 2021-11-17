@@ -18,7 +18,7 @@ import DatePicker from "../../components/CustomDate/date-picker.container";
 // import { DatePicker } from "common";
 // import CustomInput from "components/inputfeild";
 // import SelectOption from "components/select";
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 const useStyles = makeStyles((theme) => ({
   inputLabel: {
     marginBottom: 8,
@@ -49,7 +49,8 @@ const FormContainer = (props) => {
     handleDateChange,
     rowData,
   } = props;
-  // const { options } = useSelector((state) => state.getDropDown);
+  const { options } = useSelector((state) => state.getDropdown);
+
   // const { options2 } = useSelector((state) => state.get2ndDropdown);
   // const { options3 } = useSelector((state) => state.get3rdDropdown);
   // const { options4 } = useSelector((state) => state.get4thDropdown);
@@ -60,9 +61,9 @@ const FormContainer = (props) => {
   // const { collectionData } = useSelector((state) => state.getCollectionDropdown);
   // const { userInfo } = useSelector((state) => state.userLogin);
 
-  const options = [
+  const defaultOptions = [
     { name: "Yes", value: "yes" },
-    { name: "No", value: "no" }
+    { name: "No", value: "no" },
   ];
 
   const renderInput = (input) => {
@@ -112,7 +113,8 @@ const FormContainer = (props) => {
           style={{ width: 300 }}
           className={classes.textField}
           size='lg'
-          options={options}
+          options={input.name === "job_id" ? options : defaultOptions}
+          isJob={input.name === "job_id" ? true : false}
         />
         {input.alert && (
           <div className={classes.selectAlert}>

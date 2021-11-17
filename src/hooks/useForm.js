@@ -21,9 +21,8 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
     inputs?.forEach((i) => {
       if (i.name === e?.target?.name) {
         i.value =
-          e.target.name === "job_id"
-            ? parseInt(e.target.value)
-            : e.target.value;
+          
+            e.target.value;
         parseInput(i);
         i?.label?.includes('*') && validateInput(i);
       }

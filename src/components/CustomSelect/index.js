@@ -45,6 +45,7 @@ const CustomSelect = (props) => {
     noLabel,
     onLabelClick,
     defaultValue,
+    isJob
   } = props;
   const classes = MenuStyles();
   return (
@@ -87,8 +88,8 @@ const CustomSelect = (props) => {
             </MenuItem>
           )}
           {options?.map((option, i) => (
-            <MenuItem style={{ color: "#777777" }} value={option.name} key={i}>
-              {option.name}
+            <MenuItem style={{ color: "#777777" }} value={isJob ? option._id : option.name} key={i}>
+              {isJob ? option.Job_No : option.name}
             </MenuItem>
           ))}
         </Select>

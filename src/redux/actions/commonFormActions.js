@@ -86,6 +86,42 @@ export const deleteFormData =
       });
     }
   };
+  export const getDropdown =
+  (collectionName) =>
+  async (dispatch, getState) => {
+    dispatch({ type: "GET_DROPDOWN_REQUEST" });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        type: "Web",
+        Authorization: userInfo?.data?.token,
+      },
+    };
+    // getData(urlEndPoint)
+    let url = `${CONSTANTS.BASEURL}${collectionName}/list?offset=0&limit=100`;
+    const { data } = await axios.get(url, config);
+    if (data.success === true) {
+      dispatch({
+        type: "GET_DROPDOWN_SUCCESS",
+        payload: data.data.data,
+      });
+    } else {
+      dispatch({
+        type: "GET_DROPDOWN_ERROR",
+        payload: data.error,
+      });
+    }
+  };
+
+export const clearDropDownResponse = () => {
+  return {
+    type: "CLEAR_DROP_DOWN",
+  };
+};
 export const clearPostResponse = () => {
   return {
     type: "CLEAR_POST_FIELDS",

@@ -40,3 +40,18 @@ export const deleteFieldReducer = (state = {}, action) => {
             return state;
     }
 };
+export const getDropdownReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'GET_DROPDOWN_REQUEST':
+            return { ...state, loading: true };
+        case 'GET_DROPDOWN_SUCCESS':
+            return { ...state, loading: false, options: action.payload };
+        case 'GET_DROPDOWN_ERROR':
+            return { ...state, loading: false, error: action.payload };
+        case 'CLEAR_DROP_DOWN':
+            return {};
+
+        default:
+            return state;
+    }
+};

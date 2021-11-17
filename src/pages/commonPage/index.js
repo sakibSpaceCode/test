@@ -13,7 +13,9 @@ import ExportDialog from "./exportDilog";
 import { useDispatch, useSelector } from "react-redux";
 import { clearData, getData } from "../../redux/actions/commonGetDataActions";
 import {
+  clearDropDownResponse,
   clearPostResponse,
+  getDropdown,
   postFormData,
 } from "../../redux/actions/commonFormActions";
 import Alert from "../../components/alert/alert.container";
@@ -60,12 +62,14 @@ const CommonPage = (props) => {
 
   const handleEditDialog = () => {
     setEditDialogOpen(true);
+    dispatch(getDropdown('job_card'))
   };
   const handleEditDialogClose = () => {
     setEditDialogOpen(false);
     setErrorMessage(null);
     resetFormData();
     setErrorMessage("");
+    // dispatch(clearDropDownResponse())
   };
   const handleCompleteButtonClick = () => {
     setSubmit("nextClick");
