@@ -179,7 +179,7 @@
         "apiUrl": "design_detail",
         "fields": [
           {
-            "name": "job_id",
+            "name": "Job",
             "label": "Job ID *",
             "type": "select",
             "validators": [
@@ -201,8 +201,30 @@
             ]
           },
           {
-            "name": "checked_corrective_action",
-            "label": "Checked corrective action",
+            "name": "location",
+            "label": "Location",
+            "type": "text",
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
+            "name": "assigned_to",
+            "label": "Assigned to",
+            "type": "text",
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
+            "name": "status",
+            "label": "Status",
             "type": "select",
             "validators": [
               {
@@ -212,52 +234,8 @@
             ]
           },
           {
-            "name": "lod",
-            "label": "Lod",
-            "type": "select",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "site_survey",
-            "label": "Site Survey",
-            "type": "select",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "brand_guidelines",
-            "label": "Brand Guidelines",
-            "type": "select",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "material_sample_approval",
-            "label": "Material Sample Approval",
-            "type": "select",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "files_of_logo",
-            "label": "Files of Logo",
+            "name": "required_hours",
+            "label": "Required Hours",
             "type": "text",
             "validators": [
               {
@@ -267,8 +245,41 @@
             ]
           },
           {
-            "name": "posm",
-            "label": "POSM",
+            "name": "start_date",
+            "label": "Start Date",
+            "type": "date",
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
+            "name": "first_set_submission",
+            "label": "First set submission",
+            "type": "date",
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
+            "name": "comment",
+            "label": "Comment",
+            "type": "date",
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
+            "name": "revision",
+            "label": "Revision",
             "type": "text",
             "validators": [
               {
@@ -278,8 +289,8 @@
             ]
           },
           {
-            "name": "cover_letter",
-            "label": "Cover Letter",
+            "name": "total_hours_taken",
+            "label": "Total Hours Taken",
             "type": "text",
             "validators": [
               {
@@ -289,240 +300,9 @@
             ]
           },
           {
-            "name": "material_list_with_ref",
-            "label": "Material list with ref",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "vendor_pack",
-            "label": "Vendor pack",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "views",
-            "label": "Views",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "over_all_elevation",
-            "label": "Overall Elevation",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "flooring_material",
-            "label": "Flooring Material",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "partition",
-            "label": "Partition",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "mep_coordinated",
-            "label": "MEP coordinated",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "store_front",
-            "label": "Store front",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "signage",
-            "label": "Signage",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "individual_furniture",
-            "label": "Individual furniture",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "glass_fixing",
-            "label": "Glass fixing",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "detailed_measurement",
-            "label": "Detailed Measurement",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "metal_structure",
-            "label": "Metal structure",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "specify_metal",
-            "label": "Specify Metal",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "electrical_wiring",
-            "label": "Electrical wiring",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "ventilation",
-            "label": "Ventilation",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "colour_Temp",
-            "label": "Colour Temp",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "Kick_rail",
-            "label": "Kick Rail",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "detailed_drawing",
-            "label": "Detailed Drawing",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "general_page",
-            "label": "General page",
-            "type": "text",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "material_legend",
-            "label": "Material Legend",
-            "type": "select",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
-          {
-            "name": "hyperlink",
-            "label": "Hyperlink",
-            "type": "select",
+            "name": "final_approval",
+            "label": "Final Approval",
+            "type": "date",
             "validators": [
               {
                 "alert": "is required",
@@ -532,8 +312,8 @@
           },
 
           {
-            "name": "prepared_by",
-            "label": "Prepared by",
+            "name": "updated_by",
+            "label": "Updated by",
             "type": "text",
             "bigSize": true,
             "validators": [
@@ -553,7 +333,7 @@
         "apiUrl": "checklist",
         "fields": [
           {
-            "name": "job_id",
+            "name": "Job",
             "label": "Job ID *",
             "type": "select",
             "validators": [
@@ -587,7 +367,7 @@
           },
           {
             "name": "lod",
-            "label": "Lod",
+            "label": "LOD & Orientation",
             "type": "select",
             "validators": [
               {
@@ -927,7 +707,7 @@
         "apiUrl": "corrective",
         "fields": [
           {
-            "name": "job_id",
+            "name": "Job",
             "label": "Job ID *",
             "type": "select",
             "validators": [
@@ -1015,7 +795,7 @@
         "apiUrl": "daily_update",
         "fields": [
           {
-            "name": "job_id",
+            "name": "Job",
             "label": "Job ID *",
             "type": "select",
             "validators": [
@@ -1105,7 +885,7 @@
         "apiUrl": "status",
         "fields": [
           {
-            "name": "Job_ID_id",
+            "name": "Job",
             "label": "Job ID *",
             "type": "select",
             "validators": [
@@ -1129,7 +909,7 @@
           {
             "name": "Status",
             "label": "Status",
-            "type": "select",
+            "type": "text",
             "validators": [
               {
                 "alert": "is required",
@@ -1139,8 +919,8 @@
           },
           {
             "name": "stage",
-            "label": "stage",
-            "type": "select",
+            "label": "Stage",
+            "type": "text",
             "validators": [
               {
                 "alert": "is required",
@@ -1148,17 +928,7 @@
               }
             ]
           },
-          {
-            "name": "pleaseSpecify",
-            "label": "Please Specify",
-            "type": "select",
-            "validators": [
-              {
-                "alert": "is required",
-                "valId": "SCVAL001"
-              }
-            ]
-          },
+        
           {
             "name": "Structure",
             "label": "Structure Inspection",
@@ -1282,7 +1052,7 @@
         "apiUrl": "joinery",
         "fields": [
           {
-            "name": "Job_ID_id",
+            "name": "Job",
             "label": "Job ID *",
             "type": "select",
             "validators": [
@@ -1415,7 +1185,7 @@
         "apiUrl": "metal",
         "fields": [
           {
-            "name": "Job_ID_id",
+            "name": "Job",
             "label": "Job ID *",
             "type": "select",
             "validators": [
@@ -1537,7 +1307,7 @@
         "apiUrl": "paint",
         "fields": [
           {
-            "name": "Job_ID_id",
+            "name": "Job",
             "label": "Job ID *",
             "type": "select",
             "validators": [
@@ -1670,7 +1440,7 @@
         "apiUrl": "electrical",
         "fields": [
           {
-            "name": "Job_ID_id",
+            "name": "Job",
             "label": "Job ID *",
             "type": "select",
             "validators": [
@@ -1792,7 +1562,7 @@
         "apiUrl": "final",
         "fields": [
           {
-            "name": "Job_ID_id",
+            "name": "Job",
             "label": "Job ID *",
             "type": "select",
             "validators": [
@@ -1938,7 +1708,7 @@
           {
             "name": "Packing",
             "label": "Packing",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",

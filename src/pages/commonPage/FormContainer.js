@@ -64,8 +64,13 @@ const FormContainer = (props) => {
   const defaultOptions = [
     { name: "Yes", value: "yes" },
     { name: "No", value: "no" },
+    { name: "Not needed", value: "not" },
   ];
-
+  const booleanOptions = [
+    { name: "Yes", value: true },
+    { name: "No", value: false },
+  ];
+  console.log(urlEndPoint, "opoo");
   const renderInput = (input) => {
     return input?.type === "text" ? (
       <Grid
@@ -113,8 +118,21 @@ const FormContainer = (props) => {
           style={{ width: 300 }}
           className={classes.textField}
           size='lg'
-          options={input.name === "job_id" ? options : defaultOptions}
-          isJob={input.name === "job_id" ? true : false}
+          options={
+            input.name === "Job"
+              ? options
+              : urlEndPoint === "production/status-update" ||
+                urlEndPoint === "production/joinery" ||
+                urlEndPoint === "production/metal" ||
+                urlEndPoint === "production/joinery" ||
+                urlEndPoint === "production/paint" ||
+                urlEndPoint === "production/electrical"  || 
+                urlEndPoint === "production/final"   
+              ? booleanOptions
+              : defaultOptions
+          }
+            isJob={input.name === "Job" ? true : false}
+            isChecked_corrective_action={input.name === "checked_corrective_action" ? true : false}
         />
         {input.alert && (
           <div className={classes.selectAlert}>

@@ -137,7 +137,7 @@ const CommonPage = (props) => {
             </Grid>
             <Grid item xs={6}>
               <Grid container justify='flex-end' spacing={2}>
-                {props.path.split("/")[2] === "production" || (
+               
                   <Grid item>
                     <CustomButton
                       width='150px'
@@ -146,7 +146,7 @@ const CommonPage = (props) => {
                       {label === "Job Card" ? "Add Job Card" : "Add"}
                     </CustomButton>
                   </Grid>
-                )}
+                
                 <Grid item>
                   <CustomButton
                     onClick={handleImportDialog}

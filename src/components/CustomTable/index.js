@@ -8,6 +8,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
+import moment from "moment";
 
 const columns = [
   { id: "name", label: "Name", minWidth: 100 },
@@ -106,7 +107,7 @@ export default function CustomTable({ height, response, local }) {
     <>
       {local ? (
         <TableContainer className={classes.container}>
-          <Table stickyHeader aria-label="sticky table">
+          <Table stickyHeader aria-label='sticky table'>
             <TableHead>
               <TableRow>
                 {columns.map((column) => (
@@ -119,8 +120,7 @@ export default function CustomTable({ height, response, local }) {
                       color: "#618EFF",
                       fontWeight: "600",
                       fontSize: "16px",
-                    }}
-                  >
+                    }}>
                     {column.label}
                   </TableCell>
                 ))}
@@ -133,10 +133,9 @@ export default function CustomTable({ height, response, local }) {
                   return (
                     <TableRow
                       hover
-                      role="checkbox"
+                      role='checkbox'
                       tabIndex={-1}
-                      key={row.code}
-                    >
+                      key={row.code}>
                       {columns.map((column) => {
                         const value = row[column.id];
                         return value === "Completed" ? (
@@ -161,7 +160,7 @@ export default function CustomTable({ height, response, local }) {
         </TableContainer>
       ) : (
         <TableContainer className={classes.container}>
-          <Table stickyHeader aria-label="sticky table">
+          <Table stickyHeader aria-label='sticky table'>
             <TableHead>
               <TableRow>
                 {response?.data?.header?.map((column) => (
@@ -169,13 +168,12 @@ export default function CustomTable({ height, response, local }) {
                     key={column.id}
                     align={column.align}
                     style={{
-                      minWidth: column.minWidth,
+                      minWidth: 200,
                       background: "#F4F7FE",
                       color: "#618EFF",
                       fontWeight: "600",
                       fontSize: "16px",
-                    }}
-                  >
+                    }}>
                     {column.label}
                   </TableCell>
                 ))}
@@ -184,9 +182,36 @@ export default function CustomTable({ height, response, local }) {
             <TableBody>
               {response?.data?.data?.map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.key}>
+                  <TableRow hover role='checkbox' tabIndex={-1} key={row.key}>
                     {response?.data?.header?.map((column) => {
-                      const value = row[column.key];
+                      let value = row[column.key];
+                      if (
+                        column.key === "start_date" ||
+                        column.key === "first_set_submission" ||
+                        column.key === "final_approval" ||
+                        column.key === "first_set_submission" ||
+                        column.key === "Production_Start_Date" ||
+                        column.key === "Drawing_Start_Date" ||
+                        column.key === "Production_Completion_Date" ||
+                        column.key === "drawing_start" ||
+                        column.key === "first_mr" ||
+                        column.key === "procurement_first_mr" ||
+                        column.key === "drawing_approvel" ||
+                        column.key === "Second_mr" ||
+                        column.key === "procurement_second_mr" ||
+                        column.key === "sub_assembly" ||
+                        column.key === "structure_inspection" ||
+                        column.key === "paint" ||
+                        column.key === "final" ||
+                        column.key === "delivery" ||
+                        column.key === "Install" ||
+                        column.key === "handover" ||
+                        column.key === "Structure" ||
+                        column.key === "Completion_Date" ||
+                        column.key === "date" 
+                      ) {
+                        value = moment(value).format("DD-MMM-YYYY");
+                      }
                       return value === "Completed" ? (
                         <TableCell key={column.id} align={column.align}>
                           <span className={classes.completed}>{value}</span>
