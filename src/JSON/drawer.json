@@ -412,7 +412,7 @@
           {
             "name": "files_of_logo",
             "label": "Files of Logo",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -423,7 +423,7 @@
           {
             "name": "posm",
             "label": "POSM",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -434,7 +434,7 @@
           {
             "name": "cover_letter",
             "label": "Cover Letter",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -445,7 +445,7 @@
           {
             "name": "material_list_with_ref",
             "label": "Material list with ref",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -456,7 +456,7 @@
           {
             "name": "vendor_pack",
             "label": "Vendor pack",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -467,7 +467,7 @@
           {
             "name": "views",
             "label": "Views",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -478,7 +478,7 @@
           {
             "name": "over_all_elevation",
             "label": "Overall Elevation",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -489,7 +489,7 @@
           {
             "name": "flooring_material",
             "label": "Flooring Material",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -500,7 +500,7 @@
           {
             "name": "partition",
             "label": "Partition",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -511,7 +511,7 @@
           {
             "name": "mep_coordinated",
             "label": "MEP coordinated",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -522,7 +522,7 @@
           {
             "name": "store_front",
             "label": "Store front",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -533,7 +533,7 @@
           {
             "name": "signage",
             "label": "Signage",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -544,7 +544,7 @@
           {
             "name": "individual_furniture",
             "label": "Individual furniture",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -555,7 +555,7 @@
           {
             "name": "glass_fixing",
             "label": "Glass fixing",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -566,7 +566,7 @@
           {
             "name": "detailed_measurement",
             "label": "Detailed Measurement",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -577,7 +577,7 @@
           {
             "name": "metal_structure",
             "label": "Metal structure",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -588,7 +588,7 @@
           {
             "name": "specify_metal",
             "label": "Specify Metal",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -599,7 +599,7 @@
           {
             "name": "electrical_wiring",
             "label": "Electrical wiring",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -610,7 +610,7 @@
           {
             "name": "ventilation",
             "label": "Ventilation",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -621,7 +621,7 @@
           {
             "name": "colour_Temp",
             "label": "Colour Temp",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -632,7 +632,7 @@
           {
             "name": "Kick_rail",
             "label": "Kick Rail",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -643,7 +643,7 @@
           {
             "name": "detailed_drawing",
             "label": "Detailed Drawing",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -654,7 +654,7 @@
           {
             "name": "general_page",
             "label": "General page",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -688,7 +688,7 @@
           {
             "name": "prepared_by",
             "label": "Prepared by",
-            "type": "text",
+            "type": "select",
             "bigSize": true,
             "validators": [
               {

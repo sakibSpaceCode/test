@@ -47,17 +47,17 @@ const AddRetroPlanForm = (props) => {
 
   return (
     <Grid>
-      <Grid container spacing={5} justify={"space-between"} alignItems='center'>
+      <Grid container spacing={5} justify={"space-between"} alignItems="center">
         <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>Job No.</InputLabel>
           <CustomSelect
             onChange={onFormChange}
-            name='Job'
+            name="Job"
             value={formData.Job}
             fullWidth
             style={{ width: 300 }}
             className={classes.textField}
-            size='lg'
+            size="lg"
             options={options}
             isJob
           />
@@ -67,7 +67,7 @@ const AddRetroPlanForm = (props) => {
           <InputLabel className={classes.inputLabel}>Name</InputLabel>
           <CustomInput
             onChange={onFormChange}
-            name='name'
+            name="name"
             value={formData.name}
             //   type={formData.type}
             //   helperText={formData.alert}
@@ -75,16 +75,16 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             style={{ width: 300 }}
             className={classes.textField}
-            size='sm'
+            size="sm"
           />
         </Grid>
 
         <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>Survey</InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -95,9 +95,9 @@ const AddRetroPlanForm = (props) => {
         <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>Drawing Start</InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -108,9 +108,9 @@ const AddRetroPlanForm = (props) => {
         <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>First Revision</InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -121,9 +121,9 @@ const AddRetroPlanForm = (props) => {
         <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>First MR</InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -136,9 +136,9 @@ const AddRetroPlanForm = (props) => {
             Procurement First MR
           </InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -153,9 +153,9 @@ const AddRetroPlanForm = (props) => {
             Drawing Approvel
           </InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -166,9 +166,9 @@ const AddRetroPlanForm = (props) => {
         <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>Second MR</InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -181,9 +181,9 @@ const AddRetroPlanForm = (props) => {
             Procurement Second MR
           </InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -196,9 +196,9 @@ const AddRetroPlanForm = (props) => {
         <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>Sub Assembly</InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -211,9 +211,9 @@ const AddRetroPlanForm = (props) => {
             Structure Inspection
           </InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -226,9 +226,9 @@ const AddRetroPlanForm = (props) => {
         <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>Paint</InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -237,11 +237,13 @@ const AddRetroPlanForm = (props) => {
           />
         </Grid>
         <Grid item md={6} className={classes.inputField}>
-          <InputLabel className={classes.inputLabel}>Final</InputLabel>
+          <InputLabel className={classes.inputLabel}>
+            Final Assembly Start Date
+          </InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -252,9 +254,9 @@ const AddRetroPlanForm = (props) => {
         <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>Packing</InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -265,9 +267,9 @@ const AddRetroPlanForm = (props) => {
         <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>Delivery</InputLabel>
           <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
             fullWidth
             width={"100%"}
             height={50}
@@ -279,7 +281,7 @@ const AddRetroPlanForm = (props) => {
           <InputLabel className={classes.inputLabel}>Hoarding</InputLabel>
           <CustomInput
             onChange={onFormChange}
-            name='hoarding'
+            name="hoarding"
             value={formData.hoarding}
             //   type={formData.type}
             //   helperText={formData.alert}
@@ -287,7 +289,51 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             style={{ width: 300 }}
             className={classes.textField}
-            size='sm'
+            size="sm"
+          />
+        </Grid>
+
+        <Grid item md={6} className={classes.inputField}>
+          <InputLabel className={classes.inputLabel}>Install</InputLabel>
+          <DatePicker
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
+            fullWidth
+            width={"100%"}
+            height={50}
+            value={formData.Install}
+            handleDate={(date) => handleDateChange("Install", date)}
+          />
+        </Grid>
+        <Grid item md={6} className={classes.inputField}>
+          <InputLabel className={classes.inputLabel}>Handover</InputLabel>
+          <DatePicker
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
+            fullWidth
+            width={"100%"}
+            height={50}
+            value={formData.handover}
+            handleDate={(date) => handleDateChange("handover", date)}
+          />
+        </Grid>
+        <Grid item md={6} className={classes.inputField}>
+          <InputLabel className={classes.inputLabel}>
+            Project Manager
+          </InputLabel>
+          <CustomInput
+            onChange={onFormChange}
+            name="project"
+            value={formData.project}
+            //   type={formData.type}
+            //   helperText={formData.alert}
+            autoFocus
+            fullWidth
+            style={{ width: 300 }}
+            className={classes.textField}
+            size="sm"
           />
         </Grid>
         <Grid item md={6} className={classes.inputField}>
@@ -304,48 +350,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             style={{ width: 300 }}
             className={classes.textField}
-            size='sm'
-          />
-        </Grid>
-        <Grid item md={6} className={classes.inputField}>
-          <InputLabel className={classes.inputLabel}>Install</InputLabel>
-          <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
-            fullWidth
-            width={"100%"}
-            height={50}
-            value={formData.Install}
-            handleDate={(date) => handleDateChange("Install", date)}
-          />
-        </Grid>
-        <Grid item md={6} className={classes.inputField}>
-          <InputLabel className={classes.inputLabel}>Handover</InputLabel>
-          <DatePicker
-            inputVariant='outlined'
-            format='dd-MM-yyyy'
-            placeholder='DD-MM-YYYY'
-            fullWidth
-            width={"100%"}
-            height={50}
-            value={formData.handover}
-            handleDate={(date) => handleDateChange("handover", date)}
-          />
-        </Grid>
-        <Grid item md={6} className={classes.inputField}>
-          <InputLabel className={classes.inputLabel}>Project</InputLabel>
-          <CustomInput
-            onChange={onFormChange}
-            name='project'
-            value={formData.project}
-            //   type={formData.type}
-            //   helperText={formData.alert}
-            autoFocus
-            fullWidth
-            style={{ width: 300 }}
-            className={classes.textField}
-            size='sm'
+            size='lg'
           />
         </Grid>
       </Grid>

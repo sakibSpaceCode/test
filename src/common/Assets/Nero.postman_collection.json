@@ -1,0 +1,2493 @@
+{
+	"info": {
+		"_postman_id": "ead207ec-be14-4ddf-9619-f21542bd6354",
+		"name": "Nero",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "employee",
+			"item": [
+				{
+					"name": "add employee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"dev_2\",\r\n    \"first_name\": \"Dev 2\",\r\n    \"last_name\": \"kumar\",\r\n    \"email\": \"dev2@yopmail.com\",\r\n    \"is_staff\": true,\r\n    \"is_active\": false,\r\n    \"is_superuser\": false,\r\n    \"permissions\":[\"6179a7d1ee4a5405cc67f720\",\"61952edf4e61ecaaf0156339\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}user/add",
+							"host": [
+								"{{address1}}user"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit employee",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"qwe\",\r\n    \"first_name\": \"adsaf\",\r\n    \"last_name\": \"safsa\",\r\n    \"email\": \"sfs@dsf.sfds\",\r\n    \"is_staff\": true,\r\n    \"is_active\": true,\r\n    \"is_superuser\": true,\r\n    \"employee_id\":\"61799d5e84302b19701c3d8b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}/user/edit",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"user",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete employee",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"users\":[\"61799fdde9b7c03088ce24b6\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}user/delete",
+							"host": [
+								"{{address}}user"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail employee",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}user/detail/61799fdde9b7c03088ce24b6",
+							"host": [
+								"{{address}}user"
+							],
+							"path": [
+								"detail",
+								"61799fdde9b7c03088ce24b6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}user/list?offset=0&limit=10",
+							"host": [
+								"{{address1}}user"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								},
+								{
+									"key": "is_staff",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "is_active",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "is_superuser",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee permission",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address1}}/user/permission",
+							"host": [
+								"{{address1}}"
+							],
+							"path": [
+								"user",
+								"permission"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin_login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@yopmail.com\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}user/admin_login",
+							"host": [
+								"{{address1}}user"
+							],
+							"path": [
+								"admin_login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "checklist",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Job\": \"61953cc03a23453cc29f2e17\",\r\n    \"brand_name\": \"brand_name\",\r\n    \"checked_corrective_action\": \"checked_corrective_action\",\r\n    \"lod\": \"lod\",\r\n    \"site_survey\": \"site_survey\",\r\n    \"brand_guidelines\": \"brand_guidelines\",\r\n    \"material_sample_approval\": \"material_sample_approval\",\r\n    \"files_of_logo\": \"files_of_logo\",\r\n    \"posm\": \"posm\",\r\n    \"cover_letter\": \"cover_letter\",\r\n    \"material_list_with_ref\": \"material_list_with_ref\",\r\n    \"vendor_pack\": \"vendor_pack\",\r\n    \"views\": \"views\",\r\n    \"over_all_elevation\": \"over_all_elevation\",\r\n    \"flooring_material\": \"flooring_material\",\r\n    \"partition\": \"partition\",\r\n    \"mep_coordinated\": \"mep_coordinated\",\r\n    \"store_front\": \"store_front\",\r\n    \"signage\": \"signage\",\r\n    \"individual_furniture\": \"individual_furniture\",\r\n    \"glass_fixing\": \"glass_fixing\",\r\n    \"detailed_measurement\": \"detailed_measurement\",\r\n    \"metal_structure\": \"metal_structure\",\r\n    \"specify_metal\": \"specify_metal\",\r\n    \"electrical_wiring\": \"electrical_wiring\",\r\n    \"ventilation\": \"ventilation\",\r\n    \"colour_Temp\": \"colour_Temp\",\r\n    \"Kick_rail\": \"Kick_rail\",\r\n    \"detailed_drawing\": \"detailed_drawing\",\r\n    \"general_page\": \"general_page\",\r\n    \"material_legend\": \"material_legend\",\r\n    \"hyperlink\": \"hyperlink\",\r\n    \"prepared_by\": \"gfseg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}checklist/add",
+							"host": [
+								"{{address1}}checklist"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"job_id\": \"job_id\",\r\n    \"brand_name\": \"brand_name\",\r\n    \"checked_corrective_action\": \"checked_corrective_action\",\r\n    \"lod\": \"lod\",\r\n    \"site_survey\": \"site_survey\",\r\n    \"brand_guidelines\": \"brand_guidelines\",\r\n    \"material_sample_approval\": \"material_sample_approval\",\r\n    \"files_of_logo\": \"files_of_logo\",\r\n    \"posm\": \"posm\",\r\n    \"cover_letter\": \"cover_letter\",\r\n    \"material_list_with_ref\": \"material_list_with_ref\",\r\n    \"vendor_pack\": \"vendor_pack\",\r\n    \"views\": \"views\",\r\n    \"over_all_elevation\": \"over_all_elevation\",\r\n    \"flooring_material\": \"flooring_material\",\r\n    \"partition\": \"partition\",\r\n    \"mep_coordinated\": \"mep_coordinated\",\r\n    \"store_front\": \"store_front\",\r\n    \"signage\": \"signage\",\r\n    \"individual_furniture\": \"individual_furniture\",\r\n    \"glass_fixing\": \"glass_fixing\",\r\n    \"detailed_measurement\": \"detailed_measurement\",\r\n    \"metal_structure\": \"metal_structure\",\r\n    \"specify_metal\": \"specify_metal\",\r\n    \"electrical_wiring\": \"electrical_wiring\",\r\n    \"ventilation\": \"ventilation\",\r\n    \"colour_Temp\": \"colour_Temp\",\r\n    \"Kick_rail\": \"Kick_rail\",\r\n    \"detailed_drawing\": \"detailed_drawing\",\r\n    \"general_page\": \"general_page\",\r\n    \"material_legend\": \"material_legend\",\r\n    \"hyperlink\": \"hyperlinkzvsd\",\r\n    \"prepared_by\": \"\",\r\n    \"checklist_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}checklist/edit",
+							"host": [
+								"{{address}}checklist"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"checklist_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}checklist/delete",
+							"host": [
+								"{{address}}checklist"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}checklist/detail/6179afe3cf0b9331c855d458",
+							"host": [
+								"{{address}}checklist"
+							],
+							"path": [
+								"detail",
+								"6179afe3cf0b9331c855d458"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}checklist/list?offset=0&limit=10",
+							"host": [
+								"{{address1}}checklist"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "corrective action",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Job\":\"61953cc03a23453cc29f2e17\",\r\n    \"brand_name\":\"brand_name\",\r\n    \"previous_designer\":\"61799e2384302b19701c3d8c\",\r\n    \"assigned_to\":\"61799e2384302b19701c3d8c\",\r\n    \"reason\":\"reason\",\r\n    \"time_required\":\"time_required\",\r\n    \"solution\":\"asfsagfsdg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}corrective/add",
+							"host": [
+								"{{address1}}corrective"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"job_id\":\"job_id\",\r\n    \"brand_name\":\"brand_name\",\r\n    \"previous_designer\":\"previous_designer\",\r\n    \"assigned_to\":\"assigned_to\",\r\n    \"reason\":\"reason\",\r\n    \"time_required\":\"time_required\",\r\n    \"solution\":\"\",\r\n    \"corrective_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}corrective/edit",
+							"host": [
+								"{{address}}corrective"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"corrective_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}corrective/delete",
+							"host": [
+								"{{address}}corrective"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}corrective/detail/6179b2751da5fe2e9846f109",
+							"host": [
+								"{{address}}corrective"
+							],
+							"path": [
+								"detail",
+								"6179b2751da5fe2e9846f109"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}corrective/list?offset=0&limit=10",
+							"host": [
+								"{{address}}corrective"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "daily update",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Job\": \"61953cc03a23453cc29f2e17\",\r\n    \"name\": \"name\",\r\n    \"drawing_name\": \"drawing_name\",\r\n    \"required_hours\": \"required_hours\",\r\n    \"used_hour\": \"used_hour\",\r\n    \"date\": \"2021-10-27T20:11:33.00Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}daily_update/add",
+							"host": [
+								"{{address1}}daily_update"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"job_id\": \"job_id\",\r\n    \"name\": \"name\",\r\n    \"drawing_name\": \"drawing_name\",\r\n    \"required_hours\": \"required_hours\",\r\n    \"used_hour\": \"used_hour\",\r\n    \"date\": \"2021-10-27T20:11:33.00Z\",\r\n    \"daily_update_id\":\"6179b403eeb4ff27541a19ac\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}daily_update/edit",
+							"host": [
+								"{{address}}daily_update"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"daily_update_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}daily_update/delete",
+							"host": [
+								"{{address}}daily_update"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}daily_update/detail/6179afe3cf0b9331c855d458",
+							"host": [
+								"{{address}}daily_update"
+							],
+							"path": [
+								"detail",
+								"6179afe3cf0b9331c855d458"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}daily_update/list?offset=0&limit=10",
+							"host": [
+								"{{address}}daily_update"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "design detail",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"Job\":\"61953cc03a23453cc29f2e17\",\r\n\"brand_name\":\"brand_name\",\r\n\"location\":\"location\",\r\n\"assigned_to\":\"assigned_to\",\r\n\"status\":\"status\",\r\n\"required_hours\":\"required_hours\",\r\n\"start_date\":\"2021-10-27T20:11:33.00Z\",\r\n\"first_set_submission\":\"2021-10-27T20:11:33.00Z\",\r\n\"comment\":\"2021-10-27T20:11:33.00Z\",\r\n\"revision\":\"revision\",\r\n\"total_hours_taken\":\"total_hours_taken\",\r\n\"final_approval\":\"2021-10-27T20:11:33.00Z\",\r\n\"updated_by\":\"updated_by\"   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}design_detail/add",
+							"host": [
+								"{{address1}}design_detail"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"job_id\": \"job_id\",\r\n    \"brand_name\": \"brand_name\",\r\n    \"checked_corrective_action\": \"checked_corrective_action\",\r\n    \"lod\": \"lod\",\r\n    \"site_survey\": \"site_survey\",\r\n    \"brand_guidelines\": \"brand_guidelines\",\r\n    \"material_sample_approval\": \"material_sample_approval\",\r\n    \"files_of_logo\": \"files_of_logo\",\r\n    \"posm\": \"posm\",\r\n    \"cover_letter\": \"cover_letter\",\r\n    \"material_list_with_ref\": \"material_list_with_ref\",\r\n    \"vendor_pack\": \"vendor_pack\",\r\n    \"views\": \"views\",\r\n    \"over_all_elevation\": \"over_all_elevation\",\r\n    \"flooring_material\": \"flooring_material\",\r\n    \"partition\": \"partition\",\r\n    \"mep_coordinated\": \"mep_coordinated\",\r\n    \"store_front\": \"store_front\",\r\n    \"signage\": \"signage\",\r\n    \"individual_furniture\": \"individual_furniture\",\r\n    \"glass_fixing\": \"glass_fixing\",\r\n    \"detailed_measurement\": \"detailed_measurement\",\r\n    \"metal_structure\": \"metal_structure\",\r\n    \"specify_metal\": \"specify_metal\",\r\n    \"electrical_wiring\": \"electrical_wiring\",\r\n    \"ventilation\": \"ventilation\",\r\n    \"colour_Temp\": \"colour_Temp\",\r\n    \"Kick_rail\": \"Kick_rail\",\r\n    \"detailed_drawing\": \"detailed_drawing\",\r\n    \"general_page\": \"general_page\",\r\n    \"material_legend\": \"material_legend\",\r\n    \"hyperlink\": \"hyperlinkzvsd\",\r\n    \"prepared_by\": \"\",\r\n    \"checklist_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}design_detail/edit",
+							"host": [
+								"{{address}}design_detail"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"checklist_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}design_detail/delete",
+							"host": [
+								"{{address}}design_detail"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}design_detail/detail/6179afe3cf0b9331c855d458",
+							"host": [
+								"{{address}}design_detail"
+							],
+							"path": [
+								"detail",
+								"6179afe3cf0b9331c855d458"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}design_detail/list?offset=0&limit=10",
+							"host": [
+								"{{address}}design_detail"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "electrical",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"Name\",\r\n    \"Completion_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Material_Received\":false,\r\n    \"Imported_Material\":true,\r\n    \"Locally_Sourced_Material\":true,\r\n    \"Fixing\":true,\r\n    \"Quality_Inspection\":true,\r\n    \"Quality_Inspection_by\":\"Quality_Inspection_by\",\r\n    \"Note\":\"Note\",\r\n    \"Job\":\"61953cc03a23453cc29f2e17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}electrical/add",
+							"host": [
+								"{{address1}}electrical"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"Name\",\r\n    \"Completion_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Material_Received\":true,\r\n    \"Imported_Material\":true,\r\n    \"Locally_Sourced_Material\":true,\r\n    \"Fixing\":true,\r\n    \"Quality_Inspection\":true,\r\n    \"Quality_Inspection_by\":\"Quality_Inspection_by\",\r\n    \"Note\":\"Note\",\r\n    \"Job_ID_id\":\"\",\r\n    \"electrical_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}electrical/edit",
+							"host": [
+								"{{address}}electrical"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"electrical_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}electrical/delete",
+							"host": [
+								"{{address}}electrical"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}electrical/detail/6179afe3cf0b9331c855d458",
+							"host": [
+								"{{address}}electrical"
+							],
+							"path": [
+								"detail",
+								"6179afe3cf0b9331c855d458"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}electrical/list?offset=0&limit=10",
+							"host": [
+								"{{address}}electrical"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "final",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"Name\",\r\n    \"Material_Received\":true,\r\n    \"Completion_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Furniture_Assembly\":true,\r\n    \"Painting\":true,\r\n    \"Glass\":false,\r\n    \"Acrylic\":true,\r\n    \"Visual_and_Artwork\":true,\r\n    \"POSM\":true,\r\n    \"Packing_Box\":true,\r\n    \"Quality_Inspection\":false,\r\n    \"Quality_Inspection_by\":\"Quality_Inspection_by\",\r\n    \"Packing\":true,\r\n    \"Note\":\"Note\",\r\n    \"Job\":\"61953cc03a23453cc29f2e17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}final/add",
+							"host": [
+								"{{address1}}final"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"Name\",\r\n    \"Material_Received\":true,\r\n    \"Completion_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Furniture_Assembly\":true,\r\n    \"Painting\":true,\r\n    \"Glass\":false,\r\n    \"Acrylic\":true,\r\n    \"Visual_and_Artwork\":true,\r\n    \"POSM\":true,\r\n    \"Packing_Box\":true,\r\n    \"Quality_Inspection\":false,\r\n    \"Quality_Inspection_by\":\"Quality_Inspection_by\",\r\n    \"Packing\":true,\r\n    \"Note\":\"Note\",\r\n    \"Job\":\"61953cc03a23453cc29f2e17\",\r\n    \"final_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}final/edit",
+							"host": [
+								"{{address1}}final"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"final_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}final/delete",
+							"host": [
+								"{{address}}final"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}final/detail/6179afe3cf0b9331c855d458",
+							"host": [
+								"{{address}}final"
+							],
+							"path": [
+								"detail",
+								"6179afe3cf0b9331c855d458"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}final/list?offset=0&limit=10",
+							"host": [
+								"{{address}}final"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "job card",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Quotation\":\"Quotation\",\r\n    \"Job_No\":1,\r\n    \"Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Quotation_Approval_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Project_Reference\":\"Project_Reference\",\r\n    \"Project_type\":\"Project_type\",\r\n    \"Project_Title\":\"Project_Title\",\r\n    \"Project_Co\":\"Project_Co\",\r\n    \"Drawing_Start_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Production_Start_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Production_Completion_Date\":\"2021-10-27T20:11:33.00Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}job_card/add",
+							"host": [
+								"{{address1}}job_card"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Quotation\":\"Quotation\",\r\n    \"Job_No\":1,\r\n    \"Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Quotation_Approval_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Project_Reference\":\"Project_Reference\",\r\n    \"Project_type\":\"Project_type\",\r\n    \"Project_Title\":\"Project_Title\",\r\n    \"Project_Co\":\"Project_Co\",\r\n    \"Drawing_Start_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Production_Start_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Production_Completion_Date\":\"2021-10-27T20:11:33.00Z\",\r\n       \"job_card_id\":\"6179afe3cf0b9331c855d458\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}job_card/edit",
+							"host": [
+								"{{address}}job_card"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}job_card/detail/6179afe3cf0b9331c855d458",
+							"host": [
+								"{{address}}job_card"
+							],
+							"path": [
+								"detail",
+								"6179afe3cf0b9331c855d458"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}job_card/list?offset=0&limit=10",
+							"host": [
+								"{{address}}job_card"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "joinery",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"Name\",\r\n    \"Material_Received\":true,\r\n    \"Completion_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Wooden_structure\":true,\r\n    \"Hardware_Fixing\":true,\r\n    \"Cladding\":true,\r\n    \"Metal_Frames\":true,\r\n    \"Quality_Inspection\":true,\r\n    \"Quality_Inspection_by\":\"Quality_Inspection_by\",\r\n    \"Note\":\"Note\",\r\n    \"Job\":\"61953cc03a23453cc29f2e17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}joinery/add",
+							"host": [
+								"{{address1}}joinery"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"Name\":\"Name\",\r\n    \"Material_Received\":true,\r\n    \"Completion_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Wooden_structure\":true,\r\n    \"Hardware_Fixing\":true,\r\n    \"Cladding\":true,\r\n    \"Metal_Frames\":true,\r\n    \"Quality_Inspection\":true,\r\n    \"Quality_Inspection_by\":\"Quality_Inspection_by\",\r\n    \"Note\":\"Note\",\r\n    \"Job_ID_id\":\"61953cc03a23453cc29f2e17\",\r\n    \"joinery_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}joinery/edit",
+							"host": [
+								"{{address}}joinery"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"joinery_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}joinery/delete",
+							"host": [
+								"{{address}}joinery"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}joinery/detail/6179afe3cf0b9331c855d458",
+							"host": [
+								"{{address}}joinery"
+							],
+							"path": [
+								"detail",
+								"6179afe3cf0b9331c855d458"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}joinery/list?offset=0&limit=10",
+							"host": [
+								"{{address}}joinery"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "metal",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"Name\",\r\n    \"Material_Received\":true,\r\n    \"Completion_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Laser_Cutting\":true,\r\n    \"Fabrication\":true,\r\n    \"Polishing\":true,\r\n    \"Quality_Inspection\":true,\r\n    \"Quality_Inspection_by\":\"Quality_Inspection_by\",\r\n    \"Note\":\"Note\",\r\n    \"Job\":\"61953cc03a23453cc29f2e17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}metal/add",
+							"host": [
+								"{{address1}}metal"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"Name\",\r\n    \"Material_Received\":true,\r\n    \"Completion_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Laser_Cutting\":true,\r\n    \"Fabrication\":true,\r\n    \"Polishing\":true,\r\n    \"Quality_Inspection\":true,\r\n    \"Quality_Inspection_by\":\"Quality_Inspection_by\",\r\n    \"Note\":\"Note\",\r\n    \"metal_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}metal/edit",
+							"host": [
+								"{{address}}metal"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"metal_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}metal/delete",
+							"host": [
+								"{{address}}metal"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}metal/detail/6179afe3cf0b9331c855d458",
+							"host": [
+								"{{address}}metal"
+							],
+							"path": [
+								"detail",
+								"6179afe3cf0b9331c855d458"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}metal/list?offset=0&limit=10",
+							"host": [
+								"{{address}}metal"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "paint",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"Name\",\r\n    \"Material_Received\":true,\r\n    \"Completion_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Primer\":true,\r\n    \"Sanding\":false,\r\n    \"Final_Paint\":false,\r\n    \"Polishing\":false,\r\n    \"Quality_Inspection\":false,\r\n    \"Quality_Inspection_by\":\"Quality_Inspection_by\",\r\n    \"Note\":\"Note\",\r\n    \"Job\":\"61953cc03a23453cc29f2e17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}paint/add",
+							"host": [
+								"{{address1}}paint"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"Name\":\"Name\",\r\n    \"Material_Received\":true,\r\n    \"Completion_Date\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Primer\":true,\r\n    \"Sanding\":false,\r\n    \"Final_Paint\":false,\r\n    \"Polishing\":false,\r\n    \"Quality_Inspection\":false,\r\n    \"Quality_Inspection_by\":\"Quality_Inspection_by\",\r\n    \"Note\":\"Note\",\r\n    \"Job_ID_id\":\"\",\r\n    \"paint_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}paint/edit",
+							"host": [
+								"{{address}}paint"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"paint_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}paint/delete",
+							"host": [
+								"{{address}}paint"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}paint/detail/6179afe3cf0b9331c855d458",
+							"host": [
+								"{{address}}paint"
+							],
+							"path": [
+								"detail",
+								"6179afe3cf0b9331c855d458"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}paint/list?offset=0&limit=10",
+							"host": [
+								"{{address}}paint"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "project",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Project_Manager\":\"Project_Manager\",\r\n   \"Job\":\"61953cc03a23453cc29f2e17\",\r\n   \"Project_Name\":\"Project_Name\",\r\n   \"Client_Name\":\"Client_Name\",\r\n   \"Client_Contact\":\"Client_Contact\",\r\n   \"Delivery_Date\":\"2021-10-27T20:11:33.00Z\",\r\n   \"Production_Start_Date\":\"2021-10-27T20:11:33.00Z\",\r\n   \"Installation_Date\":\"2021-10-27T20:11:33.00Z\",\r\n   \"About_Client\":\"About_Client\",\r\n   \"Drawing_Link\":\"fdsg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}project/add",
+							"host": [
+								"{{address1}}project"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Project_Manager\":\"Project_Manager\",\r\n   \"job_id\":\"job_id\",\r\n   \"Project_Name\":\"Project_Name\",\r\n   \"Client_Name\":\"Client_Name\",\r\n   \"Client_Contact\":\"Client_Contact\",\r\n   \"Delivery_Date\":\"2021-10-27T20:11:33.00Z\",\r\n   \"Production_Start_Date\":\"2021-10-27T20:11:33.00Z\",\r\n   \"Installation_Date\":\"2021-10-27T20:11:33.00Z\",\r\n   \"About_Client\":\"About_Client\",\r\n   \"Drawing_Link\":\"\",\r\n    \"project_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}project/edit",
+							"host": [
+								"{{address}}project"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"project_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}project/delete",
+							"host": [
+								"{{address}}project"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}project/detail/6179afe3cf0b9331c855d458",
+							"host": [
+								"{{address}}project"
+							],
+							"path": [
+								"detail",
+								"6179afe3cf0b9331c855d458"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}project/list?offset=0&limit=10",
+							"host": [
+								"{{address}}project"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "retro plan",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Job\": \"61953cc03a23453cc29f2e17\",\r\n    \"name\": \"name\",\r\n    \"survey\": \"2021-10-27T20:11:33.00\",\r\n    \"drawing_start\": \"2021-10-27T20:11:33.00Z\",\r\n    \"first_revision\": \"2021-10-27T20:11:33.00Z\",\r\n    \"first_mr\": \"2021-10-27T20:11:33.00Z\",\r\n    \"procurement_first_mr\": \"2021-10-27T20:11:33.00Z\",\r\n    \"drawing_approvel\": \"2021-10-27T20:11:33.00Z\",\r\n    \"Second_mr\": \"2021-10-27T20:11:33.00Z\",\r\n    \"procurement_second_mr\": \"2021-10-27T20:11:33.00Z\",\r\n    \"sub_assembly\": \"2021-10-27T20:11:33.00Z\",\r\n    \"structure_inspection\": \"2021-10-27T20:11:33.00Z\",\r\n    \"paint\": \"2021-10-27T20:11:33.00Z\",\r\n    \"final\": \"2021-10-27T20:11:33.00\",\r\n    \"packing\": \"2021-10-27T20:11:33.00\",\r\n    \"delivery\": \"2021-10-27T20:11:33.00\",\r\n    \"hoarding\": \"hoarding\",\r\n    \"civil_mep_works\": \"civil_mep_works\",\r\n    \"Install\": \"2021-10-27T20:11:33.00\",\r\n    \"handover\": \"2021-10-27T20:11:33.00\",\r\n    \"project\": \"afas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}retro_plan/add",
+							"host": [
+								"{{address1}}retro_plan"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Job_No\": \"Job_No\",\r\n    \"name\": \"name\",\r\n    \"survey\": \"2021-10-27T20:11:33.00\",\r\n    \"drawing_start\": \"2021-10-27T20:11:33.00Z\",\r\n    \"first_revision\": \"2021-10-27T20:11:33.00Z\",\r\n    \"first_mr\": \"2021-10-27T20:11:33.00Z\",\r\n    \"procurement_first_mr\": \"2021-10-27T20:11:33.00Z\",\r\n    \"drawing_approvel\": \"2021-10-27T20:11:33.00Z\",\r\n    \"Second_mr\": \"2021-10-27T20:11:33.00Z\",\r\n    \"procurement_second_mr\": \"2021-10-27T20:11:33.00Z\",\r\n    \"sub_assembly\": \"2021-10-27T20:11:33.00Z\",\r\n    \"structure_inspection\": \"2021-10-27T20:11:33.00Z\",\r\n    \"paint\": \"2021-10-27T20:11:33.00Z\",\r\n    \"final\": \"2021-10-27T20:11:33.00\",\r\n    \"packing\": \"2021-10-27T20:11:33.00\",\r\n    \"delivery\": \"2021-10-27T20:11:33.00\",\r\n    \"hoarding\": \"hoarding\",\r\n    \"civil_mep_works\": \"civil_mep_works\",\r\n    \"Install\": \"2021-10-27T20:11:33.00\",\r\n    \"handover\": \"2021-10-27T20:11:33.00\",\r\n    \"project\": \"afas\",\r\n    \"retro_plan_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}retro_plan/edit",
+							"host": [
+								"{{address}}retro_plan"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"retro_plan_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}retro_plan/delete",
+							"host": [
+								"{{address}}retro_plan"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}retro_plan/detail/6179afe3cf0b9331c855d458",
+							"host": [
+								"{{address}}retro_plan"
+							],
+							"path": [
+								"detail",
+								"6179afe3cf0b9331c855d458"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}retro_plan/list?offset=0&limit=10",
+							"host": [
+								"{{address}}retro_plan"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "status",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"Name\":\"Name\",\r\n    \"Status\":\"Status\",\r\n    \"stage\":\"stage\",\r\n    \"Structure\":\"2021-10-27T20:11:33.00Z\",\r\n    \"inspect_struct\":true,\r\n    \"paint\":\"2021-10-27T20:11:33.00Z\",\r\n    \"inspect_paint\":true,\r\n    \"Final\":\"2021-10-27T20:11:33.00Z\",\r\n    \"inspect_final\":true,\r\n    \"on_time\":true,\r\n    \"Last\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Note\":\"Note\",\r\n    \"Updated_by\":\"Updated_by\",\r\n    \"Job\":\"61953cc03a23453cc29f2e17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address1}}status/add",
+							"host": [
+								"{{address1}}status"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"Name\":\"Name\",\r\n    \"Status\":\"Status\",\r\n    \"stage\":\"stage\",\r\n    \"Structure\":\"2021-10-27T20:11:33.00Z\",\r\n    \"inspect_struct\":true,\r\n    \"paint\":\"2021-10-27T20:11:33.00Z\",\r\n    \"inspect_paint\":true,\r\n    \"Final\":\"2021-10-27T20:11:33.00Z\",\r\n    \"inspect_final\":true,\r\n    \"on_time\":true,\r\n    \"Last\":\"2021-10-27T20:11:33.00Z\",\r\n    \"Note\":\"Note\",\r\n    \"Updated_by\":\"Updated_by\",\r\n    \"Job_ID_id\":\"Job_ID_id\",\r\n    \"status_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}status/edit",
+							"host": [
+								"{{address}}status"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status_id\":\"6179afe3cf0b9331c855d458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}status/delete",
+							"host": [
+								"{{address}}status"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}status/detail/6179afe3cf0b9331c855d458",
+							"host": [
+								"{{address}}status"
+							],
+							"path": [
+								"detail",
+								"6179afe3cf0b9331c855d458"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}status/list?offset=0&limit=10",
+							"host": [
+								"{{address}}status"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "wqkwq",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

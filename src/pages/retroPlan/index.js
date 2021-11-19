@@ -49,7 +49,7 @@ const RetroPlanPage = () => {
   const dispatch = useDispatch();
   const handleOpenDialog = () => {
     setDialogOpen(true);
-    dispatch(getDropdown('job_card'))
+    dispatch(getDropdown("job_card"));
   };
   const handleDialogClose = () => {
     setDialogOpen(false);
@@ -68,7 +68,7 @@ const RetroPlanPage = () => {
   );
   useEffect(() => {
     postResponse?.success === true && setAlertOpen(true);
-    postResponse?.success === true && dispatch(getData("user"));
+    postResponse?.success === true && dispatch(getData("retro_plan"));
     postResponse?.success === true && setDialogOpen(false);
     postError && dispatch(clearPostResponse());
     postError && setErrorMessage(postError);
@@ -77,7 +77,7 @@ const RetroPlanPage = () => {
     }, 3000);
   }, [postResponse, postError]);
   useEffect(() => {
-    dispatch(getData("user"));
+    dispatch(getData("retro_plan"));
     return () => {
       dispatch(clearData());
     };
@@ -96,36 +96,37 @@ const RetroPlanPage = () => {
         <Loader />
       ) : (
         <>
-          <Grid container justify='space-between' spacing={8}>
+          <Grid container justify="space-between" spacing={8}>
             <Grid item xs={6}>
-              <Grid container direction='column' spacing={2}>
+              <Grid container direction="column" spacing={2}>
                 <Grid item xs={12}>
-                  <CustomSearch placeholder='Search for employees' />
+                  <CustomSearch placeholder="Search for employees" />
                 </Grid>
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justify='flex-end' spacing={2}>
+              <Grid container justify="flex-end" spacing={2}>
                 <Grid item>
                   <CustomButton
-                    width='110px'
-                    variant='outlined'
-                    onClick={handleOpenDialog}>
+                    width="110px"
+                    variant="outlined"
+                    onClick={handleOpenDialog}
+                  >
                     Add Retro Plan
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width='110px' variant='outlined'>
+                  <CustomButton width="110px" variant="outlined">
                     Import
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width='110px' variant='outlined'>
+                  <CustomButton width="110px" variant="outlined">
                     Export
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width='110px' variant='outlined'>
+                  <CustomButton width="110px" variant="outlined">
                     View in excel
                   </CustomButton>
                 </Grid>
@@ -140,7 +141,7 @@ const RetroPlanPage = () => {
         </>
       )}
       <CustomDialog
-        title={`Add Employee Details`}
+        title={`Add Retro Plan`}
         open={dialogOpen}
         onClose={handleDialogClose}
         onCancelClick={handleDialogClose}
@@ -162,7 +163,7 @@ const RetroPlanPage = () => {
           onClose={() => setAlertOpen(false)}
           vertical={"bottom"}
           horizontal={"center"}
-          severity='success'
+          severity="success"
           actions={false}
         />
       )}
