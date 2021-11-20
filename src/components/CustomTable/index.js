@@ -75,6 +75,7 @@ const useStyles = makeStyles({
   container: {
     maxHeight: (props) => props.height || 300,
     padding: "0px 25px",
+    borderRadius: 25,
   },
   completed: {
     backgroundColor: "#29D60D",

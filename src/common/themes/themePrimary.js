@@ -81,6 +81,7 @@ const themePrimary = createMuiTheme({
         "*::-webkit-scrollbar-track": {
           boxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
           webkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
+          margin: 40,
         },
         "*::-webkit-scrollbar-thumb": {
           backgroundColor: "rgba(0,0,0,.1)",
