@@ -63,6 +63,7 @@ const RetroPlanPage = () => {
   const handleCompleteButtonClick = () => {
     dispatch(postFormData("retro_plan", formData));
   };
+  console.log(formData);
 
   const { loading, error, responseData } = useSelector(
     (state) => state.getData

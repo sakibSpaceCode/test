@@ -17,14 +17,16 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
   useEffect(() => {
     setInputs(initModel);
   }, [initModel]);
-  const handleChange = (e) => {
+  const handleChange = (e, newValue) => {
     inputs?.forEach((i) => {
-      if (i.name === e?.target?.name) {
-        i.value =
-          
-            e.target.value;
+      if (i.name === "Job" && newValue) {
+        i.value = newValue?._id;
+        console.log("2");
+      } else if (i.name === e?.target?.name) {
+        i.value = e.target.value;
+        console.log(i.name, i.value);
         parseInput(i);
-        i?.label?.includes('*') && validateInput(i);
+        i?.label?.includes("*") && validateInput(i);
       }
     });
     setInputs([...inputs]);
@@ -61,12 +63,10 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
   };
 
   const handleSubmit = (nextClick) => {
-    
     // inputs.forEach((i) => validateInput(i));
     inputs?.some((i) => i.alert)
       ? setInputs([...inputs])
       : submitCallback(nextClick);
-      
   };
 
   const parseInput = (input) =>

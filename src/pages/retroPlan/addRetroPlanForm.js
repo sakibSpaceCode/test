@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CustomInput from "../../components/CustomInput";
 import CustomSelect from "../../components/CustomSelect";
 import DatePicker from "../../components/CustomDate/date-picker.container";
+import AutoComplete from "../../components/Autcomplete";
 
 const useStyles = makeStyles((theme) => ({
   inputLabel: {
@@ -44,16 +45,21 @@ const AddRetroPlanForm = (props) => {
   const handleDateChange = (e, date) => {
     setFormData({ ...formData, [e]: date });
   };
+  console.log(options);
+  const handleAutocompleteChnage = (e, newValue) => {
+    
+    setFormData({ ...formData, [e]: newValue?._id });
+  };
 
   return (
     <Grid>
       <Grid container spacing={5} justify={"space-between"} alignItems="center">
         <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>Job No.</InputLabel>
-          <CustomSelect
-            onChange={onFormChange}
+          <AutoComplete
+            onChange={handleAutocompleteChnage}
             name="Job"
-            value={formData.Job}
+            value={options?.filter((val) => val?._id === formData.Job)[0]}
             fullWidth
             style={{ width: 300 }}
             className={classes.textField}
@@ -237,7 +243,9 @@ const AddRetroPlanForm = (props) => {
           />
         </Grid>
         <Grid item md={6} className={classes.inputField}>
-          <InputLabel className={classes.inputLabel}>Paint Inspection</InputLabel>
+          <InputLabel className={classes.inputLabel}>
+            Paint Inspection
+          </InputLabel>
           <DatePicker
             inputVariant="outlined"
             format="dd-MM-yyyy"
@@ -250,7 +258,9 @@ const AddRetroPlanForm = (props) => {
           />
         </Grid>
         <Grid item md={6} className={classes.inputField}>
-          <InputLabel className={classes.inputLabel}>First Final Inspection</InputLabel>
+          <InputLabel className={classes.inputLabel}>
+            First Final Inspection
+          </InputLabel>
           <DatePicker
             inputVariant="outlined"
             format="dd-MM-yyyy"
@@ -259,11 +269,15 @@ const AddRetroPlanForm = (props) => {
             width={"100%"}
             height={50}
             value={formData.first_final_inspection}
-            handleDate={(date) => handleDateChange("first_final_inspection", date)}
+            handleDate={(date) =>
+              handleDateChange("first_final_inspection", date)
+            }
           />
         </Grid>
         <Grid item md={6} className={classes.inputField}>
-          <InputLabel className={classes.inputLabel}>Second Final Inspection</InputLabel>
+          <InputLabel className={classes.inputLabel}>
+            Second Final Inspection
+          </InputLabel>
           <DatePicker
             inputVariant="outlined"
             format="dd-MM-yyyy"
@@ -272,7 +286,9 @@ const AddRetroPlanForm = (props) => {
             width={"100%"}
             height={50}
             value={formData.second_final_inspection}
-            handleDate={(date) => handleDateChange("second_final_inspection", date)}
+            handleDate={(date) =>
+              handleDateChange("second_final_inspection", date)
+            }
           />
         </Grid>
         <Grid item md={6} className={classes.inputField}>
@@ -394,7 +410,7 @@ const AddRetroPlanForm = (props) => {
           </InputLabel>
           <CustomInput
             onChange={onFormChange}
-            name='civil_mep_works'
+            name="civil_mep_works"
             value={formData.civil_mep_works}
             //   type={formData.type}
             //   helperText={formData.alert}
@@ -402,7 +418,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             style={{ width: 300 }}
             className={classes.textField}
-            size='lg'
+            size="lg"
           />
         </Grid>
       </Grid>

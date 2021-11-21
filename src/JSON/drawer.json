@@ -468,7 +468,6 @@
           }
         ]
       }
-      
     ],
     "apiUrl": "job_card"
   },
@@ -493,7 +492,7 @@
           {
             "name": "Job",
             "label": "Job ID *",
-            "type": "select",
+            "type": "autocomplete",
             "validators": [
               {
                 "alert": "is required",

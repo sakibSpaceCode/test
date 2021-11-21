@@ -19,6 +19,7 @@ import DatePicker from "../../components/CustomDate/date-picker.container";
 // import CustomInput from "components/inputfeild";
 // import SelectOption from "components/select";
 import { useDispatch, useSelector } from "react-redux";
+import AutoComplete from "../../components/Autcomplete";
 const useStyles = makeStyles((theme) => ({
   inputLabel: {
     marginBottom: 8,
@@ -104,7 +105,8 @@ const FormContainer = (props) => {
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}>
+        key={input.name}
+      >
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomInput
           key={input.name}
@@ -131,7 +133,8 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}>
+        key={input.name}
+      >
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomSelect
           key={input.name}
@@ -144,7 +147,7 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          size='lg'
+          size="lg"
           options={
             input.name === "Job"
               ? options
@@ -205,12 +208,13 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}>
+        key={input.name}
+      >
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <DatePicker
-          inputVariant='outlined'
-          format='dd-MM-yyyy'
-          placeholder='DD-MM-YYYY'
+          inputVariant="outlined"
+          format="dd-MM-yyyy"
+          placeholder="DD-MM-YYYY"
           fullWidth
           width={"100%"}
           height={50}
@@ -223,6 +227,21 @@ const FormContainer = (props) => {
           </div>
         )}
       </Grid>
+    ) : input.type === "autocomplete" ? (
+      <Grid item md={6} className={classes.inputField}>
+        <InputLabel className={classes.inputLabel}>Job No.</InputLabel>
+        <AutoComplete
+          onChange={(e, newValue) => onFormChange(e, newValue)}
+          name={input.name}
+          value={options?.filter((val) => val?._id === input.value)[0]}
+          fullWidth
+          style={{ width: 300 }}
+          className={classes.textField}
+          size="lg"
+          options={options}
+          isJob
+        />
+      </Grid>
     ) : (
       ""
     );
@@ -232,7 +251,7 @@ const FormContainer = (props) => {
     <Grid>
       <Grid container spacing={5}>
         {inputs?.length === 0 ? (
-          <Typography variant='body2' className={classes.nofields}>
+          <Typography variant="body2" className={classes.nofields}>
             No Fields Available.
           </Typography>
         ) : (

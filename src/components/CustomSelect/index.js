@@ -64,7 +64,7 @@ const CustomSelect = (props) => {
           value={value}
           style={{ minWidth: minWidth && minWidth }}
           onChange={onChange}
-          className={classes.root}
+          MenuStyles
           inputProps={{ "aria-label": "Without label" }}
           onFocus={onFocus}
           MenuProps={{

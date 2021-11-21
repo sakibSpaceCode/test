@@ -99,7 +99,6 @@ export default function CustomTable({ height, response, local }) {
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
-  console.log(response);
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
@@ -191,7 +190,6 @@ export default function CustomTable({ height, response, local }) {
                   <TableRow hover role="checkbox" tabIndex={-1} key={row.key}>
                     {response?.data?.header?.map((column) => {
                       let value = row[column.key];
-                      console.log(value);
                       if (
                         column.key === "start_date" ||
                         column.key === "first_set_submission" ||
