@@ -14,11 +14,11 @@ const MenuStyles = makeStyles((theme) => ({
   form: {
     backgroundColor: theme.palette.colors.white,
     "& .MuiOutlinedInput-root": {
-      padding: "15px 20px",
+      padding: "4px 10px",
       background: "#F4F7FE",
       outline: "1px solid #618EFF",
 
-      height: 50,
+      
       borderRadius: "8px",
     },
     "& .MuiSelect-select:focus": {

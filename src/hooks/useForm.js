@@ -17,10 +17,11 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
   useEffect(() => {
     setInputs(initModel);
   }, [initModel]);
-  const handleChange = (e, newValue) => {
+  const handleChange = (e, newValue, flag = false) => {
     inputs?.forEach((i) => {
-      if (i.name === "Job" && newValue) {
+      if (i.name === "Job" && newValue && flag) {
         i.value = newValue?._id;
+        parseInput(i);
         console.log("2");
       } else if (i.name === e?.target?.name) {
         i.value = e.target.value;

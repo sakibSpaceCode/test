@@ -231,7 +231,7 @@ const FormContainer = (props) => {
       <Grid item md={6} className={classes.inputField}>
         <InputLabel className={classes.inputLabel}>Job No.</InputLabel>
         <AutoComplete
-          onChange={(e, newValue) => onFormChange(e, newValue)}
+          onChange={(e, newValue) => onFormChange(e, newValue,true)}
           name={input.name}
           value={options?.filter((val) => val?._id === input.value)[0]}
           fullWidth
