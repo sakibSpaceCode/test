@@ -156,6 +156,17 @@
             "valId": "SCVAL001"
           }
         ]
+      },
+      {
+        "name": "Quantity",
+        "label": "Quanitiy",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ],
     "apiUrl": "job_card"
@@ -223,6 +234,17 @@
             ]
           },
           {
+            "name": "project_size",
+            "label": "Project Size",
+            "type": "select",
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
             "name": "status",
             "label": "Status",
             "type": "select",
@@ -269,7 +291,7 @@
           {
             "name": "comment",
             "label": "Comment",
-            "type": "date",
+            "type": "text",
             "validators": [
               {
                 "alert": "is required",
@@ -280,7 +302,7 @@
           {
             "name": "revision",
             "label": "Revision",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -688,7 +710,7 @@
           {
             "name": "prepared_by",
             "label": "Prepared by",
-            "type": "select",
+            "type": "text",
             "bigSize": true,
             "validators": [
               {
@@ -909,7 +931,7 @@
           {
             "name": "Status",
             "label": "Status",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -919,7 +941,7 @@
           },
           {
             "name": "stage",
-            "label": "Stage",
+            "label": "Please Specify",
             "type": "text",
             "validators": [
               {
@@ -928,7 +950,7 @@
               }
             ]
           },
-        
+
           {
             "name": "Structure",
             "label": "Structure Inspection",

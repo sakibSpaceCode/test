@@ -237,6 +237,58 @@ const AddRetroPlanForm = (props) => {
           />
         </Grid>
         <Grid item md={6} className={classes.inputField}>
+          <InputLabel className={classes.inputLabel}>Paint Inspection</InputLabel>
+          <DatePicker
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
+            fullWidth
+            width={"100%"}
+            height={50}
+            value={formData.paint_inspection}
+            handleDate={(date) => handleDateChange("paint_inspection", date)}
+          />
+        </Grid>
+        <Grid item md={6} className={classes.inputField}>
+          <InputLabel className={classes.inputLabel}>First Final Inspection</InputLabel>
+          <DatePicker
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
+            fullWidth
+            width={"100%"}
+            height={50}
+            value={formData.first_final_inspection}
+            handleDate={(date) => handleDateChange("first_final_inspection", date)}
+          />
+        </Grid>
+        <Grid item md={6} className={classes.inputField}>
+          <InputLabel className={classes.inputLabel}>Second Final Inspection</InputLabel>
+          <DatePicker
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
+            fullWidth
+            width={"100%"}
+            height={50}
+            value={formData.second_final_inspection}
+            handleDate={(date) => handleDateChange("second_final_inspection", date)}
+          />
+        </Grid>
+        <Grid item md={6} className={classes.inputField}>
+          <InputLabel className={classes.inputLabel}>Dispatch</InputLabel>
+          <DatePicker
+            inputVariant="outlined"
+            format="dd-MM-yyyy"
+            placeholder="DD-MM-YYYY"
+            fullWidth
+            width={"100%"}
+            height={50}
+            value={formData.dispatch}
+            handleDate={(date) => handleDateChange("dispatch", date)}
+          />
+        </Grid>
+        <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>
             Final Assembly Start Date
           </InputLabel>

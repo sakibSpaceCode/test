@@ -70,6 +70,33 @@ const FormContainer = (props) => {
     { name: "Yes", value: true },
     { name: "No", value: false },
   ];
+  const sizeOptions = [
+    { name: "Small", value: 'small' },
+    { name: "Medium", value: 'medium' },
+    { name: "Large", value: 'large' },
+  ];
+  const integerOptions = [
+    { name: "1", value: 1 },
+    { name: "2", value: 2 },
+    { name: "3", value: 3 },
+    { name: "4", value: 4 },
+    { name: "5", value: 5 },
+    { name: "6", value: 6 },
+    { name: "7", value: 7 },
+    { name: "8", value: 8 },
+    { name: "9", value: 9 },
+    { name: "10", value: 10 },
+    { name: "11", value: 11 },
+    { name: "12", value: 12 },
+    { name: "13", value: 13 },
+    { name: "14", value: 14 },
+    { name: "15", value: 15 },
+    { name: "16", value: 16 },
+    { name: "17", value: 17 },
+    { name: "18", value: 18 },
+    { name: "19", value: 19 },
+    { name: "20", value: 20 },
+  ];
   console.log(urlEndPoint, "opoo");
   const renderInput = (input) => {
     return input?.type === "text" ? (
@@ -77,7 +104,8 @@ const FormContainer = (props) => {
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}>
+        key={input.name}
+      >
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomInput
           key={input.name}
@@ -104,7 +132,8 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}>
+        key={input.name}
+      >
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomSelect
           key={input.name}
@@ -117,7 +146,7 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          size='lg'
+          size="lg"
           options={
             input.name === "Job"
               ? options
@@ -126,13 +155,19 @@ const FormContainer = (props) => {
                 urlEndPoint === "production/metal" ||
                 urlEndPoint === "production/joinery" ||
                 urlEndPoint === "production/paint" ||
-                urlEndPoint === "production/electrical"  || 
-                urlEndPoint === "production/final"   
+                urlEndPoint === "production/electrical" ||
+                urlEndPoint === "production/final"
               ? booleanOptions
+              : input.name === "revision"
+              ? integerOptions
+              : input.name === "project_size"
+              ? sizeOptions
               : defaultOptions
           }
-            isJob={input.name === "Job" ? true : false}
-            isChecked_corrective_action={input.name === "checked_corrective_action" ? true : false}
+          isJob={input.name === "Job" ? true : false}
+          isChecked_corrective_action={
+            input.name === "checked_corrective_action" ? true : false
+          }
         />
         {input.alert && (
           <div className={classes.selectAlert}>
@@ -147,12 +182,13 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}>
+        key={input.name}
+      >
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <DatePicker
-          inputVariant='outlined'
-          format='dd-MM-yyyy'
-          placeholder='DD-MM-YYYY'
+          inputVariant="outlined"
+          format="dd-MM-yyyy"
+          placeholder="DD-MM-YYYY"
           fullWidth
           width={"100%"}
           height={50}
@@ -174,7 +210,7 @@ const FormContainer = (props) => {
     <Grid>
       <Grid container spacing={5}>
         {inputs?.length === 0 ? (
-          <Typography variant='body2' className={classes.nofields}>
+          <Typography variant="body2" className={classes.nofields}>
             No Fields Available.
           </Typography>
         ) : (
