@@ -37,6 +37,7 @@ const AutoComplete = ({
   inputRef,
   nextClick,
   options,
+  isCommon,
 }) => {
   const classes = MenuStyles();
   return (
@@ -52,12 +53,14 @@ const AutoComplete = ({
           {...params}
           inputRef={inputRef}
           required
-          variant="outlined"
+          variant='outlined'
         />
       )}
-      onChange={(event, newValue) => {
-        onChange(name, newValue);
-      }}
+      onChange={
+         (event, newValue) => {
+              onChange(name, newValue);
+            }
+      }
       value={value ? value : null}
     />
   );

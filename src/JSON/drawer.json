@@ -492,7 +492,7 @@
           {
             "name": "Job",
             "label": "Job ID *",
-            "type": "autocomplete",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
