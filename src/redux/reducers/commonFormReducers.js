@@ -55,3 +55,108 @@ export const getDropdownReducer = (state = {}, action) => {
             return state;
     }
 };
+export const get2ndDropdownReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'GET_2ND_DROPDOWN_REQUEST':
+            return { ...state, loading: true };
+        case 'GET_2ND_DROPDOWN_SUCCESS':
+            return { ...state, loading: false, options2: action.payload };
+        case 'GET_2ND_DROPDOWN_ERROR':
+            return { ...state, loading: false, error: action.payload };
+        case 'CLEAR_2ND_DROP_DOWN':
+            return {};
+
+        default:
+            return state;
+    }
+};
+export const get3rdDropdownReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'GET_3RD_DROPDOWN_REQUEST':
+            return { ...state, loading: true };
+        case 'GET_3RD_DROPDOWN_SUCCESS':
+            return { ...state, loading: false, options3: action.payload };
+        case 'GET_3RD_DROPDOWN_ERROR':
+            return { ...state, loading: false, error: action.payload };
+        case 'CLEAR_3RD_DROP_DOWN':
+            return {};
+
+        default:
+            return state;
+    }
+};
+export const get4thDropdownReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'GET_4TH_DROPDOWN_REQUEST':
+            return { ...state, loading: true };
+        case 'GET_4TH_DROPDOWN_SUCCESS':
+            return { ...state, loading: false, options4: action.payload };
+        case 'GET_4TH_DROPDOWN_ERROR':
+            return { ...state, loading: false, error: action.payload };
+        case 'CLEAR_4TH_DROP_DOWN':
+            return {};
+
+        default:
+            return state;
+    }
+};
+export const get5thDropdownReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'GET_5TH_DROPDOWN_REQUEST':
+            return { ...state, loading: true };
+        case 'GET_5TH_DROPDOWN_SUCCESS':
+            return { ...state, loading: false, options5: action.payload };
+        case 'GET_5TH_DROPDOWN_ERROR':
+            return { ...state, loading: false, error: action.payload };
+        case 'CLEAR_5TH_DROP_DOWN':
+            return {};
+
+        default:
+            return state;
+    }
+};
+export const get6thDropdownReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'GET_6TH_DROPDOWN_REQUEST':
+            return { ...state, loading: true };
+        case 'GET_6TH_DROPDOWN_SUCCESS':
+            return { ...state, loading: false, options6: action.payload };
+        case 'GET_6TH_DROPDOWN_ERROR':
+            return { ...state, loading: false, error: action.payload };
+        case 'CLEAR_6TH_DROP_DOWN':
+            return {};
+
+        default:
+            return state;
+    }
+};
+export const get7thDropdownReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'GET_7TH_DROPDOWN_REQUEST':
+            return { ...state, loading: true };
+        case 'GET_7TH_DROPDOWN_SUCCESS':
+            return { ...state, loading: false, options7: action.payload };
+        case 'GET_7TH_DROPDOWN_ERROR':
+            return { ...state, loading: false, error: action.payload };
+        case 'CLEAR_7TH_DROP_DOWN':
+            return {};
+
+        default:
+            return state;
+    }
+};
+export const get8thDropdownReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'GET_8TH_DROPDOWN_REQUEST':
+            return { ...state, loading: true };
+        case 'GET_8TH_DROPDOWN_SUCCESS':
+            return { ...state, loading: false, options8: action.payload };
+        case 'GET_8TH_DROPDOWN_ERROR':
+            return { ...state, loading: false, error: action.payload };
+        case 'CLEAR_8TH_DROP_DOWN':
+            return {};
+
+        default:
+            return state;
+    }
+};

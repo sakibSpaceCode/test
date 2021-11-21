@@ -116,7 +116,7 @@
       {
         "name": "Project_Co",
         "label": "Project Coordinator",
-        "type": "select",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -159,7 +159,7 @@
       },
       {
         "name": "Quantity",
-        "label": "Quanitiy",
+        "label": "Quantity",
         "type": "text",
         "validators": [
           {
@@ -167,7 +167,308 @@
             "valId": "SCVAL001"
           }
         ]
+      },
+      {
+        "name": "Quantity_BreakDown",
+        "label": "Quantity BreakDown",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Material_Required_Date",
+        "label": "Material Required Date",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Structure_Life_Span",
+        "label": "Structure Life Span",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Joinery_hours",
+        "label": "Joinery Hours",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Metal_hours",
+        "label": "Metal Hours",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Paint_hours",
+        "label": "Paint Hours",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Electrical_hours",
+        "label": "Electrical Hours",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Final_hours",
+        "label": "Final Hours",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Installation_hours",
+        "label": "Installation Hours",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Acrylic_Specification",
+        "label": "Acrylic Specification",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Material_Specification",
+        "label": "Material Specification",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Glass_Specification",
+        "label": "Glass Specification",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Wood_Specification",
+        "label": "Wood Specification",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Light_Specification",
+        "label": "Light Specification",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Metal_Specification",
+        "label": "Metal Specification",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Hardware_Specification",
+        "label": "Hardware Specification",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Special_Material",
+        "label": "Special Material",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Painting_Specification",
+        "label": "Painting Specification",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Fabric_Specification",
+        "label": "Fabric Specification",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Packaging",
+        "label": "Packaging",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Packaging_Specification",
+        "label": "Packaging Specification",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Site_Installation_Date",
+        "label": "Site Installation Date",
+        "type": "date",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Post_Delivery",
+        "label": "Post Delivery",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Location",
+        "label": "Delivery Location",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Drawing_References",
+        "label": "Drawing References",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Important_Notes",
+        "label": "Important Notes",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Prepared_by",
+        "label": "Prepared by",
+        "type": "text",
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
+      
     ],
     "apiUrl": "job_card"
   },

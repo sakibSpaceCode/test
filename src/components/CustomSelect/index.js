@@ -46,17 +46,17 @@ const CustomSelect = (props) => {
     onLabelClick,
     defaultValue,
     isJob,
-    isChecked_corrective_action
+    isValue,
+    isChecked_corrective_action,
   } = props;
   const classes = MenuStyles();
   return (
     <div>
       <FormControl
-        variant="outlined"
+        variant='outlined'
         className={classes.form}
         fullWidth
-        error={error}
-      >
+        error={error}>
         <Select
           defaultValue={defaultValue}
           disabled={disabled}
@@ -77,20 +77,21 @@ const CustomSelect = (props) => {
               maxHeight: "450px",
               maxWidth: "400px",
             },
-          }}
-        >
+          }}>
           {noLabel || (
             <MenuItem
               onClick={onLabelClick}
               value={label}
-              disabled={disabledLabel}
-            >
+              disabled={disabledLabel}>
               {label}
             </MenuItem>
           )}
           {options?.map((option, i) => (
-            <MenuItem style={{ color: "#777777" }} value={isJob ? option._id  : option.value} key={i}>
-              {isJob ? option.Job_No : option.name}
+            <MenuItem
+              style={{ color: "#777777" }}
+              value={isJob ? option._id : isValue ? option._id : option.value}
+              key={i}>
+              {isJob ? option.Job_No : isValue ? option.value : option.name}
             </MenuItem>
           ))}
         </Select>

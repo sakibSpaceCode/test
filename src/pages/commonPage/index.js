@@ -13,8 +13,22 @@ import ExportDialog from "./exportDilog";
 import { useDispatch, useSelector } from "react-redux";
 import { clearData, getData } from "../../redux/actions/commonGetDataActions";
 import {
+  clear2ndDropDownResponse,
+  clear3rdDropDownResponse,
+  clear4thDropDownResponse,
+  clear5thDropDownResponse,
+  clear6thDropDownResponse,
+  clear7thDropDownResponse,
+  clear8thDropDownResponse,
   clearDropDownResponse,
   clearPostResponse,
+  get2ndDropdown,
+  get3rdDropdown,
+  get4thDropdown,
+  get5thDropdown,
+  get6thDropdown,
+  get7thDropdown,
+  get8thDropdown,
   getDropdown,
   postFormData,
 } from "../../redux/actions/commonFormActions";
@@ -37,6 +51,13 @@ const CommonPage = (props) => {
   const [alertOpen, setAlertOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [rowData, setRowData] = useState({});
+  const [secondDropdown, setSecondDropdown] = useState("");
+  const [thirdDropdown, setThirdDropdown] = useState("");
+  const [fourthDropdown, setFourthDropdown] = useState("");
+  const [fifthDropdown, setFifthDropdown] = useState("");
+  const [sixthDropdown, setSixthDropdown] = useState("");
+  const [eightDropdown, setEightDropdown] = useState("");
+  const [seventhDropdown, setSeventhDropdown] = useState("");
   const { loading, error, responseData } = useSelector(
     (state) => state.getData
   );
@@ -62,7 +83,14 @@ const CommonPage = (props) => {
 
   const handleEditDialog = () => {
     setEditDialogOpen(true);
-    dispatch(getDropdown('job_card'))
+    dispatch(getDropdown("job_card"));
+    dispatch(get2ndDropdown(secondDropdown));
+    dispatch(get3rdDropdown(thirdDropdown));
+    dispatch(get4thDropdown(fourthDropdown));
+    dispatch(get5thDropdown(fifthDropdown));
+    dispatch(get6thDropdown(sixthDropdown));
+    dispatch(get7thDropdown(seventhDropdown));
+    dispatch(get8thDropdown(eightDropdown));
   };
   const handleEditDialogClose = () => {
     setEditDialogOpen(false);
@@ -93,9 +121,67 @@ const CommonPage = (props) => {
     dispatch(getData(apiURL));
     return () => {
       dispatch(clearData());
+      dispatch(clearDropDownResponse());
+      dispatch(clear2ndDropDownResponse());
+      dispatch(clear3rdDropDownResponse());
+      dispatch(clear4thDropDownResponse());
+      dispatch(clear5thDropDownResponse());
+      dispatch(clear6thDropDownResponse());
+      dispatch(clear7thDropDownResponse());
+      dispatch(clear8thDropDownResponse());
     };
   }, [apiURL]);
-
+  useEffect(() => {
+    urlEndPoint === "job-card" &&
+      setSecondDropdown(
+        JSON.stringify({
+          type: "Project_Reference",
+          table: "job_card",
+        })
+      );
+    urlEndPoint === "job-card" &&
+      setThirdDropdown(
+        JSON.stringify({
+          type: "Project_type",
+          table: "job_card",
+        })
+      );
+    urlEndPoint === "job-card" &&
+      setFourthDropdown(
+        JSON.stringify({
+          type: "Structure_Life_Span",
+          table: "job_card",
+        })
+      );
+    urlEndPoint === "job-card" &&
+      setFifthDropdown(
+        JSON.stringify({
+          type: "Material_Specification",
+          table: "job_card",
+        })
+      );
+    urlEndPoint === "job-card" &&
+      setSixthDropdown(
+        JSON.stringify({
+          type: "Packaging",
+          table: "job_card",
+        })
+      );
+    urlEndPoint === "job-card" &&
+      setSeventhDropdown(
+        JSON.stringify({
+          type: "Post_Delivery",
+          table: "job_card",
+        })
+      );
+    urlEndPoint === "job-card" &&
+      setEightDropdown(
+        JSON.stringify({
+          type: "Drawing_References",
+          table: "job_card",
+        })
+      );
+  }, [urlEndPoint]);
   useEffect(() => {
     postResponse?.success === true && setAlertOpen(true);
 
@@ -116,7 +202,7 @@ const CommonPage = (props) => {
       dispatch(clearPostResponse());
     }, 3000);
   }, [postResponse, postError]);
-  
+
   return (
     <>
       {loading ? (
@@ -137,16 +223,15 @@ const CommonPage = (props) => {
             </Grid>
             <Grid item xs={6}>
               <Grid container justify='flex-end' spacing={2}>
-               
-                  <Grid item>
-                    <CustomButton
-                      width='150px'
-                      variant='outlined'
-                      onClick={handleEditDialog}>
-                      {label === "Job Card" ? "Add Job Card" : "Add"}
-                    </CustomButton>
-                  </Grid>
-                
+                <Grid item>
+                  <CustomButton
+                    width='150px'
+                    variant='outlined'
+                    onClick={handleEditDialog}>
+                    {label === "Job Card" ? "Add Job Card" : "Add"}
+                  </CustomButton>
+                </Grid>
+
                 <Grid item>
                   <CustomButton
                     onClick={handleImportDialog}
@@ -180,7 +265,7 @@ const CommonPage = (props) => {
             // onCompleteClick={handleCompleteButtonClick}
             onSaveClick={handleCompleteButtonClick}
             // isSave={isEdit || isClone ? true : false}
-            loading={ postLoading}
+            loading={postLoading}
             error={errorMessage}
             // disabled={inputs?.length === 0}>
           >

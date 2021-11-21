@@ -49,15 +49,15 @@ const FormContainer = (props) => {
     handleDateChange,
     rowData,
   } = props;
-  const { options } = useSelector((state) => state.getDropdown);
 
-  // const { options2 } = useSelector((state) => state.get2ndDropdown);
-  // const { options3 } = useSelector((state) => state.get3rdDropdown);
-  // const { options4 } = useSelector((state) => state.get4thDropdown);
-  // const { options5 } = useSelector((state) => state.get5thDropdown);
-  // const { options6 } = useSelector((state) => state.get6thDropdown);
-  // const { options7 } = useSelector((state) => state.get7thDropdown);
-  // const { options8 } = useSelector((state) => state.get8thDropdown);
+  const { options } = useSelector((state) => state.getDropdown);
+  const { options2 } = useSelector((state) => state.get2ndDropdown);
+  const { options3 } = useSelector((state) => state.get3rdDropdown);
+  const { options4 } = useSelector((state) => state.get4thDropdown);
+  const { options5 } = useSelector((state) => state.get5thDropdown);
+  const { options6 } = useSelector((state) => state.get6thDropdown);
+  const { options7 } = useSelector((state) => state.get7thDropdown);
+  const { options8 } = useSelector((state) => state.get8thDropdown);
   // const { collectionData } = useSelector((state) => state.getCollectionDropdown);
   // const { userInfo } = useSelector((state) => state.userLogin);
 
@@ -71,9 +71,9 @@ const FormContainer = (props) => {
     { name: "No", value: false },
   ];
   const sizeOptions = [
-    { name: "Small", value: 'small' },
-    { name: "Medium", value: 'medium' },
-    { name: "Large", value: 'large' },
+    { name: "Small", value: "small" },
+    { name: "Medium", value: "medium" },
+    { name: "Large", value: "large" },
   ];
   const integerOptions = [
     { name: "1", value: 1 },
@@ -104,8 +104,7 @@ const FormContainer = (props) => {
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomInput
           key={input.name}
@@ -132,8 +131,7 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomSelect
           key={input.name}
@@ -146,7 +144,7 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          size="lg"
+          size='lg'
           options={
             input.name === "Job"
               ? options
@@ -162,7 +160,32 @@ const FormContainer = (props) => {
               ? integerOptions
               : input.name === "project_size"
               ? sizeOptions
+              : input.name === "Project_Reference"
+              ? options2
+              : input.name === "Project_type"
+              ? options3
+              : input.name === "Structure_Life_Span"
+              ? options4
+              : input.name === "Material_Specification"
+              ? options5
+              : input.name === "Packaging"
+              ? options6
+              : input.name === "Post_Delivery"
+              ? options7
+              : input.name === "Drawing_References"
+              ? options8
               : defaultOptions
+          }
+          isValue={
+            input.name === "Project_Reference" ||
+            input.name === "Project_type" ||
+            input.name === "Structure_Life_Span" ||
+            input.name === "Material_Specification" ||
+            input.name === "Packaging" ||
+            input.name === "Post_Delivery" ||
+            input.name === "Drawing_References"
+              ? true
+              : false
           }
           isJob={input.name === "Job" ? true : false}
           isChecked_corrective_action={
@@ -182,13 +205,12 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <DatePicker
-          inputVariant="outlined"
-          format="dd-MM-yyyy"
-          placeholder="DD-MM-YYYY"
+          inputVariant='outlined'
+          format='dd-MM-yyyy'
+          placeholder='DD-MM-YYYY'
           fullWidth
           width={"100%"}
           height={50}
@@ -210,7 +232,7 @@ const FormContainer = (props) => {
     <Grid>
       <Grid container spacing={5}>
         {inputs?.length === 0 ? (
-          <Typography variant="body2" className={classes.nofields}>
+          <Typography variant='body2' className={classes.nofields}>
             No Fields Available.
           </Typography>
         ) : (

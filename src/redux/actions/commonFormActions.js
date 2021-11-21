@@ -7,7 +7,7 @@ export const postFormData =
     const {
       userLogin: { userInfo },
     } = getState();
-    
+
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -86,40 +86,269 @@ export const deleteFormData =
       });
     }
   };
-  export const getDropdown =
-  (collectionName) =>
-  async (dispatch, getState) => {
-    dispatch({ type: "GET_DROPDOWN_REQUEST" });
-    const {
-      userLogin: { userInfo },
-    } = getState();
+export const getDropdown = (collectionName) => async (dispatch, getState) => {
+  dispatch({ type: "GET_DROPDOWN_REQUEST" });
+  const {
+    userLogin: { userInfo },
+  } = getState();
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        type: "Web",
-        Authorization: userInfo?.data?.token,
-      },
-    };
-    // getData(urlEndPoint)
-    let url = `${CONSTANTS.BASEURL}${collectionName}/list?offset=0&limit=100`;
-    const { data } = await axios.get(url, config);
-    if (data.success === true) {
-      dispatch({
-        type: "GET_DROPDOWN_SUCCESS",
-        payload: data.data.data,
-      });
-    } else {
-      dispatch({
-        type: "GET_DROPDOWN_ERROR",
-        payload: data.error,
-      });
-    }
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      type: "Web",
+      Authorization: userInfo?.data?.token,
+    },
   };
+  // getData(urlEndPoint)
+  let url = `${CONSTANTS.BASEURL}${collectionName}/list?offset=0&limit=100`;
+  const { data } = await axios.get(url, config);
+  if (data.success === true) {
+    dispatch({
+      type: "GET_DROPDOWN_SUCCESS",
+      payload: data.data.data,
+    });
+  } else {
+    dispatch({
+      type: "GET_DROPDOWN_ERROR",
+      payload: data.error,
+    });
+  }
+};
+export const get2ndDropdown = (formData) => async (dispatch, getState) => {
+  dispatch({ type: "GET_2ND_DROPDOWN_REQUEST" });
+  const {
+    userLogin: { userInfo },
+  } = getState();
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      type: "Web",
+      Authorization: userInfo?.data?.token,
+    },
+  };
+  // getData(urlEndPoint)
+  let url = `${CONSTANTS.BASEURL}user/dropdown`;
+  const { data } = await axios.post(url, formData, config);
+  if (data.success === true) {
+    dispatch({
+      type: "GET_2ND_DROPDOWN_SUCCESS",
+      payload: data.data.data,
+    });
+  } else {
+    dispatch({
+      type: "GET_2ND_DROPDOWN_ERROR",
+      payload: data.error,
+    });
+  }
+};
+export const get3rdDropdown = (formData) => async (dispatch, getState) => {
+  dispatch({ type: "GET_3RD_DROPDOWN_REQUEST" });
+  const {
+    userLogin: { userInfo },
+  } = getState();
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      type: "Web",
+      Authorization: userInfo?.data?.token,
+    },
+  };
+  // getData(urlEndPoint)
+  let url = `${CONSTANTS.BASEURL}user/dropdown`;
+  const { data } = await axios.post(url, formData, config);
+  if (data.success === true) {
+    dispatch({
+      type: "GET_3RD_DROPDOWN_SUCCESS",
+      payload: data.data.data,
+    });
+  } else {
+    dispatch({
+      type: "GET_3RD_DROPDOWN_ERROR",
+      payload: data.error,
+    });
+  }
+};
+export const get4thDropdown = (formData) => async (dispatch, getState) => {
+  dispatch({ type: "GET_4TH_DROPDOWN_REQUEST" });
+  const {
+    userLogin: { userInfo },
+  } = getState();
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      type: "Web",
+      Authorization: userInfo?.data?.token,
+    },
+  };
+  // getData(urlEndPoint)
+  let url = `${CONSTANTS.BASEURL}user/dropdown`;
+  const { data } = await axios.post(url, formData, config);
+  if (data.success === true) {
+    dispatch({
+      type: "GET_4TH_DROPDOWN_SUCCESS",
+      payload: data.data.data,
+    });
+  } else {
+    dispatch({
+      type: "GET_4TH_DROPDOWN_ERROR",
+      payload: data.error,
+    });
+  }
+};
+export const get5thDropdown = (formData) => async (dispatch, getState) => {
+  dispatch({ type: "GET_5TH_DROPDOWN_REQUEST" });
+  const {
+    userLogin: { userInfo },
+  } = getState();
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      type: "Web",
+      Authorization: userInfo?.data?.token,
+    },
+  };
+  // getData(urlEndPoint)
+  let url = `${CONSTANTS.BASEURL}user/dropdown`;
+  const { data } = await axios.post(url, formData, config);
+  if (data.success === true) {
+    dispatch({
+      type: "GET_5TH_DROPDOWN_SUCCESS",
+      payload: data.data.data,
+    });
+  } else {
+    dispatch({
+      type: "GET_5TH_DROPDOWN_ERROR",
+      payload: data.error,
+    });
+  }
+};
+export const get6thDropdown = (formData) => async (dispatch, getState) => {
+  dispatch({ type: "GET_6TH_DROPDOWN_REQUEST" });
+  const {
+    userLogin: { userInfo },
+  } = getState();
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      type: "Web",
+      Authorization: userInfo?.data?.token,
+    },
+  };
+  // getData(urlEndPoint)
+  let url = `${CONSTANTS.BASEURL}user/dropdown`;
+  const { data } = await axios.post(url, formData, config);
+  if (data.success === true) {
+    dispatch({
+      type: "GET_6TH_DROPDOWN_SUCCESS",
+      payload: data.data.data,
+    });
+  } else {
+    dispatch({
+      type: "GET_6TH_DROPDOWN_ERROR",
+      payload: data.error,
+    });
+  }
+};
+export const get7thDropdown = (formData) => async (dispatch, getState) => {
+  dispatch({ type: "GET_7TH_DROPDOWN_REQUEST" });
+  const {
+    userLogin: { userInfo },
+  } = getState();
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      type: "Web",
+      Authorization: userInfo?.data?.token,
+    },
+  };
+  // getData(urlEndPoint)
+  let url = `${CONSTANTS.BASEURL}user/dropdown`;
+  const { data } = await axios.post(url, formData, config);
+  if (data.success === true) {
+    dispatch({
+      type: "GET_7TH_DROPDOWN_SUCCESS",
+      payload: data.data.data,
+    });
+  } else {
+    dispatch({
+      type: "GET_7TH_DROPDOWN_ERROR",
+      payload: data.error,
+    });
+  }
+};
+export const get8thDropdown = (formData) => async (dispatch, getState) => {
+  dispatch({ type: "GET_8TH_DROPDOWN_REQUEST" });
+  const {
+    userLogin: { userInfo },
+  } = getState();
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      type: "Web",
+      Authorization: userInfo?.data?.token,
+    },
+  };
+  // getData(urlEndPoint)
+  let url = `${CONSTANTS.BASEURL}user/dropdown`;
+  const { data } = await axios.post(url, formData, config);
+  if (data.success === true) {
+    dispatch({
+      type: "GET_8TH_DROPDOWN_SUCCESS",
+      payload: data.data.data,
+    });
+  } else {
+    dispatch({
+      type: "GET_8TH_DROPDOWN_ERROR",
+      payload: data.error,
+    });
+  }
+};
 
 export const clearDropDownResponse = () => {
   return {
     type: "CLEAR_DROP_DOWN",
+  };
+};
+export const clear2ndDropDownResponse = () => {
+  return {
+    type: "CLEAR_2ND_DROP_DOWN",
+  };
+};
+export const clear3rdDropDownResponse = () => {
+  return {
+    type: "CLEAR_3RD_DROP_DOWN",
+  };
+};
+export const clear4thDropDownResponse = () => {
+  return {
+    type: "CLEAR_4TH_DROP_DOWN",
+  };
+};
+export const clear5thDropDownResponse = () => {
+  return {
+    type: "CLEAR_5TH_DROP_DOWN",
+  };
+};
+export const clear6thDropDownResponse = () => {
+  return {
+    type: "CLEAR_6TH_DROP_DOWN",
+  };
+};
+export const clear7thDropDownResponse = () => {
+  return {
+    type: "CLEAR_7TH_DROP_DOWN",
+  };
+};
+export const clear8thDropDownResponse = () => {
+  return {
+    type: "CLEAR_8TH_DROP_DOWN",
   };
 };
 export const clearPostResponse = () => {

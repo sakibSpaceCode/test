@@ -11,6 +11,13 @@ import {
 } from "./reducers/authReducers";
 import {
   deleteFieldReducer,
+  get2ndDropdownReducer,
+  get3rdDropdownReducer,
+  get4thDropdownReducer,
+  get5thDropdownReducer,
+  get6thDropdownReducer,
+  get7thDropdownReducer,
+  get8thDropdownReducer,
   getDropdownReducer,
   postFieldsReducer,
   putFieldsReducer,
@@ -29,7 +36,14 @@ const reducer = combineReducers({
   getData: getDataReducer,
   userLoginValidateReducer: userLoginValidateReducer,
   getDetails: getDetailsReducer,
-  getDropdown: getDropdownReducer
+  getDropdown: getDropdownReducer,
+  get2ndDropdown: get2ndDropdownReducer,
+  get3rdDropdown: get3rdDropdownReducer,
+  get4thDropdown: get4thDropdownReducer,
+  get5thDropdown: get5thDropdownReducer,
+  get6thDropdown: get6thDropdownReducer,
+  get7thDropdown: get7thDropdownReducer,
+  get8thDropdown: get8thDropdownReducer
 });
 const persistConfig = {
   key: "root",
