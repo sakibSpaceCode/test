@@ -52,9 +52,9 @@ const DatePickerComponent = (props) => {
         ampm={true}
         disableToolbar={disableToolbar}
         keyboardIcon={<DateRangeOutlinedIcon color='primary' />}
-        adornmentPosition='start'
+        adornmentposition='start'
         InputProps={{
-          adornmentPosition: "start",
+          adornmentposition: "start",
           disableunderline: "true",
           placeholder: placeholder ? placeholder : format,
           style: {

@@ -47,6 +47,7 @@ const CustomSelect = (props) => {
     defaultValue,
     isJob,
     isValue,
+    isDiff,
     isChecked_corrective_action,
   } = props;
   const classes = MenuStyles();
@@ -64,7 +65,7 @@ const CustomSelect = (props) => {
           value={value}
           style={{ minWidth: minWidth && minWidth }}
           onChange={onChange}
-          MenuStyles
+          menustyles="true"
           inputProps={{ "aria-label": "Without label" }}
           onFocus={onFocus}
           MenuProps={{
@@ -89,9 +90,9 @@ const CustomSelect = (props) => {
           {options?.map((option, i) => (
             <MenuItem
               style={{ color: "#777777" }}
-              value={isJob ? option._id : isValue ? option._id : option.value}
+              value={isJob ? option._id : isValue ? option._id: isDiff? option._id : option.value}
               key={i}>
-              {isJob ? option.Job_No : isValue ? option.value : option.name}
+              {isJob ? option.Job_No : isValue ? option.value :isDiff? option.first_name + " " + option.last_name: option.name}
             </MenuItem>
           ))}
         </Select>

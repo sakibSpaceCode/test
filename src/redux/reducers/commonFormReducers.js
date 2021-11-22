@@ -70,6 +70,36 @@ export const get2ndDropdownReducer = (state = {}, action) => {
             return state;
     }
 };
+export const getDiffDropdownReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'GET_DIFF_DROPDOWN_REQUEST':
+            return { ...state, loading: true };
+        case 'GET_DIFF_DROPDOWN_SUCCESS':
+            return { ...state, loading: false, optionsDiff: action.payload };
+        case 'GET_DIFF_DROPDOWN_ERROR':
+            return { ...state, loading: false, error: action.payload };
+        case 'CLEAR_DIFF_DROP_DOWN':
+            return {};
+
+        default:
+            return state;
+    }
+};
+export const get2ndDiffDropdownReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'GET_2ND_DIFF_DROPDOWN_REQUEST':
+            return { ...state, loading: true };
+        case 'GET_2ND_DIFF_DROPDOWN_SUCCESS':
+            return { ...state, loading: false, options2Diff: action.payload };
+        case 'GET_2ND_DIFF_DROPDOWN_ERROR':
+            return { ...state, loading: false, error: action.payload };
+        case 'CLEAR_2ND_DIFF_DROP_DOWN':
+            return {};
+
+        default:
+            return state;
+    }
+};
 export const get3rdDropdownReducer = (state = {}, action) => {
     switch (action.type) {
         case 'GET_3RD_DROPDOWN_REQUEST':

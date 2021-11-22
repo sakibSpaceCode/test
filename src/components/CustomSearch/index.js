@@ -83,7 +83,7 @@ const CustomSearch = (props) => {
         <OutlinedInput
           className={classes.root}
           type='text'
-          value={value}
+          value={value ?? ''}
           placeholder={placeholder}
           onFocus={focus}
           onMouseOut={onBlur}

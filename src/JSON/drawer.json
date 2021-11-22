@@ -1053,7 +1053,7 @@
           {
             "name": "previous_designer",
             "label": "Previous Designer",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -1064,7 +1064,7 @@
           {
             "name": "assigned_to",
             "label": "Assigned To",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",

@@ -114,7 +114,7 @@ export default function CustomTable({ height, response, local }) {
               <TableRow>
                 {columns.map((column) => (
                   <TableCell
-                    key={column.id}
+                    key={column.label}
                     align={"center"}
                     style={{
                       minWidth: column.minWidth,
@@ -132,26 +132,26 @@ export default function CustomTable({ height, response, local }) {
             <TableBody>
               {rows
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row) => {
+                .map((row, i) => {
                   return (
                     <TableRow
                       hover
                       role="checkbox"
                       tabIndex={-1}
-                      key={row.code}
+                      key={i}
                     >
-                      {columns.map((column) => {
+                      {columns.map((column, i) => {
                         const value = row[column.id];
                         return value === "Completed" ? (
-                          <TableCell key={column.id} align={"center"}>
+                          <TableCell key={i} align={"center"}>
                             <span className={classes.completed}>{value}</span>
                           </TableCell>
                         ) : value === "Pending" ? (
-                          <TableCell key={column.id} align={"center"}>
+                          <TableCell key={i} align={"center"}>
                             <span className={classes.pending}> {value}</span>
                           </TableCell>
                         ) : (
-                          <TableCell key={column.id} align={"center"}>
+                          <TableCell key={i} align={"center"}>
                             {value}
                           </TableCell>
                         );
@@ -167,9 +167,9 @@ export default function CustomTable({ height, response, local }) {
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
-                {response?.data?.header?.map((column) => (
+                {response?.data?.header?.map((column,i) => (
                   <TableCell
-                    key={column.id}
+                    key={i}
                     align={"center"}
                     style={{
                       minWidth: 200,
@@ -185,9 +185,9 @@ export default function CustomTable({ height, response, local }) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {response?.data?.data?.map((row) => {
+              {response?.data?.data?.map((row,i) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.key}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={i}>
                     {response?.data?.header?.map((column) => {
                       let value = row[column.key];
                       if (
@@ -220,23 +220,23 @@ export default function CustomTable({ height, response, local }) {
                         value = row?.Job?.Job_No || "-";
                       }
                       return column.key === "is_active" && value === true ? (
-                        <TableCell key={column.id} align={"center"}>
+                        <TableCell key={column.key} align={"center"}>
                           <span className={classes.completed}>Completed</span>
                         </TableCell>
                       ) : column.key === "is_active" && value === false ? (
-                        <TableCell key={column.id} align={"center"}>
+                        <TableCell key={column.key} align={"center"}>
                           <span className={classes.pending}> Pending</span>
                         </TableCell>
                       ) : column.key === "Material_Received" &&
                         value === true ? (
-                        <TableCell key={column.id} align={"center"}>
+                        <TableCell key={column.key} align={"center"}>
                           <CheckCircleIcon
                             style={{ fill: "rgba(41, 214, 13, 1)" }}
                           />
                         </TableCell>
                       ) : column.key === "Material_Received" &&
                         value === false ? (
-                        <TableCell key={column.id} align={"center"}>
+                        <TableCell key={column.key} align={"center"}>
                           <CancelIcon
                             style={{
                               fill: "  rgba(255, 93, 83, 1)",
@@ -245,30 +245,30 @@ export default function CustomTable({ height, response, local }) {
                         </TableCell>
                       ) : column.key === "Material_Received" &&
                         value === null ? (
-                        <TableCell key={column.id} align={"center"}>
+                        <TableCell key={column.key} align={"center"}>
                           <HelpIcon style={{ fill: "rgba(251, 183, 82, 1)" }} />
                         </TableCell>
                       ) : column.key === "Quality_Inspection" &&
                         value === true ? (
-                        <TableCell key={column.id} align={"center"}>
+                        <TableCell key={column.key} align={"center"}>
                           <CheckCircleIcon
                             style={{ fill: "rgba(41, 214, 13, 1)" }}
                           />
                         </TableCell>
                       ) : column.key === "Quality_Inspection" &&
                         value === false ? (
-                        <TableCell key={column.id} align={"center"}>
+                        <TableCell key={column.key} align={"center"}>
                           <CancelIcon
                             style={{ fill: " rgba(255, 93, 83, 1)" }}
                           />
                         </TableCell>
                       ) : column.key === "Quality_Inspection" &&
                         value === null ? (
-                        <TableCell key={column.id} align={"center"}>
+                        <TableCell key={column.key} align={"center"}>
                           <HelpIcon style={{ fill: "rgba(251, 183, 82, 1)" }} />
                         </TableCell>
                       ) : (
-                        <TableCell key={column.id} align={"center"}>
+                        <TableCell key={column.key} align={"center"}>
                           {value?.toString() || "-"}
                         </TableCell>
                       );

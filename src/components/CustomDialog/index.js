@@ -99,16 +99,16 @@ const CustomDialog = (props) => {
           </Grid>
 
           <Grid item>
-            <Typography variant='body' className={classes.typoGraphy}>
+            <Typography variant='body1' className={classes.typoGraphy}>
               {title}
             </Typography>
           </Grid>
           <Grid item xs>
-            <Grid container justify='flex-end' alignItems='center' spacing={1}>
+            <Grid container justifyContent='flex-end' alignItems='center' spacing={1}>
               <Grid item>
                 <CustomButton
                   disabled={disabled}
-                  variant='outLined'
+                  variant='outlined'
                   color='primary'
                   onClick={onSaveClick}
                   textColor='#618EFF'>
@@ -122,7 +122,7 @@ const CustomDialog = (props) => {
               <Grid item>
                 <CustomButton
                   disabled={disabled}
-                  variant='outLined'
+                  variant='outlined'
                   color='primary'
                   onClick={onSaveClick}
                   textColor='#618EFF'>
@@ -132,7 +132,7 @@ const CustomDialog = (props) => {
               <Grid item>
                 <CustomButton
                   disabled={disabled}
-                  variant='outLined'
+                  variant='outlined'
                   color='primary'
                   onClick={onSaveClick}
                   textColor='#618EFF'>

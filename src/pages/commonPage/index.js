@@ -13,6 +13,7 @@ import ExportDialog from "./exportDilog";
 import { useDispatch, useSelector } from "react-redux";
 import { clearData, getData } from "../../redux/actions/commonGetDataActions";
 import {
+  clear2ndDiffDropDownResponse,
   clear2ndDropDownResponse,
   clear3rdDropDownResponse,
   clear4thDropDownResponse,
@@ -20,8 +21,10 @@ import {
   clear6thDropDownResponse,
   clear7thDropDownResponse,
   clear8thDropDownResponse,
+  clearDiffDropDownResponse,
   clearDropDownResponse,
   clearPostResponse,
+  get2ndDiffDropdown,
   get2ndDropdown,
   get3rdDropdown,
   get4thDropdown,
@@ -29,6 +32,7 @@ import {
   get6thDropdown,
   get7thDropdown,
   get8thDropdown,
+  getDiffDropdown,
   getDropdown,
   postFormData,
 } from "../../redux/actions/commonFormActions";
@@ -80,17 +84,9 @@ const CommonPage = (props) => {
     resetFormData,
     handleDateChange,
   ] = useForm(mData?.fields, submitCallback);
-
+  console.log(apiURL);
   const handleEditDialog = () => {
     setEditDialogOpen(true);
-    dispatch(getDropdown("job_card"));
-    dispatch(get2ndDropdown(secondDropdown));
-    dispatch(get3rdDropdown(thirdDropdown));
-    dispatch(get4thDropdown(fourthDropdown));
-    dispatch(get5thDropdown(fifthDropdown));
-    dispatch(get6thDropdown(sixthDropdown));
-    dispatch(get7thDropdown(seventhDropdown));
-    dispatch(get8thDropdown(eightDropdown));
   };
   const handleEditDialogClose = () => {
     setEditDialogOpen(false);
@@ -119,6 +115,10 @@ const CommonPage = (props) => {
   );
   useEffect(() => {
     dispatch(getData(apiURL));
+    dispatch(getDropdown("job_card"));
+    apiURL === "corrective" && dispatch(getDiffDropdown("user"));
+    // dispatch(get2ndDiffDropdown("user"));
+
     return () => {
       dispatch(clearData());
       dispatch(clearDropDownResponse());
@@ -129,8 +129,10 @@ const CommonPage = (props) => {
       dispatch(clear6thDropDownResponse());
       dispatch(clear7thDropDownResponse());
       dispatch(clear8thDropDownResponse());
+      dispatch(clearDiffDropDownResponse());
+      dispatch(clear2ndDiffDropDownResponse());
     };
-  }, [apiURL]);
+  }, [urlEndPoint]);
   useEffect(() => {
     urlEndPoint === "job-card" &&
       setSecondDropdown(
@@ -181,7 +183,33 @@ const CommonPage = (props) => {
           table: "job_card",
         })
       );
+    urlEndPoint === "production/status-update" &&
+      setSecondDropdown(
+        JSON.stringify({
+          type: "Status",
+          table: "status",
+        })
+      );
   }, [urlEndPoint]);
+  useEffect(() => {
+    apiURL === "job_card" && dispatch(get2ndDropdown(secondDropdown));
+    apiURL === "status" && dispatch(get2ndDropdown(secondDropdown));
+    apiURL === "job_card" && dispatch(get3rdDropdown(thirdDropdown));
+    apiURL === "job_card" && dispatch(get4thDropdown(fourthDropdown));
+    apiURL === "job_card" && dispatch(get5thDropdown(fifthDropdown));
+    apiURL === "job_card" && dispatch(get6thDropdown(sixthDropdown));
+    apiURL === "job_card" && dispatch(get7thDropdown(seventhDropdown));
+    apiURL === "job_card" && dispatch(get8thDropdown(eightDropdown));
+  }, [
+    apiURL,
+    secondDropdown,
+    thirdDropdown,
+    fourthDropdown,
+    fifthDropdown,
+    sixthDropdown,
+    seventhDropdown,
+    eightDropdown,
+  ]);
   useEffect(() => {
     postResponse?.success === true && setAlertOpen(true);
 

@@ -59,9 +59,11 @@ const FormContainer = (props) => {
   const { options6 } = useSelector((state) => state.get6thDropdown);
   const { options7 } = useSelector((state) => state.get7thDropdown);
   const { options8 } = useSelector((state) => state.get8thDropdown);
+  const { optionsDiff } = useSelector((state) => state.getDiffDropdown);
+  const { options2Diff } = useSelector((state) => state.get2ndDiffDropdown);
   // const { collectionData } = useSelector((state) => state.getCollectionDropdown);
   // const { userInfo } = useSelector((state) => state.userLogin);
-
+  console.log(options2 ,'options2 ');
   const defaultOptions = [
     { name: "Yes", value: "yes" },
     { name: "No", value: "no" },
@@ -98,21 +100,19 @@ const FormContainer = (props) => {
     { name: "19", value: 19 },
     { name: "20", value: 20 },
   ];
-  console.log(urlEndPoint, "opoo");
   const renderInput = (input) => {
     return input?.type === "text" ? (
       <Grid
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomInput
           key={input.name}
           onChange={onFormChange}
           name={input.name}
-          value={input.value}
+          value={input.value ?? ""}
           type={input.type}
           autoFocus
           fullWidth
@@ -133,26 +133,24 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomSelect
           key={input.name}
           onChange={onFormChange}
           name={input.name}
-          value={input.value}
+          value={input.value ?? ""}
           type={input.type}
           helperText={input.alert}
           autoFocus
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          size="lg"
+          size='lg'
           options={
             input.name === "Job"
               ? options
-              : urlEndPoint === "production/status-update" ||
-                urlEndPoint === "production/joinery" ||
+              : urlEndPoint === "production/joinery" ||
                 urlEndPoint === "production/metal" ||
                 urlEndPoint === "production/joinery" ||
                 urlEndPoint === "production/paint" ||
@@ -164,6 +162,9 @@ const FormContainer = (props) => {
               : input.name === "project_size"
               ? sizeOptions
               : input.name === "Project_Reference"
+              ? options2
+              : urlEndPoint === "production/status-update" &&
+                input.name === "Status"
               ? options2
               : input.name === "Project_type"
               ? options3
@@ -177,7 +178,19 @@ const FormContainer = (props) => {
               ? options7
               : input.name === "Drawing_References"
               ? options8
+              : urlEndPoint === "design-department/corrective-action" &&
+                input.name === "previous_designer"
+              ? optionsDiff
+              : urlEndPoint === "design-department/corrective-action" &&
+                input.name === "assigned_to"
+              ? optionsDiff
               : defaultOptions
+          }
+          isDiff={
+            (urlEndPoint === "design-department/corrective-action" &&
+              input.name === "previous_designer") ||
+            (urlEndPoint === "design-department/corrective-action" &&
+              input.name === "assigned_to")
           }
           isValue={
             input.name === "Project_Reference" ||
@@ -186,7 +199,9 @@ const FormContainer = (props) => {
             input.name === "Material_Specification" ||
             input.name === "Packaging" ||
             input.name === "Post_Delivery" ||
-            input.name === "Drawing_References"
+            input.name === "Drawing_References" ||
+            (urlEndPoint === "production/status-update" &&
+              input.name === "Status")
               ? true
               : false
           }
@@ -208,17 +223,16 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <DatePicker
-          inputVariant="outlined"
-          format="dd-MM-yyyy"
-          placeholder="DD-MM-YYYY"
+          inputVariant='outlined'
+          format='dd-MM-yyyy'
+          placeholder='DD-MM-YYYY'
           fullWidth
           width={"100%"}
           height={50}
-          value={input.value}
+          value={input.value ?? ""}
           handleDate={(date) => handleDateChange(input.name, date)}
         />
         {input.alert && (
@@ -231,13 +245,13 @@ const FormContainer = (props) => {
       <Grid item md={6} className={classes.inputField}>
         <InputLabel className={classes.inputLabel}>Job No.</InputLabel>
         <AutoComplete
-          onChange={(e, newValue) => onFormChange(e, newValue,true)}
+          onChange={(e, newValue) => onFormChange(e, newValue, true)}
           name={input.name}
-          value={options?.filter((val) => val?._id === input.value)[0]}
+          value={options?.filter((val) => val?._id === input.value)[0] ?? ""}
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          size="lg"
+          size='lg'
           options={options}
           isJob
         />
@@ -251,7 +265,7 @@ const FormContainer = (props) => {
     <Grid>
       <Grid container spacing={5}>
         {inputs?.length === 0 ? (
-          <Typography variant="body2" className={classes.nofields}>
+          <Typography variant='body2' className={classes.nofields}>
             No Fields Available.
           </Typography>
         ) : (

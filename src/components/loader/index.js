@@ -28,11 +28,11 @@ const Loader = () => {
           cx="50"
           cy="50"
           r="22"
-          stroke-width="6"
+          strokeWidth="6"
           stroke="#303030"
-          stroke-dasharray="34.55751918948772 34.55751918948772"
+          strokeDasharray="34.55751918948772 34.55751918948772"
           fill="none"
-          stroke-linecap="round"
+          strokeLinecap="round"
         >
           <animateTransform
             attributeName="transform"
@@ -47,12 +47,12 @@ const Loader = () => {
           cx="50"
           cy="50"
           r="15"
-          stroke-width="6"
+          strokeWidth="6"
           stroke="#774023"
-          stroke-dasharray="23.561944901923447 23.561944901923447"
-          stroke-dashoffset="23.561944901923447"
+          strokeDasharray="23.561944901923447 23.561944901923447"
+          strokeDashoffset="23.561944901923447"
           fill="none"
-          stroke-linecap="round"
+          strokeLinecap="round"
         >
           <animateTransform
             attributeName="transform"

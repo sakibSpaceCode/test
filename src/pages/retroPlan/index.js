@@ -101,7 +101,7 @@ const RetroPlanPage = () => {
         <Loader />
       ) : (
         <>
-          <Grid container justify="space-between" spacing={8}>
+          <Grid container justifyContent="space-between" spacing={8}>
             <Grid item xs={6}>
               <Grid container direction="column" spacing={2}>
                 <Grid item xs={12}>
@@ -110,7 +110,7 @@ const RetroPlanPage = () => {
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justify="flex-end" spacing={2}>
+              <Grid container justifyContent="flex-end" spacing={2}>
                 <Grid item>
                   <CustomButton
                     width="110px"
