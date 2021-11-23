@@ -28,6 +28,7 @@ import {
   getDataReducer,
   getDetailsReducer,
 } from "./reducers/commonGetDataReducers";
+import { getPermissionReducer } from "./reducers/employeReducer";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -37,6 +38,7 @@ const reducer = combineReducers({
   deleteField: deleteFieldReducer,
   getData: getDataReducer,
   userLoginValidateReducer: userLoginValidateReducer,
+  getPermissionReducer: getPermissionReducer,
   getDetails: getDetailsReducer,
   getDropdown: getDropdownReducer,
   get2ndDropdown: get2ndDropdownReducer,

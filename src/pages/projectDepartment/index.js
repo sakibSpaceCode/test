@@ -9,13 +9,22 @@ import ProjectDetailsForm from "./projectDetailsForm";
 import CustomSearch from "../../components/CustomSearch";
 import { useDispatch, useSelector } from "react-redux";
 import { clearData, getData } from "../../redux/actions/commonGetDataActions";
+import useForm from "../../hooks/useForm";
+import {
+  clearDropDownResponse,
+  getDropdown,
+  postFormData,
+} from "../../redux/actions/commonFormActions";
+import FormContainer from "../commonPage/FormContainer";
 
 // import "../../Styles/projectDetails.scss";
 
-const ProjectDetails = () => {
+const ProjectDetails = (props) => {
+  const mData = props.data.length > 1 ? props.data[1] : props.data[0];
   const classes = useStyles();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [dialogOpen, setDialogOpen] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState("");
   const handleOpenDialog = () => {
     setDialogOpen(true);
   };
@@ -25,13 +34,45 @@ const ProjectDetails = () => {
   const { loading, error, responseData } = useSelector(
     (state) => state.getData
   );
+  const submitCallback = (e) => {
+    let object = {};
 
+    mData?.fields?.map((m) => (object[m.name] = m.value));
+
+    let json = JSON.stringify(object);
+
+    dispatch(postFormData("project", json));
+  };
+  const [
+    inputs,
+    onFormChange,
+    handleEditChange,
+    setSubmit,
+    resetFormData,
+    handleDateChange,
+  ] = useForm(mData?.fields, submitCallback);
   useEffect(() => {
     dispatch(getData("project"));
+    dispatch(getDropdown("job_card"));
     return () => {
       dispatch(clearData());
+      dispatch(clearDropDownResponse());
     };
   }, []);
+  // const handleEditDialog = () => {
+  //   setEditDialogOpen(true);
+  // };
+  const handleEditDialogClose = () => {
+    //  setEditDialogOpen(false);
+    setErrorMessage(null);
+    resetFormData();
+    setErrorMessage("");
+    // dispatch(clearDropDownResponse())
+  };
+  const handleCompleteButtonClick = () => {
+    setSubmit("nextClick");
+  };
+
   const data = [
     {
       projectName: "Project Name",
@@ -242,17 +283,24 @@ const ProjectDetails = () => {
       <CustomDialog
         title={`Add Project Details`}
         open={dialogOpen}
-        onClose={handleDialogClose}
-        onCancelClick={handleDialogClose}
+        onClose={handleEditDialogClose}
+        onCancelClick={handleEditDialogClose}
         // onNextClick={handleNextClick}
         // onCompleteClick={handleCompleteButtonClick}
-        // onSaveClick={handleCompleteButtonClick}
+        onSaveClick={handleCompleteButtonClick}
         // isSave={isEdit || isClone ? true : false}
         // loading={isEdit ? putLoading : postLoading}
         // error={errorMessage}
         // disabled={inputs?.length === 0}>
       >
-        <ProjectDetailsForm />
+        <FormContainer
+          inputs={inputs}
+          urlEndPoint={props.urlEndPoint}
+          onFormChange={onFormChange}
+          handleEditChange={handleEditChange}
+          //  rowData={rowData}
+          handleDateChange={handleDateChange}
+        />
       </CustomDialog>
     </>
   );

@@ -64,6 +64,10 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
   };
 
   const handleSubmit = (nextClick) => {
+    let filteredInputs;
+    filteredInputs = inputs?.filter((input) => input.label.includes('*'));
+        
+        filteredInputs.forEach((i) => validateInput(i));
     // inputs.forEach((i) => validateInput(i));
     inputs?.some((i) => i.alert)
       ? setInputs([...inputs])

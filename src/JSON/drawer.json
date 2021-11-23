@@ -38,7 +38,7 @@
     "fields": [
       {
         "name": "Quotation",
-        "label": "Quotation Number",
+        "label": "Quotation Number *",
         "type": "text",
         "validators": [
           {
@@ -49,7 +49,7 @@
       },
       {
         "name": "Job_No",
-        "label": "Job Number *",
+        "label": "Job Number",
         "type": "text",
         "validators": [
           {
@@ -60,7 +60,7 @@
       },
       {
         "name": "Date",
-        "label": "Date",
+        "label": "Date *",
         "type": "date",
         "validators": [
           {
@@ -71,7 +71,7 @@
       },
       {
         "name": "Quotation_Approval_Date",
-        "label": "Quotation Approval Date",
+        "label": "Quotation Approval Date *",
         "type": "date",
         "validators": [
           {
@@ -82,7 +82,7 @@
       },
       {
         "name": "Project_Reference",
-        "label": "Project Reference",
+        "label": "Project Reference *",
         "type": "select",
         "validators": [
           {
@@ -93,7 +93,7 @@
       },
       {
         "name": "Project_type",
-        "label": "Project Type",
+        "label": "Project Type *",
         "type": "select",
         "validators": [
           {
@@ -104,7 +104,7 @@
       },
       {
         "name": "Project_Title",
-        "label": "Project Title",
+        "label": "Project Title *",
         "type": "text",
         "validators": [
           {
@@ -115,7 +115,7 @@
       },
       {
         "name": "Project_Co",
-        "label": "Project Coordinator",
+        "label": "Project Coordinator *",
         "type": "text",
         "validators": [
           {
@@ -126,7 +126,7 @@
       },
       {
         "name": "Drawing_Start_Date",
-        "label": "Drawing Start Date",
+        "label": "Drawing Start Date *",
         "type": "date",
         "validators": [
           {
@@ -137,7 +137,7 @@
       },
       {
         "name": "Production_Start_Date",
-        "label": "Production Start Date",
+        "label": "Production Start Date *",
         "type": "date",
         "validators": [
           {
@@ -148,7 +148,7 @@
       },
       {
         "name": "Production_Completion_Date",
-        "label": "Production Completion Date",
+        "label": "Production Completion Date *",
         "type": "date",
         "validators": [
           {
@@ -170,7 +170,7 @@
       },
       {
         "name": "Quantity_BreakDown",
-        "label": "Quantity BreakDown",
+        "label": "Quantity BreakDown *",
         "type": "text",
         "validators": [
           {
@@ -181,7 +181,7 @@
       },
       {
         "name": "Material_Required_Date",
-        "label": "Material Required Date",
+        "label": "Material Required Date *",
         "type": "text",
         "validators": [
           {
@@ -192,7 +192,7 @@
       },
       {
         "name": "Structure_Life_Span",
-        "label": "Structure Life Span",
+        "label": "Structure Life Span *",
         "type": "select",
         "validators": [
           {
@@ -203,7 +203,7 @@
       },
       {
         "name": "Joinery_hours",
-        "label": "Joinery Hours",
+        "label": "Joinery Hours *",
         "type": "text",
         "validators": [
           {
@@ -214,7 +214,7 @@
       },
       {
         "name": "Metal_hours",
-        "label": "Metal Hours",
+        "label": "Metal Hours *",
         "type": "text",
         "validators": [
           {
@@ -225,7 +225,7 @@
       },
       {
         "name": "Paint_hours",
-        "label": "Paint Hours",
+        "label": "Paint Hours *",
         "type": "text",
         "validators": [
           {
@@ -236,7 +236,7 @@
       },
       {
         "name": "Electrical_hours",
-        "label": "Electrical Hours",
+        "label": "Electrical Hours *",
         "type": "text",
         "validators": [
           {
@@ -247,7 +247,7 @@
       },
       {
         "name": "Final_hours",
-        "label": "Final Hours",
+        "label": "Final Hours *",
         "type": "text",
         "validators": [
           {
@@ -258,7 +258,7 @@
       },
       {
         "name": "Installation_hours",
-        "label": "Installation Hours",
+        "label": "Installation Hours *",
         "type": "text",
         "validators": [
           {
@@ -269,7 +269,7 @@
       },
       {
         "name": "Acrylic_Specification",
-        "label": "Acrylic Specification",
+        "label": "Acrylic Specification *",
         "type": "text",
         "validators": [
           {
@@ -280,7 +280,7 @@
       },
       {
         "name": "Material_Specification",
-        "label": "Material Specification",
+        "label": "Material Specification *",
         "type": "select",
         "validators": [
           {
@@ -291,7 +291,7 @@
       },
       {
         "name": "Glass_Specification",
-        "label": "Glass Specification",
+        "label": "Glass Specification *",
         "type": "text",
         "validators": [
           {
@@ -302,7 +302,7 @@
       },
       {
         "name": "Wood_Specification",
-        "label": "Wood Specification",
+        "label": "Wood Specification *",
         "type": "text",
         "validators": [
           {
@@ -313,7 +313,7 @@
       },
       {
         "name": "Light_Specification",
-        "label": "Light Specification",
+        "label": "Light Specification *",
         "type": "text",
         "validators": [
           {
@@ -324,7 +324,7 @@
       },
       {
         "name": "Metal_Specification",
-        "label": "Metal Specification",
+        "label": "Metal Specification *",
         "type": "text",
         "validators": [
           {
@@ -335,7 +335,7 @@
       },
       {
         "name": "Hardware_Specification",
-        "label": "Hardware Specification",
+        "label": "Hardware Specification *",
         "type": "text",
         "validators": [
           {
@@ -346,7 +346,7 @@
       },
       {
         "name": "Special_Material",
-        "label": "Special Material",
+        "label": "Special Material *",
         "type": "text",
         "validators": [
           {
@@ -357,7 +357,7 @@
       },
       {
         "name": "Painting_Specification",
-        "label": "Painting Specification",
+        "label": "Painting Specification *",
         "type": "text",
         "validators": [
           {
@@ -368,7 +368,7 @@
       },
       {
         "name": "Fabric_Specification",
-        "label": "Fabric Specification",
+        "label": "Fabric Specification *",
         "type": "text",
         "validators": [
           {
@@ -379,7 +379,7 @@
       },
       {
         "name": "Packaging",
-        "label": "Packaging",
+        "label": "Packaging *",
         "type": "select",
         "validators": [
           {
@@ -390,7 +390,7 @@
       },
       {
         "name": "Packaging_Specification",
-        "label": "Packaging Specification",
+        "label": "Packaging Specification *",
         "type": "text",
         "validators": [
           {
@@ -401,7 +401,7 @@
       },
       {
         "name": "Site_Installation_Date",
-        "label": "Site Installation Date",
+        "label": "Site Installation Date *",
         "type": "date",
         "validators": [
           {
@@ -412,7 +412,7 @@
       },
       {
         "name": "Post_Delivery",
-        "label": "Post Delivery",
+        "label": "Post Delivery *",
         "type": "select",
         "validators": [
           {
@@ -423,7 +423,7 @@
       },
       {
         "name": "Delivery_Location",
-        "label": "Delivery Location",
+        "label": "Delivery Location *",
         "type": "text",
         "validators": [
           {
@@ -434,7 +434,7 @@
       },
       {
         "name": "Drawing_References",
-        "label": "Drawing References",
+        "label": "Drawing References *",
         "type": "select",
         "validators": [
           {
@@ -458,7 +458,7 @@
       },
       {
         "name": "Prepared_by",
-        "label": "Prepared by",
+        "label": "Prepared by *",
         "type": "text",
         "bigSize": true,
         "validators": [
@@ -524,7 +524,7 @@
           },
           {
             "name": "assigned_to",
-            "label": "Assigned to",
+            "label": "Assigned to *",
             "type": "text",
             "validators": [
               {
@@ -635,7 +635,7 @@
 
           {
             "name": "updated_by",
-            "label": "Updated by",
+            "label": "Updated by *",
             "type": "text",
             "bigSize": true,
             "validators": [
@@ -1009,7 +1009,7 @@
 
           {
             "name": "prepared_by",
-            "label": "Prepared by",
+            "label": "Prepared by *",
             "type": "text",
             "bigSize": true,
             "validators": [
@@ -1052,7 +1052,7 @@
           },
           {
             "name": "previous_designer",
-            "label": "Previous Designer",
+            "label": "Previous Designer *",
             "type": "select",
             "validators": [
               {
@@ -1063,7 +1063,7 @@
           },
           {
             "name": "assigned_to",
-            "label": "Assigned To",
+            "label": "Assigned To *",
             "type": "select",
             "validators": [
               {
@@ -1074,7 +1074,7 @@
           },
           {
             "name": "reason",
-            "label": "Reason",
+            "label": "Reason *",
             "type": "text",
             "validators": [
               {
@@ -1085,7 +1085,7 @@
           },
           {
             "name": "time_required",
-            "label": "Time Required",
+            "label": "Time Required *",
             "type": "text",
             "validators": [
               {
@@ -1096,7 +1096,7 @@
           },
           {
             "name": "solution",
-            "label": "Solution",
+            "label": "Solution *",
             "type": "text",
             "bigSize": true,
             "bigInput": true,
@@ -1129,7 +1129,7 @@
           },
           {
             "name": "name",
-            "label": "Name",
+            "label": "Name *",
             "type": "text",
             "validators": [
               {
@@ -1141,7 +1141,7 @@
 
           {
             "name": "drawing_name",
-            "label": "Drawing Name",
+            "label": "Drawing Name *",
             "type": "text",
             "validators": [
               {
@@ -1152,7 +1152,7 @@
           },
           {
             "name": "required_hours",
-            "label": "Required Hours",
+            "label": "Required Hours *",
             "type": "text",
             "validators": [
               {
@@ -1163,7 +1163,7 @@
           },
           {
             "name": "used_hour",
-            "label": "Used Working Hours",
+            "label": "Used Working Hours *",
             "type": "text",
             "validators": [
               {
@@ -1174,7 +1174,7 @@
           },
           {
             "name": "date",
-            "label": "Start Date",
+            "label": "Start Date *",
             "type": "date",
             "validators": [
               {
@@ -1192,7 +1192,119 @@
     "path": "/dashboard/project-department",
     "name": "Project Department",
     "urlEndPoint": "/project-department",
-    "icon": "fa fa-stack-exchange"
+    "icon": "fa fa-stack-exchange",
+    "fields": [
+      {
+        "name": "Project_Manager",
+        "label": "Project Manager *",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "label": "Job ID *",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name*",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Client_Name",
+        "label": "Client Name *",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Client_Contact",
+        "label": "Client Contact*",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Date",
+        "label": "Delivery Date*",
+        "type": "date",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Production_Start_Date",
+        "label": "Production Start Date *",
+        "type": "date",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Installation_Date",
+        "label": "Installation Date *",
+        "type": "date",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "About_Client",
+        "label": "About Client *",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Drawing_Link",
+        "label": "Drawing Link *",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      }
+    ]
   },
   {
     "name": "Production",
@@ -1208,7 +1320,7 @@
         "fields": [
           {
             "name": "Job",
-            "label": "Job ID *",
+            "label": "Job ID ",
             "type": "select",
             "validators": [
               {
@@ -1219,7 +1331,7 @@
           },
           {
             "name": "Name",
-            "label": "Name",
+            "label": "Name *",
             "type": "text",
             "validators": [
               {
@@ -1230,7 +1342,7 @@
           },
           {
             "name": "Status",
-            "label": "Status",
+            "label": "Status *",
             "type": "select",
             "validators": [
               {
@@ -1253,7 +1365,7 @@
 
           {
             "name": "Structure",
-            "label": "Structure Inspection",
+            "label": "Structure Inspection *",
             "type": "date",
             "validators": [
               {
@@ -1264,7 +1376,7 @@
           },
           {
             "name": "inspect_struct",
-            "label": "Structure Inspection",
+            "label": "Structure Inspection *",
             "type": "select",
             "validators": [
               {
@@ -1275,7 +1387,7 @@
           },
           {
             "name": "paint",
-            "label": "Paint Inspection",
+            "label": "Paint Inspection *",
             "type": "date",
             "validators": [
               {
@@ -1286,7 +1398,7 @@
           },
           {
             "name": "inspect_paint",
-            "label": "Paint Inspection",
+            "label": "Paint Inspection *",
             "type": "select",
             "validators": [
               {
@@ -1297,7 +1409,7 @@
           },
           {
             "name": "Final",
-            "label": "Final Inspection",
+            "label": "Final Inspection *",
             "type": "date",
             "validators": [
               {
@@ -1308,7 +1420,7 @@
           },
           {
             "name": "inspect_final",
-            "label": "Final Inspection",
+            "label": "Final Inspection ",
             "type": "select",
             "validators": [
               {
@@ -1330,7 +1442,7 @@
           },
           {
             "name": "Last",
-            "label": "Last Updated",
+            "label": "Last Updated *",
             "type": "date",
             "validators": [
               {
@@ -1341,7 +1453,7 @@
           },
           {
             "name": "Updated_by",
-            "label": "Updated By",
+            "label": "Updated By *",
             "type": "text",
             "bigSize": true,
             "validators": [
@@ -1375,7 +1487,7 @@
         "fields": [
           {
             "name": "Job",
-            "label": "Job ID *",
+            "label": "Job ID ",
             "type": "select",
             "validators": [
               {
@@ -1386,7 +1498,7 @@
           },
           {
             "name": "Name",
-            "label": "Name",
+            "label": "Name *",
             "type": "text",
             "validators": [
               {
@@ -1408,7 +1520,7 @@
           },
           {
             "name": "Completion_Date",
-            "label": "Completion Date",
+            "label": "Completion Date *",
             "type": "date",
             "validators": [
               {
@@ -1508,7 +1620,7 @@
         "fields": [
           {
             "name": "Job",
-            "label": "Job ID *",
+            "label": "Job ID",
             "type": "select",
             "validators": [
               {
@@ -1519,7 +1631,7 @@
           },
           {
             "name": "Name",
-            "label": "Name",
+            "label": "Name *",
             "type": "text",
             "validators": [
               {
@@ -1541,7 +1653,7 @@
           },
           {
             "name": "Completion_Date",
-            "label": "Completion Date",
+            "label": "Completion Date *",
             "type": "date",
             "validators": [
               {
@@ -1630,7 +1742,7 @@
         "fields": [
           {
             "name": "Job",
-            "label": "Job ID *",
+            "label": "Job ID",
             "type": "select",
             "validators": [
               {
@@ -1641,7 +1753,7 @@
           },
           {
             "name": "Name",
-            "label": "Name",
+            "label": "Name *",
             "type": "text",
             "validators": [
               {
@@ -1663,7 +1775,7 @@
           },
           {
             "name": "Completion_Date",
-            "label": "Completion Date",
+            "label": "Completion Date *",
             "type": "date",
             "validators": [
               {
@@ -1685,7 +1797,7 @@
           },
           {
             "name": "Sanding",
-            "label": "Sanding",
+            "label": "Sanding ",
             "type": "select",
             "validators": [
               {
@@ -1763,7 +1875,7 @@
         "fields": [
           {
             "name": "Job",
-            "label": "Job ID *",
+            "label": "Job ID",
             "type": "select",
             "validators": [
               {
@@ -1774,7 +1886,7 @@
           },
           {
             "name": "Name",
-            "label": "Name",
+            "label": "Name *",
             "type": "text",
             "validators": [
               {
@@ -1796,7 +1908,7 @@
           },
           {
             "name": "Completion_Date",
-            "label": "Completion Date",
+            "label": "Completion Date *",
             "type": "date",
             "validators": [
               {
@@ -1885,7 +1997,7 @@
         "fields": [
           {
             "name": "Job",
-            "label": "Job ID *",
+            "label": "Job ID",
             "type": "select",
             "validators": [
               {
@@ -1896,7 +2008,7 @@
           },
           {
             "name": "Name",
-            "label": "Name",
+            "label": "Name *",
             "type": "text",
             "validators": [
               {
@@ -1918,7 +2030,7 @@
           },
           {
             "name": "Completion_Date",
-            "label": "Completion Date",
+            "label": "Completion Date *",
             "type": "date",
             "validators": [
               {

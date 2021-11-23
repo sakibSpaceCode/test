@@ -192,14 +192,30 @@ const CommonPage = (props) => {
       );
   }, [urlEndPoint]);
   useEffect(() => {
-    apiURL === "job_card" && dispatch(get2ndDropdown(secondDropdown));
-    apiURL === "status" && dispatch(get2ndDropdown(secondDropdown));
-    apiURL === "job_card" && dispatch(get3rdDropdown(thirdDropdown));
-    apiURL === "job_card" && dispatch(get4thDropdown(fourthDropdown));
-    apiURL === "job_card" && dispatch(get5thDropdown(fifthDropdown));
-    apiURL === "job_card" && dispatch(get6thDropdown(sixthDropdown));
-    apiURL === "job_card" && dispatch(get7thDropdown(seventhDropdown));
-    apiURL === "job_card" && dispatch(get8thDropdown(eightDropdown));
+    apiURL === "job_card" &&
+      secondDropdown &&
+      dispatch(get2ndDropdown(secondDropdown));
+    apiURL === "status" &&
+      thirdDropdown &&
+      dispatch(get2ndDropdown(secondDropdown));
+    apiURL === "job_card" &&
+      thirdDropdown &&
+      dispatch(get3rdDropdown(thirdDropdown));
+    apiURL === "job_card" &&
+      fourthDropdown &&
+      dispatch(get4thDropdown(fourthDropdown));
+    apiURL === "job_card" &&
+      fifthDropdown &&
+      dispatch(get5thDropdown(fifthDropdown));
+    apiURL === "job_card" &&
+      sixthDropdown &&
+      dispatch(get6thDropdown(sixthDropdown));
+    apiURL === "job_card" &&
+      seventhDropdown &&
+      dispatch(get7thDropdown(seventhDropdown));
+    apiURL === "job_card" &&
+      eightDropdown &&
+      dispatch(get8thDropdown(eightDropdown));
   }, [
     apiURL,
     secondDropdown,
@@ -230,6 +246,7 @@ const CommonPage = (props) => {
       dispatch(clearPostResponse());
     }, 3000);
   }, [postResponse, postError]);
+  console.log(rowData, "hi");
 
   return (
     <>
@@ -239,23 +256,25 @@ const CommonPage = (props) => {
         <>
           <Grid
             container
-            alignItems='center'
-            justify='space-between'
-            spacing={8}>
+            alignItems="center"
+            justify="space-between"
+            spacing={8}
+          >
             <Grid item xs={6}>
-              <Grid container direction='column' spacing={2}>
+              <Grid container direction="column" spacing={2}>
                 <Grid item xs={12}>
                   <CustomSearch placeholder={`Search ${label} to view`} />
                 </Grid>
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justify='flex-end' spacing={2}>
+              <Grid container justify="flex-end" spacing={2}>
                 <Grid item>
                   <CustomButton
-                    width='150px'
-                    variant='outlined'
-                    onClick={handleEditDialog}>
+                    width="150px"
+                    variant="outlined"
+                    onClick={handleEditDialog}
+                  >
                     {label === "Job Card" ? "Add Job Card" : "Add"}
                   </CustomButton>
                 </Grid>
@@ -263,16 +282,18 @@ const CommonPage = (props) => {
                 <Grid item>
                   <CustomButton
                     onClick={handleImportDialog}
-                    width='150px'
-                    variant='outlined'>
+                    width="150px"
+                    variant="outlined"
+                  >
                     Import
                   </CustomButton>
                 </Grid>
                 <Grid item>
                   <CustomButton
                     onClick={handleExportDialog}
-                    width='150px'
-                    variant='outlined'>
+                    width="150px"
+                    variant="outlined"
+                  >
                     Export
                   </CustomButton>
                 </Grid>
@@ -281,7 +302,11 @@ const CommonPage = (props) => {
           </Grid>
           <div style={{ marginTop: 30 }}>
             <BorderPaper>
-              <CustomTable height={500} response={responseData} />
+              <CustomTable
+                setRowData={setRowData}
+                height={500}
+                response={responseData}
+              />
             </BorderPaper>
           </div>
           <CustomDialog
@@ -324,7 +349,7 @@ const CommonPage = (props) => {
               onClose={() => setAlertOpen(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity='success'
+              severity="success"
               actions={false}
             />
           )}

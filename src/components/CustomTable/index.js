@@ -91,7 +91,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CustomTable({ height, response, local }) {
+export default function CustomTable({ height, response, local, setRowData }) {
   const classes = useStyles({ height: height });
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -134,12 +134,7 @@ export default function CustomTable({ height, response, local }) {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, i) => {
                   return (
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={i}
-                    >
+                    <TableRow hover role="checkbox" tabIndex={-1} key={i}>
                       {columns.map((column, i) => {
                         const value = row[column.id];
                         return value === "Completed" ? (
@@ -167,7 +162,7 @@ export default function CustomTable({ height, response, local }) {
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
-                {response?.data?.header?.map((column,i) => (
+                {response?.data?.header?.map((column, i) => (
                   <TableCell
                     key={i}
                     align={"center"}
@@ -185,7 +180,7 @@ export default function CustomTable({ height, response, local }) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {response?.data?.data?.map((row,i) => {
+              {response?.data?.data?.map((row, i) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={i}>
                     {response?.data?.header?.map((column) => {
@@ -216,8 +211,11 @@ export default function CustomTable({ height, response, local }) {
                         column.key === "date"
                       ) {
                         value = moment(value).format("DD-MMM-YYYY");
-                      } else if (column.key === "Job.Job_No") {
-                        value = row?.Job?.Job_No || "-";
+                      } else if (column.key.includes(".")) {
+                        let keys = column.key.split(".");
+                        value = row[keys[0]]?.[keys[1]]
+                          ? row[keys[0]]?.[keys[1]]
+                          : "-";
                       }
                       return column.key === "is_active" && value === true ? (
                         <TableCell key={column.key} align={"center"}>
@@ -268,7 +266,13 @@ export default function CustomTable({ height, response, local }) {
                           <HelpIcon style={{ fill: "rgba(251, 183, 82, 1)" }} />
                         </TableCell>
                       ) : (
-                        <TableCell key={column.key} align={"center"}>
+                        <TableCell
+                          onClick={() => {
+                            if (setRowData) setRowData(row);
+                          }}
+                          key={column.key}
+                          align={"center"}
+                        >
                           {value?.toString() || "-"}
                         </TableCell>
                       );
