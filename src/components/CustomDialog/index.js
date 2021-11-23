@@ -68,6 +68,7 @@ const CustomDialog = (props) => {
     error,
     minWidth,
     isDelete,
+    isEdit,
   } = props;
 
   const classes = useStyles();
@@ -104,7 +105,11 @@ const CustomDialog = (props) => {
             </Typography>
           </Grid>
           <Grid item xs>
-            <Grid container justifyContent='flex-end' alignItems='center' spacing={1}>
+            <Grid
+              container
+              justifyContent='flex-end'
+              alignItems='center'
+              spacing={1}>
               <Grid item>
                 <CustomButton
                   disabled={disabled}
@@ -119,16 +124,18 @@ const CustomDialog = (props) => {
                   )}
                 </CustomButton>
               </Grid>
-              <Grid item>
-                <CustomButton
-                  disabled={disabled}
-                  variant='outlined'
-                  color='primary'
-                  onClick={onSaveClick}
-                  textColor='#618EFF'>
-                  Save and add another
-                </CustomButton>
-              </Grid>
+              {!isEdit && (
+                <Grid item>
+                  <CustomButton
+                    disabled={disabled}
+                    variant='outlined'
+                    color='primary'
+                    onClick={onSaveClick}
+                    textColor='#618EFF'>
+                    Save and add another
+                  </CustomButton>
+                </Grid>
+              )}
               <Grid item>
                 <CustomButton
                   disabled={disabled}

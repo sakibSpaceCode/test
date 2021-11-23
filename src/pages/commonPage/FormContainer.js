@@ -49,6 +49,7 @@ const FormContainer = (props) => {
     handleEditChange,
     handleDateChange,
     rowData,
+    i,
   } = props;
 
   const { options } = useSelector((state) => state.getDropdown);
@@ -63,7 +64,7 @@ const FormContainer = (props) => {
   const { options2Diff } = useSelector((state) => state.get2ndDiffDropdown);
   // const { collectionData } = useSelector((state) => state.getCollectionDropdown);
   // const { userInfo } = useSelector((state) => state.userLogin);
-  console.log(options2 ,'options2 ');
+  console.log(options2, "options2 ");
   const defaultOptions = [
     { name: "Yes", value: "yes" },
     { name: "No", value: "no" },
@@ -110,7 +111,7 @@ const FormContainer = (props) => {
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomInput
           key={input.name}
-          onChange={onFormChange}
+          onChange={isEdit ? handleEditChange : onFormChange}
           name={input.name}
           value={input.value ?? ""}
           type={input.type}
@@ -137,7 +138,7 @@ const FormContainer = (props) => {
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomSelect
           key={input.name}
-          onChange={onFormChange}
+          onChange={isEdit ? handleEditChange : onFormChange}
           name={input.name}
           value={input.value ?? ""}
           type={input.type}

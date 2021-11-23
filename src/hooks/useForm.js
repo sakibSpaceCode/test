@@ -35,9 +35,9 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
 
   const handleDateChange = (name, date) => {
     let Date = moment.utc(date).format();
-    // let temp = rowData;
-    // temp[name] = Date;
-    // setRowData({ ...rowData, temp });
+    let temp = rowData;
+    temp[name] = Date;
+    setRowData({ ...rowData, temp });
     inputs?.forEach((i) => {
       if (i.name === name) {
         if (i.type === "date") {
@@ -50,6 +50,7 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
     setInputs([...inputs]);
   };
   const handleEditChange = (e) => {
+    console.log(e.target.name, rowData, 'ooiuig');
     let temp = rowData;
     temp[e.target.name] = e.target.value;
     setRowData({ ...rowData, temp });

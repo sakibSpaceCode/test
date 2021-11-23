@@ -91,7 +91,13 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CustomTable({ height, response, local, setRowData }) {
+export default function CustomTable({
+  height,
+  response,
+  local,
+  setRowData,
+  setEditDialogOpen,
+}) {
   const classes = useStyles({ height: height });
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -109,7 +115,7 @@ export default function CustomTable({ height, response, local, setRowData }) {
     <>
       {local ? (
         <TableContainer className={classes.container}>
-          <Table stickyHeader aria-label="sticky table">
+          <Table stickyHeader aria-label='sticky table'>
             <TableHead>
               <TableRow>
                 {columns.map((column) => (
@@ -122,8 +128,7 @@ export default function CustomTable({ height, response, local, setRowData }) {
                       color: "#618EFF",
                       fontWeight: "600",
                       fontSize: "16px",
-                    }}
-                  >
+                    }}>
                     {column.label}
                   </TableCell>
                 ))}
@@ -134,7 +139,7 @@ export default function CustomTable({ height, response, local, setRowData }) {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, i) => {
                   return (
-                    <TableRow hover role="checkbox" tabIndex={-1} key={i}>
+                    <TableRow hover role='checkbox' tabIndex={-1} key={i}>
                       {columns.map((column, i) => {
                         const value = row[column.id];
                         return value === "Completed" ? (
@@ -159,7 +164,7 @@ export default function CustomTable({ height, response, local, setRowData }) {
         </TableContainer>
       ) : (
         <TableContainer className={classes.container}>
-          <Table stickyHeader aria-label="sticky table">
+          <Table stickyHeader aria-label='sticky table'>
             <TableHead>
               <TableRow>
                 {response?.data?.header?.map((column, i) => (
@@ -172,8 +177,7 @@ export default function CustomTable({ height, response, local, setRowData }) {
                       color: "#618EFF",
                       fontWeight: "600",
                       fontSize: "16px",
-                    }}
-                  >
+                    }}>
                     {column.label}
                   </TableCell>
                 ))}
@@ -182,7 +186,7 @@ export default function CustomTable({ height, response, local, setRowData }) {
             <TableBody>
               {response?.data?.data?.map((row, i) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={i}>
+                  <TableRow hover role='checkbox' tabIndex={-1} key={i}>
                     {response?.data?.header?.map((column) => {
                       let value = row[column.key];
                       if (
@@ -269,10 +273,12 @@ export default function CustomTable({ height, response, local, setRowData }) {
                         <TableCell
                           onClick={() => {
                             if (setRowData) setRowData(row);
+                            if (setEditDialogOpen) {
+                              setEditDialogOpen(true);
+                            }
                           }}
                           key={column.key}
-                          align={"center"}
-                        >
+                          align={"center"}>
                           {value?.toString() || "-"}
                         </TableCell>
                       );

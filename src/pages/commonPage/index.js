@@ -24,6 +24,7 @@ import {
   clearDiffDropDownResponse,
   clearDropDownResponse,
   clearPostResponse,
+  clearPutResponse,
   get2ndDiffDropdown,
   get2ndDropdown,
   get3rdDropdown,
@@ -35,6 +36,7 @@ import {
   getDiffDropdown,
   getDropdown,
   postFormData,
+  putFormData,
 } from "../../redux/actions/commonFormActions";
 import Alert from "../../components/alert/alert.container";
 import Loader from "../../components/loader";
@@ -49,7 +51,11 @@ const CommonPage = (props) => {
   const apiURL = mData.apiUrl;
   let url = props.path.split("/")[2];
 
+  const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [editDialogOpen, setEditDialogOpen] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [alertOpen2, setAlertOpen2] = useState(false);
+  const [nextClick, setNextClick] = useState(false);
   const [importDialogOpen, setImportDialogOpen] = useState(false);
   const [exportDialogOpen, setExportDialogOpen] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
@@ -66,16 +72,40 @@ const CommonPage = (props) => {
     (state) => state.getData
   );
 
+  isEdit &&
+    mData?.fields?.forEach((field) => {
+      let fieldValue = rowData[field.name];
+      if (typeof fieldValue === "object" && fieldValue !== null) {
+        if (field.name === "Job") {
+          field.value = fieldValue._id;
+        }
+        if (field.name === "previous_designer") {
+          field.value = fieldValue._id;
+        }
+        if (field.name === "assigned_to") {
+          field.value = fieldValue._id;
+        }
+      } else {
+        field.value = rowData[field?.name];
+      }
+    });
+  const emptyValuesFiltered =
+    mData?.fields?.length > 0 && mData?.fields?.filter((v) => v.value);
+
   const submitCallback = (e) => {
     let object = {};
 
-    mData?.fields?.map((m) => (object[m.name] = m.value));
-
+    emptyValuesFiltered?.map((m) => (object[m.name] = m.value));
+    if (isEdit) {
+      object._id = rowData._id;
+    }
     let json = JSON.stringify(object);
-
-    dispatch(postFormData(apiURL, json));
+    if (isEdit) {
+      dispatch(putFormData(apiURL, json));
+    } else {
+      dispatch(postFormData(apiURL, json));
+    }
   };
-
   const [
     inputs,
     onFormChange,
@@ -83,9 +113,20 @@ const CommonPage = (props) => {
     setSubmit,
     resetFormData,
     handleDateChange,
-  ] = useForm(mData?.fields, submitCallback);
-  console.log(apiURL);
+  ] = useForm(mData?.fields, submitCallback, rowData, setRowData);
+
+  const handleAddDialog = () => {
+    setAddDialogOpen(true);
+  };
+  const handleAddDialogClose = () => {
+    setAddDialogOpen(false);
+    setErrorMessage(null);
+    resetFormData();
+    setErrorMessage("");
+    // dispatch(clearDropDownResponse())
+  };
   const handleEditDialog = () => {
+    setIsEdit(true);
     setEditDialogOpen(true);
   };
   const handleEditDialogClose = () => {
@@ -93,6 +134,7 @@ const CommonPage = (props) => {
     setErrorMessage(null);
     resetFormData();
     setErrorMessage("");
+    setIsEdit(false);
     // dispatch(clearDropDownResponse())
   };
   const handleCompleteButtonClick = () => {
@@ -113,6 +155,9 @@ const CommonPage = (props) => {
   const { postLoading, postResponse, postError } = useSelector(
     (state) => state.postFields
   );
+  const { putLoading, putResponse, putError } = useSelector(
+    (state) => state.putFields
+  );
   useEffect(() => {
     dispatch(getData(apiURL));
     dispatch(getDropdown("job_card"));
@@ -121,6 +166,10 @@ const CommonPage = (props) => {
 
     return () => {
       dispatch(clearData());
+      setIsEdit(false);
+      setErrorMessage("");
+      setAlertOpen(false);
+      setAlertOpen2(false);
       dispatch(clearDropDownResponse());
       dispatch(clear2ndDropDownResponse());
       dispatch(clear3rdDropDownResponse());
@@ -238,7 +287,7 @@ const CommonPage = (props) => {
     //   }
     // }
     postResponse?.success === true && resetFormData();
-    postResponse?.success === true && setEditDialogOpen(false);
+    postResponse?.success === true && setAddDialogOpen(false);
     console.log(postError, "postError");
     postError && dispatch(clearPostResponse());
     postError && setErrorMessage(postError);
@@ -246,6 +295,22 @@ const CommonPage = (props) => {
       dispatch(clearPostResponse());
     }, 3000);
   }, [postResponse, postError]);
+  useEffect(() => {
+    putResponse?.success === true && setAlertOpen2(true);
+    putResponse?.success === true && dispatch(getData(apiURL));
+    putResponse?.success === false && setEditDialogOpen(true);
+    putError?.errorMessage && setErrorMessage(putError?.errorMessage);
+    putResponse?.success === true && setIsEdit(false);
+    putResponse?.success === true && resetFormData();
+    putResponse?.success === true && setErrorMessage(null);
+    putError?.errorMessage && dispatch(clearPutResponse());
+    setTimeout(() => {
+      dispatch(clearPutResponse());
+    }, 3000);
+  }, [putResponse, putError]);
+  useEffect(() => {
+    putResponse?.success === true && setEditDialogOpen(false);
+  }, [putResponse]);
   console.log(rowData, "hi");
 
   return (
@@ -256,25 +321,23 @@ const CommonPage = (props) => {
         <>
           <Grid
             container
-            alignItems="center"
-            justify="space-between"
-            spacing={8}
-          >
+            alignItems='center'
+            justify='space-between'
+            spacing={8}>
             <Grid item xs={6}>
-              <Grid container direction="column" spacing={2}>
+              <Grid container direction='column' spacing={2}>
                 <Grid item xs={12}>
                   <CustomSearch placeholder={`Search ${label} to view`} />
                 </Grid>
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justify="flex-end" spacing={2}>
+              <Grid container justify='flex-end' spacing={2}>
                 <Grid item>
                   <CustomButton
-                    width="150px"
-                    variant="outlined"
-                    onClick={handleEditDialog}
-                  >
+                    width='150px'
+                    variant='outlined'
+                    onClick={handleAddDialog}>
                     {label === "Job Card" ? "Add Job Card" : "Add"}
                   </CustomButton>
                 </Grid>
@@ -282,18 +345,16 @@ const CommonPage = (props) => {
                 <Grid item>
                   <CustomButton
                     onClick={handleImportDialog}
-                    width="150px"
-                    variant="outlined"
-                  >
+                    width='150px'
+                    variant='outlined'>
                     Import
                   </CustomButton>
                 </Grid>
                 <Grid item>
                   <CustomButton
                     onClick={handleExportDialog}
-                    width="150px"
-                    variant="outlined"
-                  >
+                    width='150px'
+                    variant='outlined'>
                     Export
                   </CustomButton>
                 </Grid>
@@ -306,20 +367,22 @@ const CommonPage = (props) => {
                 setRowData={setRowData}
                 height={500}
                 response={responseData}
+                setEditDialogOpen={handleEditDialog}
               />
             </BorderPaper>
           </div>
           <CustomDialog
             title={`Add ${label}`}
-            open={editDialogOpen}
-            onClose={handleEditDialogClose}
-            onCancelClick={handleEditDialogClose}
+            open={addDialogOpen}
+            onClose={handleAddDialogClose}
+            onCancelClick={handleAddDialogClose}
             // onNextClick={handleNextClick}
             // onCompleteClick={handleCompleteButtonClick}
             onSaveClick={handleCompleteButtonClick}
-            // isSave={isEdit || isClone ? true : false}
+            // isSave={isAdd || isClone ? true : false}
             loading={postLoading}
-            error={errorMessage}
+              error={errorMessage}
+              isEdit={isEdit}
             // disabled={inputs?.length === 0}>
           >
             <FormContainer
@@ -329,6 +392,31 @@ const CommonPage = (props) => {
               handleEditChange={handleEditChange}
               rowData={rowData}
               handleDateChange={handleDateChange}
+              isEdit={isEdit}
+            />
+          </CustomDialog>
+          <CustomDialog
+            title={`Edit ${label}`}
+            open={editDialogOpen}
+            onClose={handleEditDialogClose}
+            onCancelClick={handleEditDialogClose}
+            // onNextClick={handleNextClick}
+            // onCompleteClick={handleCompleteButtonClick}
+            onSaveClick={handleCompleteButtonClick}
+            // isSave={isAdd || isClone ? true : false}
+            loading={postLoading}
+              error={errorMessage}
+              isEdit={isEdit}
+            // disabled={inputs?.length === 0}>
+          >
+            <FormContainer
+              inputs={inputs}
+              urlEndPoint={urlEndPoint}
+              onFormChange={onFormChange}
+              handleEditChange={handleEditChange}
+              rowData={rowData}
+              handleDateChange={handleDateChange}
+              isEdit={isEdit}
             />
           </CustomDialog>
           <ImportDialog
@@ -349,7 +437,19 @@ const CommonPage = (props) => {
               onClose={() => setAlertOpen(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity="success"
+              severity='success'
+              actions={false}
+            />
+          )}
+          {alertOpen2 && (
+            <Alert
+              open={alertOpen2}
+              message={`${label} updated successfully.`}
+              duration={2000}
+              onClose={() => setAlertOpen2(false)}
+              vertical={"bottom"}
+              horizontal={"center"}
+              severity='success'
               actions={false}
             />
           )}
