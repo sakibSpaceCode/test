@@ -32,6 +32,7 @@ const EmployeesPage = () => {
     is_staff: true,
     is_active: true,
     is_superuser: true,
+    permission: [],
   });
   const dispatch = useDispatch();
   const handleOpenDialog = () => {
@@ -200,7 +201,11 @@ const EmployeesPage = () => {
             error={errorMessage}
             // disabled={inputs?.length === 0}>
           >
-            <AddEmployeeForm formData={formData} setFormData={setFormData} />
+            <AddEmployeeForm
+              permission={permission}
+              formData={formData}
+              setFormData={setFormData}
+            />
           </CustomDialog>
           {alertOpen && (
             <Alert

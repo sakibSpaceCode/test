@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AddEmployeeForm = (props) => {
-  const { setFormData, formData } = props;
+  const { setFormData, formData, permission } = props;
   const classes = useStyles();
 
   function not(a, b) {
@@ -142,16 +142,17 @@ const AddEmployeeForm = (props) => {
         subheader={`${numberOfChecked(items)}/${items.length} selected`}
       />
       <Divider />
-      <List className={classes.list} dense component='div' role='list'>
+      <List className={classes.list} dense component="div" role="list">
         {items.map((value) => {
           const labelId = `transfer-list-all-item-${value}-label`;
 
           return (
             <ListItem
               key={value}
-              role='listitem'
+              role="listitem"
               button
-              onClick={handleToggle(value)}>
+              onClick={handleToggle(value)}
+            >
               <ListItemIcon>
                 <Checkbox
                   checked={checked.indexOf(value) !== -1}
@@ -171,14 +172,14 @@ const AddEmployeeForm = (props) => {
 
   return (
     <Grid>
-      <Grid container spacing={5} justify={"space-between"} alignItems='center'>
+      <Grid container spacing={5} justify={"space-between"} alignItems="center">
         <Grid item md={6} className={classes.inputField}>
-          <Typography variant='body2' style={{ fontWeight: 700 }}>
+          <Typography variant="body2" style={{ fontWeight: 700 }}>
             Username
           </Typography>
           <CustomInput
             onChange={onFormChange}
-            name='username'
+            name="username"
             value={formData.username}
             //   type={formData.type}
             //   helperText={formData.alert}
@@ -186,11 +187,11 @@ const AddEmployeeForm = (props) => {
             fullWidth
             style={{ width: 300 }}
             className={classes.textField}
-            size='sm'
+            size="sm"
           />
         </Grid>
         <Grid item md={6} className={classes.inputField}>
-          <Typography variant='body2' style={{ fontWeight: 700 }}>
+          <Typography variant="body2" style={{ fontWeight: 700 }}>
             Password
           </Typography>
           <div style={{ marginTop: "10px" }}>
@@ -209,13 +210,13 @@ const AddEmployeeForm = (props) => {
           </div>
         </Grid>
         <Grid item md={12}>
-          <Typography variant='subtitle'>Personal Info</Typography>
+          <Typography variant="subtitle">Personal Info</Typography>
         </Grid>
         <Grid item md={4} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>First Name</InputLabel>
           <CustomInput
             onChange={onFormChange}
-            name='first_name'
+            name="first_name"
             value={formData.first_name}
             //   type={formData.type}
             //   helperText={formData.alert}
@@ -223,7 +224,7 @@ const AddEmployeeForm = (props) => {
             fullWidth
             style={{ width: 300 }}
             className={classes.textField}
-            size='sm'
+            size="sm"
           />
         </Grid>
 
@@ -231,7 +232,7 @@ const AddEmployeeForm = (props) => {
           <InputLabel className={classes.inputLabel}>Last Name</InputLabel>
           <CustomInput
             onChange={onFormChange}
-            name='last_name'
+            name="last_name"
             value={formData.last_name}
             //   type={formData.type}
             //   helperText={formData.alert}
@@ -239,7 +240,7 @@ const AddEmployeeForm = (props) => {
             fullWidth
             style={{ width: 300 }}
             className={classes.textField}
-            size='sm'
+            size="sm"
           />
         </Grid>
 
@@ -247,7 +248,7 @@ const AddEmployeeForm = (props) => {
           <InputLabel className={classes.inputLabel}>Email Address</InputLabel>
           <CustomInput
             onChange={onFormChange}
-            name='email'
+            name="email"
             value={formData.email}
             //   type={formData.type}
             //   helperText={formData.alert}
@@ -255,49 +256,50 @@ const AddEmployeeForm = (props) => {
             fullWidth
             style={{ width: 300 }}
             className={classes.textField}
-            size='sm'
+            size="sm"
           />
         </Grid>
         <Grid item md={12}>
-          <Typography variant='subtitle'>Permissions</Typography>
+          <Typography variant="subtitle">Permissions</Typography>
         </Grid>
         <Grid item md={4} className={classes.inputField}>
           <CustomCheckbox
-            label='Active'
+            label="Active"
             // size={size}
             handleChange={onFormCheckboxChange}
             checked={formData.is_active}
-            name='is_active'
+            name="is_active"
           />
         </Grid>
         <Grid item md={4} className={classes.inputField}>
           <CustomCheckbox
-            label='Staff'
+            label="Staff"
             // size={size}
             handleChange={onFormCheckboxChange}
             checked={formData.is_staff}
-            name='is_staff'
+            name="is_staff"
           />
         </Grid>
         <Grid item md={4} className={classes.inputField}>
           <CustomCheckbox
-            label='Superuser'
+            label="Superuser"
             // size={size}
             handleChange={onFormCheckboxChange}
             checked={formData.is_superuser}
-            name='is_superuser'
+            name="is_superuser"
           />
         </Grid>
         <Grid item md={12}>
-          <Typography variant='subtitle'>User Permission</Typography>
+          <Typography variant="subtitle">User Permission</Typography>
         </Grid>
         <Grid item md={12}>
           <Grid
             container
             spacing={2}
-            justifyContent='center'
-            alignItems='center'
-            className={classes.root}>
+            justifyContent="center"
+            alignItems="center"
+            className={classes.root}
+          >
             <Grid item xs>
               {/* <Grid item>{customList("Choices", left)}</Grid>
             <Grid item>
@@ -325,7 +327,7 @@ const AddEmployeeForm = (props) => {
               </Grid>
             </Grid>
             <Grid item>{customList("Chosen", right)}</Grid> */}
-              <TestTransferList />
+              <TestTransferList permission={permission} formData={formData} />
             </Grid>
           </Grid>
         </Grid>

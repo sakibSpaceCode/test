@@ -22,22 +22,14 @@ export default class TestTransferList extends React.Component {
   }
 
   getMock() {
-    const dataSource = [];
+    let obj = [];
+    this.props?.permission?.data?.data.map((data) => {
+      obj.push({ ...data, choose: false });
+    });
+    const dataSource = obj;
     const targetKeys = [];
     const length = 5000;
-    for (let i = 0; i < (length < 1 ? 10 : length); i += 1) {
-      const data = {
-        key: i.toString(),
-        title: `content${i + 1}`,
-        description: `description of content${i + 1}`,
-        disabled: i % 3 < 1,
-        chosen: Math.random() * 2 > 1,
-      };
-      if (data.chosen) {
-        targetKeys.push(data.key);
-      }
-      dataSource.push(data);
-    }
+
     this.setState({
       dataSource,
       selectedKeys: [],
@@ -46,14 +38,16 @@ export default class TestTransferList extends React.Component {
   }
 
   filterOption(inputValue, option) {
-    return option.description.indexOf(inputValue) > -1;
+    console.log(inputValue, option);
   }
 
   handleChange(nextTargetKeys, _direction, _moveKeys) {
+    console.log(nextTargetKeys, _direction, _moveKeys);
     this.setState({ targetKeys: nextTargetKeys });
   }
 
   handleSelectChange(sourceSelectedKeys, targetSelectedKeys) {
+    console.log(sourceSelectedKeys, targetSelectedKeys);
     this.setState({
       selectedKeys: [...sourceSelectedKeys, ...targetSelectedKeys],
     });
@@ -62,7 +56,7 @@ export default class TestTransferList extends React.Component {
   render() {
     return (
       <Transfer
-        render={(item) => `${item.title}-${item.description}`}
+        render={(item) => `${item.codename}`}
         dataSource={this.state.dataSource}
         targetKeys={this.state.targetKeys}
         selectedKeys={this.state.selectedKeys}
