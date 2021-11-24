@@ -46,6 +46,7 @@ const EmployeesPage = () => {
   const handleCompleteButtonClick = () => {
     dispatch(postFormData("user", formData));
   };
+  console.log(formData);
   const { loading, error, responseData } = useSelector(
     (state) => state.getData
   );

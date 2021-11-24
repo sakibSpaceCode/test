@@ -24,7 +24,7 @@ export default class TestTransferList extends React.Component {
   getMock() {
     let obj = [];
     this.props?.permission?.data?.data.map((data) => {
-      obj.push({ ...data, choose: false });
+      obj.push({ ...data, key: data._id });
     });
     const dataSource = obj;
     const targetKeys = [];
@@ -43,14 +43,36 @@ export default class TestTransferList extends React.Component {
 
   handleChange(nextTargetKeys, _direction, _moveKeys) {
     console.log(nextTargetKeys, _direction, _moveKeys);
-    this.setState({ targetKeys: nextTargetKeys });
+    this.setState({ targetKeys: nextTargetKeys }, () => {
+      this.props.setFormData({
+        ...this.props.formData,
+        permission: nextTargetKeys,
+      });
+    });
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.targetKeys !== this.state.targetKeys) {
+      console.log(this.state.targetKeys);
+      this.props.setFormData({
+        ...this.props.formData,
+        permission: [this.state.selectedKeys],
+      });
+    }
   }
 
   handleSelectChange(sourceSelectedKeys, targetSelectedKeys) {
     console.log(sourceSelectedKeys, targetSelectedKeys);
-    this.setState({
-      selectedKeys: [...sourceSelectedKeys, ...targetSelectedKeys],
-    });
+    this.setState(
+      {
+        selectedKeys: [...sourceSelectedKeys, ...targetSelectedKeys],
+      },
+      () => {
+        this.props.setFormData({
+          ...this.props.formData,
+          permission: this.state.selectedKeys,
+        });
+      }
+    );
   }
 
   render() {
@@ -70,7 +92,7 @@ export default class TestTransferList extends React.Component {
           width: "50%",
           height: 300,
         }}
-        operations={[<KeyboardArrowRightIcon />, <KeyboardArrowLeftIcon />]}
+        operations={[<KeyboardArrowLeftIcon />, <KeyboardArrowRightIcon />]}
         showSearch
         notFoundContent={"not found"}
         searchPlaceholder={"Search"}

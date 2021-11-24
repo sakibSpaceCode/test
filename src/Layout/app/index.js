@@ -115,7 +115,7 @@ const Dashboard = () => {
           <main
             style={{
               width: "calc(100% - 20px)",
-              height: "97vh",
+              height: "102.5vh",
               borderRadius: "25px 25px 0 0",
               position: "relative",
 

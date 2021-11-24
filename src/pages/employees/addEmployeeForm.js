@@ -327,7 +327,11 @@ const AddEmployeeForm = (props) => {
               </Grid>
             </Grid>
             <Grid item>{customList("Chosen", right)}</Grid> */}
-              <TestTransferList permission={permission} formData={formData} />
+              <TestTransferList
+                permission={permission}
+                formData={formData}
+                setFormData={setFormData}
+              />
             </Grid>
           </Grid>
         </Grid>
