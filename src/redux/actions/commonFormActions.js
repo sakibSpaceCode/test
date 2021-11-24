@@ -53,7 +53,7 @@ export const putFormData =
     } else {
       dispatch({
         type: "PUT_FIELDS_ERROR",
-        payload: data.error,
+        payload: data.message,
       });
     }
   };
@@ -67,7 +67,7 @@ export const deleteFormData =
     const config = {
       headers: {
         "Content-Type": "application/json",
-        authorization: userInfo?.data.token,
+        Authorization: userInfo?.data.token,
       },
     };
 
@@ -82,7 +82,7 @@ export const deleteFormData =
     } else {
       dispatch({
         type: "DELETE_FIELD_ERROR",
-        payload: data.error,
+        payload: data.message,
       });
     }
   };

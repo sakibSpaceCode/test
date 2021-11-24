@@ -12,19 +12,27 @@ import {
 import moment from "moment";
 // import { useDispatch, useSelector } from 'react-redux';
 
-const useForm = (initModel, submitCallback, rowData, setRowData) => {
+const useForm = (
+  initModel,
+  submitCallback,
+  rowData,
+  setRowData,
+  setNextClick
+) => {
   const [inputs, setInputs] = useState(initModel);
   useEffect(() => {
     setInputs(initModel);
   }, [initModel]);
   const handleChange = (e, newValue, flag = false) => {
+    setNextClick(false);
     inputs?.forEach((i) => {
       if (i.name === "Job" && newValue && flag) {
         i.value = newValue?._id;
         parseInput(i);
         console.log("2");
       } else if (i.name === e?.target?.name) {
-        i.value = e.target.value;
+        i.value =
+          i.name === "Quantity" ? parseInt(e.target.value) : e.target.value;
         console.log(i.name, i.value);
         parseInput(i);
         i?.label?.includes("*") && validateInput(i);
@@ -34,6 +42,7 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
   };
 
   const handleDateChange = (name, date) => {
+    setNextClick && setNextClick(false);
     let Date = moment.utc(date).format();
     let temp = rowData;
     temp[name] = Date;
@@ -50,13 +59,14 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
     setInputs([...inputs]);
   };
   const handleEditChange = (e) => {
-    console.log(e.target.name, rowData, 'ooiuig');
+    console.log(e.target.name, rowData, "ooiuig");
     let temp = rowData;
     temp[e.target.name] = e.target.value;
     setRowData({ ...rowData, temp });
     inputs.forEach((i) => {
       if (i.name === e.target.name) {
-        i.value = e.target.value;
+        i.value =
+          i.name === "Quantity" ? parseInt(e.target.value) : e.target.value;
         parseInput(i);
         i?.label?.includes("*") && validateInput(i);
       }
@@ -66,9 +76,9 @@ const useForm = (initModel, submitCallback, rowData, setRowData) => {
 
   const handleSubmit = (nextClick) => {
     let filteredInputs;
-    filteredInputs = inputs?.filter((input) => input.label.includes('*'));
-        
-        filteredInputs.forEach((i) => validateInput(i));
+    filteredInputs = inputs?.filter((input) => input.label.includes("*"));
+
+    filteredInputs.forEach((i) => validateInput(i));
     // inputs.forEach((i) => validateInput(i));
     inputs?.some((i) => i.alert)
       ? setInputs([...inputs])

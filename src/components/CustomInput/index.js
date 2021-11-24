@@ -88,6 +88,7 @@ const CustomInput = (props) => {
     inputProps,
     toolTipLabel,
     onIconClick,
+    multiple,
   } = props;
   return (
     <TextField
@@ -101,10 +102,11 @@ const CustomInput = (props) => {
       onChange={onChange}
       type={type}
       id={id}
+      multiple={multiple}
       className={
         size === "md" ? classes.md : size === "lg" ? classes.lg : classes.sm
       }
-      autoComplete="off"
+      autoComplete='off'
       // autoFocus={focus}
       fullWidth={fullWidth}
       // inputProps={{ autoFocus: focus }}
@@ -132,7 +134,7 @@ const CustomInput = (props) => {
       multiline={multiline}
       InputProps={{
         endAdornment: Icon && (
-          <InputAdornment position="end">
+          <InputAdornment position='end'>
             <Tooltip title={toolTipLabel} l>
               <IconButton onClick={onIconClick}>
                 {" "}

@@ -1,72 +1,119 @@
-import { Grid } from "@material-ui/core";
-import React from "react";
-import LoaderSvg from "../../common/Assets/loader.svg";
+import React from 'react';
+// import logo from '../../assets/load.svg';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import { useTheme } from '@material-ui/core';
 
 const Loader = () => {
-  return (
-    <Grid
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        height: "80vh",
-      }}
-    >
-      <svg
-        style={{
-          margin: "auto",
-
-          display: "block",
-          shapeRendering: "auto",
-        }}
-        width="150px"
-        height="150px"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="xMidYMid"
-      >
-        <circle
-          cx="50"
-          cy="50"
-          r="22"
-          strokeWidth="6"
-          stroke="#303030"
-          strokeDasharray="34.55751918948772 34.55751918948772"
-          fill="none"
-          strokeLinecap="round"
+    const theme = useTheme();
+    return (
+        <Grid
+            direction={'column'}
+            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '500px' }}
         >
-          <animateTransform
-            attributeName="transform"
-            type="rotate"
-            dur="1.2195121951219512s"
-            repeatCount="indefinite"
-            keyTimes="0;1"
-            values="0 50 50;360 50 50"
-          ></animateTransform>
-        </circle>
-        <circle
-          cx="50"
-          cy="50"
-          r="15"
-          strokeWidth="6"
-          stroke="#774023"
-          strokeDasharray="23.561944901923447 23.561944901923447"
-          strokeDashoffset="23.561944901923447"
-          fill="none"
-          strokeLinecap="round"
-        >
-          <animateTransform
-            attributeName="transform"
-            type="rotate"
-            dur="1.2195121951219512s"
-            repeatCount="indefinite"
-            keyTimes="0;1"
-            values="0 50 50;-360 50 50"
-          ></animateTransform>
-        </circle>
-      </svg>
-      ;
-    </Grid>
-  );
+            <svg
+                width="150"
+                height="50"
+                viewBox="0 0 135 140"
+                xmlns="http://www.w3.org/2000/svg"
+                fill={theme.palette.primary.main}
+            >
+                <rect y="10" width="15" height="120" rx="6">
+                    <animate
+                        attributeName="height"
+                        begin="0.5s"
+                        dur="1s"
+                        values="120;110;100;90;80;70;60;50;40;140;120"
+                        calcMode="linear"
+                        repeatCount="indefinite"
+                    />
+                    <animate
+                        attributeName="y"
+                        begin="0.5s"
+                        dur="1s"
+                        values="10;15;20;25;30;35;40;45;50;0;10"
+                        calcMode="linear"
+                        repeatCount="indefinite"
+                    />
+                </rect>
+                <rect x="30" y="10" width="15" height="120" rx="6">
+                    <animate
+                        attributeName="height"
+                        begin="0.25s"
+                        dur="1s"
+                        values="120;110;100;90;80;70;60;50;40;140;120"
+                        calcMode="linear"
+                        repeatCount="indefinite"
+                    />
+                    <animate
+                        attributeName="y"
+                        begin="0.25s"
+                        dur="1s"
+                        values="10;15;20;25;30;35;40;45;50;0;10"
+                        calcMode="linear"
+                        repeatCount="indefinite"
+                    />
+                </rect>
+                <rect x="60" width="15" height="140" rx="6">
+                    <animate
+                        attributeName="height"
+                        begin="0s"
+                        dur="1s"
+                        values="120;110;100;90;80;70;60;50;40;140;120"
+                        calcMode="linear"
+                        repeatCount="indefinite"
+                    />
+                    <animate
+                        attributeName="y"
+                        begin="0s"
+                        dur="1s"
+                        values="10;15;20;25;30;35;40;45;50;0;10"
+                        calcMode="linear"
+                        repeatCount="indefinite"
+                    />
+                </rect>
+                <rect x="90" y="10" width="15" height="120" rx="6">
+                    <animate
+                        attributeName="height"
+                        begin="0.25s"
+                        dur="1s"
+                        values="120;110;100;90;80;70;60;50;40;140;120"
+                        calcMode="linear"
+                        repeatCount="indefinite"
+                    />
+                    <animate
+                        attributeName="y"
+                        begin="0.25s"
+                        dur="1s"
+                        values="10;15;20;25;30;35;40;45;50;0;10"
+                        calcMode="linear"
+                        repeatCount="indefinite"
+                    />
+                </rect>
+                <rect x="120" y="10" width="15" height="120" rx="6">
+                    <animate
+                        attributeName="height"
+                        begin="0.5s"
+                        dur="1s"
+                        values="120;110;100;90;80;70;60;50;40;140;120"
+                        calcMode="linear"
+                        repeatCount="indefinite"
+                    />
+                    <animate
+                        attributeName="y"
+                        begin="0.5s"
+                        dur="1s"
+                        values="10;15;20;25;30;35;40;45;50;0;10"
+                        calcMode="linear"
+                        repeatCount="indefinite"
+                    />
+                </rect>
+            </svg>
+            <Typography variant="body2" color="textPrimary" align="center" style={{ marginTop: 10 }}>
+                Loading...
+            </Typography>
+        </Grid>
+    );
 };
 
 export default Loader;

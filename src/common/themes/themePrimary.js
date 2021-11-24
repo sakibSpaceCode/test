@@ -65,6 +65,10 @@ const themePrimary = createMuiTheme({
     },
     MuiCssBaseline: {
       "@global": {
+        body: {
+          zoom: 0.9,
+          // transform: "scale(0.9)",
+        },
         p: {
           marginBlockStart: 0,
           marginBlockEnd: 0,

@@ -76,13 +76,20 @@ const CommonPage = (props) => {
     mData?.fields?.forEach((field) => {
       let fieldValue = rowData[field.name];
       if (typeof fieldValue === "object" && fieldValue !== null) {
-        if (field.name === "Job") {
-          field.value = fieldValue._id;
-        }
-        if (field.name === "previous_designer") {
-          field.value = fieldValue._id;
-        }
-        if (field.name === "assigned_to") {
+        if (
+          field.name === "Job" ||
+          field.name === "previous_designer" ||
+          field.name === "Drawing_References" ||
+          field.name === "Material_Specification" ||
+          field.name === "Packaging" ||
+          field.name === "Post_Delivery" ||
+          field.name === "Project_Reference" ||
+          field.name === "Project_type" ||
+          field.name === "Structure_Life_Span" ||
+          field.name === "previous_designer" ||
+          field.name === "assigned_to" ||
+          field.name === "assigned_to"
+        ) {
           field.value = fieldValue._id;
         }
       } else {
@@ -106,6 +113,7 @@ const CommonPage = (props) => {
       dispatch(postFormData(apiURL, json));
     }
   };
+  console.log(rowData, "hii");
   const [
     inputs,
     onFormChange,
@@ -113,7 +121,7 @@ const CommonPage = (props) => {
     setSubmit,
     resetFormData,
     handleDateChange,
-  ] = useForm(mData?.fields, submitCallback, rowData, setRowData);
+  ] = useForm(mData?.fields, submitCallback, rowData, setRowData, setNextClick);
 
   const handleAddDialog = () => {
     setAddDialogOpen(true);
@@ -138,8 +146,9 @@ const CommonPage = (props) => {
     // dispatch(clearDropDownResponse())
   };
   const handleCompleteButtonClick = () => {
-    setSubmit("nextClick");
+    setSubmit(nextClick);
   };
+
   const handleImportDialog = () => {
     setImportDialogOpen(true);
   };
@@ -279,22 +288,27 @@ const CommonPage = (props) => {
     postResponse?.success === true && setAlertOpen(true);
 
     postResponse?.success === true && dispatch(getData(apiURL));
-    // if (!nextClick) {
-    //   if (isClone) {
-    //     postResponse?.success === false && setCloneDialogOpen(true);
-    //   } else {
-    //     postResponse?.success === false && setOpenAdd(true);
-    //   }
-    // }
+    if (!nextClick) {
+      postResponse?.success === false && setAddDialogOpen(true);
+      postResponse?.success === true && setAddDialogOpen(false);
+    } else {
+      postResponse?.success === false && setAddDialogOpen(true);
+      postResponse?.success === true && setAddDialogOpen(true);
+    }
     postResponse?.success === true && resetFormData();
-    postResponse?.success === true && setAddDialogOpen(false);
-    console.log(postError, "postError");
+
     postError && dispatch(clearPostResponse());
     postError && setErrorMessage(postError);
     setTimeout(() => {
       dispatch(clearPostResponse());
     }, 3000);
-  }, [postResponse, postError]);
+  }, [postResponse, postError, nextClick]);
+  // useEffect(() => {
+  //   if (!nextClick) {
+  //     postResponse?.success === true && setAddDialogOpen(false);
+  //     postResponse?.success === true && setErrorMessage(null);
+  //   }
+  // }, [postResponse]);
   useEffect(() => {
     putResponse?.success === true && setAlertOpen2(true);
     putResponse?.success === true && dispatch(getData(apiURL));
@@ -311,8 +325,12 @@ const CommonPage = (props) => {
   useEffect(() => {
     putResponse?.success === true && setEditDialogOpen(false);
   }, [putResponse]);
-  console.log(rowData, "hi");
-
+  const handleNextClick = () => {
+    setNextClick(true);
+  };
+  useEffect(() => {
+    nextClick && setSubmit(nextClick);
+  }, [nextClick]);
   return (
     <>
       {loading ? (
@@ -376,15 +394,17 @@ const CommonPage = (props) => {
             open={addDialogOpen}
             onClose={handleAddDialogClose}
             onCancelClick={handleAddDialogClose}
-            // onNextClick={handleNextClick}
+            onNextClick={handleNextClick}
+            nextClick={nextClick}
             // onCompleteClick={handleCompleteButtonClick}
             onSaveClick={handleCompleteButtonClick}
             // isSave={isAdd || isClone ? true : false}
             loading={postLoading}
-              error={errorMessage}
-              isEdit={isEdit}
-            // disabled={inputs?.length === 0}>
-          >
+            error={errorMessage}
+            isEdit={isEdit}
+            apiURL={apiURL}
+            json={JSON.stringify({ _id: rowData?._id })}
+            disabled={inputs?.length === 0}>
             <FormContainer
               inputs={inputs}
               urlEndPoint={urlEndPoint}
@@ -400,15 +420,17 @@ const CommonPage = (props) => {
             open={editDialogOpen}
             onClose={handleEditDialogClose}
             onCancelClick={handleEditDialogClose}
-            // onNextClick={handleNextClick}
+            onNextClick={handleNextClick}
+            nextClick={nextClick}
             // onCompleteClick={handleCompleteButtonClick}
             onSaveClick={handleCompleteButtonClick}
             // isSave={isAdd || isClone ? true : false}
-            loading={postLoading}
-              error={errorMessage}
-              isEdit={isEdit}
-            // disabled={inputs?.length === 0}>
-          >
+            loading={putLoading}
+            error={errorMessage}
+            isEdit={isEdit}
+            apiURL={apiURL}
+            json={JSON.stringify({ _id: rowData?._id })}
+            disabled={inputs?.length === 0}>
             <FormContainer
               inputs={inputs}
               urlEndPoint={urlEndPoint}

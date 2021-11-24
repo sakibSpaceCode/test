@@ -9,11 +9,18 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ErrorIcon from "@material-ui/icons/Error";
 import CustomButton from "../button";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
-
+import { useDispatch, useSelector } from "react-redux";
+import {
+  clearDeleteResponse,
+  deleteFormData,
+} from "../../redux/actions/commonFormActions";
+import { getData } from "../../redux/actions/commonGetDataActions";
+import ConfirmationDialog from "../confirmations/confirmation.container";
+import Alert from "../alert/alert.container";
 const useStyles = makeStyles((theme) => ({
   typoGraphy: {
     fontWeight: 600,
@@ -69,62 +76,86 @@ const CustomDialog = (props) => {
     minWidth,
     isDelete,
     isEdit,
+    nextClick,
+    onNextClick,
+    apiURL,
+    json,
+    pageSize,
+    pageNum,
   } = props;
-
+  const dispatch = useDispatch();
   const classes = useStyles();
+  const [errorD, setErrorD] = useState("");
+  const [deleteAlert, setDeleteAlert] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const { deleteResponse, deleteError, deleteLoading } = useSelector(
+    (state) => state.deleteField
+  );
+  const handleDeleteButtonClick = () => {
+    dispatch(deleteFormData(apiURL, json));
+  };
+  console.log(json, errorD, deleteError);
+  const handleDialogOpen = () => {
+    setDialogOpen(true);
+  };
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+    setErrorD("");
+  };
+  useEffect(() => {
+    if (deleteResponse && deleteResponse.status === true) {
+      setDeleteAlert(true);
+      dispatch(getData(apiURL, pageSize * 3, pageNum));
+      setDialogOpen(false);
+    } else if (deleteError) {
+      setErrorD(deleteError);
+      setDialogOpen(true);
+    }
+    return () => {
+      setTimeout(() => {
+        dispatch(clearDeleteResponse());
+      }, 3000);
+    };
+  }, [deleteResponse, deleteError]);
   return (
-    <Dialog
-      open={open}
-      maxWidth='sm'
-      PaperProps={{
-        style: {
-          borderRadius: "10px",
-          backgroundColor: "#fff",
-          padding: 20,
-          minWidth: minWidth || "1000px",
-          backdropFilter: "blur(4px)",
-          zIndex: 99999,
-        },
-      }}
-      onClose={onClose}
-      className={classes.root}>
-      <>
-        <Grid
-          container
-          style={{ padding: "15px 35px", marginBottom: "30px" }}
-          alignItems='center'>
-          <Grid item style={{ marginLeft: "-10px" }}>
-            <IconButton onClick={onClose}>
-              <KeyboardBackspaceIcon />
-            </IconButton>
-          </Grid>
+    <>
+      <Dialog
+        open={open}
+        maxWidth='sm'
+        PaperProps={{
+          style: {
+            borderRadius: "10px",
+            backgroundColor: "#fff",
+            padding: 20,
+            minWidth: minWidth || "1000px",
+            backdropFilter: "blur(4px)",
+            zIndex: 99999,
+          },
+        }}
+        onClose={onClose}
+        className={classes.root}>
+        <>
+          <Grid
+            container
+            style={{ padding: "15px 35px", marginBottom: "30px" }}
+            alignItems='center'>
+            <Grid item style={{ marginLeft: "-10px" }}>
+              <IconButton onClick={onClose}>
+                <KeyboardBackspaceIcon />
+              </IconButton>
+            </Grid>
 
-          <Grid item>
-            <Typography variant='body1' className={classes.typoGraphy}>
-              {title}
-            </Typography>
-          </Grid>
-          <Grid item xs>
-            <Grid
-              container
-              justifyContent='flex-end'
-              alignItems='center'
-              spacing={1}>
-              <Grid item>
-                <CustomButton
-                  disabled={disabled}
-                  variant='outlined'
-                  color='primary'
-                  onClick={onSaveClick}
-                  textColor='#618EFF'>
-                  {loading ? (
-                    <CircularProgress color='white' size='20px' />
-                  ) : (
-                    "Save"
-                  )}
-                </CustomButton>
-              </Grid>
-              {!isEdit && (
+            <Grid item>
+              <Typography variant='body1' className={classes.typoGraphy}>
+                {title}
+              </Typography>
+            </Grid>
+            <Grid item xs>
+              <Grid
+                container
+                justifyContent='flex-end'
+                alignItems='center'
+                spacing={1}>
                 <Grid item>
                   <CustomButton
                     disabled={disabled}
@@ -132,41 +163,105 @@ const CustomDialog = (props) => {
                     color='primary'
                     onClick={onSaveClick}
                     textColor='#618EFF'>
-                    Save and add another
+                    {loading && !nextClick ? (
+                      <CircularProgress color='white' size='20px' />
+                    ) : (
+                      "Save"
+                    )}
                   </CustomButton>
                 </Grid>
-              )}
-              <Grid item>
-                <CustomButton
-                  disabled={disabled}
-                  variant='outlined'
-                  color='primary'
-                  onClick={onSaveClick}
-                  textColor='#618EFF'>
-                  Delete
-                </CustomButton>
+                {!isEdit && (
+                  <Grid item>
+                    <CustomButton
+                      disabled={disabled}
+                      variant='outlined'
+                      color='primary'
+                      onClick={onNextClick}
+                      textColor='#618EFF'>
+                      {loading && nextClick ? (
+                        <CircularProgress color='white' size='20px' />
+                      ) : (
+                        "Save and add another"
+                      )}
+                    </CustomButton>
+                  </Grid>
+                )}
+                {isEdit && (
+                  <Grid item>
+                    <CustomButton
+                      disabled={disabled}
+                      variant='outlined'
+                      color='primary'
+                      onClick={handleDialogOpen}
+                      textColor='#618EFF'>
+                      Delete
+                    </CustomButton>
+                  </Grid>
+                )}
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </>
+        </>
 
-      {error && (
-        <div className={classes.errorContainer}>
-          <ErrorIcon className={classes.errorIcon} />
-          <Typography variant='body2' className={classes.errorMessage}>
-            {error}
-          </Typography>
-        </div>
-      )}
-      <DialogContent>
+        {error && (
+          <div className={classes.errorContainer}>
+            <ErrorIcon className={classes.errorIcon} />
+            <Typography variant='body2' className={classes.errorMessage}>
+              {error}
+            </Typography>
+          </div>
+        )}
+        <DialogContent>
+          <Grid
+            style={{ padding: "15px 35px", marginBottom: "10px" }}
+            className={isDelete || classes.content}>
+            {children}
+          </Grid>
+        </DialogContent>
+      </Dialog>
+      <ConfirmationDialog
+        deleteLabel
+        handleDialogClose={handleDialogClose}
+        dialogOpen={dialogOpen}
+        title='Are you sure you want to delete ?'
+        type={"warning"}
+        error={errorD}>
         <Grid
-          style={{ padding: "15px 35px", marginBottom: "10px" }}
-          className={isDelete || classes.content}>
-          {children}
+          container
+          spacing={2}
+          className={classes.deleteDialog}
+          justify='center'>
+          <Grid item>
+            <CustomButton
+              variant='outlined'
+              color='primary'
+              onClick={handleDialogClose}>
+              Cancel
+            </CustomButton>
+          </Grid>
+          <Grid item>
+            <CustomButton
+              variant='outlined'
+              color='primary'
+              onClick={handleDeleteButtonClick}>
+              Continue
+            </CustomButton>
+          </Grid>
         </Grid>
-      </DialogContent>
-    </Dialog>
+      </ConfirmationDialog>
+      {deleteAlert && (
+        <Alert
+          open={deleteAlert}
+          message={"Record Deleted Successfully."}
+          duration={2000}
+          onClose={() => setDeleteAlert(false)}
+          vertical={"bottom"}
+          horizontal={"center"}
+          severity={"success"}
+          actions={false}
+        />
+      )}
+    </>
   );
 };
 

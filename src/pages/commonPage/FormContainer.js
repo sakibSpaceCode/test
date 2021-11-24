@@ -120,6 +120,11 @@ const FormContainer = (props) => {
           style={{ width: 300 }}
           className={classes.textField}
           size={input.bigInput ? "lg" : "md"}
+          multiple={
+            input.name === "Important_Notes" || input.name === "solution"
+              ? true
+              : false
+          }
         />
         {input.alert && (
           <div className={classes.selectAlert}>
