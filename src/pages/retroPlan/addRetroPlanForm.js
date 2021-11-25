@@ -56,16 +56,17 @@ const AddRetroPlanForm = (props) => {
       <Grid container spacing={5} justify={"space-between"} alignItems="center">
         <Grid item md={6} className={classes.inputField}>
           <InputLabel className={classes.inputLabel}>Job No.</InputLabel>
-          <AutoComplete
-            onChange={handleAutocompleteChnage}
-            name="Job"
-            value={options?.filter((val) => val?._id === formData.Job)[0] ?? ''}
+          <CustomInput
+            onChange={onFormChange}
+            name="name"
+            value={formData.Job ?? ''}
+            //   type={formData.type}
+            //   helperText={formData.alert}
+            autoFocus
             fullWidth
             style={{ width: 300 }}
             className={classes.textField}
-            size="lg"
-            options={options}
-            isJob
+            size="sm"
           />
         </Grid>
 

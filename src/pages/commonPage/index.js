@@ -97,7 +97,8 @@ const CommonPage = (props) => {
       }
     });
   const emptyValuesFiltered =
-    mData?.fields?.length > 0 && mData?.fields?.filter((v) => v.value);
+    mData?.fields?.length > 0 &&
+    mData?.fields?.filter((v) => v.value !== undefined || v.value !== null);
 
   const submitCallback = (e) => {
     let object = {};
@@ -248,13 +249,24 @@ const CommonPage = (props) => {
           table: "status",
         })
       );
+    urlEndPoint === "design-department/design-details" &&
+      setSecondDropdown(
+        JSON.stringify({
+          type: "status",
+          table: "design_detail",
+        })
+      );
   }, [urlEndPoint]);
+  console.log(urlEndPoint, apiURL);
   useEffect(() => {
     apiURL === "job_card" &&
       secondDropdown &&
       dispatch(get2ndDropdown(secondDropdown));
     apiURL === "status" &&
-      thirdDropdown &&
+      secondDropdown &&
+      dispatch(get2ndDropdown(secondDropdown));
+    apiURL === "design_detail" &&
+      secondDropdown &&
       dispatch(get2ndDropdown(secondDropdown));
     apiURL === "job_card" &&
       thirdDropdown &&

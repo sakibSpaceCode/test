@@ -47,7 +47,7 @@ const themePrimary = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: `"Nunito Sans", "Helvetica", "Arial", sans-serif`,
+    fontFamily: `'Inter', sans-serif`,
   },
   overrides: {
     MuiListItem: {

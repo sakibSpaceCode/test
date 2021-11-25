@@ -172,6 +172,9 @@ const FormContainer = (props) => {
               : urlEndPoint === "production/status-update" &&
                 input.name === "Status"
               ? options2
+              : urlEndPoint === "design-department/design-details" &&
+                input.name === "status"
+              ? options2
               : input.name === "Project_type"
               ? options3
               : input.name === "Structure_Life_Span"
@@ -207,7 +210,9 @@ const FormContainer = (props) => {
             input.name === "Post_Delivery" ||
             input.name === "Drawing_References" ||
             (urlEndPoint === "production/status-update" &&
-              input.name === "Status")
+              input.name === "Status") ||
+            (urlEndPoint === "design-department/design-details" &&
+              input.name === "status")
               ? true
               : false
           }

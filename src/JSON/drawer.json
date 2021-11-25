@@ -159,7 +159,7 @@
       },
       {
         "name": "Quantity",
-        "label": "Quantity",
+        "label": "Quantity *",
         "type": "text",
         "validators": [
           {
