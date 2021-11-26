@@ -28,6 +28,10 @@ const progressData = [
         status: "Completed",
       },
       {
+        label: "Procurement ",
+        status: "Completed",
+      },
+      {
         label: "Joinery",
         status: "Completed",
       },
@@ -74,6 +78,10 @@ const progressData = [
         status: "Completed",
       },
       {
+        label: "Procurement ",
+        status: "Completed",
+      },
+      {
         label: "Joinery",
         status: "Completed",
       },
@@ -117,6 +125,10 @@ const progressData = [
     data: [
       {
         label: "Design  Process",
+        status: "Completed",
+      },
+      {
+        label: "Procurement ",
         status: "Completed",
       },
       {

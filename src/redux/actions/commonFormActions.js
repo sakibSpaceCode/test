@@ -11,7 +11,7 @@ export const postFormData =
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: userInfo?.data?.token,
+        AAuthorization: userInfo?.data?.token,
       },
     };
     let url = `${CONSTANTS.BASEURL}${collection}/add`;
@@ -38,9 +38,10 @@ export const putFormData =
     const config = {
       headers: {
         "Content-Type": "application/json",
-        authorization: userInfo?.data.token,
+        AAuthorization: userInfo?.data.token,
       },
     };
+    console.log(config);
 
     let url = `${CONSTANTS.BASEURL}${collection}/edit`;
 
@@ -67,10 +68,11 @@ export const deleteFormData =
     const config = {
       headers: {
         "Content-Type": "application/json",
-        type: "Web",
-        Authorization: userInfo?.data?.token,
+        Authorization: userInfo?.data.token,
       },
     };
+    console.log(config);
+
     let url = `${CONSTANTS.BASEURL}${collection}/delete`;
 
     const { data } = await axios.delete(url, config, id);
@@ -96,7 +98,7 @@ export const getDropdown = (collectionName) => async (dispatch, getState) => {
     headers: {
       "Content-Type": "application/json",
       type: "Web",
-      Authorization: userInfo?.data?.token,
+      AAuthorization: userInfo?.data?.token,
     },
   };
   // getData(urlEndPoint)
@@ -125,7 +127,7 @@ export const getDiffDropdown =
       headers: {
         "Content-Type": "application/json",
         type: "Web",
-        Authorization: userInfo?.data?.token,
+        AAuthorization: userInfo?.data?.token,
       },
     };
     // getData(urlEndPoint)
@@ -154,7 +156,7 @@ export const get2ndDiffDropdown =
       headers: {
         "Content-Type": "application/json",
         type: "Web",
-        Authorization: userInfo?.data?.token,
+        AAuthorization: userInfo?.data?.token,
       },
     };
     // getData(urlEndPoint)
@@ -182,7 +184,7 @@ export const get2ndDropdown = (formData) => async (dispatch, getState) => {
     headers: {
       "Content-Type": "application/json",
       type: "Web",
-      Authorization: userInfo?.data?.token,
+      AAuthorization: userInfo?.data?.token,
     },
   };
   // getData(urlEndPoint)
@@ -210,7 +212,7 @@ export const get3rdDropdown = (formData) => async (dispatch, getState) => {
     headers: {
       "Content-Type": "application/json",
       type: "Web",
-      Authorization: userInfo?.data?.token,
+      AAuthorization: userInfo?.data?.token,
     },
   };
   // getData(urlEndPoint)
@@ -238,7 +240,7 @@ export const get4thDropdown = (formData) => async (dispatch, getState) => {
     headers: {
       "Content-Type": "application/json",
       type: "Web",
-      Authorization: userInfo?.data?.token,
+      AAuthorization: userInfo?.data?.token,
     },
   };
   // getData(urlEndPoint)
@@ -266,7 +268,7 @@ export const get5thDropdown = (formData) => async (dispatch, getState) => {
     headers: {
       "Content-Type": "application/json",
       type: "Web",
-      Authorization: userInfo?.data?.token,
+      AAuthorization: userInfo?.data?.token,
     },
   };
   // getData(urlEndPoint)
@@ -294,7 +296,7 @@ export const get6thDropdown = (formData) => async (dispatch, getState) => {
     headers: {
       "Content-Type": "application/json",
       type: "Web",
-      Authorization: userInfo?.data?.token,
+      AAuthorization: userInfo?.data?.token,
     },
   };
   // getData(urlEndPoint)
@@ -322,7 +324,7 @@ export const get7thDropdown = (formData) => async (dispatch, getState) => {
     headers: {
       "Content-Type": "application/json",
       type: "Web",
-      Authorization: userInfo?.data?.token,
+      AAuthorization: userInfo?.data?.token,
     },
   };
   // getData(urlEndPoint)
@@ -350,7 +352,7 @@ export const get8thDropdown = (formData) => async (dispatch, getState) => {
     headers: {
       "Content-Type": "application/json",
       type: "Web",
-      Authorization: userInfo?.data?.token,
+      AAuthorization: userInfo?.data?.token,
     },
   };
   // getData(urlEndPoint)

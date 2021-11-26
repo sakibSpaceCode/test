@@ -47,7 +47,6 @@ const AddRetroPlanForm = (props) => {
   };
   console.log(options);
   const handleAutocompleteChnage = (e, newValue) => {
-    
     setFormData({ ...formData, [e]: newValue?._id });
   };
 
@@ -58,8 +57,9 @@ const AddRetroPlanForm = (props) => {
           <InputLabel className={classes.inputLabel}>Job No.</InputLabel>
           <CustomInput
             onChange={onFormChange}
-            name="name"
-            value={formData.Job ?? ''}
+            name="Job"
+            value={formData.Job ?? ""}
+            type="number"
             //   type={formData.type}
             //   helperText={formData.alert}
             autoFocus
@@ -75,7 +75,7 @@ const AddRetroPlanForm = (props) => {
           <CustomInput
             onChange={onFormChange}
             name="name"
-            value={formData.name ?? ''}
+            value={formData.name ?? ""}
             //   type={formData.type}
             //   helperText={formData.alert}
             autoFocus
@@ -95,7 +95,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.survey ?? ''}
+            value={formData.survey ?? ""}
             handleDate={(date) => handleDateChange("survey", date)}
           />
         </Grid>
@@ -108,7 +108,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.drawing_start ?? ''}
+            value={formData.drawing_start ?? ""}
             handleDate={(date) => handleDateChange("drawing_start", date)}
           />
         </Grid>
@@ -121,7 +121,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.first_revision ?? ''}
+            value={formData.first_revision ?? ""}
             handleDate={(date) => handleDateChange("first_revision", date)}
           />
         </Grid>
@@ -134,7 +134,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.first_mr ?? ''}
+            value={formData.first_mr ?? ""}
             handleDate={(date) => handleDateChange("first_mr", date)}
           />
         </Grid>
@@ -149,7 +149,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.procurement_first_mr ?? ''}
+            value={formData.procurement_first_mr ?? ""}
             handleDate={(date) =>
               handleDateChange("procurement_first_mr", date)
             }
@@ -166,7 +166,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.drawing_approvel ?? ''}
+            value={formData.drawing_approvel ?? ""}
             handleDate={(date) => handleDateChange("drawing_approvel", date)}
           />
         </Grid>
@@ -179,7 +179,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.Second_mr ?? ''}
+            value={formData.Second_mr ?? ""}
             handleDate={(date) => handleDateChange("Second_mr", date)}
           />
         </Grid>
@@ -194,7 +194,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.procurement_second_mr ?? ''}
+            value={formData.procurement_second_mr ?? ""}
             handleDate={(date) =>
               handleDateChange("procurement_second_mr", date)
             }
@@ -209,7 +209,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.sub_assembly ?? ''}
+            value={formData.sub_assembly ?? ""}
             handleDate={(date) => handleDateChange("sub_assembly", date)}
           />
         </Grid>
@@ -224,7 +224,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.structure_inspection ?? ''}
+            value={formData.structure_inspection ?? ""}
             handleDate={(date) =>
               handleDateChange("structure_inspection", date)
             }
@@ -239,7 +239,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.paint ?? ''}
+            value={formData.paint ?? ""}
             handleDate={(date) => handleDateChange("paint", date)}
           />
         </Grid>
@@ -254,7 +254,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.paint_inspection ?? ''}
+            value={formData.paint_inspection ?? ""}
             handleDate={(date) => handleDateChange("paint_inspection", date)}
           />
         </Grid>
@@ -269,7 +269,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.first_final_inspection ?? ''}
+            value={formData.first_final_inspection ?? ""}
             handleDate={(date) =>
               handleDateChange("first_final_inspection", date)
             }
@@ -286,7 +286,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.second_final_inspection ?? ''}
+            value={formData.second_final_inspection ?? ""}
             handleDate={(date) =>
               handleDateChange("second_final_inspection", date)
             }
@@ -301,7 +301,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.dispatch ?? ''}
+            value={formData.dispatch ?? ""}
             handleDate={(date) => handleDateChange("dispatch", date)}
           />
         </Grid>
@@ -316,7 +316,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.final ?? ''}
+            value={formData.final ?? ""}
             handleDate={(date) => handleDateChange("final", date)}
           />
         </Grid>
@@ -329,7 +329,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.packing ?? ''}
+            value={formData.packing ?? ""}
             handleDate={(date) => handleDateChange("packing", date)}
           />
         </Grid>
@@ -342,7 +342,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.delivery ?? ''}
+            value={formData.delivery ?? ""}
             handleDate={(date) => handleDateChange("delivery", date)}
           />
         </Grid>
@@ -351,7 +351,7 @@ const AddRetroPlanForm = (props) => {
           <CustomInput
             onChange={onFormChange}
             name="hoarding"
-            value={formData.hoarding ?? ''}
+            value={formData.hoarding ?? ""}
             //   type={formData.type}
             //   helperText={formData.alert}
             autoFocus
@@ -371,7 +371,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.Install ?? ''}
+            value={formData.Install ?? ""}
             handleDate={(date) => handleDateChange("Install", date)}
           />
         </Grid>
@@ -384,7 +384,7 @@ const AddRetroPlanForm = (props) => {
             fullWidth
             width={"100%"}
             height={50}
-            value={formData.handover ?? ''}
+            value={formData.handover ?? ""}
             handleDate={(date) => handleDateChange("handover", date)}
           />
         </Grid>
@@ -395,7 +395,7 @@ const AddRetroPlanForm = (props) => {
           <CustomInput
             onChange={onFormChange}
             name="project"
-            value={formData.project ?? ''}
+            value={formData.project ?? ""}
             //   type={formData.type}
             //   helperText={formData.alert}
             autoFocus
@@ -412,7 +412,7 @@ const AddRetroPlanForm = (props) => {
           <CustomInput
             onChange={onFormChange}
             name="civil_mep_works"
-            value={formData.civil_mep_works ?? ''}
+            value={formData.civil_mep_works ?? ""}
             //   type={formData.type}
             //   helperText={formData.alert}
             autoFocus

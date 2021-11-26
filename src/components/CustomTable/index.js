@@ -12,6 +12,7 @@ import moment from "moment";
 import CancelIcon from "@material-ui/icons/Cancel";
 import HelpIcon from "@material-ui/icons/Help";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+// import NoData from "../../common/Assets/noData.png";
 const columns = [
   { id: "name", label: "Name", minWidth: 100 },
   { id: "code", label: "ISO\u00a0Code", minWidth: 100 },
