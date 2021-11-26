@@ -16,6 +16,7 @@ import {
 // local imports
 import Logo from "../../../../common/Assets/loginImage/logo.png";
 import { useSidebarStyles } from "./style";
+import { useSelector } from "react-redux";
 
 // import myConsole from '../common/myConsoleLog';
 
@@ -38,6 +39,7 @@ const SideBarList = (props) => {
   const classes = useSidebarStyles();
   const isExpandable = items && items.length > 0;
   const itemsAll = getItemsAll(items);
+
   const isChildLinkActive =
     isExpandable &&
     itemsAll.filter((item) => item.path === location.pathname).length > 0;
@@ -62,6 +64,7 @@ const SideBarList = (props) => {
       }}
     >
       <div className={classes.icon}>{icon}</div>
+    
       <ListItemText primary={name} className={classes.listitemText} />
 
       {isExpandable && !openList && <IconExpandMore />}
@@ -82,13 +85,16 @@ const SideBarList = (props) => {
           }}
           className={classes.sublist}
         >
-          {items.map((item, index) => (
-            <Sublist
-              {...item}
-              key={index}
-              handleDrawerClose={handleDrawerClose}
-            />
-          ))}
+          {items.map((item, index) => {
+     
+            return (
+              <Sublist
+                {...item}
+                key={index}
+                handleDrawerClose={handleDrawerClose}
+              />
+            );
+          })}
         </div>
       </List>
     </Collapse>

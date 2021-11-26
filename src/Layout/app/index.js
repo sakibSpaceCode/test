@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import {
   Divider,
@@ -33,9 +33,17 @@ const Dashboard = () => {
   const location = useLocation();
   const classes = useDashboardStyles();
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   let url = location.pathname.split("/");
   let filterUrl = url.filter((x, i) => i < 4);
+  const { userInfo } = useSelector((state) => state.userLogin);
+  useEffect(() => {
+    if (userInfo.data) setLoading(true);
+
+    return () => {};
+  }, [userInfo.data]);
+
   let appBarUrl = filterUrl.join("/");
 
   const handleDrawerOpen = () => {
@@ -78,17 +86,23 @@ const Dashboard = () => {
         <img src={Logo} alt="logo" className={classes.logo} />
       </div>
       <List className={classes.list}>
-        {drawerRoutes?.map((item, index) => (
-          <SideBarList
-            {...item}
-            key={index}
-            path={item.path}
-            open={open}
-            handleDrawerOpen={handleDrawerOpen}
-            handleDrawerClose={handleDrawerClose}
-            setOpen={setOpen}
-          />
-        ))}
+        {drawerRoutes?.map((item, index) =>
+          userInfo?.data?.permissions?.map((val) => {
+            if (val.name == item.name) {
+              return (
+                <SideBarList
+                  {...item}
+                  key={index}
+                  path={item.path}
+                  open={open}
+                  handleDrawerOpen={handleDrawerOpen}
+                  handleDrawerClose={handleDrawerClose}
+                  setOpen={setOpen}
+                />
+              );
+            }
+          })
+        )}
       </List>
     </>
   );
@@ -98,59 +112,61 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className={classes.root}>
-        <Drawer
-          variant="permanent"
-          className={classes.drawer}
-          onClose={handleDrawerOpen}
-          anchor="left"
-          open={open}
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-        >
-          {drawer}
-        </Drawer>
-        <div style={{ width: "100%", overflowX: "hidden" }}>
-          <main
-            style={{
-              width: "calc(100% - 20px)",
-              height: "102.5vh",
-              borderRadius: "25px 25px 0 0",
-              position: "relative",
-
-              overFlowX: "hidden",
-
-              marginTop: 20,
-              backgroundColor: "#e5e5e5",
+      {loading && (
+        <div className={classes.root}>
+          <Drawer
+            variant="permanent"
+            className={classes.drawer}
+            onClose={handleDrawerOpen}
+            anchor="left"
+            open={open}
+            classes={{
+              paper: classes.drawerPaper,
             }}
           >
-            <div
-              style={{ flexGrow: 1, position: "sticky", top: 0, zIndex: 999 }}
+            {drawer}
+          </Drawer>
+          <div style={{ width: "100%", overflowX: "hidden" }}>
+            <main
+              style={{
+                width: "calc(100% - 20px)",
+                height: "102.5vh",
+                borderRadius: "25px 25px 0 0",
+                position: "relative",
+
+                overFlowX: "hidden",
+
+                marginTop: 20,
+                backgroundColor: "#e5e5e5",
+              }}
             >
-              <AppBar className={classes.appBar} position="sticky">
-                <Toolbar>
-                  <div className={classes.breadcrumbs}>
-                    <SimpleBreadcrumbs name={appBarUrl} />
-                  </div>
-                  <IconButton>
-                    <ChatBubbleOutlineOutlinedIcon />
-                  </IconButton>
-                  <IconButton>
-                    <NotificationsNoneOutlinedIcon />
-                  </IconButton>
-                  <IconButton onClick={handlelogoutClick}>
-                    <AccountCircleOutlinedIcon />
-                  </IconButton>
-                </Toolbar>
-              </AppBar>
-            </div>
-            <div className={classes.mainRoutes}>
-              <AppRoutes />
-            </div>
-          </main>
+              <div
+                style={{ flexGrow: 1, position: "sticky", top: 0, zIndex: 999 }}
+              >
+                <AppBar className={classes.appBar} position="sticky">
+                  <Toolbar>
+                    <div className={classes.breadcrumbs}>
+                      <SimpleBreadcrumbs name={appBarUrl} />
+                    </div>
+                    <IconButton>
+                      <ChatBubbleOutlineOutlinedIcon />
+                    </IconButton>
+                    <IconButton>
+                      <NotificationsNoneOutlinedIcon />
+                    </IconButton>
+                    <IconButton onClick={handlelogoutClick}>
+                      <AccountCircleOutlinedIcon />
+                    </IconButton>
+                  </Toolbar>
+                </AppBar>
+              </div>
+              <div className={classes.mainRoutes}>
+                <AppRoutes />
+              </div>
+            </main>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

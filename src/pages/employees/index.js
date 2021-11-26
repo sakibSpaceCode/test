@@ -32,7 +32,7 @@ const EmployeesPage = () => {
     is_staff: true,
     is_active: true,
     is_superuser: true,
-    permission: [],
+    permissions: [],
   });
   const dispatch = useDispatch();
   const handleOpenDialog = () => {

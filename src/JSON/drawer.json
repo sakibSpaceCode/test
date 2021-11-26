@@ -525,7 +525,7 @@
           {
             "name": "assigned_to",
             "label": "Assigned to *",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",

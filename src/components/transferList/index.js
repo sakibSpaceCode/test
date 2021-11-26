@@ -46,7 +46,7 @@ export default class TestTransferList extends React.Component {
     this.setState({ targetKeys: nextTargetKeys }, () => {
       this.props.setFormData({
         ...this.props.formData,
-        permission: nextTargetKeys,
+        permissions: nextTargetKeys,
       });
     });
   }
@@ -55,7 +55,7 @@ export default class TestTransferList extends React.Component {
       console.log(this.state.targetKeys);
       this.props.setFormData({
         ...this.props.formData,
-        permission: [this.state.selectedKeys],
+        permissions: [this.state.selectedKeys],
       });
     }
   }
@@ -69,7 +69,7 @@ export default class TestTransferList extends React.Component {
       () => {
         this.props.setFormData({
           ...this.props.formData,
-          permission: this.state.selectedKeys,
+          permissions: this.state.selectedKeys,
         });
       }
     );
