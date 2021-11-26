@@ -29,11 +29,9 @@ const useForm = (
       if (i.name === "Job" && newValue && flag) {
         i.value = newValue?._id;
         parseInput(i);
-        console.log("2");
       } else if (i.name === e?.target?.name) {
         i.value =
           i.name === "Quantity" ? parseInt(e.target.value) : e.target.value;
-        console.log(i.name, i.value);
         parseInput(i);
         i?.label?.includes("*") && validateInput(i);
       }
@@ -89,11 +87,11 @@ const useForm = (
     (input.value = input.parseFun ? input.parseFun(input.value) : input.value);
   const isValidFun = (expression) => checkAtLeastLength(expression, 0);
 
-  console.log(inputs);
   const validateInput = (input) => {
     let alert = null;
 
     input?.validators.forEach((v) => {
+      
       if (v.valId === "SCVAL001") {
         alert = !isValidFun(input.value) ? v.alert : alert;
       }
@@ -101,9 +99,7 @@ const useForm = (
       // if (v.valId === "SC-VA-006") {
       //   alert = !checkEmailPattern(input.value) ? v.errorMessage : alert;
       // }
-      // if (v.valId === "SC-VA-010") {
-      //   alert = !checkIsfilled(input.value) ? v.errorMessage : alert;
-      // }
+     
     });
     input.alert = alert;
   };

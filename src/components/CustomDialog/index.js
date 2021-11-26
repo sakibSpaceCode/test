@@ -82,6 +82,9 @@ const CustomDialog = (props) => {
     json,
     pageSize,
     pageNum,
+    setEditDialogOpen,
+    setIsEdit,
+    resetFormData,
   } = props;
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -94,7 +97,6 @@ const CustomDialog = (props) => {
   const handleDeleteButtonClick = () => {
     dispatch(deleteFormData(apiURL, json));
   };
-  console.log(json, errorD, deleteError);
   const handleDialogOpen = () => {
     setDialogOpen(true);
   };
@@ -103,10 +105,13 @@ const CustomDialog = (props) => {
     setErrorD("");
   };
   useEffect(() => {
-    if (deleteResponse && deleteResponse.status === true) {
+    if (deleteResponse && deleteResponse.success === true) {
+      setDialogOpen(false);
+      setEditDialogOpen(false);
+      resetFormData();
+      setIsEdit(false);
       setDeleteAlert(true);
       dispatch(getData(apiURL, pageSize * 3, pageNum));
-      setDialogOpen(false);
     } else if (deleteError) {
       setErrorD(deleteError);
       setDialogOpen(true);
@@ -117,6 +122,7 @@ const CustomDialog = (props) => {
       }, 3000);
     };
   }, [deleteResponse, deleteError]);
+  console.log(deleteAlert, "ddd");
   return (
     <>
       <Dialog
@@ -244,7 +250,11 @@ const CustomDialog = (props) => {
               variant='outlined'
               color='primary'
               onClick={handleDeleteButtonClick}>
-              Continue
+              {deleteLoading ? (
+                <CircularProgress color='white' size='20px' />
+              ) : (
+                "Continue"
+              )}
             </CustomButton>
           </Grid>
         </Grid>

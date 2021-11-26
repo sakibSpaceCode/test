@@ -274,11 +274,11 @@ export default function CustomTable({
                       ) : (
                         <TableCell
                           style={{
-                            cursor: column.key === "Job.Job_No" && "pointer",
-                            fontWeight: column.key === "Job.Job_No" && "bold",
+                            cursor: column.key === "Job.Job" && "pointer",
+                            fontWeight: column.key === "Job.Job" && "bold",
                           }}
                           onClick={() => {
-                            if (column.key === "Job.Job_No") {
+                            if (column.key === "Job.Job") {
                               if (setRowData) setRowData(row);
                               if (setEditDialogOpen) {
                                 setEditDialogOpen(true);

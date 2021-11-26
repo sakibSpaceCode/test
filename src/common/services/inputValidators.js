@@ -1,5 +1,7 @@
-export const checkAtLeastLength = (expression, length) =>
-  expression && expression?.toString()?.trim().length >= length;
+export const checkAtLeastLength = (expression, length) => {
+  console.log(expression, "expression");
+  return expression?.toString()?.trim().length >= length;
+};
 
 export const checkIsfilled = (expression) =>
   expression && expression.length > 0;

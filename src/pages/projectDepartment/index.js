@@ -1,5 +1,5 @@
 import { Divider, Grid } from "@material-ui/core";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import CustomButton from "../../components/button";
 import CustomDialog from "../../components/CustomDialog/index";
 import { useStyles } from "./style";
@@ -12,11 +12,13 @@ import { clearData, getData } from "../../redux/actions/commonGetDataActions";
 import useForm from "../../hooks/useForm";
 import {
   clearDropDownResponse,
+  clearPostResponse,
   getDropdown,
   postFormData,
 } from "../../redux/actions/commonFormActions";
 import FormContainer from "../commonPage/FormContainer";
 import moment from "moment";
+import Alert from "../../components/alert/alert.container";
 
 // import "../../Styles/projectDetails.scss";
 
@@ -26,12 +28,13 @@ const ProjectDetails = (props) => {
   const dispatch = useDispatch();
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState("");
+  const [nextClick, setNextClick] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [rowData, setRowData] = useState({});
   const handleOpenDialog = () => {
     setDialogOpen(true);
   };
-  const handleDialogClose = () => {
-    setDialogOpen(false);
-  };
+
   const { loading, error, responseData } = useSelector(
     (state) => state.getData
   );
@@ -52,7 +55,7 @@ const ProjectDetails = (props) => {
     setSubmit,
     resetFormData,
     handleDateChange,
-  ] = useForm(mData?.fields, submitCallback);
+  ] = useForm(mData?.fields, submitCallback, rowData, setRowData, setNextClick);
   useEffect(() => {
     dispatch(getData("project"));
     dispatch(getDropdown("job_card"));
@@ -64,17 +67,44 @@ const ProjectDetails = (props) => {
   // const handleEditDialog = () => {
   //   setEditDialogOpen(true);
   // };
-  const handleEditDialogClose = () => {
-    //  setEditDialogOpen(false);
+  const handleNextClick = () => {
+    setNextClick(true);
+  };
+  const handleDialogClose = () => {
+    setDialogOpen(false);
     setErrorMessage(null);
     resetFormData();
     setErrorMessage("");
     // dispatch(clearDropDownResponse())
   };
   const handleCompleteButtonClick = () => {
-    setSubmit("nextClick");
+    setSubmit(nextClick);
   };
+  useEffect(() => {
+    nextClick && setSubmit(nextClick);
+  }, [nextClick]);
+  const { postLoading, postResponse, postError } = useSelector(
+    (state) => state.postFields
+  );
+  useEffect(() => {
+    postResponse?.success === true && setAlertOpen(true);
 
+    // postResponse?.success === true && dispatch(getData(apiURL));
+    if (!nextClick) {
+      postResponse?.success === false && setDialogOpen(true);
+      postResponse?.success === true && setDialogOpen(false);
+    } else {
+      postResponse?.success === false && setDialogOpen(true);
+      postResponse?.success === true && setDialogOpen(true);
+    }
+    postResponse?.success === true && resetFormData();
+
+    postError && dispatch(clearPostResponse());
+    postError && setErrorMessage(postError);
+    setTimeout(() => {
+      dispatch(clearPostResponse());
+    }, 3000);
+  }, [postResponse, postError, nextClick]);
   const data = [
     {
       projectName: "Project Name",
@@ -235,18 +265,17 @@ const ProjectDetails = (props) => {
         <>
           <Grid
             container
-            direction="column"
+            direction='column'
             style={{ padding: "20px 30px" }}
-            spacing={2}
-          >
-            <Grid container direction="column">
+            spacing={2}>
+            <Grid container direction='column'>
               <Grid item xs>
-                <Grid container justify="space-between">
+                <Grid container justify='space-between'>
                   <Grid item xs={6}>
                     <CustomSearch placeholder={`Search  to view`} />
                   </Grid>
                   <Grid item>
-                    <Grid container justify="flex-end">
+                    <Grid container justify='flex-end'>
                       <Grid item xs>
                         <CustomButton onClick={handleOpenDialog}>
                           Add Project Details
@@ -259,14 +288,13 @@ const ProjectDetails = (props) => {
               <Grid item xs>
                 <Grid
                   container
-                  justify="space-between"
-                  className={classes.root}
-                >
+                  justify='space-between'
+                  className={classes.root}>
                   {responseData?.data?.["data"].map((item) => (
                     <Grid item xs={3} className={classes.cardContainer}>
-                      <Grid container direction="column">
+                      <Grid container direction='column'>
                         <Grid className={classes.img} item>
-                          <img style={{ width: "68px" }} src={Image} alt="" />
+                          <img style={{ width: "68px" }} src={Image} alt='' />
                         </Grid>
                         <Grid item>
                           <p className={classes.projectName}>
@@ -274,7 +302,7 @@ const ProjectDetails = (props) => {
                           </p>
                         </Grid>
                         <Grid item>
-                          <Divider variant="middle" />
+                          <Divider variant='middle' />
                         </Grid>
                         <Grid item>
                           <p className={classes.jobId}>{item?.Job || "-"}</p>
@@ -300,14 +328,13 @@ const ProjectDetails = (props) => {
             open={dialogOpen}
             onClose={handleDialogClose}
             onCancelClick={handleDialogClose}
-            // onNextClick={handleNextClick}
+            onNextClick={handleNextClick}
             onCompleteClick={handleCompleteButtonClick}
             onSaveClick={handleCompleteButtonClick}
             // isSave={isEdit || isClone ? true : false}
             // loading={isEdit ? putLoading : postLoading}
             error={errorMessage}
-            // disabled={inputs?.length === 0}>
-          >
+            disabled={inputs?.length === 0}>
             <FormContainer
               inputs={inputs}
               urlEndPoint={props.urlEndPoint}
@@ -317,6 +344,18 @@ const ProjectDetails = (props) => {
               handleDateChange={handleDateChange}
             />
           </CustomDialog>{" "}
+          {alertOpen && (
+            <Alert
+              open={alertOpen}
+              message='Project details added successfully'
+              duration={2000}
+              onClose={() => setAlertOpen(false)}
+              vertical={"bottom"}
+              horizontal={"center"}
+              severity='success'
+              actions={false}
+            />
+          )}
         </>
       )}
     </>

@@ -64,12 +64,11 @@ const FormContainer = (props) => {
   const { options2Diff } = useSelector((state) => state.get2ndDiffDropdown);
   // const { collectionData } = useSelector((state) => state.getCollectionDropdown);
   // const { userInfo } = useSelector((state) => state.userLogin);
-  console.log(options2, "options2 ");
-  const defaultOptions = [
-    { name: "Yes", value: "yes" },
-    { name: "No", value: "no" },
-    { name: "Not needed", value: "not" },
-  ];
+  // const defaultOptions = [
+  //   { name: "Yes", value: "yes" },
+  //   { name: "No", value: "no" },
+  //   { name: "Not needed", value: "not" },
+  // ];
   const booleanOptions = [
     { name: "Yes", value: true },
     { name: "No", value: false },
@@ -198,7 +197,7 @@ const FormContainer = (props) => {
               : urlEndPoint === "design-department/design-details" &&
                 input.name === "assigned_to"
               ? optionsDiff
-              : defaultOptions
+              : booleanOptions
           }
           isDiff={
             (urlEndPoint === "design-department/corrective-action" &&
