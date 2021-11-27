@@ -255,6 +255,9 @@ const ProjectDetails = (props) => {
     },
   ];
   const daysLeft = (day) => {
+    if (day == null) {
+      return "Unkown";
+    }
     const dayNow = moment(Date.now());
     const lastDate = moment(day);
     return dayNow.diff(lastDate, "days");
@@ -265,17 +268,18 @@ const ProjectDetails = (props) => {
         <>
           <Grid
             container
-            direction='column'
+            direction="column"
             style={{ padding: "20px 30px" }}
-            spacing={2}>
-            <Grid container direction='column'>
+            spacing={2}
+          >
+            <Grid container direction="column">
               <Grid item xs>
-                <Grid container justify='space-between'>
+                <Grid container justify="space-between">
                   <Grid item xs={6}>
                     <CustomSearch placeholder={`Search  to view`} />
                   </Grid>
                   <Grid item>
-                    <Grid container justify='flex-end'>
+                    <Grid container justify="flex-end">
                       <Grid item xs>
                         <CustomButton onClick={handleOpenDialog}>
                           Add Project Details
@@ -288,13 +292,14 @@ const ProjectDetails = (props) => {
               <Grid item xs>
                 <Grid
                   container
-                  justify='space-between'
-                  className={classes.root}>
+                  justify="space-between"
+                  className={classes.root}
+                >
                   {responseData?.data?.["data"].map((item) => (
                     <Grid item xs={3} className={classes.cardContainer}>
-                      <Grid container direction='column'>
+                      <Grid container direction="column">
                         <Grid className={classes.img} item>
-                          <img style={{ width: "68px" }} src={Image} alt='' />
+                          <img style={{ width: "68px" }} src={Image} alt="" />
                         </Grid>
                         <Grid item>
                           <p className={classes.projectName}>
@@ -302,13 +307,15 @@ const ProjectDetails = (props) => {
                           </p>
                         </Grid>
                         <Grid item>
-                          <Divider variant='middle' />
+                          <Divider variant="middle" />
                         </Grid>
                         <Grid item>
-                          <p className={classes.jobId}>{item?.Job || "-"}</p>
+                          <p className={classes.jobId}>
+                            {item?.Job?.name || "-"}
+                          </p>
                         </Grid>
                         <Grid item className={classes.managerName}>
-                          {item?.Project_Manager}
+                          {item?.Job?.project_manager}
                         </Grid>
                         <Grid item className={classes.progress}>
                           <CustomizedProgressBars />
@@ -334,7 +341,8 @@ const ProjectDetails = (props) => {
             // isSave={isEdit || isClone ? true : false}
             // loading={isEdit ? putLoading : postLoading}
             error={errorMessage}
-            disabled={inputs?.length === 0}>
+            disabled={inputs?.length === 0}
+          >
             <FormContainer
               inputs={inputs}
               urlEndPoint={props.urlEndPoint}
@@ -347,12 +355,12 @@ const ProjectDetails = (props) => {
           {alertOpen && (
             <Alert
               open={alertOpen}
-              message='Project details added successfully'
+              message="Project details added successfully"
               duration={2000}
               onClose={() => setAlertOpen(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity='success'
+              severity="success"
               actions={false}
             />
           )}

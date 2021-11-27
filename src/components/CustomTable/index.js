@@ -217,7 +217,9 @@ export default function CustomTable({
                         column.key === "Completion_Date" ||
                         column.key === "date"
                       ) {
-                        value = moment(value).format("DD-MMM-YYYY");
+                        value = value
+                          ? moment(value).format("DD-MMM-YYYY")
+                          : "-";
                       } else if (column.key.includes(".")) {
                         let keys = column.key.split(".");
                         value = row[keys[0]]?.[keys[1]]
@@ -275,11 +277,18 @@ export default function CustomTable({
                       ) : (
                         <TableCell
                           style={{
-                            cursor: column.key === "Job.Job" && "pointer",
-                            fontWeight: column.key === "Job.Job" && "bold",
+                            cursor:
+                              column.key === "Job.Job" ||
+                              (column.key === "Job_No" && "pointer"),
+                            fontWeight:
+                              column.key === "Job.Job" ||
+                              (column.key === "Job_No" && "bold"),
                           }}
                           onClick={() => {
-                            if (column.key === "Job.Job") {
+                            if (
+                              column.key === "Job.Job" ||
+                              column.key === "Job_No"
+                            ) {
                               if (setRowData) setRowData(row);
                               if (setEditDialogOpen) {
                                 setEditDialogOpen(true);
