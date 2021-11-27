@@ -19,6 +19,7 @@ import {
 import FormContainer from "../commonPage/FormContainer";
 import moment from "moment";
 import Alert from "../../components/alert/alert.container";
+import Loader from "../../components/loader";
 
 // import "../../Styles/projectDetails.scss";
 
@@ -31,6 +32,8 @@ const ProjectDetails = (props) => {
   const [nextClick, setNextClick] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
   const [rowData, setRowData] = useState({});
+  const [search, setSearch] = useState("");
+
   const handleOpenDialog = () => {
     setDialogOpen(true);
   };
@@ -58,7 +61,7 @@ const ProjectDetails = (props) => {
   ] = useForm(mData?.fields, submitCallback, rowData, setRowData, setNextClick);
   useEffect(() => {
     dispatch(getData("project"));
-    dispatch(getDropdown("job_card"));
+    dispatch(getDropdown("retro_plan"));
     return () => {
       dispatch(clearData());
       dispatch(clearDropDownResponse());
@@ -105,155 +108,17 @@ const ProjectDetails = (props) => {
       dispatch(clearPostResponse());
     }, 3000);
   }, [postResponse, postError, nextClick]);
-  const data = [
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-    {
-      projectName: "Project Name",
-      jobId: "Job ID",
-      managerName: "Project Manager Name",
-      progress: "30",
-      days: "15 days left",
-    },
-  ];
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+  const handleSearchClick = () => {
+    dispatch(getData("project", search));
+  };
+  const handleSearchDelete = () => {
+    setSearch("");
+    dispatch(getData("project"));
+  };
+
   const daysLeft = (day) => {
     if (day == null) {
       return "Unkown";
@@ -264,7 +129,9 @@ const ProjectDetails = (props) => {
   };
   return (
     <>
-      {loading || (
+      {loading ? (
+        <Loader />
+      ) : (
         <>
           <Grid
             container
@@ -276,7 +143,13 @@ const ProjectDetails = (props) => {
               <Grid item xs>
                 <Grid container justify="space-between">
                   <Grid item xs={6}>
-                    <CustomSearch placeholder={`Search  to view`} />
+                    <CustomSearch
+                      value={search}
+                      handleSearchDelete={handleSearchDelete}
+                      handleChange={handleSearch}
+                      handleSearch={handleSearchClick}
+                      placeholder="Search to view"
+                    />
                   </Grid>
                   <Grid item>
                     <Grid container justify="flex-end">
@@ -290,11 +163,7 @@ const ProjectDetails = (props) => {
                 </Grid>
               </Grid>
               <Grid item xs>
-                <Grid
-                  container
-                  justify="space-between"
-                  className={classes.root}
-                >
+                <Grid container spacing={4} className={classes.root}>
                   {responseData?.data?.["data"].map((item) => (
                     <Grid item xs={3} className={classes.cardContainer}>
                       <Grid container direction="column">

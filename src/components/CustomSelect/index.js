@@ -54,10 +54,11 @@ const CustomSelect = (props) => {
   return (
     <div>
       <FormControl
-        variant='outlined'
+        variant="outlined"
         className={classes.form}
         fullWidth
-        error={error}>
+        error={error}
+      >
         <Select
           defaultValue={defaultValue}
           disabled={disabled}
@@ -78,21 +79,38 @@ const CustomSelect = (props) => {
               maxHeight: "450px",
               maxWidth: "400px",
             },
-          }}>
+          }}
+        >
           {noLabel || (
             <MenuItem
               onClick={onLabelClick}
               value={label}
-              disabled={disabledLabel}>
+              disabled={disabledLabel}
+            >
               {label}
             </MenuItem>
           )}
           {options?.map((option, i) => (
             <MenuItem
               style={{ color: "#777777" }}
-              value={isJob ? option._id : isValue ? option._id: isDiff? option._id : option.value}
-              key={i}>
-              {isJob ? option.Job_No : isValue ? option.value :isDiff? option.first_name + " " + option.last_name: option.name}
+              value={
+                isJob
+                  ? option._id
+                  : isValue
+                  ? option._id
+                  : isDiff
+                  ? option._id
+                  : option.value
+              }
+              key={i}
+            >
+              {isJob
+                ? option.Job
+                : isValue
+                ? option.value
+                : isDiff
+                ? option.first_name + " " + option.last_name
+                : option.name}
             </MenuItem>
           ))}
         </Select>

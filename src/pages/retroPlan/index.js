@@ -112,42 +112,43 @@ const RetroPlanPage = () => {
         <Loader />
       ) : (
         <>
-          <Grid container justifyContent='space-between' spacing={8}>
+          <Grid container justifyContent="space-between" spacing={8}>
             <Grid item xs={6}>
-              <Grid container direction='column' spacing={2}>
+              <Grid container direction="column" spacing={2}>
                 <Grid item xs={12}>
                   <CustomSearch
                     value={search}
                     handleSearchDelete={handleSearchDelete}
                     handleChange={handleSearch}
                     handleSearch={handleSearchClick}
-                    placeholder='Search for employees'
+                    placeholder="Search to view"
                   />
                 </Grid>
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justifyContent='flex-end' spacing={2}>
+              <Grid container justifyContent="flex-end" spacing={2}>
                 <Grid item>
                   <CustomButton
-                    width='110px'
-                    variant='outlined'
-                    onClick={handleOpenDialog}>
+                    width="110px"
+                    variant="outlined"
+                    onClick={handleOpenDialog}
+                  >
                     Add Retro Plan
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width='110px' variant='outlined'>
+                  <CustomButton width="110px" variant="outlined">
                     Import
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width='110px' variant='outlined'>
+                  <CustomButton width="110px" variant="outlined">
                     Export
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width='110px' variant='outlined'>
+                  <CustomButton width="110px" variant="outlined">
                     View in excel
                   </CustomButton>
                 </Grid>
@@ -184,7 +185,7 @@ const RetroPlanPage = () => {
           onClose={() => setAlertOpen(false)}
           vertical={"bottom"}
           horizontal={"center"}
-          severity='success'
+          severity="success"
           actions={false}
         />
       )}

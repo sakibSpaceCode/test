@@ -525,7 +525,7 @@
           {
             "name": "assigned_to",
             "label": "Assigned to *",
-            "type": "select",
+            "type": "text",
             "validators": [
               {
                 "alert": "is required",
@@ -1354,7 +1354,7 @@
           {
             "name": "stage",
             "label": "Please Specify",
-            "type": "text",
+            "type": "select",
             "validators": [
               {
                 "alert": "is required",
@@ -1376,7 +1376,7 @@
           },
           {
             "name": "inspect_struct",
-            "label": "Structure Inspection *",
+            "label": "Structure Inspection ",
             "type": "select",
             "validators": [
               {
@@ -1398,7 +1398,7 @@
           },
           {
             "name": "inspect_paint",
-            "label": "Paint Inspection *",
+            "label": "Paint Inspection ",
             "type": "select",
             "validators": [
               {

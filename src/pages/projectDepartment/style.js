@@ -2,8 +2,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
   root: {
-    gap: 5,
-    marginTop: 15,
+    gap: 27,
+    marginTop: 5,
 
     "& .MuiGrid-grid-xs-3": {
       maxWidth: "23%",

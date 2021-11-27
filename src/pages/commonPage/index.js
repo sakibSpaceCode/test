@@ -76,7 +76,14 @@ const CommonPage = (props) => {
   isEdit &&
     mData?.fields?.forEach((field) => {
       let fieldValue = rowData[field.name];
-      if (typeof fieldValue === "object" && fieldValue !== null) {
+      console.log(field.name, fieldValue);
+      if (field.name === "brand_name") {
+        field.value = rowData.Job.name;
+        return;
+      } else if (typeof fieldValue === "object" && field.name === "Name") {
+        field.value = rowData.Job.name;
+        return;
+      } else if (typeof fieldValue === "object" && fieldValue !== null) {
         if (
           field.name === "Job" ||
           field.name === "previous_designer" ||
@@ -170,7 +177,7 @@ const CommonPage = (props) => {
   );
   useEffect(() => {
     dispatch(getData(apiURL));
-    dispatch(getDropdown("job_card"));
+    dispatch(getDropdown("retro_plan"));
     apiURL === "corrective" && dispatch(getDiffDropdown("user"));
     apiURL === "design_detail" && dispatch(getDiffDropdown("user"));
     // dispatch(get2ndDiffDropdown("user"));
@@ -193,6 +200,7 @@ const CommonPage = (props) => {
       dispatch(clear2ndDiffDropDownResponse());
     };
   }, [urlEndPoint]);
+  console.log(rowData);
   useEffect(() => {
     urlEndPoint === "job-card" &&
       setSecondDropdown(
@@ -351,7 +359,7 @@ const CommonPage = (props) => {
     dispatch(getData(apiURL, search));
   };
   const handleSearchDelete = () => {
-    setSearch('')
+    setSearch("");
     dispatch(getData("user"));
   };
   // useEffect(() => {
@@ -366,11 +374,12 @@ const CommonPage = (props) => {
         <>
           <Grid
             container
-            alignItems='center'
-            justify='space-between'
-            spacing={8}>
+            alignItems="center"
+            justify="space-between"
+            spacing={8}
+          >
             <Grid item xs={6}>
-              <Grid container direction='column' spacing={2}>
+              <Grid container direction="column" spacing={2}>
                 <Grid item xs={12}>
                   <CustomSearch
                     value={search}
@@ -383,12 +392,13 @@ const CommonPage = (props) => {
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justify='flex-end' spacing={2}>
+              <Grid container justify="flex-end" spacing={2}>
                 <Grid item>
                   <CustomButton
-                    width='150px'
-                    variant='outlined'
-                    onClick={handleAddDialog}>
+                    width="150px"
+                    variant="outlined"
+                    onClick={handleAddDialog}
+                  >
                     {label === "Job Card" ? "Add Job Card" : "Add"}
                   </CustomButton>
                 </Grid>
@@ -396,16 +406,18 @@ const CommonPage = (props) => {
                 <Grid item>
                   <CustomButton
                     onClick={handleImportDialog}
-                    width='150px'
-                    variant='outlined'>
+                    width="150px"
+                    variant="outlined"
+                  >
                     Import
                   </CustomButton>
                 </Grid>
                 <Grid item>
                   <CustomButton
                     onClick={handleExportDialog}
-                    width='150px'
-                    variant='outlined'>
+                    width="150px"
+                    variant="outlined"
+                  >
                     Export
                   </CustomButton>
                 </Grid>
@@ -440,7 +452,8 @@ const CommonPage = (props) => {
             json={JSON.stringify({ _id: rowData?._id })}
             disabled={inputs?.length === 0}
             resetFormData={resetFormData}
-            setEditDialogOpen={setEditDialogOpen}>
+            setEditDialogOpen={setEditDialogOpen}
+          >
             <FormContainer
               inputs={inputs}
               urlEndPoint={urlEndPoint}
@@ -469,7 +482,8 @@ const CommonPage = (props) => {
             json={JSON.stringify({ _id: rowData?._id })}
             disabled={inputs?.length === 0}
             resetFormData={resetFormData}
-            setEditDialogOpen={setEditDialogOpen}>
+            setEditDialogOpen={setEditDialogOpen}
+          >
             <FormContainer
               inputs={inputs}
               urlEndPoint={urlEndPoint}
@@ -498,7 +512,7 @@ const CommonPage = (props) => {
               onClose={() => setAlertOpen(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity='success'
+              severity="success"
               actions={false}
             />
           )}
@@ -510,7 +524,7 @@ const CommonPage = (props) => {
               onClose={() => setAlertOpen2(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity='success'
+              severity="success"
               actions={false}
             />
           )}
