@@ -67,6 +67,7 @@ const CommonPage = (props) => {
   const [fifthDropdown, setFifthDropdown] = useState("");
   const [sixthDropdown, setSixthDropdown] = useState("");
   const [eightDropdown, setEightDropdown] = useState("");
+  const [search, setSearch] = useState("");
   const [seventhDropdown, setSeventhDropdown] = useState("");
   const { loading, error, responseData } = useSelector(
     (state) => state.getData
@@ -343,6 +344,20 @@ const CommonPage = (props) => {
   useEffect(() => {
     nextClick && setSubmit(nextClick);
   }, [nextClick]);
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+  const handleSearchClick = () => {
+    dispatch(getData(apiURL, search));
+  };
+  const handleSearchDelete = () => {
+    setSearch('')
+    dispatch(getData("user"));
+  };
+  // useEffect(() => {
+  //   dispatch(getData(apiURL, search));
+  // }, [search]);
+
   return (
     <>
       {loading ? (
@@ -357,7 +372,13 @@ const CommonPage = (props) => {
             <Grid item xs={6}>
               <Grid container direction='column' spacing={2}>
                 <Grid item xs={12}>
-                  <CustomSearch placeholder={`Search ${label} to view`} />
+                  <CustomSearch
+                    value={search}
+                    handleSearchDelete={handleSearchDelete}
+                    handleChange={handleSearch}
+                    handleSearch={handleSearchClick}
+                    placeholder={`Search ${label} to view`}
+                  />
                 </Grid>
               </Grid>
             </Grid>
@@ -417,8 +438,8 @@ const CommonPage = (props) => {
             apiURL={apiURL}
             setIsEdit={setIsEdit}
             json={JSON.stringify({ _id: rowData?._id })}
-              disabled={inputs?.length === 0}
-              resetFormData={resetFormData}
+            disabled={inputs?.length === 0}
+            resetFormData={resetFormData}
             setEditDialogOpen={setEditDialogOpen}>
             <FormContainer
               inputs={inputs}
@@ -446,8 +467,8 @@ const CommonPage = (props) => {
             isEdit={isEdit}
             apiURL={apiURL}
             json={JSON.stringify({ _id: rowData?._id })}
-              disabled={inputs?.length === 0}
-              resetFormData={resetFormData}
+            disabled={inputs?.length === 0}
+            resetFormData={resetFormData}
             setEditDialogOpen={setEditDialogOpen}>
             <FormContainer
               inputs={inputs}

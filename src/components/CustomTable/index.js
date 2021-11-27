@@ -116,7 +116,7 @@ export default function CustomTable({
     <>
       {local ? (
         <TableContainer className={classes.container}>
-          <Table stickyHeader aria-label="sticky table">
+          <Table stickyHeader aria-label='sticky table'>
             <TableHead>
               <TableRow>
                 {columns.map((column) => (
@@ -129,8 +129,7 @@ export default function CustomTable({
                       color: "#618EFF",
                       fontWeight: "600",
                       fontSize: "16px",
-                    }}
-                  >
+                    }}>
                     {column.label}
                   </TableCell>
                 ))}
@@ -141,7 +140,7 @@ export default function CustomTable({
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, i) => {
                   return (
-                    <TableRow hover role="checkbox" tabIndex={-1} key={i}>
+                    <TableRow hover role='checkbox' tabIndex={-1} key={i}>
                       {columns.map((column, i) => {
                         const value = row[column.id];
                         return value === "Completed" ? (
@@ -166,7 +165,7 @@ export default function CustomTable({
         </TableContainer>
       ) : (
         <TableContainer className={classes.container}>
-          <Table stickyHeader aria-label="sticky table">
+          <Table stickyHeader aria-label='sticky table'>
             <TableHead>
               <TableRow>
                 {response?.data?.header?.map((column, i) => (
@@ -179,8 +178,7 @@ export default function CustomTable({
                       color: "#618EFF",
                       fontWeight: "600",
                       fontSize: "16px",
-                    }}
-                  >
+                    }}>
                     {column.label}
                   </TableCell>
                 ))}
@@ -189,7 +187,7 @@ export default function CustomTable({
             <TableBody>
               {response?.data?.data?.map((row, i) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={i}>
+                  <TableRow hover role='checkbox' tabIndex={-1} key={i}>
                     {response?.data?.header?.map((column) => {
                       let value = row[column.key];
                       if (
@@ -277,12 +275,9 @@ export default function CustomTable({
                       ) : (
                         <TableCell
                           style={{
-                            cursor:
-                              column.key === "Job.Job" ||
-                              (column.key === "Job_No" && "pointer"),
-                            fontWeight:
-                              column.key === "Job.Job" ||
-                              (column.key === "Job_No" && "bold"),
+                            cursor: column.key === "Job.Job" && "pointer",
+                            fontWeight: column.key === "Job.Job" && "bold",
+                            color: column.key === "Job.Job" && "#618EFF",
                           }}
                           onClick={() => {
                             if (
@@ -296,8 +291,7 @@ export default function CustomTable({
                             }
                           }}
                           key={column.key}
-                          align={"center"}
-                        >
+                          align={"center"}>
                           {value?.toString() || "-"}
                         </TableCell>
                       );

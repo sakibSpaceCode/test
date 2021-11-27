@@ -2,7 +2,7 @@ import axios from "axios";
 import CONSTANTS from "../../common/constant";
 
 export const getData =
-  (collectionName) =>
+  (collectionName,search) =>
   async (dispatch, getState) => {
     dispatch({ type: "GET_DATA_REQUEST" });
     const {
@@ -18,6 +18,7 @@ export const getData =
     };
     // getData(urlEndPoint)
     let url = `${CONSTANTS.BASEURL}${collectionName}/list?offset=0&limit=100`;
+    if (search !== undefined) url = `${url}&search=${search}`;
     const { data } = await axios.get(url, config);
     if (data.success === true) {
       dispatch({

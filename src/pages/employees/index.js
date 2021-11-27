@@ -24,6 +24,7 @@ const EmployeesPage = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [search, setSearch] = useState("");
   const [formData, setFormData] = useState({
     username: "",
     first_name: "",
@@ -72,17 +73,33 @@ const EmployeesPage = () => {
       dispatch(clearData());
     };
   }, []);
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+  const handleSearchClick = () => {
+    dispatch(getData("user", search));
+  };
+  const handleSearchDelete = () => {
+    setSearch('')
+    dispatch(getData("user"));
+  };
   return (
     <>
       {loading ? (
         <Loader />
       ) : (
         <>
-          <Grid container justify="space-between" spacing={8}>
+          <Grid container justify='space-between' spacing={8}>
             <Grid item xs={6}>
-              <Grid container direction="column" spacing={2}>
+              <Grid container direction='column' spacing={2}>
                 <Grid item xs={12}>
-                  <CustomSearch placeholder="Search for employees" />
+                  <CustomSearch
+                      value={search}
+                      handleSearchDelete={handleSearchDelete}
+                    handleChange={handleSearch}
+                    handleSearch={handleSearchClick}
+                    placeholder='Search for employees'
+                  />
                 </Grid>
                 <Grid item xs={10}>
                   <Grid container>
@@ -95,13 +112,11 @@ const EmployeesPage = () => {
                             flexDirection: "column",
                             justifyContent: "center",
                             alignItems: "center",
-                          }}
-                        >
-                          <RemoveIcon fontSize="large" />
+                          }}>
+                          <RemoveIcon fontSize='large' />
                           <Typography
                             style={{ fontWeight: "bold" }}
-                            variant="subtitle1"
-                          >
+                            variant='subtitle1'>
                             Delete User
                           </Typography>
                         </div>
@@ -117,14 +132,12 @@ const EmployeesPage = () => {
                             justifyContent: "center",
                             alignItems: "center",
                           }}
-                          onClick={handleOpenDialog}
-                        >
-                          <AddIcon fontSize="large" />
+                          onClick={handleOpenDialog}>
+                          <AddIcon fontSize='large' />
                           <Typography
                             style={{ fontWeight: "bold" }}
-                            variant="subtitle1"
-                            fontWeight="bold"
-                          >
+                            variant='subtitle1'
+                            fontWeight='bold'>
                             Add User
                           </Typography>
                         </div>
@@ -135,7 +148,7 @@ const EmployeesPage = () => {
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justify="flex-end">
+              <Grid container justify='flex-end'>
                 <Grid item>
                   <Paper className={classes.filterpaper}>
                     <Typography className={classes.filterBy}>
@@ -216,7 +229,7 @@ const EmployeesPage = () => {
               onClose={() => setAlertOpen(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity="success"
+              severity='success'
               actions={false}
             />
           )}
@@ -231,9 +244,8 @@ const CustomButton = ({ children, disabled }) => {
     <Button
       className={classes.btns}
       disabled={disabled}
-      variant="contained"
-      color="primary"
-    >
+      variant='contained'
+      color='primary'>
       <span className={classes.btnText}>{children}</span>
     </Button>
   );
@@ -244,8 +256,7 @@ const CustomPaper = ({ children }) => {
     <Paper
       elevation={0}
       className={classes.papers}
-      style={{ cursor: "pointer" }}
-    >
+      style={{ cursor: "pointer" }}>
       {children}
     </Paper>
   );
