@@ -285,16 +285,17 @@ export default function CustomTable({
                                 column.key === "Job_No") &&
                               "pointer",
                             fontWeight:
-                              (column.key === "Job.Job" ||
+                              (column.key === "Job" || column.key === "Job.Job" ||
                                 column.key === "Job_No") &&
                               "bold",
                             color:
-                              (column.key === "Job.Job" ||
+                              (column.key === "Job" || column.key === "Job.Job" ||
                                 column.key === "Job_No") &&
                               "#618EFF",
                           }}
                           onClick={() => {
                             if (
+                              column.key === "Job" ||
                               column.key === "Job.Job" ||
                               column.key === "Job_No"
                             ) {

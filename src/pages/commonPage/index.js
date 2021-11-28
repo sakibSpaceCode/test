@@ -266,7 +266,6 @@ const CommonPage = (props) => {
         })
       );
   }, [urlEndPoint]);
-  console.log(urlEndPoint, apiURL);
   useEffect(() => {
     apiURL === "job_card" &&
       secondDropdown &&
@@ -307,7 +306,6 @@ const CommonPage = (props) => {
   ]);
   useEffect(() => {
     postResponse?.success === true && setAlertOpen(true);
-
     postResponse?.success === true && dispatch(getData(apiURL));
     if (!nextClick) {
       postResponse?.success === false && setAddDialogOpen(true);
@@ -324,12 +322,7 @@ const CommonPage = (props) => {
       dispatch(clearPostResponse());
     }, 3000);
   }, [postResponse, postError, nextClick]);
-  // useEffect(() => {
-  //   if (!nextClick) {
-  //     postResponse?.success === true && setAddDialogOpen(false);
-  //     postResponse?.success === true && setErrorMessage(null);
-  //   }
-  // }, [postResponse]);
+  
   useEffect(() => {
     putResponse?.success === true && setAlertOpen2(true);
     putResponse?.success === true && dispatch(getData(apiURL));

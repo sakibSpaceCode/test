@@ -100,6 +100,7 @@ const FormContainer = (props) => {
     { name: "19", value: 19 },
     { name: "20", value: 20 },
   ];
+  console.log(urlEndPoint);
   const renderInput = (input) => {
     return input?.type === "text" ? (
       <Grid
@@ -156,7 +157,7 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          disabled={input.name === "Job" && true}
+          disabled={urlEndPoint !==  'projectDepartment' && input.name === "Job" && true}
           size="lg"
           options={
             input.name === "Job"

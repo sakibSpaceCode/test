@@ -52,17 +52,17 @@ export const getDetails =
         Authorization: userInfo?.data?.token,
       },
     };
-    let url = `${CONSTANTS.BASEURL}${collectionName}detail/${id}`;
+    let url = `${CONSTANTS.BASEURL}${collectionName}/detail/${id}`;
     const { data } = await axios.get(url, config);
-    if (data.status === true) {
+    if (data.success === true) {
       dispatch({
         type: "GET_DETAILS_SUCCESS",
-        payload: data,
+        payload: data?.data?.detail,
       });
     } else {
       dispatch({
         type: "GET_DETAILS_ERROR",
-        payload: data.error,
+        payload: data?.message,
       });
     }
   };

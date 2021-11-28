@@ -111,7 +111,7 @@ const CustomDialog = (props) => {
       resetFormData();
       setIsEdit(false);
       setDeleteAlert(true);
-      dispatch(getData(apiURL, pageSize * 3, pageNum));
+      // dispatch(getData(apiURL, pageSize * 3, pageNum));
     } else if (deleteError) {
       setErrorD(deleteError);
       setDialogOpen(true);

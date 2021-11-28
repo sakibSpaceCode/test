@@ -17,7 +17,7 @@ const AppRoutes = () => {
         item.name === "/dashboard/employees" ? (
           <PrivateRoute
             exact
-            path="/dashboard/employees"
+            path='/dashboard/employees'
             data={item.breadcrumbs}
             component={EmployeesPage}
             key={item.name}
@@ -25,14 +25,15 @@ const AppRoutes = () => {
         ) : item.name === "/dashboard/retro-plan" ? (
           <PrivateRoute
             exact
-            path="/dashboard/retro-plan"
+            path='/dashboard/retro-plan'
             component={RetroPlanPage}
             key={item.name}
+            data={item.breadcrumbs}
           />
         ) : item.name === "/dashboard/clients" ? (
           <PrivateRoute
             exact
-            path="/dashboard/clients"
+            path='/dashboard/clients'
             component={DashboardPage}
             key={item.name}
           />
@@ -48,7 +49,7 @@ const AppRoutes = () => {
           <PrivateRoute
             exact
             data={item.breadcrumbs}
-            path="/dashboard/project-department"
+            path='/dashboard/project-department'
             component={ProjectDetails}
             key={item.name}
           />

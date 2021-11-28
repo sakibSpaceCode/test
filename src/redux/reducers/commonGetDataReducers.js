@@ -25,7 +25,7 @@ export const getDataReducer = (state = responseDataInitialState, action) => {
   }
 };
 export const getDetailsReducer = (
-  state = { loading: false, error: "", detailsResponseData: {} },
+  state = { detailsLoading: false, detailsError: "", detailsResponseData: {} },
   action
 ) => {
   switch (action.type) {
@@ -34,12 +34,12 @@ export const getDetailsReducer = (
     case "GET_DETAILS_SUCCESS":
       return {
         ...state,
-        loading: false,
+        detailsLoading: false,
         detailsResponseData: action.payload,
       };
 
     case "GET_DETAILS_ERROR":
-      return { ...state, error: action.payload, loading: false };
+      return { ...state, detailsError: action.payload, detailsLoading: false };
 
     case "CLEAR_DETAILS":
       return {};

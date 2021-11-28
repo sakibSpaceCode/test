@@ -8,13 +8,19 @@ import CustomizedProgressBars from "./projectprogressBar";
 import ProjectDetailsForm from "./projectDetailsForm";
 import CustomSearch from "../../components/CustomSearch";
 import { useDispatch, useSelector } from "react-redux";
-import { clearData, getData } from "../../redux/actions/commonGetDataActions";
+import {
+  clearData,
+  getData,
+  getDetails,
+} from "../../redux/actions/commonGetDataActions";
 import useForm from "../../hooks/useForm";
 import {
   clearDropDownResponse,
   clearPostResponse,
+  clearPutResponse,
   getDropdown,
   postFormData,
+  putFormData,
 } from "../../redux/actions/commonFormActions";
 import FormContainer from "../commonPage/FormContainer";
 import moment from "moment";
@@ -28,20 +34,49 @@ const ProjectDetails = (props) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [dialogOpen, setDialogOpen] = React.useState(false);
+  const [editDialogOpen, setEditDialogOpen] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [alertOpen2, setAlertOpen2] = useState(false);
+
   const [errorMessage, setErrorMessage] = React.useState("");
   const [nextClick, setNextClick] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
   const [rowData, setRowData] = useState({});
   const [search, setSearch] = useState("");
-
+  const { loading, error, responseData } = useSelector(
+    (state) => state.getData
+  );
+  const { detailsLoading, detailsError, detailsResponseData } = useSelector(
+    (state) => state.getDetails
+  );
+  useEffect(() => {
+    setRowData(detailsResponseData);
+  }, [detailsResponseData]);
+  const { putLoading, putResponse, putError } = useSelector(
+    (state) => state.putFields
+  );
+  console.log(rowData, "row");
+  isEdit &&
+    mData?.fields?.forEach((field) => {
+      let fieldValue = rowData[field.name];
+      if (field.name === "brand_name") {
+        field.value = rowData?.Job?.name;
+        return;
+      } else if (typeof fieldValue === "object" && field.name === "Name") {
+        field.value = rowData?.Job?.name;
+        return;
+      } else if (typeof fieldValue === "object" && fieldValue !== null) {
+        if (field.name === "Job") {
+          field.value = fieldValue._id;
+        }
+      } else {
+        field.value = rowData[field?.name];
+      }
+    });
   const handleOpenDialog = () => {
     setDialogOpen(true);
   };
 
-  const { loading, error, responseData } = useSelector(
-    (state) => state.getData
-  );
-  console.log(responseData?.data?.["data"]);
   const submitCallback = (e) => {
     let object = {};
 
@@ -49,7 +84,11 @@ const ProjectDetails = (props) => {
 
     let json = JSON.stringify(object);
 
-    dispatch(postFormData("project", json));
+    if (isEdit) {
+      dispatch(putFormData("project", json));
+    } else {
+      dispatch(postFormData("project", json));
+    }
   };
   const [
     inputs,
@@ -127,6 +166,33 @@ const ProjectDetails = (props) => {
     const lastDate = moment(day);
     return lastDate.diff(dayNow, "days");
   };
+  const handleCardClick = (id) => {
+    dispatch(getDetails("project", id));
+    setIsEdit(true);
+    setEditDialogOpen(true);
+  };
+  const handleEditDialogClose = () => {
+    setEditDialogOpen(false);
+    setErrorMessage(null);
+    resetFormData();
+    setErrorMessage("");
+    setIsEdit(false);
+    // dispatch(clearDropDownResponse())
+  };
+  useEffect(() => {
+    putResponse?.success === true && setAlertOpen2(true);
+    putResponse?.success === true && dispatch(getData("project"));
+    putResponse?.success === true && setEditDialogOpen(false);
+    putResponse?.success === false && setEditDialogOpen(true);
+    putError?.errorMessage && setErrorMessage(putError?.errorMessage);
+    putResponse?.success === true && setIsEdit(false);
+    putResponse?.success === true && resetFormData();
+    putResponse?.success === true && setErrorMessage(null);
+    putError?.errorMessage && dispatch(clearPutResponse());
+    setTimeout(() => {
+      dispatch(clearPutResponse());
+    }, 3000);
+  }, [putResponse, putError]);
   return (
     <>
       {loading ? (
@@ -135,24 +201,23 @@ const ProjectDetails = (props) => {
         <>
           <Grid
             container
-            direction="column"
+            direction='column'
             style={{ padding: "20px 30px" }}
-            spacing={2}
-          >
-            <Grid container direction="column">
+            spacing={2}>
+            <Grid container direction='column'>
               <Grid item xs>
-                <Grid container justify="space-between">
+                <Grid container justify='space-between'>
                   <Grid item xs={6}>
                     <CustomSearch
                       value={search}
                       handleSearchDelete={handleSearchDelete}
                       handleChange={handleSearch}
                       handleSearch={handleSearchClick}
-                      placeholder="Search to view"
+                      placeholder='Search to view'
                     />
                   </Grid>
                   <Grid item>
-                    <Grid container justify="flex-end">
+                    <Grid container justify='flex-end'>
                       <Grid item xs>
                         <CustomButton onClick={handleOpenDialog}>
                           Add Project Details
@@ -165,10 +230,14 @@ const ProjectDetails = (props) => {
               <Grid item xs>
                 <Grid container spacing={4} className={classes.root}>
                   {responseData?.data?.["data"].map((item) => (
-                    <Grid item xs={3} className={classes.cardContainer}>
-                      <Grid container direction="column">
+                    <Grid
+                      onClick={() => handleCardClick(item._id)}
+                      item
+                      xs={3}
+                      className={classes.cardContainer}>
+                      <Grid container direction='column'>
                         <Grid className={classes.img} item>
-                          <img style={{ width: "68px" }} src={Image} alt="" />
+                          <img style={{ width: "68px" }} src={Image} alt='' />
                         </Grid>
                         <Grid item>
                           <p className={classes.projectName}>
@@ -176,7 +245,7 @@ const ProjectDetails = (props) => {
                           </p>
                         </Grid>
                         <Grid item>
-                          <Divider variant="middle" />
+                          <Divider variant='middle' />
                         </Grid>
                         <Grid item>
                           <p className={classes.jobId}>
@@ -207,29 +276,73 @@ const ProjectDetails = (props) => {
             onNextClick={handleNextClick}
             onCompleteClick={handleCompleteButtonClick}
             onSaveClick={handleCompleteButtonClick}
-            // isSave={isEdit || isClone ? true : false}
-            // loading={isEdit ? putLoading : postLoading}
+            loading={postLoading}
             error={errorMessage}
-            disabled={inputs?.length === 0}
-          >
+            apiURL='project'
+            setIsEdit={setIsEdit}
+            setEditDialogOpen={setEditDialogOpen}
+            json={JSON.stringify({ _id: rowData?._id })}
+            resetFormData={resetFormData}
+            disabled={inputs?.length === 0}>
             <FormContainer
               inputs={inputs}
-              urlEndPoint={props.urlEndPoint}
+              urlEndPoint='projectDepartment'
               onFormChange={onFormChange}
               handleEditChange={handleEditChange}
               //  rowData={rowData}
               handleDateChange={handleDateChange}
             />
           </CustomDialog>{" "}
+          <CustomDialog
+            title={`Edit Project Details`}
+            open={editDialogOpen}
+            onClose={handleEditDialogClose}
+            onCancelClick={handleEditDialogClose}
+            onNextClick={handleNextClick}
+            nextClick={nextClick}
+            setIsEdit={setIsEdit}
+            // onCompleteClick={handleCompleteButtonClick}
+            onSaveClick={handleCompleteButtonClick}
+            // isSave={isAdd || isClone ? true : false}
+            loading={putLoading}
+            error={errorMessage}
+            isEdit={isEdit}
+            apiURL='project'
+            json={JSON.stringify({ _id: rowData?._id })}
+            disabled={inputs?.length === 0}
+            resetFormData={resetFormData}
+            setEditDialogOpen={setEditDialogOpen}>
+            <FormContainer
+              inputs={inputs}
+              urlEndPoint='projectDetails'
+              onFormChange={onFormChange}
+              handleEditChange={handleEditChange}
+              rowData={rowData}
+              handleDateChange={handleDateChange}
+              isEdit={isEdit}
+            />
+          </CustomDialog>
           {alertOpen && (
             <Alert
               open={alertOpen}
-              message="Project details added successfully"
+              message='Project details added successfully'
               duration={2000}
               onClose={() => setAlertOpen(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity="success"
+              severity='success'
+              actions={false}
+            />
+          )}
+          {alertOpen2 && (
+            <Alert
+              open={alertOpen2}
+              message={`Project details updated successfully.`}
+              duration={2000}
+              onClose={() => setAlertOpen2(false)}
+              vertical={"bottom"}
+              horizontal={"center"}
+              severity='success'
               actions={false}
             />
           )}
