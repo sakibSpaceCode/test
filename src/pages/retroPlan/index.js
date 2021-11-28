@@ -96,7 +96,9 @@ const RetroPlanPage = (props) => {
     let object = {};
 
     mData?.fields?.map((m) => (object[m.name] = m.value));
-
+    if (isEdit) {
+      object._id = rowData._id;
+    }
     let json = JSON.stringify(object);
 
     if (isEdit) {
@@ -140,15 +142,14 @@ const RetroPlanPage = (props) => {
     setSearch(e.target.value);
   };
   const handleSearchClick = () => {
-    dispatch(getData("user", search));
+    dispatch(getData("retro_plan", search));
   };
   const handleSearchDelete = () => {
     setSearch("");
-    dispatch(getData("user"));
+    dispatch(getData("retro_plan"));
   };
   console.log(rowData, "row");
   const handleEditDialog = () => {
-   rowData !== null && dispatch(getDetails(apiURL, rowData?._id))
     setIsEdit(true);
     setEditDialogOpen(true);
   };
@@ -180,42 +181,43 @@ const RetroPlanPage = (props) => {
         <Loader />
       ) : (
         <>
-          <Grid container justifyContent='space-between' spacing={8}>
+          <Grid container justifyContent="space-between" spacing={8}>
             <Grid item xs={6}>
-              <Grid container direction='column' spacing={2}>
+              <Grid container direction="column" spacing={2}>
                 <Grid item xs={12}>
                   <CustomSearch
                     value={search}
                     handleSearchDelete={handleSearchDelete}
                     handleChange={handleSearch}
                     handleSearch={handleSearchClick}
-                    placeholder='Search to view'
+                    placeholder="Search to view"
                   />
                 </Grid>
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justifyContent='flex-end' spacing={2}>
+              <Grid container justifyContent="flex-end" spacing={2}>
                 <Grid item>
                   <CustomButton
-                    width='110px'
-                    variant='outlined'
-                    onClick={handleOpenDialog}>
+                    width="110px"
+                    variant="outlined"
+                    onClick={handleOpenDialog}
+                  >
                     Add Retro Plan
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width='110px' variant='outlined'>
+                  <CustomButton width="110px" variant="outlined">
                     Import
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width='110px' variant='outlined'>
+                  <CustomButton width="110px" variant="outlined">
                     Export
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width='110px' variant='outlined'>
+                  <CustomButton width="110px" variant="outlined">
                     View in excel
                   </CustomButton>
                 </Grid>
@@ -249,7 +251,8 @@ const RetroPlanPage = (props) => {
         setEditDialogOpen={setEditDialogOpen}
         json={JSON.stringify({ _id: rowData?._id })}
         resetFormData={resetFormData}
-        disabled={inputs?.length === 0}>
+        disabled={inputs?.length === 0}
+      >
         <FormContainer
           inputs={inputs}
           urlEndPoint={urlEndPoint}
@@ -277,7 +280,8 @@ const RetroPlanPage = (props) => {
         json={JSON.stringify({ _id: rowData?._id })}
         disabled={inputs?.length === 0}
         resetFormData={resetFormData}
-        setEditDialogOpen={setEditDialogOpen}>
+        setEditDialogOpen={setEditDialogOpen}
+      >
         <FormContainer
           inputs={inputs}
           urlEndPoint={urlEndPoint}
@@ -291,12 +295,12 @@ const RetroPlanPage = (props) => {
       {alertOpen && (
         <Alert
           open={alertOpen}
-          message='Retro Plan added successfully'
+          message="Retro Plan added successfully"
           duration={2000}
           onClose={() => setAlertOpen(false)}
           vertical={"bottom"}
           horizontal={"center"}
-          severity='success'
+          severity="success"
           actions={false}
         />
       )}
@@ -308,7 +312,7 @@ const RetroPlanPage = (props) => {
           onClose={() => setAlertOpen2(false)}
           vertical={"bottom"}
           horizontal={"center"}
-          severity='success'
+          severity="success"
           actions={false}
         />
       )}

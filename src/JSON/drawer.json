@@ -591,7 +591,7 @@
         ]
       },
       {
-        "name": "second_mr",
+        "name": "Second_mr",
         "label": "Second MR *",
         "type": "date",
         "validators": [
@@ -734,7 +734,7 @@
         ]
       },
       {
-        "name": "install",
+        "name": "Install",
         "label": "Install *",
         "type": "date",
         "validators": [
@@ -756,7 +756,7 @@
         ]
       },
       {
-        "name": "project",
+        "name": "project_manager",
         "label": "Project Manager *",
         "type": "text",
         "validators": [
@@ -767,7 +767,7 @@
         ]
       },
       {
-        "name": "civil_mep_work",
+        "name": "civil_mep_works",
         "label": "Civil MEP Works *",
         "type": "text",
         "validators": [
