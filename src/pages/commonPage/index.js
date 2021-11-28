@@ -78,10 +78,10 @@ const CommonPage = (props) => {
       let fieldValue = rowData[field.name];
       console.log(field.name, fieldValue);
       if (field.name === "brand_name") {
-        field.value = rowData.Job.name;
+        field.value = rowData?.Job?.name;
         return;
       } else if (typeof fieldValue === "object" && field.name === "Name") {
-        field.value = rowData.Job.name;
+        field.value = rowData?.Job?.name;
         return;
       } else if (typeof fieldValue === "object" && fieldValue !== null) {
         if (
@@ -360,7 +360,7 @@ const CommonPage = (props) => {
   };
   const handleSearchDelete = () => {
     setSearch("");
-    dispatch(getData("user"));
+    dispatch(getData(apiURL));
   };
   // useEffect(() => {
   //   dispatch(getData(apiURL, search));

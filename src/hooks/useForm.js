@@ -30,8 +30,7 @@ const useForm = (
         i.value = newValue?._id;
         parseInput(i);
       } else if (i.name === e?.target?.name) {
-        i.value =
-          i.name === "Quantity" ? parseInt(e.target.value) : e.target.value;
+        i.value = i.name === "Quantity" ? e.target.value * 1 : e.target.value;
         parseInput(i);
         i?.label?.includes("*") && validateInput(i);
       }
@@ -91,7 +90,6 @@ const useForm = (
     let alert = null;
 
     input?.validators.forEach((v) => {
-      
       if (v.valId === "SCVAL001") {
         alert = !isValidFun(input.value) ? v.alert : alert;
       }
@@ -99,7 +97,6 @@ const useForm = (
       // if (v.valId === "SC-VA-006") {
       //   alert = !checkEmailPattern(input.value) ? v.errorMessage : alert;
       // }
-     
     });
     input.alert = alert;
   };

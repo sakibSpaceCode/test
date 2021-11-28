@@ -125,7 +125,7 @@ const ProjectDetails = (props) => {
     }
     const dayNow = moment(Date.now());
     const lastDate = moment(day);
-    return dayNow.diff(lastDate, "days");
+    return lastDate.diff(dayNow, "days");
   };
   return (
     <>
@@ -172,7 +172,7 @@ const ProjectDetails = (props) => {
                         </Grid>
                         <Grid item>
                           <p className={classes.projectName}>
-                            {item?.Project_Name}
+                            {item?.Job?.name || "-"}
                           </p>
                         </Grid>
                         <Grid item>
@@ -180,11 +180,11 @@ const ProjectDetails = (props) => {
                         </Grid>
                         <Grid item>
                           <p className={classes.jobId}>
-                            {item?.Job?.name || "-"}
+                            {item?.Job?.Job || "-"}
                           </p>
                         </Grid>
                         <Grid item className={classes.managerName}>
-                          {item?.Job?.project_manager}
+                          {item?.Job?.project_manager || "-"}
                         </Grid>
                         <Grid item className={classes.progress}>
                           <CustomizedProgressBars />

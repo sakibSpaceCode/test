@@ -25,7 +25,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   img: {
     margin: "0 auto",
-    marginTop: "-30px",
+    marginTop: "-50px",
     width: "60px",
   },
   projectName: {
@@ -58,7 +58,7 @@ export const useStyles = makeStyles((theme) => ({
   days: {
     textAlign: "center",
     marginTop: "5px",
-    marginBottom: "30px",
+    marginBottom: "10px",
     fontSize: "11px",
     fontWeight: "600",
     color: " #5B5B5B",

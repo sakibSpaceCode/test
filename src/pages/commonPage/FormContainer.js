@@ -114,9 +114,12 @@ const FormContainer = (props) => {
           onChange={isEdit ? handleEditChange : onFormChange}
           name={input.name}
           value={input.value ?? ""}
-          type={input.type}
+          type={input.name === "Quantity" ? "number" : input.type}
           autoFocus
           fullWidth
+          disabled={
+            (input.label === "Name *" || input.label === "Brand Name *") && true
+          }
           style={{ width: 300 }}
           className={classes.textField}
           size={input.bigInput ? "lg" : "md"}
@@ -153,6 +156,7 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
+          disabled={input.name === "Job" && true}
           size="lg"
           options={
             input.name === "Job"

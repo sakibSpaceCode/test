@@ -189,6 +189,7 @@ export default function CustomTable({
             </TableHead>
             <TableBody>
               {response?.data?.data?.map((row, i) => {
+                let formRow = row;
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={i}>
                     {response?.data?.header?.map((column) => {
@@ -279,16 +280,25 @@ export default function CustomTable({
                       ) : (
                         <TableCell
                           style={{
-                            cursor: column.key === "Job.Job" && "pointer",
-                            fontWeight: column.key === "Job.Job" && "bold",
-                            color: column.key === "Job.Job" && "#618EFF",
+                            cursor:
+                              (column.key === "Job.Job" ||
+                                column.key === "Job_No") &&
+                              "pointer",
+                            fontWeight:
+                              (column.key === "Job.Job" ||
+                                column.key === "Job_No") &&
+                              "bold",
+                            color:
+                              (column.key === "Job.Job" ||
+                                column.key === "Job_No") &&
+                              "#618EFF",
                           }}
                           onClick={() => {
                             if (
                               column.key === "Job.Job" ||
                               column.key === "Job_No"
                             ) {
-                              if (setRowData) setRowData(row);
+                              if (setRowData) setRowData(formRow);
                               if (setEditDialogOpen) {
                                 setEditDialogOpen(true);
                               }
