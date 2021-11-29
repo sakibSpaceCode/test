@@ -27,6 +27,7 @@ import {
 import {
   getDataReducer,
   getDetailsReducer,
+  getNotificationsReducer,
 } from "./reducers/commonGetDataReducers";
 import { getPermissionReducer } from "./reducers/employeReducer";
 
@@ -50,6 +51,7 @@ const reducer = combineReducers({
   get8thDropdown: get8thDropdownReducer,
   getDiffDropdown: getDiffDropdownReducer,
   get2ndDiffDropdown: get2ndDiffDropdownReducer,
+  getNotifications: getNotificationsReducer,
 });
 const persistConfig = {
   key: "root",

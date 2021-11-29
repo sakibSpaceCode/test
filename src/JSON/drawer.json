@@ -569,7 +569,7 @@
         ]
       },
       {
-        "name": "drawing_approval",
+        "name": "drawing_approvel",
         "label": "Drawing Approval *",
         "type": "date",
         "validators": [
@@ -580,7 +580,7 @@
         ]
       },
       {
-        "name": "drawing_approval",
+        "name": "drawing_approvel",
         "label": "Second kickoff meeting *",
         "type": "date",
         "validators": [

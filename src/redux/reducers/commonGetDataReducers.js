@@ -48,3 +48,35 @@ export const getDetailsReducer = (
       return state;
   }
 };
+export const getNotificationsReducer = (
+  state = {
+    notificationLoading: false,
+    notificationError: "",
+    notifications: {},
+  },
+  action
+) => {
+  switch (action.type) {
+    case "GET_NOTIFICATION_REQUEST":
+      return { ...state, loading: true };
+    case "GET_NOTIFICATION_SUCCESS":
+      return {
+        ...state,
+        notificationLoading: false,
+        notifications: action.payload,
+      };
+
+    case "GET_NOTIFICATION_ERROR":
+      return {
+        ...state,
+        notificationError: action.payload,
+        notificationLoading: false,
+      };
+
+    case "CLEAR_notification":
+      return {};
+
+    default:
+      return state;
+  }
+};

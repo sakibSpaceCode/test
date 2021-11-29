@@ -64,16 +64,7 @@ const RetroPlanPage = (props) => {
   const { postLoading, postResponse, postError } = useSelector(
     (state) => state.postFields
   );
-  useEffect(() => {
-    postResponse?.success === true && setAlertOpen(true);
-    postResponse?.success === true && dispatch(getData("retro_plan"));
-    postResponse?.success === true && setDialogOpen(false);
-    postError && dispatch(clearPostResponse());
-    postError && setErrorMessage(postError);
-    setTimeout(() => {
-      dispatch(clearPostResponse());
-    }, 3000);
-  }, [postResponse, postError]);
+
   isEdit &&
     mData?.fields?.forEach((field) => {
       let fieldValue = rowData[field.name];
@@ -162,6 +153,17 @@ const RetroPlanPage = (props) => {
     // dispatch(clearDropDownResponse())
   };
   useEffect(() => {
+    postResponse?.success === true && setAlertOpen(true);
+    postResponse?.success === true && dispatch(getData("retro_plan"));
+    postResponse?.success === true && setDialogOpen(false);
+    postResponse?.success === true && resetFormData();
+    postError && dispatch(clearPostResponse());
+    postError && setErrorMessage(postError);
+    setTimeout(() => {
+      dispatch(clearPostResponse());
+    }, 3000);
+  }, [postResponse, postError]);
+  useEffect(() => {
     putResponse?.success === true && setAlertOpen2(true);
     putResponse?.success === true && dispatch(getData(apiURL));
     putResponse?.success === true && setEditDialogOpen(false);
@@ -181,43 +183,42 @@ const RetroPlanPage = (props) => {
         <Loader />
       ) : (
         <>
-          <Grid container justifyContent="space-between" spacing={8}>
+          <Grid container justifyContent='space-between' spacing={8}>
             <Grid item xs={6}>
-              <Grid container direction="column" spacing={2}>
+              <Grid container direction='column' spacing={2}>
                 <Grid item xs={12}>
                   <CustomSearch
                     value={search}
                     handleSearchDelete={handleSearchDelete}
                     handleChange={handleSearch}
                     handleSearch={handleSearchClick}
-                    placeholder="Search to view"
+                    placeholder='Search to view'
                   />
                 </Grid>
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justifyContent="flex-end" spacing={2}>
+              <Grid container justifyContent='flex-end' spacing={2}>
                 <Grid item>
                   <CustomButton
-                    width="110px"
-                    variant="outlined"
-                    onClick={handleOpenDialog}
-                  >
+                    width='110px'
+                    variant='outlined'
+                    onClick={handleOpenDialog}>
                     Add Retro Plan
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width="110px" variant="outlined">
+                  <CustomButton width='110px' variant='outlined'>
                     Import
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width="110px" variant="outlined">
+                  <CustomButton width='110px' variant='outlined'>
                     Export
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width="110px" variant="outlined">
+                  <CustomButton width='110px' variant='outlined'>
                     View in excel
                   </CustomButton>
                 </Grid>
@@ -251,8 +252,7 @@ const RetroPlanPage = (props) => {
         setEditDialogOpen={setEditDialogOpen}
         json={JSON.stringify({ _id: rowData?._id })}
         resetFormData={resetFormData}
-        disabled={inputs?.length === 0}
-      >
+        disabled={inputs?.length === 0}>
         <FormContainer
           inputs={inputs}
           urlEndPoint={urlEndPoint}
@@ -280,8 +280,7 @@ const RetroPlanPage = (props) => {
         json={JSON.stringify({ _id: rowData?._id })}
         disabled={inputs?.length === 0}
         resetFormData={resetFormData}
-        setEditDialogOpen={setEditDialogOpen}
-      >
+        setEditDialogOpen={setEditDialogOpen}>
         <FormContainer
           inputs={inputs}
           urlEndPoint={urlEndPoint}
@@ -295,12 +294,12 @@ const RetroPlanPage = (props) => {
       {alertOpen && (
         <Alert
           open={alertOpen}
-          message="Retro Plan added successfully"
+          message='Retro Plan added successfully'
           duration={2000}
           onClose={() => setAlertOpen(false)}
           vertical={"bottom"}
           horizontal={"center"}
-          severity="success"
+          severity='success'
           actions={false}
         />
       )}
@@ -312,7 +311,7 @@ const RetroPlanPage = (props) => {
           onClose={() => setAlertOpen2(false)}
           vertical={"bottom"}
           horizontal={"center"}
-          severity="success"
+          severity='success'
           actions={false}
         />
       )}

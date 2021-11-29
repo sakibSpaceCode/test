@@ -66,6 +66,34 @@ export const getDetails =
       });
     }
   };
+export const getNotifications =
+  () => async (dispatch, getState) => {
+    dispatch({ type: "GET_NOTIFICATION_REQUEST" });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        type: "Web",
+        Authorization: userInfo?.data?.token,
+      },
+    };
+    let url = `${CONSTANTS.BASEURL}user/notification/list`;
+    const { data } = await axios.get(url, config);
+    if (data.success === true) {
+      dispatch({
+        type: "GET_NOTIFICATION_SUCCESS",
+        payload: data?.data?.data,
+      });
+    } else {
+      dispatch({
+        type: "GET_NOTIFICATION_ERROR",
+        payload: data?.message,
+      });
+    }
+  };
 
 export const clearDetails = () => {
   return {
