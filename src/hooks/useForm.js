@@ -24,6 +24,7 @@ const useForm = (
     setInputs(initModel);
   }, [initModel]);
   const handleChange = (e, newValue, flag = false) => {
+    console.log(newValue);
     setNextClick(false);
     inputs?.forEach((i) => {
       if (i.name === "Job" && newValue && flag) {
@@ -56,7 +57,7 @@ const useForm = (
     setInputs([...inputs]);
   };
   const handleEditChange = (e) => {
-    console.log(e.target.name, rowData, "ooiuig");
+    console.log(e.target.name, e.target.value, "ooiuig");
     let temp = rowData;
     temp[e.target.name] = e.target.value;
     setRowData({ ...rowData, temp });

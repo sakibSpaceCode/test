@@ -218,7 +218,10 @@ export default function CustomTable({
                         column.key === "handover" ||
                         column.key === "Structure" ||
                         column.key === "Completion_Date" ||
-                        column.key === "date"
+                        column.key === "date" ||
+                        column.key === "dispatch" ||
+                        column.key === "drawing_start" ||
+                        column.key === "first_final_inspection"
                       ) {
                         value = value
                           ? moment(value).format("DD-MMM-YYYY")
@@ -285,11 +288,13 @@ export default function CustomTable({
                                 column.key === "Job_No") &&
                               "pointer",
                             fontWeight:
-                              (column.key === "Job" || column.key === "Job.Job" ||
+                              (column.key === "Job" ||
+                                column.key === "Job.Job" ||
                                 column.key === "Job_No") &&
                               "bold",
                             color:
-                              (column.key === "Job" || column.key === "Job.Job" ||
+                              (column.key === "Job" ||
+                                column.key === "Job.Job" ||
                                 column.key === "Job_No") &&
                               "#618EFF",
                           }}

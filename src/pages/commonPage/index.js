@@ -76,9 +76,23 @@ const CommonPage = (props) => {
   isEdit &&
     mData?.fields?.forEach((field) => {
       let fieldValue = rowData[field.name];
-      console.log(field.name, fieldValue);
+
       if (field.name === "brand_name") {
         field.value = rowData?.Job?.name;
+        return;
+      } else if (field.name === "status" || field.name === "Status") {
+        if (typeof fieldValue === "object") {
+          console.log("cal obj");
+
+          field.value = rowData?.status?._id || rowData?.Status?._id;
+
+          return;
+        } else {
+          field.value = fieldValue;
+          console.log("cal");
+          return;
+        }
+
         return;
       } else if (typeof fieldValue === "object" && field.name === "Name") {
         field.value = rowData?.Job?.name;
@@ -104,6 +118,7 @@ const CommonPage = (props) => {
         field.value = rowData[field?.name];
       }
     });
+  console.log(rowData);
   const emptyValuesFiltered =
     mData?.fields?.length > 0 &&
     mData?.fields?.filter((v) => v.value !== undefined || v.value !== null);
@@ -122,6 +137,7 @@ const CommonPage = (props) => {
       dispatch(postFormData(apiURL, json));
     }
   };
+  console.log(rowData);
   const [
     inputs,
     onFormChange,
@@ -322,7 +338,7 @@ const CommonPage = (props) => {
       dispatch(clearPostResponse());
     }, 3000);
   }, [postResponse, postError, nextClick]);
-  
+
   useEffect(() => {
     putResponse?.success === true && setAlertOpen2(true);
     putResponse?.success === true && dispatch(getData(apiURL));

@@ -2470,7 +2470,7 @@
   },
   {
     "path": "/dashboard/purchace-department",
-    "name": "Purchace Department",
+    "name": "Purchase Department",
     "urlEndPoint": "/purchace-department",
     "icon": "fa fa-shopping-cart"
   },
