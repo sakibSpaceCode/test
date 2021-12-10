@@ -2554,19 +2554,98 @@
     "type": "common",
     "fields": [
       {
-        "name": "name",
-        "label": "Name *",
-        "type": "text"
+        "name": "Job",
+        "label": "Job ID *",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
-        "name": "code",
-        "label": "Code *",
-        "type": "text"
+        "name": "Completion_Date",
+        "label": "Completion Date",
+        "type": "date",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
-        "name": "description",
-        "label": "Description *",
-        "type": "text"
+        "name": "Packing_List",
+        "label": "Packing List",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Consignee_Detail",
+        "label": "Consignee Detail",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Address",
+        "label": "Delivery Address",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Mode_of_Shipping",
+        "label": "Mode of Shipping",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Storage",
+        "label": "Storage",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Note",
+        "label": "Note",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   },
@@ -2578,19 +2657,183 @@
     "type": "common",
     "fields": [
       {
-        "name": "name",
-        "label": "Name *",
-        "type": "text"
+        "name": "Job",
+        "label": "Job ID *",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      
+      {
+        "name": "Completion_Date",
+        "label": "Completion Date",
+        "type": "date",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
-        "name": "code",
-        "label": "Code *",
-        "type": "text"
+        "name": "Drawing",
+        "label": "Drawing",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
-        "name": "description",
-        "label": "Description *",
-        "type": "text"
+        "name": "Drawing_Link",
+        "label": "Drawing Link",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Assembly_Guidelines",
+        "label": "Assembly Guidelines",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Scope_of_Work",
+        "label": "Scope of Work",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Installation_Date",
+        "label": "Installation Date",
+        "type": "date",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Removal_Date",
+        "label": "Removal Date",
+        "type": "date",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Packing_list",
+        "label": "Packing List",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Permits",
+        "label": "Permits",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Permit_Contact_Person",
+        "label": "Permit Contact Person",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Installer",
+        "label": "Installer",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Completion_Certificate",
+        "label": "Completion Certificate",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Closure_Report",
+        "label": "Closure Report",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Snags",
+        "label": "Snags",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Note",
+        "label": "Note",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   }
