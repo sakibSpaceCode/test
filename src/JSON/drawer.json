@@ -2667,7 +2667,7 @@
           }
         ]
       },
-      
+
       {
         "name": "Completion_Date",
         "label": "Completion Date",
@@ -2825,6 +2825,1746 @@
       {
         "name": "Note",
         "label": "Note",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/dashboard/acrylic-supplier",
+    "name": "Acrylic Supplier",
+    "urlEndPoint": "/acrylic-supplier",
+    "icon": "fa fa-cogs",
+    "type": "common",
+    "isDrawer": true,
+    "fields": [
+      {
+        "name": "acrylic_name",
+        "label": "Acrylic Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "label": "Job ID ",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Name",
+        "label": "Supplier Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Address",
+        "label": "Supplier Address",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Code",
+        "label": "Supplier Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Alpha_Nero_Code",
+        "label": "Alpha Nero Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Current_Price",
+        "label": "Current Price",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Timelines",
+        "label": "Delivery Timelines",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Invoice_no",
+        "label": "Invoice No.",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Future_use",
+        "label": "Future Use",
+        "type": "select",
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Remarks",
+        "label": "Remarks",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/dashboard/electrical-supplier",
+    "name": "Electrical Supplier",
+    "urlEndPoint": "/electrical-supplier",
+    "icon": "fa fa-cogs",
+    "type": "common",
+    "isDrawer": true,
+    "fields": [
+      {
+        "name": "electrical_name",
+        "label": "Electrical Material Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "label": "Job ID ",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Name",
+        "label": "Supplier Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Address",
+        "label": "Supplier Address",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Code",
+        "label": "Supplier Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Alpha_Nero_Code",
+        "label": "Alpha Nero Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Current_Price",
+        "label": "Current Price",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Timelines",
+        "label": "Delivery Timelines",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Invoice_no",
+        "label": "Invoice No.",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Future_use",
+        "label": "Future Use",
+        "type": "select",
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Remarks",
+        "label": "Remarks",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/dashboard/fabric-supplier",
+    "name": "Fabric Supplier",
+    "urlEndPoint": "/fabric-supplier",
+    "icon": "fa fa-cogs",
+    "type": "common",
+    "isDrawer": true,
+    "fields": [
+      {
+        "name": "fabric_name",
+        "label": "Fabric Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "label": "Job ID ",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Name",
+        "label": "Supplier Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Address",
+        "label": "Supplier Address",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Code",
+        "label": "Supplier Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Alpha_Nero_Code",
+        "label": "Alpha Nero Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Current_Price",
+        "label": "Current Price",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Timelines",
+        "label": "Delivery Timelines",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Invoice_no",
+        "label": "Invoice No.",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Future_use",
+        "label": "Future Use",
+        "type": "select",
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Remarks",
+        "label": "Remarks",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/dashboard/glass-supplier",
+    "name": "Glass Supplier",
+    "urlEndPoint": "/glass-supplier",
+    "icon": "fa fa-cogs",
+    "type": "common",
+    "isDrawer": true,
+    "fields": [
+      {
+        "name": "glass_name",
+        "label": "Glass Type",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "label": "Job ID ",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Name",
+        "label": "Supplier Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Address",
+        "label": "Supplier Address",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Code",
+        "label": "Supplier Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Alpha_Nero_Code",
+        "label": "Alpha Nero Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Current_Price",
+        "label": "Current Price",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Timelines",
+        "label": "Delivery Timelines",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Invoice_no",
+        "label": "Invoice No.",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Future_use",
+        "label": "Future Use",
+        "type": "select",
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Remarks",
+        "label": "Remarks",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/dashboard/laminate-supplier",
+    "name": "Laminate Supplier",
+    "urlEndPoint": "/laminate-supplier",
+    "icon": "fa fa-cogs",
+    "type": "common",
+    "isDrawer": true,
+    "fields": [
+      {
+        "name": "laminate_name",
+        "label": "Laminate Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "label": "Job ID ",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Name",
+        "label": "Supplier Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Address",
+        "label": "Supplier Address",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Code",
+        "label": "Supplier Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Alpha_Nero_Code",
+        "label": "Alpha Nero Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Current_Price",
+        "label": "Current Price",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Timelines",
+        "label": "Delivery Timelines",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Invoice_no",
+        "label": "Invoice No.",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Future_use",
+        "label": "Future Use",
+        "type": "select",
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Remarks",
+        "label": "Remarks",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/dashboard/mdf-supplier",
+    "name": "MDF Supplier",
+    "urlEndPoint": "/mdf-supplier",
+    "icon": "fa fa-cogs",
+    "type": "common",
+    "isDrawer": true,
+    "fields": [
+      {
+        "name": "mdf_name",
+        "label": "MDF Material Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "label": "Job ID ",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Name",
+        "label": "Supplier Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Address",
+        "label": "Supplier Address",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Code",
+        "label": "Supplier Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Alpha_Nero_Code",
+        "label": "Alpha Nero Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Current_Price",
+        "label": "Current Price",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Timelines",
+        "label": "Delivery Timelines",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Invoice_no",
+        "label": "Invoice No.",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Future_use",
+        "label": "Future Use",
+        "type": "select",
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Remarks",
+        "label": "Remarks",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/dashboard/marble-supplier",
+    "name": "Marble Supplier",
+    "urlEndPoint": "/marble-supplier",
+    "icon": "fa fa-cogs",
+    "type": "common",
+    "isDrawer": true,
+    "fields": [
+      {
+        "name": "marble_name",
+        "label": "Marble Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "label": "Job ID ",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Name",
+        "label": "Supplier Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Address",
+        "label": "Supplier Address",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Code",
+        "label": "Supplier Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Alpha_Nero_Code",
+        "label": "Alpha Nero Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Current_Price",
+        "label": "Current Price",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Timelines",
+        "label": "Delivery Timelines",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Invoice_no",
+        "label": "Invoice No.",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Future_use",
+        "label": "Future Use",
+        "type": "select",
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Remarks",
+        "label": "Remarks",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/dashboard/metal-supplier",
+    "name": "Metal Supplier",
+    "urlEndPoint": "/metal-supplier",
+    "icon": "fa fa-cogs",
+    "type": "common",
+    "isDrawer": true,
+    "fields": [
+      {
+        "name": "metal_name",
+        "label": "Metal Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "label": "Job ID ",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Name",
+        "label": "Supplier Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Address",
+        "label": "Supplier Address",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Code",
+        "label": "Supplier Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Alpha_Nero_Code",
+        "label": "Alpha Nero Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Current_Price",
+        "label": "Current Price",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Timelines",
+        "label": "Delivery Timelines",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Invoice_no",
+        "label": "Invoice No.",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Future_use",
+        "label": "Future Use",
+        "type": "select",
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Remarks",
+        "label": "Remarks",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/dashboard/outsourced-material",
+    "name": "Outsourced Material",
+    "urlEndPoint": "/outsourced-material",
+    "icon": "fa fa-cogs",
+    "type": "common",
+    "isDrawer": true,
+    "fields": [
+      {
+        "name": "outsourced-material",
+        "label": "Outsourced Material Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "label": "Job ID ",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Name",
+        "label": "Supplier Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Address",
+        "label": "Supplier Address",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Code",
+        "label": "Supplier Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Alpha_Nero_Code",
+        "label": "Alpha Nero Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Current_Price",
+        "label": "Current Price",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Timelines",
+        "label": "Delivery Timelines",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Invoice_no",
+        "label": "Invoice No.",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Future_use",
+        "label": "Future Use",
+        "type": "select",
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Remarks",
+        "label": "Remarks",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/dashboard/paint-supplier",
+    "name": "Paint Supplier",
+    "urlEndPoint": "/paint-supplier",
+    "icon": "fa fa-cogs",
+    "type": "common",
+    "isDrawer": true,
+    "fields": [
+      {
+        "name": "paint_name",
+        "label": "Paint Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "label": "Job ID ",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Name",
+        "label": "Supplier Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Address",
+        "label": "Supplier Address",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Code",
+        "label": "Supplier Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Alpha_Nero_Code",
+        "label": "Alpha Nero Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Current_Price",
+        "label": "Current Price",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Timelines",
+        "label": "Delivery Timelines",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Invoice_no",
+        "label": "Invoice No.",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Future_use",
+        "label": "Future Use",
+        "type": "select",
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Remarks",
+        "label": "Remarks",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/dashboard/special-supplier",
+    "name": "Special Supplier",
+    "urlEndPoint": "/special-supplier",
+    "icon": "fa fa-cogs",
+    "type": "common",
+    "isDrawer": true,
+    "fields": [
+      {
+        "name": "special_name",
+        "label": "Special Material Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "label": "Job ID ",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Name",
+        "label": "Supplier Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Address",
+        "label": "Supplier Address",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Code",
+        "label": "Supplier Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Alpha_Nero_Code",
+        "label": "Alpha Nero Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Current_Price",
+        "label": "Current Price",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Timelines",
+        "label": "Delivery Timelines",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Invoice_no",
+        "label": "Invoice No.",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Future_use",
+        "label": "Future Use",
+        "type": "select",
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Remarks",
+        "label": "Remarks",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/dashboard/veneer-supplier",
+    "name": "Veneer Supplier",
+    "urlEndPoint": "/veneer-supplier",
+    "icon": "fa fa-cogs",
+    "type": "common",
+    "isDrawer": true,
+    "fields": [
+      {
+        "name": "veneer_name",
+        "label": "Veneer Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "label": "Job ID ",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Name",
+        "label": "Supplier Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Address",
+        "label": "Supplier Address",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Code",
+        "label": "Supplier Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Alpha_Nero_Code",
+        "label": "Alpha Nero Code",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Current_Price",
+        "label": "Current Price",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Delivery_Timelines",
+        "label": "Delivery Timelines",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Invoice_no",
+        "label": "Invoice No.",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Future_use",
+        "label": "Future Use",
+        "type": "select",
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Remarks",
+        "label": "Remarks",
         "type": "text",
         "bigSize": true,
         "bigInput": true,

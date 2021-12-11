@@ -139,9 +139,7 @@ const FormContainer = (props) => {
     ) : input?.type === "select" ? (
       <Grid
         item
-        xs={12}
-        md={6}
-        lg={6}
+        md={input.bigSize ? 12 : 6}
         className={classes.inputField}
         key={input.name}
       >

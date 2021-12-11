@@ -4,8 +4,11 @@ import data from "../../JSON/drawer.json";
 import "font-awesome/css/font-awesome.min.css";
 
 export default function routes() {
+  const filteredData = data?.filter(
+    (d) => d.isDrawer === false || d.isDrawer === undefined
+  );
   let mObj = [];
-  for (let objElement of data) {
+  for (let objElement of filteredData) {
     let drawerOption = {};
     drawerOption.name = objElement.name;
     drawerOption.path = objElement.path;
@@ -13,7 +16,7 @@ export default function routes() {
       <i
         className={objElement.icon}
         style={{ fontSize: 20 }}
-        aria-hidden="true"
+        aria-hidden='true'
       />
     );
     drawerOption.items = objElement.items;
