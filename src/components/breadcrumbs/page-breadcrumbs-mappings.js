@@ -15,6 +15,7 @@ export default function pageBreadcrumbsMappings() {
       mBreadcrumbsObj.urlEndPoint = objElement.urlEndPoint;
       mBreadcrumbsObj.fields = objElement.fields;
       mBreadcrumbsObj.apiUrl = objElement.apiUrl;
+      mBreadcrumbsObj.addForm = objElement.addForm;
       // mBreadcrumbsObj.screenId = objElement.screenId;
       breadcrumbs.push(mBreadcrumbsObj);
       drawerOption.breadcrumbs = breadcrumbs;
@@ -38,6 +39,7 @@ export default function pageBreadcrumbsMappings() {
         mBreadcrumbsObj1.urlEndPoint = data.urlEndPoint;
         mBreadcrumbsObj1.label = objElement.name;
         mBreadcrumbsObj1.isDisabled = true;
+        mBreadcrumbsObj1.addForm = objElement.addForm;
         breadcrumbs.push(mBreadcrumbsObj1);
         breadcrumbs.push(mBreadcrumbsObj);
         drawerOption.breadcrumbs = breadcrumbs;

@@ -371,6 +371,7 @@ const CommonPage = (props) => {
     setSearch("");
     dispatch(getData(apiURL));
   };
+  console.log(mData.addForm, mData, data);
   // useEffect(() => {
   //   dispatch(getData(apiURL, search));
   // }, [search]);
@@ -402,15 +403,17 @@ const CommonPage = (props) => {
             </Grid>
             <Grid item xs={6}>
               <Grid container justify="flex-end" spacing={2}>
-                <Grid item>
-                  <CustomButton
-                    width="150px"
-                    variant="outlined"
-                    onClick={handleAddDialog}
-                  >
-                    {label === "Job Card" ? "Add Job Card" : "Add"}
-                  </CustomButton>
-                </Grid>
+                {mData.addForm && (
+                  <Grid item>
+                    <CustomButton
+                      width="150px"
+                      variant="outlined"
+                      onClick={handleAddDialog}
+                    >
+                      {label === "Job Card" ? "Add Job Card" : "Add"}
+                    </CustomButton>
+                  </Grid>
+                )}
 
                 <Grid item>
                   <CustomButton

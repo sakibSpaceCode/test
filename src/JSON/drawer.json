@@ -30,6 +30,7 @@
   },
   {
     "path": "/dashboard/job-card",
+    "addForm": true,
     "name": "Job Card",
     "urlEndPoint": "/job-card",
     "icon": "fa fa-id-card-o",
@@ -474,6 +475,7 @@
   },
   {
     "path": "/dashboard/retro-plan",
+    "addForm": true,
     "name": "Retro Plan",
     "urlEndPoint": "/retro-plan",
     "icon": "fa fa-sticky-note-o",
@@ -1415,6 +1417,7 @@
         "path": "/dashboard/design-department/daily-updates",
         "urlEndPoint": "/design-department/daily-updates",
         "type": "common",
+        "addForm": true,
         "apiUrl": "daily_update",
         "fields": [
           {
@@ -2482,19 +2485,10 @@
     "type": "common",
     "fields": [
       {
-        "name": "name",
-        "label": "Name *",
-        "type": "text"
-      },
-      {
-        "name": "code",
-        "label": "Code *",
-        "type": "text"
-      },
-      {
-        "name": "description",
-        "label": "Description *",
-        "type": "text"
+        "name": "Issue",
+        "label": "Issue *",
+        "type": "text",
+        "bigSize": true
       }
     ]
   },
@@ -2527,22 +2521,113 @@
     "name": "Corrective Action Report",
     "urlEndPoint": "/corrective-action-report",
     "icon": "fa fa-sticky-note",
+    "addForm": true,
     "type": "common",
     "fields": [
       {
         "name": "name",
+        "label": "Car No. *",
+        "type": "text"
+      },
+      {
+        "name": "Project_Name",
+        "label": "Project Name *",
+        "type": "text"
+      },
+      {
+        "name": "Date",
+        "label": "Date *",
+        "type": "date"
+      },
+      {
+        "name": "Responsible",
+        "label": "Responsible *",
+        "type": "select"
+      },
+      {
+        "name": "IfInternal",
+        "label": "If Internal *",
+        "type": "select"
+      },
+      {
+        "name": "IfInternal",
         "label": "Name *",
         "type": "text"
       },
       {
-        "name": "code",
-        "label": "Code *",
+        "name": "document",
+        "label": "Document Link: Currently",
+        "type": "text",
+        "bigSize": true
+      },
+      {
+        "name": "docc",
+        "label": "Document Link: Change *",
+        "type": "text",
+        "bigSize": true
+      },
+      {
+        "name": "Problem",
+        "label": "Problem*",
+        "type": "text",
+        "bigSize": true
+      },
+
+      {
+        "name": "Problemss",
+        "label": "Problem Description *",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true
+      },
+      {
+        "name": "root",
+        "label": "Root Cause *",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true
+      },
+      {
+        "name": "Project_Name",
+        "label": "Solution *",
+        "type": "text",
+        "bigSize": true,
+        "bigInput": true
+      },
+      {
+        "name": "Project_Name",
+        "label": "Solution Implemented by*",
         "type": "text"
       },
       {
-        "name": "description",
-        "label": "Description *",
+        "name": "Project_Name",
+        "label": "To be completed by *",
+        "type": "date"
+      },
+      {
+        "name": "Project_Name",
+        "label": "Deduction Form *",
         "type": "text"
+      },
+      {
+        "name": "Project_Name",
+        "label": "Cost to be deducted *",
+        "type": "text"
+      },
+      {
+        "name": "Project_Name",
+        "label": "Time required *",
+        "type": "text"
+      },
+      {
+        "name": "Project_Name",
+        "label": "Enviromental Impact *",
+        "type": "text"
+      },
+      {
+        "name": "Completed",
+        "label": "Cost to be deducted *",
+        "type": "yes"
       }
     ]
   },
@@ -2557,6 +2642,17 @@
         "name": "Job",
         "label": "Job ID *",
         "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Name",
+        "label": "Name *",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -2669,17 +2765,6 @@
       },
 
       {
-        "name": "Completion_Date",
-        "label": "Completion Date",
-        "type": "date",
-        "validators": [
-          {
-            "alert": "is required",
-            "valId": "SCVAL001"
-          }
-        ]
-      },
-      {
         "name": "Drawing",
         "label": "Drawing",
         "type": "select",
@@ -2713,6 +2798,28 @@
         ]
       },
       {
+        "name": "Permits",
+        "label": "Permits",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Permit_Contact_Person",
+        "label": "Permit Contact Person",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
         "name": "Scope_of_Work",
         "label": "Scope of Work",
         "type": "text",
@@ -2726,6 +2833,28 @@
       {
         "name": "Installation_Date",
         "label": "Installation Date",
+        "type": "date",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Installer",
+        "label": "Installer",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "Completion_Date",
+        "label": "Completiton Date",
         "type": "date",
         "validators": [
           {
@@ -2756,39 +2885,7 @@
           }
         ]
       },
-      {
-        "name": "Permits",
-        "label": "Permits",
-        "type": "select",
-        "validators": [
-          {
-            "alert": "is required",
-            "valId": "SCVAL001"
-          }
-        ]
-      },
-      {
-        "name": "Permit_Contact_Person",
-        "label": "Permit Contact Person",
-        "type": "text",
-        "validators": [
-          {
-            "alert": "is required",
-            "valId": "SCVAL001"
-          }
-        ]
-      },
-      {
-        "name": "Installer",
-        "label": "Installer",
-        "type": "text",
-        "validators": [
-          {
-            "alert": "is required",
-            "valId": "SCVAL001"
-          }
-        ]
-      },
+
       {
         "name": "Completion_Certificate",
         "label": "Completion Certificate",
@@ -2814,6 +2911,8 @@
       {
         "name": "Snags",
         "label": "Snags",
+        "bigSize": true,
+        "bigInput": true,
         "type": "text",
         "validators": [
           {
@@ -2841,6 +2940,7 @@
     "path": "/dashboard/acrylic-supplier",
     "name": "Acrylic Supplier",
     "urlEndPoint": "/acrylic-supplier",
+    "addForm": true,
     "icon": "fa fa-cogs",
     "type": "common",
     "isDrawer": true,
@@ -2984,6 +3084,7 @@
   },
   {
     "path": "/dashboard/electrical-supplier",
+    "addForm": true,
     "name": "Electrical Supplier",
     "urlEndPoint": "/electrical-supplier",
     "icon": "fa fa-cogs",
@@ -3130,6 +3231,7 @@
   {
     "path": "/dashboard/fabric-supplier",
     "name": "Fabric Supplier",
+    "addForm": true,
     "urlEndPoint": "/fabric-supplier",
     "icon": "fa fa-cogs",
     "type": "common",
@@ -3277,6 +3379,7 @@
     "name": "Glass Supplier",
     "urlEndPoint": "/glass-supplier",
     "icon": "fa fa-cogs",
+    "addForm": true,
     "type": "common",
     "isDrawer": true,
     "fields": [
@@ -3423,6 +3526,7 @@
     "urlEndPoint": "/laminate-supplier",
     "icon": "fa fa-cogs",
     "type": "common",
+    "addForm": true,
     "isDrawer": true,
     "fields": [
       {
@@ -3567,6 +3671,7 @@
     "name": "MDF Supplier",
     "urlEndPoint": "/mdf-supplier",
     "icon": "fa fa-cogs",
+    "addForm": true,
     "type": "common",
     "isDrawer": true,
     "fields": [
@@ -3713,6 +3818,7 @@
     "urlEndPoint": "/marble-supplier",
     "icon": "fa fa-cogs",
     "type": "common",
+    "addForm": true,
     "isDrawer": true,
     "fields": [
       {
@@ -3857,6 +3963,7 @@
     "name": "Metal Supplier",
     "urlEndPoint": "/metal-supplier",
     "icon": "fa fa-cogs",
+    "addForm": true,
     "type": "common",
     "isDrawer": true,
     "fields": [
@@ -4003,6 +4110,7 @@
     "urlEndPoint": "/outsourced-material",
     "icon": "fa fa-cogs",
     "type": "common",
+    "addForm": true,
     "isDrawer": true,
     "fields": [
       {
@@ -4147,6 +4255,7 @@
     "name": "Paint Supplier",
     "urlEndPoint": "/paint-supplier",
     "icon": "fa fa-cogs",
+    "addForm": true,
     "type": "common",
     "isDrawer": true,
     "fields": [
@@ -4292,6 +4401,7 @@
     "name": "Special Supplier",
     "urlEndPoint": "/special-supplier",
     "icon": "fa fa-cogs",
+    "addForm": true,
     "type": "common",
     "isDrawer": true,
     "fields": [
@@ -4437,6 +4547,7 @@
     "name": "Veneer Supplier",
     "urlEndPoint": "/veneer-supplier",
     "icon": "fa fa-cogs",
+    "addForm": true,
     "type": "common",
     "isDrawer": true,
     "fields": [

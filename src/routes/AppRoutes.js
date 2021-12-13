@@ -5,6 +5,7 @@ import CommonPage from "../pages/commonPage";
 import DashboardPage from "../pages/dashboard";
 import EmployeesPage from "../pages/employees";
 import ProjectDetails from "../pages/projectDepartment";
+import PurchaseDepartment from "../pages/purchaseDepartment";
 import RetroPlanPage from "../pages/retroPlan";
 
 import PrivateRoute from "./PrivateRoute";
@@ -17,7 +18,7 @@ const AppRoutes = () => {
         item.name === "/dashboard/employees" ? (
           <PrivateRoute
             exact
-            path='/dashboard/employees'
+            path="/dashboard/employees"
             data={item.breadcrumbs}
             component={EmployeesPage}
             key={item.name}
@@ -25,7 +26,7 @@ const AppRoutes = () => {
         ) : item.name === "/dashboard/retro-plan" ? (
           <PrivateRoute
             exact
-            path='/dashboard/retro-plan'
+            path="/dashboard/retro-plan"
             component={RetroPlanPage}
             key={item.name}
             data={item.breadcrumbs}
@@ -33,8 +34,15 @@ const AppRoutes = () => {
         ) : item.name === "/dashboard/clients" ? (
           <PrivateRoute
             exact
-            path='/dashboard/clients'
+            path="/dashboard/clients"
             component={DashboardPage}
+            key={item.name}
+          />
+        ) : item.name === "/dashboard/purchace-department" ? (
+          <PrivateRoute
+            exact
+            path="/dashboard/purchace-department"
+            component={PurchaseDepartment}
             key={item.name}
           />
         ) : item.type === "common" ? (
@@ -49,7 +57,7 @@ const AppRoutes = () => {
           <PrivateRoute
             exact
             data={item.breadcrumbs}
-            path='/dashboard/project-department'
+            path="/dashboard/project-department"
             component={ProjectDetails}
             key={item.name}
           />
