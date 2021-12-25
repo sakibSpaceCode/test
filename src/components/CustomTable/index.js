@@ -12,6 +12,7 @@ import moment from "moment";
 import CancelIcon from "@material-ui/icons/Cancel";
 import HelpIcon from "@material-ui/icons/Help";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import NoData from "../Nodata";
 // import NoData from "../../common/Assets/noData.png";
 const columns = [
   { id: "name", label: "Name", minWidth: 100 },
@@ -165,7 +166,7 @@ export default function CustomTable({
             </TableBody>
           </Table>
         </TableContainer>
-      ) : (
+      ) : response?.data?.data?.length ? (
         <TableContainer className={classes.container}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
@@ -327,6 +328,8 @@ export default function CustomTable({
             </TableBody>
           </Table>
         </TableContainer>
+      ) : (
+        <NoData />
       )}
     </>
   );
