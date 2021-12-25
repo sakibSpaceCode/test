@@ -1600,7 +1600,8 @@
       {
         "name": "Drawing_Link",
         "label": "Drawing Link *",
-        "type": "select",
+        "type": "text",
+        "link": true,
         "validators": [
           {
             "alert": "is required",
@@ -2779,6 +2780,7 @@
         "name": "Drawing_Link",
         "label": "Drawing Link",
         "type": "text",
+        "link": true,
         "validators": [
           {
             "alert": "is required",

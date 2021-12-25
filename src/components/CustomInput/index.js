@@ -135,12 +135,12 @@ const CustomInput = (props) => {
       InputProps={{
         endAdornment: Icon && (
           <InputAdornment position='end'>
-            <Tooltip title={toolTipLabel} l>
+            
               <IconButton onClick={onIconClick}>
                 {" "}
                 <Icon />
               </IconButton>
-            </Tooltip>
+            
           </InputAdornment>
         ),
       }}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import {
   FormControl,
@@ -11,6 +11,7 @@ import {
   Switch,
   Typography,
 } from "@material-ui/core";
+import LinkIcon from '@material-ui/icons/Link';
 import CustomInput from "../../components/CustomInput";
 import CustomSelect from "../../components/CustomSelect";
 import DatePicker from "../../components/CustomDate/date-picker.container";
@@ -40,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
 const FormContainer = (props) => {
   const classes = useStyles();
+  const linkRef = useRef();
   const {
     inputs,
     urlEndPoint,
@@ -101,6 +103,9 @@ const FormContainer = (props) => {
     { name: "20", value: 20 },
   ];
   console.log(urlEndPoint);
+  const onIconClick = () => {
+    window.open(linkRef.current.value, '_blank');
+  }
   const renderInput = (input) => {
     return input?.type === "text" ? (
       <Grid
@@ -129,6 +134,9 @@ const FormContainer = (props) => {
               ? true
               : false
           }
+          Icon={input.link && LinkIcon}
+          inputRef={input.link && linkRef}
+          onIconClick={onIconClick}
         />
         {input.alert && (
           <div className={classes.selectAlert}>
