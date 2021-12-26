@@ -3420,7 +3420,7 @@
         ]
       },
       {
-        "name": "Supplier_Name",
+        "name": "supplier",
         "label": "Supplier Name",
         "type": "text",
         "validators": [
@@ -3431,7 +3431,7 @@
         ]
       },
       {
-        "name": "Supplier_Address",
+        "name": "supplier_address",
         "label": "Supplier Address",
         "type": "text",
         "validators": [
@@ -3442,7 +3442,7 @@
         ]
       },
       {
-        "name": "Supplier_Code",
+        "name": "code_supplier",
         "label": "Supplier Code",
         "type": "text",
         "validators": [
@@ -3453,7 +3453,7 @@
         ]
       },
       {
-        "name": "Alpha_Nero_Code",
+        "name": "code_an",
         "label": "Alpha Nero Code",
         "type": "text",
         "validators": [
@@ -3464,7 +3464,7 @@
         ]
       },
       {
-        "name": "Current_Price",
+        "name": "price",
         "label": "Current Price",
         "type": "text",
         "validators": [
@@ -3475,7 +3475,7 @@
         ]
       },
       {
-        "name": "Delivery_Timelines",
+        "name": "delivery_timeline",
         "label": "Delivery Timelines",
         "type": "text",
         "validators": [
@@ -3486,9 +3486,9 @@
         ]
       },
       {
-        "name": "Invoice_no",
+        "name": "invoice",
         "label": "Invoice No.",
-        "type": "select",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -3497,7 +3497,7 @@
         ]
       },
       {
-        "name": "Future_use",
+        "name": "future_use",
         "label": "Future Use",
         "type": "select",
         "bigSize": true,
@@ -3509,7 +3509,7 @@
         ]
       },
       {
-        "name": "Remarks",
+        "name": "remarks",
         "label": "Remarks",
         "type": "text",
         "bigSize": true,

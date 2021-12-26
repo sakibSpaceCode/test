@@ -68,6 +68,9 @@ const CommonPage = (props) => {
   const [sixthDropdown, setSixthDropdown] = useState("");
   const [eightDropdown, setEightDropdown] = useState("");
   const [search, setSearch] = useState("");
+  const [addPermission, setAddPermission] = useState(false);
+  const [editPermission, setEditPermission] = useState(false);
+  const { userInfo } = useSelector((state) => state.userLogin);
   const [seventhDropdown, setSeventhDropdown] = useState("");
   const { loading, error, responseData } = useSelector(
     (state) => state.getData
@@ -138,6 +141,16 @@ const CommonPage = (props) => {
     }
   };
   console.log(rowData);
+  React.useEffect(() => {
+    userInfo?.data?.permissions?.map((val) => {
+      if (val.codename == `${apiURL}/add`) {
+        setAddPermission(true);
+      }
+      if (val.codename == `${apiURL}/edit`) {
+        setEditPermission(true);
+      }
+    });
+  }, []);
   const [
     inputs,
     onFormChange,
@@ -408,7 +421,7 @@ const CommonPage = (props) => {
                     <CustomButton
                       width="150px"
                       variant="outlined"
-                      onClick={handleAddDialog}
+                      onClick={() => setAddPermission && handleAddDialog()}
                     >
                       {label === "Job Card" ? "Add Job Card" : "Add"}
                     </CustomButton>
