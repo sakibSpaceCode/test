@@ -2526,107 +2526,97 @@
     "type": "common",
     "fields": [
       {
-        "name": "name",
+        "name": "Job",
+        "label": "Job No. *",
+        "type": "text"
+      },
+      {
+        "name": "car_no",
         "label": "Car No. *",
         "type": "text"
       },
       {
-        "name": "Project_Name",
+        "name": "name",
         "label": "Project Name *",
         "type": "text"
       },
       {
-        "name": "Date",
+        "name": "date_of_issue",
         "label": "Date *",
         "type": "date"
       },
       {
-        "name": "Responsible",
+        "name": "responsible",
         "label": "Responsible *",
         "type": "select"
       },
       {
-        "name": "IfInternal",
+        "name": "if_internal",
         "label": "If Internal *",
         "type": "select"
       },
+
       {
-        "name": "IfInternal",
-        "label": "Name *",
-        "type": "text"
-      },
-      {
-        "name": "document",
+        "name": "document_link",
         "label": "Document Link: Currently",
         "type": "text",
-        "bigSize": true
+        "link": true
       },
+
       {
-        "name": "docc",
-        "label": "Document Link: Change *",
-        "type": "text",
-        "bigSize": true
-      },
-      {
-        "name": "Problem",
+        "name": "problem",
         "label": "Problem*",
-        "type": "text",
+        "type": "select",
         "bigSize": true
       },
 
       {
-        "name": "Problemss",
+        "name": "problem_description",
         "label": "Problem Description *",
         "type": "text",
         "bigSize": true,
         "bigInput": true
       },
       {
-        "name": "root",
-        "label": "Root Cause *",
+        "name": "rectification",
+        "label": "Rectification *",
+        "type": "text"
+      },
+      {
+        "name": "solution",
+        "label": "Solution  *",
         "type": "text",
         "bigSize": true,
         "bigInput": true
       },
       {
-        "name": "Project_Name",
-        "label": "Solution *",
-        "type": "text",
-        "bigSize": true,
-        "bigInput": true
-      },
-      {
-        "name": "Project_Name",
+        "name": "solution_implemented_by",
         "label": "Solution Implemented by*",
         "type": "text"
       },
       {
-        "name": "Project_Name",
-        "label": "To be completed by *",
+        "name": "completed_on",
+        "label": "Completed on *",
         "type": "date"
       },
+
       {
-        "name": "Project_Name",
-        "label": "Deduction Form *",
-        "type": "text"
-      },
-      {
-        "name": "Project_Name",
+        "name": "cost_impact",
         "label": "Cost to be deducted *",
         "type": "text"
       },
       {
-        "name": "Project_Name",
+        "name": "time_required",
         "label": "Time required *",
         "type": "text"
       },
       {
-        "name": "Project_Name",
+        "name": "environmental_impact",
         "label": "Enviromental Impact *",
         "type": "text"
       },
       {
-        "name": "Completed",
+        "name": "completed",
         "label": "Cost to be deducted *",
         "type": "yes"
       }
@@ -2650,17 +2640,7 @@
           }
         ]
       },
-      {
-        "name": "Name",
-        "label": "Name *",
-        "type": "text",
-        "validators": [
-          {
-            "alert": "is required",
-            "valId": "SCVAL001"
-          }
-        ]
-      },
+
       {
         "name": "Completion_Date",
         "label": "Completion Date",
