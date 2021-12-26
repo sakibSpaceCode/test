@@ -3030,7 +3030,7 @@
       {
         "name": "invoice",
         "label": "Invoice No.",
-        "type": "select",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -3176,7 +3176,7 @@
       {
         "name": "Invoice_no",
         "label": "Invoice No.",
-        "type": "select",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -3322,7 +3322,7 @@
       {
         "name": "Invoice_no",
         "label": "Invoice No.",
-        "type": "select",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -3614,7 +3614,7 @@
       {
         "name": "Invoice_no",
         "label": "Invoice No.",
-        "type": "select",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -3760,7 +3760,7 @@
       {
         "name": "Invoice_no",
         "label": "Invoice No.",
-        "type": "select",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -3906,7 +3906,7 @@
       {
         "name": "Invoice_no",
         "label": "Invoice No.",
-        "type": "select",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -4052,7 +4052,7 @@
       {
         "name": "Invoice_no",
         "label": "Invoice No.",
-        "type": "select",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -4198,7 +4198,7 @@
       {
         "name": "Invoice_no",
         "label": "Invoice No.",
-        "type": "select",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -4344,7 +4344,7 @@
       {
         "name": "Invoice_no",
         "label": "Invoice No.",
-        "type": "select",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -4490,7 +4490,7 @@
       {
         "name": "Invoice_no",
         "label": "Invoice No.",
-        "type": "select",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",
@@ -4636,7 +4636,7 @@
       {
         "name": "Invoice_no",
         "label": "Invoice No.",
-        "type": "select",
+        "type": "text",
         "validators": [
           {
             "alert": "is required",

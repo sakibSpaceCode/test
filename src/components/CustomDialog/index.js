@@ -97,6 +97,7 @@ const CustomDialog = (props) => {
   const handleDeleteButtonClick = () => {
     dispatch(deleteFormData(apiURL, json));
   };
+  console.log(json);
   const handleDialogOpen = () => {
     setDialogOpen(true);
   };
@@ -111,23 +112,20 @@ const CustomDialog = (props) => {
       resetFormData();
       setIsEdit(false);
       setDeleteAlert(true);
-      // dispatch(getData(apiURL, pageSize * 3, pageNum));
-    } else if (deleteError) {
-      setErrorD(deleteError);
-      setDialogOpen(true);
-    }
+      // dispatch(getData(apiURL));
+    } 
     return () => {
       setTimeout(() => {
         dispatch(clearDeleteResponse());
       }, 3000);
     };
-  }, [deleteResponse, deleteError]);
-  console.log(deleteAlert, "ddd");
+  }, [deleteResponse?.success]);
+  console.log(deleteResponse, "ddd");
   return (
     <>
       <Dialog
         open={open}
-        maxWidth='sm'
+        maxWidth="sm"
         PaperProps={{
           style: {
             borderRadius: "10px",
@@ -139,12 +137,14 @@ const CustomDialog = (props) => {
           },
         }}
         onClose={onClose}
-        className={classes.root}>
+        className={classes.root}
+      >
         <>
           <Grid
             container
             style={{ padding: "15px 35px", marginBottom: "30px" }}
-            alignItems='center'>
+            alignItems="center"
+          >
             <Grid item style={{ marginLeft: "-10px" }}>
               <IconButton onClick={onClose}>
                 <KeyboardBackspaceIcon />
@@ -152,25 +152,27 @@ const CustomDialog = (props) => {
             </Grid>
 
             <Grid item>
-              <Typography variant='body1' className={classes.typoGraphy}>
+              <Typography variant="body1" className={classes.typoGraphy}>
                 {title}
               </Typography>
             </Grid>
             <Grid item xs>
               <Grid
                 container
-                justifyContent='flex-end'
-                alignItems='center'
-                spacing={1}>
+                justifyContent="flex-end"
+                alignItems="center"
+                spacing={1}
+              >
                 <Grid item>
                   <CustomButton
                     disabled={disabled}
-                    variant='outlined'
-                    color='primary'
+                    variant="outlined"
+                    color="primary"
                     onClick={onSaveClick}
-                    textColor='#618EFF'>
+                    textColor="#618EFF"
+                  >
                     {loading && !nextClick ? (
-                      <CircularProgress color='white' size='20px' />
+                      <CircularProgress color="white" size="20px" />
                     ) : (
                       "Save"
                     )}
@@ -180,12 +182,13 @@ const CustomDialog = (props) => {
                   <Grid item>
                     <CustomButton
                       disabled={disabled}
-                      variant='outlined'
-                      color='primary'
+                      variant="outlined"
+                      color="primary"
                       onClick={onNextClick}
-                      textColor='#618EFF'>
+                      textColor="#618EFF"
+                    >
                       {loading && nextClick ? (
-                        <CircularProgress color='white' size='20px' />
+                        <CircularProgress color="white" size="20px" />
                       ) : (
                         "Save and add another"
                       )}
@@ -196,10 +199,11 @@ const CustomDialog = (props) => {
                   <Grid item>
                     <CustomButton
                       disabled={disabled}
-                      variant='outlined'
-                      color='primary'
+                      variant="outlined"
+                      color="primary"
                       onClick={handleDialogOpen}
-                      textColor='#618EFF'>
+                      textColor="#618EFF"
+                    >
                       Delete
                     </CustomButton>
                   </Grid>
@@ -212,7 +216,7 @@ const CustomDialog = (props) => {
         {error && (
           <div className={classes.errorContainer}>
             <ErrorIcon className={classes.errorIcon} />
-            <Typography variant='body2' className={classes.errorMessage}>
+            <Typography variant="body2" className={classes.errorMessage}>
               {error}
             </Typography>
           </div>
@@ -220,7 +224,8 @@ const CustomDialog = (props) => {
         <DialogContent>
           <Grid
             style={{ padding: "15px 35px", marginBottom: "10px" }}
-            className={isDelete || classes.content}>
+            className={isDelete || classes.content}
+          >
             {children}
           </Grid>
         </DialogContent>
@@ -229,29 +234,33 @@ const CustomDialog = (props) => {
         deleteLabel
         handleDialogClose={handleDialogClose}
         dialogOpen={dialogOpen}
-        title='Are you sure you want to delete ?'
+        title="Are you sure you want to delete ?"
         type={"warning"}
-        error={errorD}>
+        error={errorD}
+      >
         <Grid
           container
           spacing={2}
           className={classes.deleteDialog}
-          justify='center'>
+          justify="center"
+        >
           <Grid item>
             <CustomButton
-              variant='outlined'
-              color='primary'
-              onClick={handleDialogClose}>
+              variant="outlined"
+              color="primary"
+              onClick={handleDialogClose}
+            >
               Cancel
             </CustomButton>
           </Grid>
           <Grid item>
             <CustomButton
-              variant='outlined'
-              color='primary'
-              onClick={handleDeleteButtonClick}>
+              variant="outlined"
+              color="primary"
+              onClick={handleDeleteButtonClick}
+            >
               {deleteLoading ? (
-                <CircularProgress color='white' size='20px' />
+                <CircularProgress color="white" size="20px" />
               ) : (
                 "Continue"
               )}

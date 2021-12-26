@@ -74,8 +74,12 @@ export const deleteFormData =
     console.log(config);
 
     let url = `${CONSTANTS.BASEURL}${collection}/delete`;
+    console.log(id);
 
-    const { data } = await axios.delete(url, config, id);
+    const { data } = await axios.delete(url, {
+      data: id,
+      headers: config.headers,
+    });
     if (data.success === true) {
       dispatch({
         type: "DELETE_FIELD_SUCCESS",

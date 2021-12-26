@@ -43,6 +43,8 @@ const ProjectDetails = (props) => {
   const [alertOpen, setAlertOpen] = useState(false);
   const [rowData, setRowData] = useState({});
   const [search, setSearch] = useState("");
+  const [addPermission, setAddPermission] = useState(false);
+  const { userInfo } = useSelector((state) => state.userLogin);
   const { loading, error, responseData } = useSelector(
     (state) => state.getData
   );
@@ -114,6 +116,13 @@ const ProjectDetails = (props) => {
   const handleNextClick = () => {
     setNextClick(true);
   };
+  React.useEffect(() => {
+    userInfo?.data?.permissions?.map((val) => {
+      if (val.codename == "employees-create") {
+        setAddPermission(true);
+      }
+    });
+  }, []);
   const handleDialogClose = () => {
     setDialogOpen(false);
     setErrorMessage(null);
@@ -223,7 +232,9 @@ const ProjectDetails = (props) => {
                   <Grid item>
                     <Grid container justify="flex-end">
                       <Grid item xs>
-                        <CustomButton onClick={handleOpenDialog}>
+                        <CustomButton
+                          onClick={() => addPermission && handleOpenDialog()}
+                        >
                           Add Project Details
                         </CustomButton>
                       </Grid>

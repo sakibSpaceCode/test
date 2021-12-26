@@ -453,7 +453,7 @@ const CommonPage = (props) => {
             <BorderPaper>
               <CustomTable
                 setRowData={setRowData}
-                height={500}
+                height={'75vh'}
                 response={responseData}
                 setEditDialogOpen={handleEditDialog}
               />
