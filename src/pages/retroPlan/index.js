@@ -39,6 +39,8 @@ const RetroPlanPage = (props) => {
   const [rowData, setRowData] = useState(null);
   const [search, setSearch] = useState("");
   const [addPermission, setAddPermission] = useState(false);
+  const [editPermission, setEditPermission] = useState(false);
+
   const { userInfo } = useSelector((state) => state.userLogin);
 
   const { loading, error, responseData } = useSelector(
@@ -133,8 +135,11 @@ const RetroPlanPage = (props) => {
   }, [nextClick]);
   React.useEffect(() => {
     userInfo?.data?.permissions?.map((val) => {
-      if (val.codename == "employees-create") {
+      if (val.codename == "retro_plan/add") {
         setAddPermission(true);
+      }
+      if (val.codename == "retro_plan/add") {
+        setEditPermission(true);
       }
     });
   }, []);
@@ -239,10 +244,10 @@ const RetroPlanPage = (props) => {
           <div style={{ marginTop: 30 }}>
             <BorderPaper>
               <CustomTable
-                setEditDialogOpen={handleEditDialog}
+                setEditDialogOpen={editPermission && handleEditDialog}
                 height={500}
                 setRowData={setRowData}
-                response={responseData}
+                response={editPermission && responseData}
               />
             </BorderPaper>
           </div>

@@ -44,6 +44,8 @@ const ProjectDetails = (props) => {
   const [rowData, setRowData] = useState({});
   const [search, setSearch] = useState("");
   const [addPermission, setAddPermission] = useState(false);
+  const [editPermission, setEditPermission] = useState(false);
+
   const { userInfo } = useSelector((state) => state.userLogin);
   const { loading, error, responseData } = useSelector(
     (state) => state.getData
@@ -118,8 +120,11 @@ const ProjectDetails = (props) => {
   };
   React.useEffect(() => {
     userInfo?.data?.permissions?.map((val) => {
-      if (val.codename == "employees-create") {
+      if (val.codename == "project/add") {
         setAddPermission(true);
+      }
+      if (val.codename == "project/add") {
+        setEditPermission(true);
       }
     });
   }, []);
@@ -246,7 +251,9 @@ const ProjectDetails = (props) => {
                 <Grid container spacing={4} className={classes.root}>
                   {responseData?.data?.["data"].map((item) => (
                     <Grid
-                      onClick={() => handleCardClick(item._id)}
+                      onClick={() =>
+                        editPermission && handleCardClick(item._id)
+                      }
                       item
                       xs={3}
                       className={classes.cardContainer}

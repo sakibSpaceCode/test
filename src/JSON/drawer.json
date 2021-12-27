@@ -26,7 +26,8 @@
     "name": "Account Department",
     "urlEndPoint": "/account-department",
     "icon": "fa fa-database",
-    "apiUrl": "account-department"
+    "apiUrl": "account",
+    "type": "common"
   },
   {
     "path": "/dashboard/job-card",
@@ -2483,6 +2484,7 @@
     "name": "Problems",
     "urlEndPoint": "/problems",
     "icon": "fa fa-exclamation-triangle",
+    "addForm": true,
     "type": "common",
     "apiUrl": "problems",
     "fields": [
@@ -2492,7 +2494,6 @@
         "type": "text",
         "bigSize": true
       }
-      
     ],
     "validators": [
       {
@@ -2572,7 +2573,8 @@
             "alert": "is required",
             "valId": "SCVAL001"
           }
-        ]      },
+        ]
+      },
       {
         "name": "name",
         "label": "Project Name *",
@@ -2586,7 +2588,7 @@
       },
       {
         "name": "date_of_issue",
-        "label": "Date *",
+        "label": "Date of Issue*",
         "type": "date",
         "validators": [
           {
@@ -2660,6 +2662,8 @@
       {
         "name": "rectification",
         "label": "Rectification *",
+        "bigSize": true,
+        "bigInput": true,
         "type": "text",
         "validators": [
           {
@@ -2706,7 +2710,7 @@
 
       {
         "name": "cost_impact",
-        "label": "Cost to be deducted *",
+        "label": "Cost Impact *",
         "type": "text",
         "validators": [
           {
@@ -3627,7 +3631,7 @@
         "type": "text",
         "bigSize": true,
         "bigInput": true,
-        
+
         "validators": [
           {
             "alert": "is required",

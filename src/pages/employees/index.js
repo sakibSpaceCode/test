@@ -77,7 +77,7 @@ const EmployeesPage = () => {
   }, []);
   React.useEffect(() => {
     userInfo?.data?.permissions?.map((val) => {
-      if (val.codename == "employees-create") {
+      if (val.codename == `user/add`) {
         setAddPermission(true);
       }
     });

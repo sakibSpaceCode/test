@@ -388,7 +388,7 @@ const CommonPage = (props) => {
   // useEffect(() => {
   //   dispatch(getData(apiURL, search));
   // }, [search]);
-  console.log(urlEndPoint, 'urlEndPoint');
+  console.log(urlEndPoint, "urlEndPoint");
   return (
     <>
       {loading ? (
@@ -421,7 +421,7 @@ const CommonPage = (props) => {
                     <CustomButton
                       width="150px"
                       variant="outlined"
-                      onClick={() => setAddPermission && handleAddDialog()}
+                      onClick={() => addPermission && handleAddDialog()}
                     >
                       {label === "Job Card" ? "Add Job Card" : "Add"}
                     </CustomButton>
@@ -452,10 +452,10 @@ const CommonPage = (props) => {
           <div style={{ marginTop: 30 }}>
             <BorderPaper>
               <CustomTable
-                setRowData={setRowData}
-                height={'75vh'}
+                setRowData={editPermission && setRowData}
+                height={"75vh"}
                 response={responseData}
-                setEditDialogOpen={handleEditDialog}
+                setEditDialogOpen={editPermission && handleEditDialog}
               />
             </BorderPaper>
           </div>
