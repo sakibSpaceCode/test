@@ -388,7 +388,7 @@ const CommonPage = (props) => {
   // useEffect(() => {
   //   dispatch(getData(apiURL, search));
   // }, [search]);
-
+  console.log(urlEndPoint, 'urlEndPoint');
   return (
     <>
       {loading ? (

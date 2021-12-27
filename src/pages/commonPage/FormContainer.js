@@ -11,7 +11,7 @@ import {
   Switch,
   Typography,
 } from "@material-ui/core";
-import LinkIcon from '@material-ui/icons/Link';
+import LinkIcon from "@material-ui/icons/Link";
 import CustomInput from "../../components/CustomInput";
 import CustomSelect from "../../components/CustomSelect";
 import DatePicker from "../../components/CustomDate/date-picker.container";
@@ -102,18 +102,17 @@ const FormContainer = (props) => {
     { name: "19", value: 19 },
     { name: "20", value: 20 },
   ];
-  console.log(urlEndPoint);
+ 
   const onIconClick = () => {
-    window.open(linkRef.current.value, '_blank');
-  }
+    linkRef.current.value && window.open(linkRef.current.value, "_blank");
+  };
   const renderInput = (input) => {
     return input?.type === "text" ? (
       <Grid
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomInput
           key={input.name}
@@ -149,8 +148,7 @@ const FormContainer = (props) => {
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomSelect
           key={input.name}
@@ -163,8 +161,10 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          disabled={urlEndPoint !==  'projectDepartment' && input.name === "Job" && true}
-          size="lg"
+          disabled={
+            urlEndPoint !== "projectDepartment" && input.name === "Job" && true
+          }
+          size='lg'
           options={
             input.name === "Job"
               ? options
@@ -251,13 +251,12 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <DatePicker
-          inputVariant="outlined"
-          format="dd-MM-yyyy"
-          placeholder="DD-MM-YYYY"
+          inputVariant='outlined'
+          format='dd-MM-yyyy'
+          placeholder='DD-MM-YYYY'
           fullWidth
           width={"100%"}
           height={50}
@@ -280,7 +279,7 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          size="lg"
+          size='lg'
           options={options}
           isJob
         />
@@ -294,7 +293,7 @@ const FormContainer = (props) => {
     <Grid>
       <Grid container spacing={5}>
         {inputs?.length === 0 ? (
-          <Typography variant="body2" className={classes.nofields}>
+          <Typography variant='body2' className={classes.nofields}>
             No Fields Available.
           </Typography>
         ) : (

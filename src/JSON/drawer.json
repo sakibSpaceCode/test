@@ -2484,12 +2484,20 @@
     "urlEndPoint": "/problems",
     "icon": "fa fa-exclamation-triangle",
     "type": "common",
+    "apiUrl": "problems",
     "fields": [
       {
         "name": "Issue",
         "label": "Issue *",
         "type": "text",
         "bigSize": true
+      }
+      
+    ],
+    "validators": [
+      {
+        "alert": "is required",
+        "valId": "SCVAL001"
       }
     ]
   },
@@ -2503,17 +2511,35 @@
       {
         "name": "name",
         "label": "Name *",
-        "type": "text"
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
         "name": "code",
         "label": "Code *",
-        "type": "text"
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
         "name": "description",
         "label": "Description *",
-        "type": "text"
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   },
@@ -2524,50 +2550,98 @@
     "icon": "fa fa-sticky-note",
     "addForm": true,
     "type": "common",
+    "apiUrl": "corrective-action-report",
     "fields": [
       {
         "name": "Job",
         "label": "Job No. *",
-        "type": "text"
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
         "name": "car_no",
         "label": "Car No. *",
-        "type": "text"
-      },
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]      },
       {
         "name": "name",
         "label": "Project Name *",
-        "type": "text"
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
         "name": "date_of_issue",
         "label": "Date *",
-        "type": "date"
+        "type": "date",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
         "name": "responsible",
         "label": "Responsible *",
-        "type": "select"
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
         "name": "if_internal",
         "label": "If Internal *",
-        "type": "select"
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
 
       {
         "name": "document_link",
         "label": "Document Link: Currently",
         "type": "text",
-        "link": true
+        "link": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
 
       {
         "name": "problem",
         "label": "Problem*",
         "type": "select",
-        "bigSize": true
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
 
       {
@@ -2575,50 +2649,104 @@
         "label": "Problem Description *",
         "type": "text",
         "bigSize": true,
-        "bigInput": true
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
         "name": "rectification",
         "label": "Rectification *",
-        "type": "text"
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
         "name": "solution",
         "label": "Solution  *",
         "type": "text",
         "bigSize": true,
-        "bigInput": true
+        "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
         "name": "solution_implemented_by",
         "label": "Solution Implemented by*",
-        "type": "text"
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
         "name": "completed_on",
         "label": "Completed on *",
-        "type": "date"
+        "type": "date",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
 
       {
         "name": "cost_impact",
         "label": "Cost to be deducted *",
-        "type": "text"
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
         "name": "time_required",
         "label": "Time required *",
-        "type": "text"
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
         "name": "environmental_impact",
         "label": "Enviromental Impact *",
-        "type": "text"
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       },
       {
         "name": "completed",
         "label": "Cost to be deducted *",
-        "type": "yes"
+        "type": "yes",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   },
@@ -2627,6 +2755,7 @@
     "name": "Logistic",
     "urlEndPoint": "/logistic",
     "icon": "fa fa-puzzle-piece",
+    "apiUrl": "logistic",
     "type": "common",
     "fields": [
       {
@@ -2732,6 +2861,7 @@
     "urlEndPoint": "/installation",
     "icon": "fa fa-cogs",
     "type": "common",
+    "apiUrl": "installation",
     "fields": [
       {
         "name": "Job",
@@ -3073,6 +3203,7 @@
     "icon": "fa fa-cogs",
     "type": "common",
     "isDrawer": true,
+    "apiUrl": "electrical-supplier",
     "fields": [
       {
         "name": "Name",
@@ -3219,6 +3350,7 @@
     "icon": "fa fa-cogs",
     "type": "common",
     "isDrawer": true,
+    "apiUrl": "fabric-supplier",
     "fields": [
       {
         "name": "fabric_name",
@@ -3365,6 +3497,7 @@
     "addForm": true,
     "type": "common",
     "isDrawer": true,
+    "apiUrl": "glass-supplier",
     "fields": [
       {
         "name": "glass_name",
@@ -3494,6 +3627,7 @@
         "type": "text",
         "bigSize": true,
         "bigInput": true,
+        
         "validators": [
           {
             "alert": "is required",
@@ -3511,6 +3645,7 @@
     "type": "common",
     "addForm": true,
     "isDrawer": true,
+    "apiUrl": "laminate-supplier",
     "fields": [
       {
         "name": "laminate_name",
@@ -3657,6 +3792,7 @@
     "addForm": true,
     "type": "common",
     "isDrawer": true,
+    "apiUrl": "mdf-supplier",
     "fields": [
       {
         "name": "mdf_name",
@@ -3803,6 +3939,7 @@
     "type": "common",
     "addForm": true,
     "isDrawer": true,
+    "apiUrl": "marble-supplier",
     "fields": [
       {
         "name": "marble_name",
@@ -3949,6 +4086,7 @@
     "addForm": true,
     "type": "common",
     "isDrawer": true,
+    "apiUrl": "metal-supplier",
     "fields": [
       {
         "name": "metal_name",
@@ -4094,6 +4232,7 @@
     "icon": "fa fa-cogs",
     "type": "common",
     "addForm": true,
+    "apiUrl": "outsourced-material",
     "isDrawer": true,
     "fields": [
       {
@@ -4240,6 +4379,7 @@
     "icon": "fa fa-cogs",
     "addForm": true,
     "type": "common",
+    "apiUrl": "paint-supplier",
     "isDrawer": true,
     "fields": [
       {
@@ -4387,6 +4527,7 @@
     "addForm": true,
     "type": "common",
     "isDrawer": true,
+    "apiUrl": "special-supplier",
     "fields": [
       {
         "name": "special_name",
@@ -4533,6 +4674,7 @@
     "addForm": true,
     "type": "common",
     "isDrawer": true,
+    "apiUrl": "veneer-supplier",
     "fields": [
       {
         "name": "veneer_name",
