@@ -2551,22 +2551,11 @@
     "icon": "fa fa-sticky-note",
     "addForm": true,
     "type": "common",
-    "apiUrl": "corrective-action-report",
+    "apiUrl": "car",
     "fields": [
       {
         "name": "Job",
         "label": "Job No. *",
-        "type": "text",
-        "validators": [
-          {
-            "alert": "is required",
-            "valId": "SCVAL001"
-          }
-        ]
-      },
-      {
-        "name": "car_no",
-        "label": "Car No. *",
         "type": "text",
         "validators": [
           {
@@ -2586,6 +2575,18 @@
           }
         ]
       },
+      {
+        "name": "car_no",
+        "label": "Car No. *",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      
       {
         "name": "date_of_issue",
         "label": "Date of Issue*",
@@ -2622,9 +2623,10 @@
 
       {
         "name": "document_link",
-        "label": "Document Link: Currently",
+        "label": "Document Link",
         "type": "text",
         "link": true,
+        "bigSize": true,
         "validators": [
           {
             "alert": "is required",
@@ -2697,8 +2699,19 @@
         ]
       },
       {
+        "name": "action_type",
+        "label": "Action type *",
+        "type": "select",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
         "name": "completed_on",
-        "label": "Completed on *",
+        "label": "To be Completed by *",
         "type": "date",
         "validators": [
           {
@@ -2721,7 +2734,7 @@
       },
       {
         "name": "time_required",
-        "label": "Time required *",
+        "label": "Time Required *",
         "type": "text",
         "validators": [
           {
@@ -2743,8 +2756,8 @@
       },
       {
         "name": "completed",
-        "label": "Cost to be deducted *",
-        "type": "yes",
+        "label": "Completed *",
+        "type": "select",
         "validators": [
           {
             "alert": "is required",

@@ -222,7 +222,10 @@ export default function CustomTable({
                         column.key === "date" ||
                         column.key === "dispatch" ||
                         column.key === "drawing_start" ||
-                        column.key === "first_final_inspection"
+                        column.key === "first_final_inspection" ||
+                        column.key === "completed_on" ||
+                        column.key === "date_of_issue" 
+
                       ) {
                         value = value
                           ? moment(value).format("DD-MMM-YYYY")

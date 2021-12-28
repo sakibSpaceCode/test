@@ -47,8 +47,9 @@ const CommonPage = (props) => {
   const { data } = props;
   const mData = data.length > 1 ? data[1] : data[0];
   const label = mData.label;
-  const urlEndPoint = mData.urlEndPoint.substr(1);
-  const apiURL = mData.apiUrl;
+  let urlEndPoint = mData.urlEndPoint.substr(1);
+  let apiURL = mData.apiUrl;
+  
   let url = props.path.split("/")[2];
 
   const [addDialogOpen, setAddDialogOpen] = useState(false);
@@ -68,7 +69,7 @@ const CommonPage = (props) => {
   const [sixthDropdown, setSixthDropdown] = useState("");
   const [eightDropdown, setEightDropdown] = useState("");
   const [search, setSearch] = useState("");
-  const [addPermission, setAddPermission] = useState(false);
+  const [addPermission, setAddPermission] = useState(true);
   const [editPermission, setEditPermission] = useState(false);
   const { userInfo } = useSelector((state) => state.userLogin);
   const [seventhDropdown, setSeventhDropdown] = useState("");
@@ -280,6 +281,27 @@ const CommonPage = (props) => {
           table: "job_card",
         })
       );
+      urlEndPoint === "corrective-action-report" &&
+      setSecondDropdown(
+        JSON.stringify({
+          type: "if_internal",
+          table: "corrective_action_report",
+        })
+      );
+    urlEndPoint === "corrective-action-report" &&
+      setThirdDropdown(
+        JSON.stringify({
+          type: "responsible",
+          table: "corrective_action_report",
+        })
+      );
+    urlEndPoint === "corrective-action-report" &&
+      setFourthDropdown(
+        JSON.stringify({
+          type: "action_type",
+          table: "corrective_action_report",
+        })
+      );
     urlEndPoint === "production/status-update" &&
       setSecondDropdown(
         JSON.stringify({
@@ -295,6 +317,7 @@ const CommonPage = (props) => {
         })
       );
   }, [urlEndPoint]);
+  console.log(apiURL, 'apiURL');
   useEffect(() => {
     apiURL === "job_card" &&
       secondDropdown &&
@@ -309,6 +332,15 @@ const CommonPage = (props) => {
       thirdDropdown &&
       dispatch(get3rdDropdown(thirdDropdown));
     apiURL === "job_card" &&
+      fourthDropdown &&
+      dispatch(get4thDropdown(fourthDropdown));
+    apiURL === "car" &&
+      secondDropdown &&
+      dispatch(get2ndDropdown(secondDropdown));
+    apiURL === "car" &&
+      thirdDropdown &&
+      dispatch(get3rdDropdown(thirdDropdown));
+    apiURL === "car" &&
       fourthDropdown &&
       dispatch(get4thDropdown(fourthDropdown));
     apiURL === "job_card" &&

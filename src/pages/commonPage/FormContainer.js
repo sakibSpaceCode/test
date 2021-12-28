@@ -102,7 +102,7 @@ const FormContainer = (props) => {
     { name: "19", value: 19 },
     { name: "20", value: 20 },
   ];
- 
+
   const onIconClick = () => {
     linkRef.current.value && window.open(linkRef.current.value, "_blank");
   };
@@ -184,6 +184,15 @@ const FormContainer = (props) => {
               : urlEndPoint === "production/status-update" &&
                 input.name === "Status"
               ? options2
+              : urlEndPoint === "corrective-action-report" &&
+                input.name === "if_internal"
+              ? options2
+              : urlEndPoint === "corrective-action-report" &&
+                input.name === "responsible"
+              ? options3
+              : urlEndPoint === "corrective-action-report" &&
+                input.name === "action_type"
+              ? options4
               : urlEndPoint === "design-department/design-details" &&
                 input.name === "status"
               ? options2
@@ -229,7 +238,13 @@ const FormContainer = (props) => {
             (urlEndPoint === "production/status-update" &&
               input.name === "Status") ||
             (urlEndPoint === "design-department/design-details" &&
-              input.name === "status")
+              input.name === "status") ||
+            (urlEndPoint === "corrective-action-report" &&
+              input.name === "if_internal") ||
+            (urlEndPoint === "corrective-action-report" &&
+              input.name === "responsible") ||
+            (urlEndPoint === "corrective-action-report" &&
+              input.name === "action_type")
               ? true
               : false
           }
