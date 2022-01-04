@@ -15,6 +15,7 @@ export default function pageBreadcrumbsMappings() {
       mBreadcrumbsObj.urlEndPoint = objElement.urlEndPoint;
       mBreadcrumbsObj.fields = objElement.fields;
       mBreadcrumbsObj.apiUrl = objElement.apiUrl;
+      mBreadcrumbsObj.disable = objElement.disable;
       mBreadcrumbsObj.addForm = objElement.addForm;
       // mBreadcrumbsObj.screenId = objElement.screenId;
       breadcrumbs.push(mBreadcrumbsObj);
@@ -22,6 +23,7 @@ export default function pageBreadcrumbsMappings() {
       mObj.push(drawerOption);
     } else {
       for (let item of objElement.items) {
+        console.log(item);
         let breadcrumbs = [];
         let drawerOption = {};
         drawerOption.name = item.path;
@@ -33,13 +35,14 @@ export default function pageBreadcrumbsMappings() {
         mBreadcrumbsObj.link = item.path;
         mBreadcrumbsObj.fields = item.fields;
         mBreadcrumbsObj.apiUrl = item.apiUrl;
+        mBreadcrumbsObj.disable = item.disable;
         mBreadcrumbsObj.validation = item.validation;
         mBreadcrumbsObj.urlEndPoint = item.urlEndPoint;
         mBreadcrumbsObj.screenId = item.screenId;
         mBreadcrumbsObj1.urlEndPoint = data.urlEndPoint;
         mBreadcrumbsObj1.label = objElement.name;
         mBreadcrumbsObj1.isDisabled = true;
-        mBreadcrumbsObj1.addForm = objElement.addForm;
+        mBreadcrumbsObj.addForm = item.addForm;
         breadcrumbs.push(mBreadcrumbsObj1);
         breadcrumbs.push(mBreadcrumbsObj);
         drawerOption.breadcrumbs = breadcrumbs;

@@ -49,7 +49,7 @@ const CommonPage = (props) => {
   const label = mData.label;
   let urlEndPoint = mData.urlEndPoint.substr(1);
   let apiURL = mData.apiUrl;
-  
+
   let url = props.path.split("/")[2];
 
   const [addDialogOpen, setAddDialogOpen] = useState(false);
@@ -281,7 +281,7 @@ const CommonPage = (props) => {
           table: "job_card",
         })
       );
-      urlEndPoint === "corrective-action-report" &&
+    urlEndPoint === "corrective-action-report" &&
       setSecondDropdown(
         JSON.stringify({
           type: "if_internal",
@@ -317,7 +317,7 @@ const CommonPage = (props) => {
         })
       );
   }, [urlEndPoint]);
-  console.log(apiURL, 'apiURL');
+  console.log(apiURL, "apiURL");
   useEffect(() => {
     apiURL === "job_card" &&
       secondDropdown &&
@@ -343,6 +343,7 @@ const CommonPage = (props) => {
     apiURL === "car" &&
       fourthDropdown &&
       dispatch(get4thDropdown(fourthDropdown));
+    apiURL === "car" && dispatch(get2ndDiffDropdown("problem"));
     apiURL === "job_card" &&
       fifthDropdown &&
       dispatch(get5thDropdown(fifthDropdown));

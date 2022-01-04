@@ -192,7 +192,19 @@ export default function CustomTable({
               {response?.data?.data?.map((row, i) => {
                 let formRow = row;
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={i}>
+                  <TableRow
+                    hover
+                    onClick={() => {
+                      if (setRowData) setRowData(formRow);
+                      if (setEditDialogOpen) {
+                        setEditDialogOpen(true);
+                      }
+                    }}
+                    role="checkbox"
+                    style={{ cursor: "pointer" }}
+                    tabIndex={-1}
+                    key={i}
+                  >
                     {response?.data?.header?.map((column) => {
                       let value = row[column.key];
 
@@ -224,8 +236,7 @@ export default function CustomTable({
                         column.key === "drawing_start" ||
                         column.key === "first_final_inspection" ||
                         column.key === "completed_on" ||
-                        column.key === "date_of_issue" 
-
+                        column.key === "date_of_issue"
                       ) {
                         value = value
                           ? moment(value).format("DD-MMM-YYYY")
@@ -301,18 +312,6 @@ export default function CustomTable({
                                 column.key === "Job.Job" ||
                                 column.key === "Job_No") &&
                               "#618EFF",
-                          }}
-                          onClick={() => {
-                            if (
-                              column.key === "Job" ||
-                              column.key === "Job.Job" ||
-                              column.key === "Job_No"
-                            ) {
-                              if (setRowData) setRowData(formRow);
-                              if (setEditDialogOpen) {
-                                setEditDialogOpen(true);
-                              }
-                            }
                           }}
                           key={column.key}
                           align={"center"}

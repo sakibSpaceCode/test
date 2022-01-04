@@ -49,7 +49,9 @@ const CustomSelect = (props) => {
     isValue,
     isDiff,
     isChecked_corrective_action,
+    isProblem,
   } = props;
+  console.log(isProblem, "2");
   const classes = MenuStyles();
   return (
     <div>
@@ -100,6 +102,8 @@ const CustomSelect = (props) => {
                   ? option._id
                   : isDiff
                   ? option._id
+                  : isProblem
+                  ? option._id
                   : option.value
               }
               key={i}
@@ -110,6 +114,8 @@ const CustomSelect = (props) => {
                 ? option.value
                 : isDiff
                 ? option.first_name + " " + option.last_name
+                : isProblem
+                ? option.Issue
                 : option.name}
             </MenuItem>
           ))}

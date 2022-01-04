@@ -90,7 +90,7 @@ const useForm = (
   const validateInput = (input) => {
     let alert = null;
 
-    input?.validators.forEach((v) => {
+    input?.validators?.forEach((v) => {
       if (v.valId === "SCVAL001") {
         alert = !isValidFun(input.value) ? v.alert : alert;
       }

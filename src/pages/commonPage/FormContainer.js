@@ -75,6 +75,10 @@ const FormContainer = (props) => {
     { name: "Yes", value: true },
     { name: "No", value: false },
   ];
+  const booleanOptionsText = [
+    { name: "Yes", value: "true" },
+    { name: "No", value: "false" },
+  ];
   const sizeOptions = [
     { name: "Small", value: "small" },
     { name: "Medium", value: "medium" },
@@ -106,13 +110,15 @@ const FormContainer = (props) => {
   const onIconClick = () => {
     linkRef.current.value && window.open(linkRef.current.value, "_blank");
   };
+  console.log(options2Diff, urlEndPoint);
   const renderInput = (input) => {
     return input?.type === "text" ? (
       <Grid
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}>
+        key={input.name}
+      >
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomInput
           key={input.name}
@@ -148,7 +154,8 @@ const FormContainer = (props) => {
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}>
+        key={input.name}
+      >
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomSelect
           key={input.name}
@@ -161,10 +168,8 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          disabled={
-            urlEndPoint !== "projectDepartment" && input.name === "Job" && true
-          }
-          size='lg'
+          disabled={input.disable}
+          size="lg"
           options={
             input.name === "Job"
               ? options
@@ -217,6 +222,8 @@ const FormContainer = (props) => {
               : urlEndPoint === "design-department/design-details" &&
                 input.name === "assigned_to"
               ? optionsDiff
+              : input.name === "problem"
+              ? options2Diff
               : booleanOptions
           }
           isDiff={
@@ -226,6 +233,10 @@ const FormContainer = (props) => {
               input.name === "assigned_to") ||
             (urlEndPoint === "design-department/design-details" &&
               input.name === "assigned_to")
+          }
+          isProblem={
+            urlEndPoint === "corrective-action-report" &&
+            input.name === "problem"
           }
           isValue={
             input.name === "Project_Reference" ||
@@ -266,12 +277,13 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}>
+        key={input.name}
+      >
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <DatePicker
-          inputVariant='outlined'
-          format='dd-MM-yyyy'
-          placeholder='DD-MM-YYYY'
+          inputVariant="outlined"
+          format="dd-MM-yyyy"
+          placeholder="DD-MM-YYYY"
           fullWidth
           width={"100%"}
           height={50}
@@ -294,7 +306,7 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          size='lg'
+          size="lg"
           options={options}
           isJob
         />
@@ -308,7 +320,7 @@ const FormContainer = (props) => {
     <Grid>
       <Grid container spacing={5}>
         {inputs?.length === 0 ? (
-          <Typography variant='body2' className={classes.nofields}>
+          <Typography variant="body2" className={classes.nofields}>
             No Fields Available.
           </Typography>
         ) : (
