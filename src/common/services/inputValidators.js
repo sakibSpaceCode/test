@@ -1,5 +1,4 @@
 export const checkAtLeastLength = (expression, length) => {
-  console.log(expression, "expression");
   return expression?.toString()?.trim().length >= length;
 };
 

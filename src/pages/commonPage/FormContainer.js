@@ -52,6 +52,8 @@ const FormContainer = (props) => {
     handleDateChange,
     rowData,
     i,
+    setProjectName,
+    projectName
   } = props;
 
   const { options } = useSelector((state) => state.getDropdown);
@@ -71,6 +73,7 @@ const FormContainer = (props) => {
   //   { name: "No", value: "no" },
   //   { name: "Not needed", value: "not" },
   // ];
+  console.log("opr", "options", options);
   const booleanOptions = [
     { name: "Yes", value: true },
     { name: "No", value: false },
@@ -110,26 +113,32 @@ const FormContainer = (props) => {
   const onIconClick = () => {
     linkRef.current.value && window.open(linkRef.current.value, "_blank");
   };
-  console.log(options2Diff, urlEndPoint);
+
+  let jobID = inputs?.filter((f) => f.name === "Job")?.[0]?.value;
+  useEffect(() => {
+    let projectName = options?.filter((f) => f._id === jobID)?.[0]?.name ?? "";
+    setProjectName(projectName)
+  },[jobID])
+  
+  
   const renderInput = (input) => {
     return input?.type === "text" ? (
       <Grid
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomInput
           key={input.name}
           onChange={isEdit ? handleEditChange : onFormChange}
           name={input.name}
-          value={input.value ?? ""}
+          value={input.name === "brand_name" ? projectName : input.value ?? ""}
           type={input.name === "Quantity" ? "number" : input.type}
           autoFocus
           fullWidth
           disabled={
-            (input.label === "Name *" || input.label === "Brand Name *") && true
+            (input.label === "Name *" || input.name === "brand_name") && true
           }
           style={{ width: 300 }}
           className={classes.textField}
@@ -154,8 +163,7 @@ const FormContainer = (props) => {
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomSelect
           key={input.name}
@@ -169,7 +177,7 @@ const FormContainer = (props) => {
           style={{ width: 300 }}
           className={classes.textField}
           disabled={input.disable}
-          size="lg"
+          size='lg'
           options={
             input.name === "Job"
               ? options
@@ -277,13 +285,12 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <DatePicker
-          inputVariant="outlined"
-          format="dd-MM-yyyy"
-          placeholder="DD-MM-YYYY"
+          inputVariant='outlined'
+          format='dd-MM-yyyy'
+          placeholder='DD-MM-YYYY'
           fullWidth
           width={"100%"}
           height={50}
@@ -306,7 +313,7 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          size="lg"
+          size='lg'
           options={options}
           isJob
         />
@@ -320,7 +327,7 @@ const FormContainer = (props) => {
     <Grid>
       <Grid container spacing={5}>
         {inputs?.length === 0 ? (
-          <Typography variant="body2" className={classes.nofields}>
+          <Typography variant='body2' className={classes.nofields}>
             No Fields Available.
           </Typography>
         ) : (
