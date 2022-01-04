@@ -96,6 +96,17 @@
             "valId": "SCVAL001"
           }
         ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   },
@@ -540,6 +551,17 @@
             "valId": "SCVAL001"
           }
         ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ],
     "apiUrl": "job_card"
@@ -849,6 +871,17 @@
             "valId": "SCVAL001"
           }
         ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   },
@@ -1014,6 +1047,17 @@
             "label": "Updated by *",
             "type": "text",
             "bigSize": true,
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
+            "name": "is_completed",
+            "label": "Toggle",
+            "type": "toggle",
             "validators": [
               {
                 "alert": "is required",
@@ -1397,6 +1441,17 @@
                 "valId": "SCVAL001"
               }
             ]
+          },
+          {
+            "name": "is_completed",
+            "label": "Toggle",
+            "type": "toggle",
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
           }
         ]
       },
@@ -1486,6 +1541,17 @@
                 "valId": "SCVAL001"
               }
             ]
+          },
+          {
+            "name": "is_completed",
+            "label": "Toggle",
+            "type": "toggle",
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
           }
         ]
       },
@@ -1557,6 +1623,17 @@
             "name": "date",
             "label": "Start Date *",
             "type": "date",
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
+            "name": "is_completed",
+            "label": "Toggle",
+            "type": "toggle",
             "validators": [
               {
                 "alert": "is required",
@@ -1680,6 +1757,17 @@
         "label": "Drawing Link *",
         "type": "text",
         "link": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
         "validators": [
           {
             "alert": "is required",
@@ -1859,6 +1947,17 @@
                 "valId": "SCVAL001"
               }
             ]
+          },
+          {
+            "name": "is_completed",
+            "label": "Toggle",
+            "type": "toggle",
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
           }
         ]
       },
@@ -1987,6 +2086,17 @@
             "type": "text",
             "bigSize": true,
             "bigInput": true,
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
+            "name": "is_completed",
+            "label": "Toggle",
+            "type": "toggle",
             "validators": [
               {
                 "alert": "is required",
@@ -2250,6 +2360,17 @@
                 "valId": "SCVAL001"
               }
             ]
+          },
+          {
+            "name": "is_completed",
+            "label": "Toggle",
+            "type": "toggle",
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
           }
         ]
       },
@@ -2367,6 +2488,17 @@
             "type": "text",
             "bigSize": true,
             "bigInput": true,
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
+            "name": "is_completed",
+            "label": "Toggle",
+            "type": "toggle",
             "validators": [
               {
                 "alert": "is required",
@@ -2551,6 +2683,17 @@
                 "valId": "SCVAL001"
               }
             ]
+          },
+          {
+            "name": "is_completed",
+            "label": "Toggle",
+            "type": "toggle",
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
           }
         ]
       }
@@ -2674,6 +2817,17 @@
                 "valId": "SCVAL001"
               }
             ]
+          },
+          {
+            "name": "is_completed",
+            "label": "Toggle",
+            "type": "toggle",
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
           }
         ]
       }
@@ -2693,13 +2847,24 @@
         "name": "Issue",
         "label": "Issue *",
         "type": "text",
-        "bigSize": true
-      }
-    ],
-    "validators": [
+        "bigSize": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
       {
-        "alert": "is required",
-        "valId": "SCVAL001"
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   },
@@ -2736,6 +2901,17 @@
         "name": "description",
         "label": "Description *",
         "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
         "validators": [
           {
             "alert": "is required",
@@ -2965,6 +3141,17 @@
             "valId": "SCVAL001"
           }
         ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   },
@@ -3064,6 +3251,17 @@
         "type": "text",
         "bigSize": true,
         "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
         "validators": [
           {
             "alert": "is required",
@@ -3263,6 +3461,17 @@
             "valId": "SCVAL001"
           }
         ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   },
@@ -3404,6 +3613,17 @@
         "type": "text",
         "bigSize": true,
         "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
         "validators": [
           {
             "alert": "is required",
@@ -3557,6 +3777,17 @@
             "valId": "SCVAL001"
           }
         ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   },
@@ -3698,6 +3929,17 @@
         "type": "text",
         "bigSize": true,
         "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
         "validators": [
           {
             "alert": "is required",
@@ -3852,6 +4094,17 @@
             "valId": "SCVAL001"
           }
         ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   },
@@ -3993,6 +4246,17 @@
         "type": "text",
         "bigSize": true,
         "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
         "validators": [
           {
             "alert": "is required",
@@ -4146,6 +4410,17 @@
             "valId": "SCVAL001"
           }
         ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   },
@@ -4287,6 +4562,17 @@
         "type": "text",
         "bigSize": true,
         "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
         "validators": [
           {
             "alert": "is required",
@@ -4440,6 +4726,17 @@
             "valId": "SCVAL001"
           }
         ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   },
@@ -4587,6 +4884,17 @@
             "valId": "SCVAL001"
           }
         ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
       }
     ]
   },
@@ -4728,6 +5036,17 @@
         "type": "text",
         "bigSize": true,
         "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
         "validators": [
           {
             "alert": "is required",
@@ -5022,6 +5341,17 @@
         "type": "text",
         "bigSize": true,
         "bigInput": true,
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
+        "name": "is_completed",
+        "label": "Toggle",
+        "type": "toggle",
         "validators": [
           {
             "alert": "is required",
