@@ -1421,7 +1421,7 @@
           },
           {
             "name": "brand_name",
-            "label": "Project Name *",
+            "label": "Project Name",
             "type": "text",
             "validators": [
               {

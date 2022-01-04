@@ -76,6 +76,7 @@ const CommonPage = (props) => {
   const { loading, error, responseData } = useSelector(
     (state) => state.getData
   );
+  const { options } = useSelector((state) => state.getDropdown);
 
   isEdit &&
     mData?.fields?.forEach((field) => {
@@ -123,14 +124,19 @@ const CommonPage = (props) => {
       }
     });
   console.log(rowData);
+  const [projectName, setProjectName] = useState("");
   const emptyValuesFiltered =
     mData?.fields?.length > 0 &&
     mData?.fields?.filter((v) => v.value !== undefined || v.value !== null);
 
+  console.log(urlEndPoint, "cxcx");
   const submitCallback = (e) => {
     let object = {};
 
     emptyValuesFiltered?.map((m) => (object[m.name] = m.value));
+    if (urlEndPoint === "design-department/corrective-action") {
+      object.brand_name = projectName;
+    }
     if (isEdit) {
       object._id = rowData._id;
     }
@@ -159,7 +165,14 @@ const CommonPage = (props) => {
     setSubmit,
     resetFormData,
     handleDateChange,
-  ] = useForm(mData?.fields, submitCallback, rowData, setRowData, setNextClick);
+  ] = useForm(
+    mData?.fields,
+    submitCallback,
+    rowData,
+    setRowData,
+    setNextClick,
+    options
+  );
 
   const handleAddDialog = () => {
     setAddDialogOpen(true);
@@ -430,12 +443,11 @@ const CommonPage = (props) => {
         <>
           <Grid
             container
-            alignItems="center"
-            justify="space-between"
-            spacing={8}
-          >
+            alignItems='center'
+            justify='space-between'
+            spacing={8}>
             <Grid item xs={6}>
-              <Grid container direction="column" spacing={2}>
+              <Grid container direction='column' spacing={2}>
                 <Grid item xs={12}>
                   <CustomSearch
                     value={search}
@@ -448,14 +460,13 @@ const CommonPage = (props) => {
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justify="flex-end" spacing={2}>
+              <Grid container justify='flex-end' spacing={2}>
                 {mData.addForm && (
                   <Grid item>
                     <CustomButton
-                      width="150px"
-                      variant="outlined"
-                      onClick={() => addPermission && handleAddDialog()}
-                    >
+                      width='150px'
+                      variant='outlined'
+                      onClick={() => addPermission && handleAddDialog()}>
                       {label === "Job Card" ? "Add Job Card" : "Add"}
                     </CustomButton>
                   </Grid>
@@ -464,18 +475,16 @@ const CommonPage = (props) => {
                 <Grid item>
                   <CustomButton
                     onClick={handleImportDialog}
-                    width="150px"
-                    variant="outlined"
-                  >
+                    width='150px'
+                    variant='outlined'>
                     Import
                   </CustomButton>
                 </Grid>
                 <Grid item>
                   <CustomButton
                     onClick={handleExportDialog}
-                    width="150px"
-                    variant="outlined"
-                  >
+                    width='150px'
+                    variant='outlined'>
                     Export
                   </CustomButton>
                 </Grid>
@@ -510,8 +519,7 @@ const CommonPage = (props) => {
             json={JSON.stringify({ _id: rowData?._id })}
             disabled={inputs?.length === 0}
             resetFormData={resetFormData}
-            setEditDialogOpen={setEditDialogOpen}
-          >
+            setEditDialogOpen={setEditDialogOpen}>
             <FormContainer
               inputs={inputs}
               urlEndPoint={urlEndPoint}
@@ -520,6 +528,8 @@ const CommonPage = (props) => {
               rowData={rowData}
               handleDateChange={handleDateChange}
               isEdit={isEdit}
+              setProjectName={setProjectName}
+              projectName={projectName}
             />
           </CustomDialog>
           <CustomDialog
@@ -540,8 +550,7 @@ const CommonPage = (props) => {
             json={JSON.stringify({ _id: rowData?._id })}
             disabled={inputs?.length === 0}
             resetFormData={resetFormData}
-            setEditDialogOpen={setEditDialogOpen}
-          >
+            setEditDialogOpen={setEditDialogOpen}>
             <FormContainer
               inputs={inputs}
               urlEndPoint={urlEndPoint}
@@ -570,7 +579,7 @@ const CommonPage = (props) => {
               onClose={() => setAlertOpen(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity="success"
+              severity='success'
               actions={false}
             />
           )}
@@ -582,7 +591,7 @@ const CommonPage = (props) => {
               onClose={() => setAlertOpen2(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity="success"
+              severity='success'
               actions={false}
             />
           )}
