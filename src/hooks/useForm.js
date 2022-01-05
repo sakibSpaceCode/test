@@ -24,14 +24,20 @@ const useForm = (
     setInputs(initModel);
   }, [initModel]);
   const handleChange = (e, newValue, flag = false) => {
-    console.log(newValue);
+    console.log(e.target.checked, newValue, "swithc");
+
     setNextClick(false);
     inputs?.forEach((i) => {
       if (i.name === "Job" && newValue && flag) {
         i.value = newValue?._id;
         parseInput(i);
       } else if (i.name === e?.target?.name) {
-        i.value = i.name === "Quantity" ? e.target.value * 1 : e.target.value;
+        i.value =
+          i.type === "toggle"
+            ? e.target.checked
+            : i.name === "Quantity"
+            ? e.target.value * 1
+            : e.target.value;
         parseInput(i);
         i?.label?.includes("*") && validateInput(i);
       }
@@ -57,14 +63,18 @@ const useForm = (
     setInputs([...inputs]);
   };
   const handleEditChange = (e) => {
-    console.log(e.target.name, e.target.value, "ooiuig");
+    console.log(e.target.name, e.target, "ooiuig");
     let temp = rowData;
     temp[e.target.name] = e.target.value;
     setRowData({ ...rowData, temp });
     inputs.forEach((i) => {
       if (i.name === e.target.name) {
         i.value =
-          i.name === "Quantity" ? parseInt(e.target.value) : e.target.value;
+          i.type === "toggle"
+            ? e.target.checked
+            : i.name === "Quantity"
+            ? parseInt(e.target.value)
+            : e.target.value;
         parseInput(i);
         i?.label?.includes("*") && validateInput(i);
       }
