@@ -37,11 +37,21 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 5,
     // position: "absolute",
   },
+  switchBase: {
+    color: "#618EFF",
+    "&$checked": {
+      color: "#618EFF",
+    },
+    "&$checked + $track": {
+      backgroundColor: "#618EFF",
+    },
+  },
 }));
 
 const FormContainer = (props) => {
   const classes = useStyles();
   const linkRef = useRef();
+  const [checked, setChecked] = useState(false);
   const {
     inputs,
     urlEndPoint,
@@ -321,14 +331,19 @@ const FormContainer = (props) => {
         />
       </Grid>
     ) : input.type === "toggle" ? (
-      <Grid container key={input.name}>
-        <Grid item justify="flex-end">
-          <Switch
+      <Grid container justify="flex-end" key={input.name}>
+        <Grid item>
+          <FormControlLabel
+            control={
+              <Switch
+                className={classes.switchBase}
+                checked={checked}
+                onChange={(e) => setChecked(e.target.checked)}
+                name={input.name}
+                color="primary"
+              />
+            }
             name={input.name}
-            checked={input.value ?? false}
-            type={input.type}
-            onClick={isEdit ? handleEditChange : onFormChange}
-            color="primary"
           />
         </Grid>
       </Grid>
