@@ -96,6 +96,7 @@ const CustomDialog = (props) => {
   const { deleteResponse, deleteError, deleteLoading } = useSelector(
     (state) => state.deleteField
   );
+  console.log(deleteError, "dsdsdsf");
   const handleDeleteButtonClick = () => {
     dispatch(deleteFormData(apiURL, json));
   };
@@ -107,20 +108,25 @@ const CustomDialog = (props) => {
     setErrorD("");
   };
   useEffect(() => {
-    if (deleteResponse && deleteResponse.success === true) {
+    if (deleteResponse?.success === true) {
       setDialogOpen(false);
       setEditDialogOpen(false);
       resetFormData && resetFormData();
       setIsEdit && setIsEdit(false);
       setDeleteAlert(true);
-      // dispatch(getData(apiURL));
+      setErrorD(null);
+    } else if (deleteError) {
+      setErrorD(deleteError);
     }
+
     return () => {
+      deleteResponse?.success === true && dispatch(getData(apiURL));
+
       setTimeout(() => {
         dispatch(clearDeleteResponse());
       }, 3000);
     };
-  }, [deleteResponse]);
+  }, [deleteResponse, deleteError]);
   return (
     <>
       <Dialog

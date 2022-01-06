@@ -51,6 +51,17 @@
         ]
       },
       {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
+      {
         "name": "first_payment",
         "label": "First Payment",
         "type": "select",
@@ -617,7 +628,7 @@
       },
 
       {
-        "name": "drawing_start",
+        "name": "first_kickoff",
         "label": "First Kick off meeting *",
         "type": "date",
         "validators": [
@@ -683,7 +694,7 @@
         ]
       },
       {
-        "name": "drawing_approvel",
+        "name": "second_kickoff",
         "label": "Second kickoff meeting *",
         "type": "date",
         "validators": [
@@ -3182,7 +3193,17 @@
           }
         ]
       },
-
+      {
+        "name": "Project_Name",
+        "label": "Project Name",
+        "type": "text",
+        "validators": [
+          {
+            "alert": "is required",
+            "valId": "SCVAL001"
+          }
+        ]
+      },
       {
         "name": "Completion_Date",
         "label": "Completion Date",

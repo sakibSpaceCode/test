@@ -12,6 +12,7 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   cardContainer: {
+    cursor: "pointer",
     position: "relative",
     background: "#FFFFFF",
     border: "1px solid #E4E4E4",

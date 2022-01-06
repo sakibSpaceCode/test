@@ -151,7 +151,9 @@ const CommonPage = (props) => {
       urlEndPoint === "outsourced-material" ||
       urlEndPoint === "paint-supplier" ||
       urlEndPoint === "special-supplier" ||
-      urlEndPoint === "veneer-supplier"
+      urlEndPoint === "veneer-supplier" ||
+      urlEndPoint === "account-department" ||
+      urlEndPoint === "logistic" 
     ) {
       object.Project_Name = projectName;
     }
