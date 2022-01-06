@@ -7,6 +7,14 @@
     "apiUrl": "dashboard"
   },
   {
+    "path": "/dashboard/profile",
+    "name": "Profile",
+    "isDrawer": true,
+    "urlEndPoint": "/profile",
+    "icon": "fa fa-tachometer",
+    "apiUrl": "dashboard"
+  },
+  {
     "path": "/dashboard/employees",
     "name": "Employees",
     "urlEndPoint": "/employees",

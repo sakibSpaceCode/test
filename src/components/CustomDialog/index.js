@@ -85,6 +85,8 @@ const CustomDialog = (props) => {
     setEditDialogOpen,
     setIsEdit,
     resetFormData,
+    retroWaterFall,
+    onRetroClick
   } = props;
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -113,7 +115,7 @@ const CustomDialog = (props) => {
       setIsEdit(false);
       setDeleteAlert(true);
       // dispatch(getData(apiURL));
-    } 
+    }
     return () => {
       setTimeout(() => {
         dispatch(clearDeleteResponse());
@@ -163,6 +165,19 @@ const CustomDialog = (props) => {
                 alignItems="center"
                 spacing={1}
               >
+                <Grid item>
+                  {retroWaterFall && (
+                    <CustomButton
+                      disabled={disabled}
+                      variant="outlined"
+                      color="primary"
+                      onClick={onRetroClick}
+                      textColor="#618EFF"
+                    >
+                      WaterFall
+                    </CustomButton>
+                  )}
+                </Grid>
                 <Grid item>
                   <CustomButton
                     disabled={disabled}

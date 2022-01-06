@@ -158,6 +158,9 @@ export const useDashboardStyles = makeStyles(
     logoDividerBottom: {
       background: theme.palette.colors.gray.light,
     },
+    addPermission: {
+      padding: "10px 20px",
+    },
   }),
   { index: 1 }
 );

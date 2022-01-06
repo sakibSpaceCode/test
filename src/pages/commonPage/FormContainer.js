@@ -64,6 +64,7 @@ const FormContainer = (props) => {
     i,
     setProjectName,
     projectName,
+    noProjectName
   } = props;
 
   const { options } = useSelector((state) => state.getDropdown);

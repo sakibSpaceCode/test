@@ -26,8 +26,10 @@ import RetroTimeLine from "./timeline";
 import Alert from "../../components/alert/alert.container";
 import useForm from "../../hooks/useForm";
 import FormContainer from "../commonPage/FormContainer";
+import { useHistory } from "react-router-dom";
 
 const RetroPlanPage = (props) => {
+  const history = useHistory();
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
@@ -40,7 +42,7 @@ const RetroPlanPage = (props) => {
   const [search, setSearch] = useState("");
   const [addPermission, setAddPermission] = useState(false);
   const [editPermission, setEditPermission] = useState(false);
-
+  const [projectName, setProjectName] = useState("");
   const { userInfo } = useSelector((state) => state.userLogin);
 
   const { loading, error, responseData } = useSelector(
@@ -64,6 +66,9 @@ const RetroPlanPage = (props) => {
   const handleOpenDialog = () => {
     setDialogOpen(true);
     dispatch(getDropdown("job_card"));
+  };
+  const onRetroClick = () => {
+    history.push(`/dashboard/retro-plan/${rowData._id}`);
   };
 
   const { postLoading, postResponse, postError } = useSelector(
@@ -264,11 +269,13 @@ const RetroPlanPage = (props) => {
         loading={postLoading}
         error={errorMessage}
         apiURL={apiURL}
+        retroWaterFall={true}
         setIsEdit={setIsEdit}
         setEditDialogOpen={setEditDialogOpen}
         json={JSON.stringify({ _id: rowData?._id })}
         resetFormData={resetFormData}
         disabled={inputs?.length === 0}
+        onRetroClick={onRetroClick}
       >
         <FormContainer
           inputs={inputs}
@@ -277,6 +284,9 @@ const RetroPlanPage = (props) => {
           handleEditChange={handleEditChange}
           //  rowData={rowData}
           handleDateChange={handleDateChange}
+          noProjectName={false}
+          setProjectName={setProjectName}
+          projectName={projectName}
         />
       </CustomDialog>{" "}
       <CustomDialog
@@ -307,6 +317,8 @@ const RetroPlanPage = (props) => {
           rowData={rowData}
           handleDateChange={handleDateChange}
           isEdit={isEdit}
+          setProjectName={setProjectName}
+          projectName={projectName}
         />
       </CustomDialog>
       {alertOpen && (

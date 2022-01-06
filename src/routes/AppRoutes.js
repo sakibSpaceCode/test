@@ -4,9 +4,11 @@ import pageBreadcrumbsMappings from "../components/breadcrumbs/page-breadcrumbs-
 import CommonPage from "../pages/commonPage";
 import DashboardPage from "../pages/dashboard";
 import EmployeesPage from "../pages/employees";
+import ProfilePage from "../pages/Profile";
 import ProjectDetails from "../pages/projectDepartment";
 import PurchaseDepartment from "../pages/purchaseDepartment";
 import RetroPlanPage from "../pages/retroPlan";
+import RetroTimeLine from "../pages/retroPlan/timeline";
 
 import PrivateRoute from "./PrivateRoute";
 
@@ -61,6 +63,13 @@ const AppRoutes = () => {
             component={ProjectDetails}
             key={item.name}
           />
+        ) : item.name === "/dashboard/profile" ? (
+          <PrivateRoute
+            path={"/dashboard/profile"}
+            exact
+            // add new id to the data itself
+            component={ProfilePage}
+          />
         ) : (
           <PrivateRoute
             path={item.name}
@@ -70,6 +79,12 @@ const AppRoutes = () => {
           />
         )
       )}
+      <PrivateRoute
+        path={"/dashboard/retro-plan/:id"}
+        exact
+        // add new id to the data itself
+        component={RetroTimeLine}
+      />
     </Switch>
   );
 };

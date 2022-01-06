@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import {
   Divider,
   IconButton,
@@ -41,6 +41,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const classes = useDashboardStyles();
+  const history = useHistory();
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [invisible, setInvisible] = React.useState(true);
@@ -130,7 +131,7 @@ const Dashboard = () => {
   const drawer = (
     <>
       <div className={classes.logoContainer}>
-        <img src={Logo} alt='logo' className={classes.logo} />
+        <img src={Logo} alt="logo" className={classes.logo} />
       </div>
       <List className={classes.list}>
         {drawerRoutes?.map((item, index) =>
@@ -163,14 +164,15 @@ const Dashboard = () => {
       {loading && (
         <div className={classes.root}>
           <Drawer
-            variant='permanent'
+            variant="permanent"
             className={classes.drawer}
             onClose={handleDrawerOpen}
-            anchor='left'
+            anchor="left"
             open={open}
             classes={{
               paper: classes.drawerPaper,
-            }}>
+            }}
+          >
             {drawer}
           </Drawer>
           <div style={{ width: "100%", overflowX: "hidden" }}>
@@ -185,15 +187,17 @@ const Dashboard = () => {
 
                 marginTop: 20,
                 backgroundColor: "#e5e5e5",
-              }}>
+              }}
+            >
               <div
                 style={{
                   flexGrow: 1,
                   position: "sticky",
                   top: 0,
                   zIndex: 999,
-                }}>
-                <AppBar className={classes.appBar} position='sticky'>
+                }}
+              >
+                <AppBar className={classes.appBar} position="sticky">
                   <Toolbar>
                     <div className={classes.breadcrumbs}>
                       <SimpleBreadcrumbs name={appBarUrl} />
@@ -203,9 +207,10 @@ const Dashboard = () => {
                     </IconButton>
                     <IconButton onClick={handleClickNotification}>
                       <Badge
-                        color='primary'
-                        variant='dot'
-                        invisible={invisible}>
+                        color="primary"
+                        variant="dot"
+                        invisible={invisible}
+                      >
                         <NotificationsNoneOutlinedIcon />
                       </Badge>
                     </IconButton>
@@ -223,31 +228,35 @@ const Dashboard = () => {
                       {({ TransitionProps, placement }) => (
                         <Grow
                           {...TransitionProps}
-                          id='notification-menu-list-grow'
+                          id="notification-menu-list-grow"
                           style={{
                             transformOrigin:
                               placement === "bottom"
                                 ? "center top"
                                 : "center bottom",
-                          }}>
+                          }}
+                        >
                           <Paper>
                             <ClickAwayListener
-                              onClickAway={handleCloseNotification}>
+                              onClickAway={handleCloseNotification}
+                            >
                               {notifications?.length > 0 ? (
-                                <MenuList role='menu'>
+                                <MenuList role="menu">
                                   {notifications?.map((notification) => (
                                     <MenuItem
                                       onClick={handleCloseNotification}
-                                      className={classes.dropdownItem}>
+                                      className={classes.dropdownItem}
+                                    >
                                       {notification.Description}
                                     </MenuItem>
                                   ))}
                                 </MenuList>
                               ) : (
-                                <MenuList role='menu'>
+                                <MenuList role="menu">
                                   <MenuItem
                                     onClick={handleCloseNotification}
-                                    className={classes.dropdownItem}>
+                                    className={classes.dropdownItem}
+                                  >
                                     No new notifications
                                   </MenuItem>
                                 </MenuList>
@@ -274,19 +283,29 @@ const Dashboard = () => {
                       {({ TransitionProps, placement }) => (
                         <Grow
                           {...TransitionProps}
-                          id='profile-menu-list-grow'
+                          id="profile-menu-list-grow"
                           style={{
                             transformOrigin:
                               placement === "bottom"
                                 ? "center top"
                                 : "center bottom",
-                          }}>
+                          }}
+                        >
                           <Paper>
                             <ClickAwayListener onClickAway={handleCloseProfile}>
-                              <MenuList role='menu'>
+                              <MenuList role="menu">
+                                <MenuItem
+                                  onClick={() =>
+                                    history.push("/dashboard/profile")
+                                  }
+                                  className={classes.dropdownItem}
+                                >
+                                  Profile
+                                </MenuItem>
                                 <MenuItem
                                   onClick={handlelogoutClick}
-                                  className={classes.dropdownItem}>
+                                  className={classes.dropdownItem}
+                                >
                                   Logout
                                 </MenuItem>
                               </MenuList>

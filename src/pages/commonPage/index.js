@@ -69,7 +69,7 @@ const CommonPage = (props) => {
   const [sixthDropdown, setSixthDropdown] = useState("");
   const [eightDropdown, setEightDropdown] = useState("");
   const [search, setSearch] = useState("");
-  const [addPermission, setAddPermission] = useState(true);
+  const [addPermission, setAddPermission] = useState(false);
   const [editPermission, setEditPermission] = useState(false);
   const { userInfo } = useSelector((state) => state.userLogin);
   const [seventhDropdown, setSeventhDropdown] = useState("");
@@ -151,6 +151,7 @@ const CommonPage = (props) => {
   React.useEffect(() => {
     userInfo?.data?.permissions?.map((val) => {
       if (val.codename == `${apiURL}/add`) {
+        console.log("triggered");
         setAddPermission(true);
       }
       if (val.codename == `${apiURL}/edit`) {
@@ -158,6 +159,7 @@ const CommonPage = (props) => {
       }
     });
   }, []);
+  console.log(addPermission);
   const [
     inputs,
     onFormChange,
@@ -443,11 +445,12 @@ const CommonPage = (props) => {
         <>
           <Grid
             container
-            alignItems='center'
-            justify='space-between'
-            spacing={8}>
+            alignItems="center"
+            justify="space-between"
+            spacing={8}
+          >
             <Grid item xs={6}>
-              <Grid container direction='column' spacing={2}>
+              <Grid container direction="column" spacing={2}>
                 <Grid item xs={12}>
                   <CustomSearch
                     value={search}
@@ -460,13 +463,14 @@ const CommonPage = (props) => {
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justify='flex-end' spacing={2}>
+              <Grid container justify="flex-end" spacing={2}>
                 {mData.addForm && (
                   <Grid item>
                     <CustomButton
-                      width='150px'
-                      variant='outlined'
-                      onClick={() => addPermission && handleAddDialog()}>
+                      width="150px"
+                      variant="outlined"
+                      onClick={() => addPermission && handleAddDialog()}
+                    >
                       {label === "Job Card" ? "Add Job Card" : "Add"}
                     </CustomButton>
                   </Grid>
@@ -475,16 +479,18 @@ const CommonPage = (props) => {
                 <Grid item>
                   <CustomButton
                     onClick={handleImportDialog}
-                    width='150px'
-                    variant='outlined'>
+                    width="150px"
+                    variant="outlined"
+                  >
                     Import
                   </CustomButton>
                 </Grid>
                 <Grid item>
                   <CustomButton
                     onClick={handleExportDialog}
-                    width='150px'
-                    variant='outlined'>
+                    width="150px"
+                    variant="outlined"
+                  >
                     Export
                   </CustomButton>
                 </Grid>
@@ -519,7 +525,8 @@ const CommonPage = (props) => {
             json={JSON.stringify({ _id: rowData?._id })}
             disabled={inputs?.length === 0}
             resetFormData={resetFormData}
-            setEditDialogOpen={setEditDialogOpen}>
+            setEditDialogOpen={setEditDialogOpen}
+          >
             <FormContainer
               inputs={inputs}
               urlEndPoint={urlEndPoint}
@@ -550,7 +557,8 @@ const CommonPage = (props) => {
             json={JSON.stringify({ _id: rowData?._id })}
             disabled={inputs?.length === 0}
             resetFormData={resetFormData}
-            setEditDialogOpen={setEditDialogOpen}>
+            setEditDialogOpen={setEditDialogOpen}
+          >
             <FormContainer
               inputs={inputs}
               urlEndPoint={urlEndPoint}
@@ -559,6 +567,8 @@ const CommonPage = (props) => {
               rowData={rowData}
               handleDateChange={handleDateChange}
               isEdit={isEdit}
+              setProjectName={setProjectName}
+              projectName={projectName}
             />
           </CustomDialog>
           <ImportDialog
@@ -579,7 +589,7 @@ const CommonPage = (props) => {
               onClose={() => setAlertOpen(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity='success'
+              severity="success"
               actions={false}
             />
           )}
@@ -591,7 +601,7 @@ const CommonPage = (props) => {
               onClose={() => setAlertOpen2(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity='success'
+              severity="success"
               actions={false}
             />
           )}
