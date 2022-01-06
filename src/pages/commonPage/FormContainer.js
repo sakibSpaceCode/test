@@ -67,6 +67,8 @@ const FormContainer = (props) => {
     noProjectName,
     checked,
     setChecked,
+    setInternal,
+    internal
   } = props;
 
   const { options } = useSelector((state) => state.getDropdown);
@@ -79,13 +81,7 @@ const FormContainer = (props) => {
   const { options8 } = useSelector((state) => state.get8thDropdown);
   const { optionsDiff } = useSelector((state) => state.getDiffDropdown);
   const { options2Diff } = useSelector((state) => state.get2ndDiffDropdown);
-  // const { collectionData } = useSelector((state) => state.getCollectionDropdown);
-  // const { userInfo } = useSelector((state) => state.userLogin);
-  // const defaultOptions = [
-  //   { name: "Yes", value: "yes" },
-  //   { name: "No", value: "no" },
-  //   { name: "Not needed", value: "not" },
-  // ];
+
   const booleanOptions = [
     { name: "Yes", value: true },
     { name: "No", value: false },
@@ -131,8 +127,8 @@ const FormContainer = (props) => {
     let projectName = options?.filter((f) => f._id === jobID)?.[0]?.name ?? "";
     setProjectName && setProjectName(projectName);
   }, [jobID]);
-
   const renderInput = (input) => {
+    //  console.log(input.name,input.value);
     return input?.type === "text" ? (
       <Grid
         item
@@ -153,7 +149,10 @@ const FormContainer = (props) => {
           autoFocus
           fullWidth
           disabled={
-            (input.label === "Name *" || input.name === "brand_name" || input.label === "Project Name") && true
+            (input.label === "Name *" ||
+              input.name === "brand_name" ||
+              input.label === "Project Name") &&
+            true
           }
           style={{ width: 300 }}
           className={classes.textField}
@@ -173,7 +172,7 @@ const FormContainer = (props) => {
           </div>
         )}
       </Grid>
-    ) : input?.type === "select" ? (
+    ) : input?.type === "select" && input?.name !== "if_internal" ? (
       <Grid
         item
         md={input.bigSize ? 12 : 6}
@@ -193,6 +192,8 @@ const FormContainer = (props) => {
           className={classes.textField}
           disabled={input.disable}
           size='lg'
+          urlEndPoint={urlEndPoint}
+          setInternal={setInternal}
           options={
             input.name === "Job"
               ? options
@@ -285,6 +286,45 @@ const FormContainer = (props) => {
           isJob={input.name === "Job" ? true : false}
           isChecked_corrective_action={
             input.name === "checked_corrective_action" ? true : false
+          }
+        />
+        {input.alert && (
+          <div className={classes.selectAlert}>
+            {input.label} {input.alert}
+          </div>
+        )}
+      </Grid>
+    ) : input?.type === "select" &&
+      input?.name === "if_internal" &&
+      internal ? (
+      <Grid item md={6} className={classes.inputField} key='if_internal'>
+        <InputLabel className={classes.inputLabel}>If Internal</InputLabel>
+        <CustomSelect
+          key='if_internal'
+          onChange={isEdit ? handleEditChange : onFormChange}
+          name='if_internal'
+          value={input.value ?? ""}
+          type={input.type}
+          helperText={input.alert}
+          autoFocus
+          fullWidth
+          style={{ width: 300 }}
+          className={classes.textField}
+          disabled={input.disable}
+          size='lg'
+          urlEndPoint={urlEndPoint}
+          setInternal={setInternal}
+          options={
+            urlEndPoint === "corrective-action-report" &&
+            input.name === "if_internal"
+              ? options2
+              : booleanOptions
+          }
+          isValue={
+            urlEndPoint === "corrective-action-report" &&
+            input.name === "if_internal"
+              ? true
+              : false
           }
         />
         {input.alert && (

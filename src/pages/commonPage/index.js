@@ -74,6 +74,8 @@ const CommonPage = (props) => {
   const [editPermission, setEditPermission] = useState(false);
   const { userInfo } = useSelector((state) => state.userLogin);
   const [seventhDropdown, setSeventhDropdown] = useState("");
+  const [internal, setInternal] = useState(false);
+
   const { loading, error, responseData } = useSelector(
     (state) => state.getData
   );
@@ -153,12 +155,17 @@ const CommonPage = (props) => {
       urlEndPoint === "special-supplier" ||
       urlEndPoint === "veneer-supplier" ||
       urlEndPoint === "account-department" ||
-      urlEndPoint === "logistic" 
+      urlEndPoint === "logistic"
     ) {
       object.Project_Name = projectName;
     }
     if (isEdit) {
       object._id = rowData._id;
+      if (urlEndPoint === "corrective-action-report") {
+        if (!internal) {
+          delete object.if_internal;
+        }
+      }
     }
     let json = JSON.stringify(object);
     if (isEdit) {
@@ -547,6 +554,8 @@ const CommonPage = (props) => {
               projectName={projectName}
               setChecked={setChecked}
               checked={checked}
+              setInternal={setInternal}
+              internal={internal}
             />
           </CustomDialog>
           <CustomDialog
@@ -580,6 +589,8 @@ const CommonPage = (props) => {
               projectName={projectName}
               setChecked={setChecked}
               checked={checked}
+              setInternal={setInternal}
+              internal={internal}
             />
           </CustomDialog>
           <ImportDialog

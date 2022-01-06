@@ -50,16 +50,29 @@ const CustomSelect = (props) => {
     isDiff,
     isChecked_corrective_action,
     isProblem,
+    urlEndPoint,
+    setInternal,
   } = props;
   const classes = MenuStyles();
+
+  React.useEffect(() => {
+    let namess =
+      urlEndPoint === "corrective-action-report" &&
+      value &&
+      options?.filter((f) => f._id === value)?.[0]?.value;
+    setInternal && namess === "Internal" && setInternal(true);
+    setInternal && namess === "Client" && setInternal(false);
+    setInternal && namess === "Supplier" && setInternal(false);
+    setInternal && namess === undefined && setInternal(false);
+    setInternal && namess === null && setInternal(false);
+  }, [value]);
   return (
     <div>
       <FormControl
-        variant="outlined"
+        variant='outlined'
         className={classes.form}
         fullWidth
-        error={error}
-      >
+        error={error}>
         <Select
           defaultValue={defaultValue}
           disabled={disabled}
@@ -67,7 +80,7 @@ const CustomSelect = (props) => {
           value={value}
           style={{ minWidth: minWidth && minWidth }}
           onChange={onChange}
-          menustyles="true"
+          menustyles='true'
           inputProps={{ "aria-label": "Without label" }}
           onFocus={onFocus}
           MenuProps={{
@@ -80,14 +93,12 @@ const CustomSelect = (props) => {
               maxHeight: "450px",
               maxWidth: "400px",
             },
-          }}
-        >
+          }}>
           {noLabel || (
             <MenuItem
               onClick={onLabelClick}
               value={label}
-              disabled={disabledLabel}
-            >
+              disabled={disabledLabel}>
               {label}
             </MenuItem>
           )}
@@ -105,8 +116,7 @@ const CustomSelect = (props) => {
                   ? option._id
                   : option.value
               }
-              key={i}
-            >
+              key={i}>
               {isJob
                 ? option.Job
                 : isValue

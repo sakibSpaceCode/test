@@ -3007,8 +3007,9 @@
       },
       {
         "name": "if_internal",
-        "label": "If Internal *",
+        "label": "If Internal",
         "type": "select",
+        "ifInternal": true,
         "validators": [
           {
             "alert": "is required",

@@ -96,7 +96,6 @@ const CustomDialog = (props) => {
   const { deleteResponse, deleteError, deleteLoading } = useSelector(
     (state) => state.deleteField
   );
-  console.log(deleteError, "dsdsdsf");
   const handleDeleteButtonClick = () => {
     dispatch(deleteFormData(apiURL, json));
   };
