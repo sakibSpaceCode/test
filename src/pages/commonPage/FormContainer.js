@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 const FormContainer = (props) => {
   const classes = useStyles();
   const linkRef = useRef();
-  const [checked, setChecked] = useState(false);
+
   const {
     inputs,
     urlEndPoint,
@@ -64,7 +64,9 @@ const FormContainer = (props) => {
     i,
     setProjectName,
     projectName,
-    noProjectName
+    noProjectName,
+    checked,
+    setChecked,
   } = props;
 
   const { options } = useSelector((state) => state.getDropdown);
@@ -84,7 +86,6 @@ const FormContainer = (props) => {
   //   { name: "No", value: "no" },
   //   { name: "Not needed", value: "not" },
   // ];
-  console.log("opr", "options", options);
   const booleanOptions = [
     { name: "Yes", value: true },
     { name: "No", value: false },
@@ -128,7 +129,7 @@ const FormContainer = (props) => {
   let jobID = inputs?.filter((f) => f.name === "Job")?.[0]?.value;
   useEffect(() => {
     let projectName = options?.filter((f) => f._id === jobID)?.[0]?.name ?? "";
-    setProjectName(projectName);
+    setProjectName && setProjectName(projectName);
   }, [jobID]);
 
   const renderInput = (input) => {
@@ -137,19 +138,22 @@ const FormContainer = (props) => {
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomInput
           key={input.name}
           onChange={isEdit ? handleEditChange : onFormChange}
           name={input.name}
-          value={input.name === "brand_name" ? projectName : input.value ?? ""}
+          value={
+            input.name === "brand_name" || input.label === "Project Name"
+              ? projectName
+              : input.value ?? ""
+          }
           type={input.name === "Quantity" ? "number" : input.type}
           autoFocus
           fullWidth
           disabled={
-            (input.label === "Name *" || input.name === "brand_name") && true
+            (input.label === "Name *" || input.name === "brand_name" || input.label === "Project Name") && true
           }
           style={{ width: 300 }}
           className={classes.textField}
@@ -174,8 +178,7 @@ const FormContainer = (props) => {
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomSelect
           key={input.name}
@@ -189,7 +192,7 @@ const FormContainer = (props) => {
           style={{ width: 300 }}
           className={classes.textField}
           disabled={input.disable}
-          size="lg"
+          size='lg'
           options={
             input.name === "Job"
               ? options
@@ -297,13 +300,12 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}
-      >
+        key={input.name}>
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <DatePicker
-          inputVariant="outlined"
-          format="dd-MM-yyyy"
-          placeholder="DD-MM-YYYY"
+          inputVariant='outlined'
+          format='dd-MM-yyyy'
+          placeholder='DD-MM-YYYY'
           fullWidth
           width={"100%"}
           height={50}
@@ -326,13 +328,13 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          size="lg"
+          size='lg'
           options={options}
           isJob
         />
       </Grid>
     ) : input.type === "toggle" ? (
-      <Grid container justify="flex-end" key={input.name}>
+      <Grid container justify='flex-end' key={input.name}>
         <Grid item>
           <FormControlLabel
             control={
@@ -341,7 +343,7 @@ const FormContainer = (props) => {
                 checked={checked}
                 onChange={(e) => setChecked(e.target.checked)}
                 name={input.name}
-                color="primary"
+                color='primary'
               />
             }
             name={input.name}
@@ -357,7 +359,7 @@ const FormContainer = (props) => {
     <Grid>
       <Grid container spacing={5}>
         {inputs?.length === 0 ? (
-          <Typography variant="body2" className={classes.nofields}>
+          <Typography variant='body2' className={classes.nofields}>
             No Fields Available.
           </Typography>
         ) : (

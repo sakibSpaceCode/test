@@ -159,7 +159,6 @@ const RetroPlanPage = (props) => {
     setSearch("");
     dispatch(getData("retro_plan"));
   };
-  console.log(rowData, "row");
   const handleEditDialog = () => {
     setIsEdit(true);
     setEditDialogOpen(true);

@@ -51,7 +51,6 @@ const CustomSelect = (props) => {
     isChecked_corrective_action,
     isProblem,
   } = props;
-  console.log(isProblem, "2");
   const classes = MenuStyles();
   return (
     <div>

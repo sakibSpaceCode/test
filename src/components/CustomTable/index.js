@@ -117,7 +117,7 @@ export default function CustomTable({
     <>
       {local ? (
         <TableContainer className={classes.container}>
-          <Table stickyHeader aria-label="sticky table">
+          <Table stickyHeader aria-label='sticky table'>
             <TableHead>
               <TableRow>
                 {columns.map((column) => (
@@ -130,8 +130,7 @@ export default function CustomTable({
                       color: "#618EFF",
                       fontWeight: "600",
                       fontSize: "16px",
-                    }}
-                  >
+                    }}>
                     {column.label}
                   </TableCell>
                 ))}
@@ -142,7 +141,7 @@ export default function CustomTable({
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, i) => {
                   return (
-                    <TableRow hover role="checkbox" tabIndex={-1} key={i}>
+                    <TableRow hover role='checkbox' tabIndex={-1} key={i}>
                       {columns.map((column, i) => {
                         const value = row[column.id];
 
@@ -168,7 +167,7 @@ export default function CustomTable({
         </TableContainer>
       ) : response?.data?.data?.length ? (
         <TableContainer className={classes.container}>
-          <Table stickyHeader aria-label="sticky table">
+          <Table stickyHeader aria-label='sticky table'>
             <TableHead>
               <TableRow>
                 {response?.data?.header?.map((column, i) => (
@@ -181,8 +180,7 @@ export default function CustomTable({
                       color: "#618EFF",
                       fontWeight: "600",
                       fontSize: "16px",
-                    }}
-                  >
+                    }}>
                     {column.label}
                   </TableCell>
                 ))}
@@ -200,11 +198,10 @@ export default function CustomTable({
                         setEditDialogOpen(true);
                       }
                     }}
-                    role="checkbox"
+                    role='checkbox'
                     style={{ cursor: "pointer" }}
                     tabIndex={-1}
-                    key={i}
-                  >
+                    key={i}>
                     {response?.data?.header?.map((column) => {
                       let value = row[column.key];
 
@@ -300,22 +297,24 @@ export default function CustomTable({
                           style={{
                             cursor:
                               (column.key === "Job.Job" ||
-                                column.key === "Job_No") &&
+                                column.key === "Job_No" ||
+                                column.key === "username") &&
                               "pointer",
                             fontWeight:
                               (column.key === "Job" ||
                                 column.key === "Job.Job" ||
-                                column.key === "Job_No") &&
+                                column.key === "Job_No" ||
+                                column.key === "username") &&
                               "bold",
                             color:
                               (column.key === "Job" ||
                                 column.key === "Job.Job" ||
-                                column.key === "Job_No") &&
+                                column.key === "Job_No" ||
+                                column.key === "username") &&
                               "#618EFF",
                           }}
                           key={column.key}
-                          align={"center"}
-                        >
+                          align={"center"}>
                           {value === true
                             ? "Yes"
                             : value === false

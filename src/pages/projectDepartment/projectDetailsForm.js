@@ -46,7 +46,6 @@ const ProjectDetailsForm = (props) => {
   });
 
   const onFormChange = (e) => {
-    console.log(e.target.value);
   };
 
 

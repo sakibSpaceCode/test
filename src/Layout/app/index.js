@@ -60,7 +60,6 @@ const Dashboard = () => {
   const handleBadgeVisibility = () => {
     setInvisible(!invisible);
   };
-  console.log("notifications", postResponse?.success);
   const [openNotification, setOpenNotification] = React.useState(null);
   const [openProfile, setOpenProfile] = React.useState(null);
   const handleClickNotification = (event) => {

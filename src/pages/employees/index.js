@@ -11,22 +11,29 @@ import AddEmployeeForm from "./addEmployeeForm";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearPostResponse,
+  clearPutResponse,
   postFormData,
+  putFormData,
 } from "../../redux/actions/commonFormActions";
 import { clearData, getData } from "../../redux/actions/commonGetDataActions";
 import Loader from "../../components/loader";
 import Alert from "../../components/alert/alert.container";
 import { set } from "date-fns";
 import { getEmployeePermission } from "../../redux/actions/employePermissionActio";
+import EditEmployeeForm from "./editEmployeeFrom";
 
 const EmployeesPage = () => {
   const classes = useStyles();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
+  const [alert1Open, setAlert1Open] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [search, setSearch] = useState("");
   const [addPermission, setAddPermission] = useState(false);
   const { userInfo } = useSelector((state) => state.userLogin);
+  const [rowData, setRowData] = useState({});
+  const [editDialogOpen, setEditDialogOpen] = useState(false);
+
   const [formData, setFormData] = useState({
     username: "",
     first_name: "",
@@ -37,7 +44,20 @@ const EmployeesPage = () => {
     is_superuser: true,
     permissions: [],
   });
+  const [formEditData, setFormEditData] = useState({
+    username: "",
+    first_name: "",
+    last_name: "",
+    email: "",
+    is_staff: true,
+    is_active: true,
+    is_superuser: true,
+  });
   const dispatch = useDispatch();
+  useEffect(() => {
+    setFormEditData({ ...rowData, employee_id: rowData?._id });
+  }, [rowData]);
+
   const handleOpenDialog = () => {
     setDialogOpen(true);
   };
@@ -46,18 +66,30 @@ const EmployeesPage = () => {
     setErrorMessage(null);
     setFormData({});
   };
+  const handleEditDialog = () => {
+    setEditDialogOpen(true);
+  };
+  const handleEditDialogClose = () => {
+    setEditDialogOpen(false);
+    setErrorMessage(null);
+    // dispatch(clearDropDownResponse())
+  };
   const handleCompleteButtonClick = () => {
     dispatch(postFormData("user", formData));
   };
-  console.log(formData);
+  const handleEditCompleteButtonClick = () => {
+    dispatch(putFormData("user", formEditData));
+  };
   const { loading, error, responseData } = useSelector(
     (state) => state.getData
   );
   const { postLoading, postResponse, postError } = useSelector(
     (state) => state.postFields
   );
+  const { putLoading, putResponse, putError } = useSelector(
+    (state) => state.putFields
+  );
   const { permission } = useSelector((state) => state.getPermissionReducer);
-  console.log(permission);
   useEffect(() => {
     postResponse?.success === true && setAlertOpen(true);
     postResponse?.success === true && dispatch(getData("user"));
@@ -69,12 +101,23 @@ const EmployeesPage = () => {
     }, 3000);
   }, [postResponse, postError]);
   useEffect(() => {
+    putResponse?.success === true && setAlert1Open(true);
+    putResponse?.success === true && dispatch(getData("user"));
+    putResponse?.success === true && setEditDialogOpen(false);
+    putError && dispatch(clearPutResponse());
+    putError && setErrorMessage(putError);
+    setTimeout(() => {
+      dispatch(clearPutResponse());
+    }, 3000);
+  }, [putResponse, putError]);
+  useEffect(() => {
     dispatch(getData("user"));
     dispatch(getEmployeePermission());
     return () => {
       dispatch(clearData());
     };
   }, []);
+
   React.useEffect(() => {
     userInfo?.data?.permissions?.map((val) => {
       if (val.codename == `user/add`) {
@@ -98,16 +141,16 @@ const EmployeesPage = () => {
         <Loader />
       ) : (
         <>
-          <Grid container justify="space-between" spacing={8}>
+          <Grid container justify='space-between' spacing={8}>
             <Grid item xs={6}>
-              <Grid container direction="column" spacing={2}>
+              <Grid container direction='column' spacing={2}>
                 <Grid item xs={12}>
                   <CustomSearch
                     value={search}
                     handleSearchDelete={handleSearchDelete}
                     handleChange={handleSearch}
                     handleSearch={handleSearchClick}
-                    placeholder="Search for employees"
+                    placeholder='Search for employees'
                   />
                 </Grid>
                 <Grid item xs={10}>
@@ -121,13 +164,11 @@ const EmployeesPage = () => {
                             flexDirection: "column",
                             justifyContent: "center",
                             alignItems: "center",
-                          }}
-                        >
-                          <RemoveIcon fontSize="large" />
+                          }}>
+                          <RemoveIcon fontSize='large' />
                           <Typography
                             style={{ fontWeight: "bold" }}
-                            variant="subtitle1"
-                          >
+                            variant='subtitle1'>
                             Delete User
                           </Typography>
                         </div>
@@ -143,14 +184,12 @@ const EmployeesPage = () => {
                             justifyContent: "center",
                             alignItems: "center",
                           }}
-                          onClick={() => addPermission && handleOpenDialog()}
-                        >
-                          <AddIcon fontSize="large" />
+                          onClick={() => addPermission && handleOpenDialog()}>
+                          <AddIcon fontSize='large' />
                           <Typography
                             style={{ fontWeight: "bold" }}
-                            variant="subtitle1"
-                            fontWeight="bold"
-                          >
+                            variant='subtitle1'
+                            fontWeight='bold'>
                             Add User
                           </Typography>
                         </div>
@@ -161,7 +200,7 @@ const EmployeesPage = () => {
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justify="flex-end">
+              <Grid container justify='flex-end'>
                 <Grid item>
                   <Paper className={classes.filterpaper}>
                     <Typography className={classes.filterBy}>
@@ -212,7 +251,12 @@ const EmployeesPage = () => {
           </Grid>
           <div style={{ marginTop: 30 }}>
             <BorderPaper>
-              <CustomTable height={420} response={responseData} />
+              <CustomTable
+                setEditDialogOpen={setEditDialogOpen}
+                setRowData={setRowData}
+                height={420}
+                response={responseData}
+              />
             </BorderPaper>
           </div>
           <CustomDialog
@@ -227,11 +271,28 @@ const EmployeesPage = () => {
             loading={postLoading}
             error={errorMessage}
             // disabled={inputs?.length === 0}>
-          >
+            setEditDialogOpen={setEditDialogOpen}>
             <AddEmployeeForm
               permission={permission}
               formData={formData}
               setFormData={setFormData}
+            />
+          </CustomDialog>
+          <CustomDialog
+            title={`Edit Employee Details`}
+            open={editDialogOpen}
+            onClose={handleEditDialogClose}
+            onCancelClick={handleEditDialogClose}
+            onSaveClick={handleEditCompleteButtonClick}
+            loading={putLoading}
+            error={errorMessage}
+            json={JSON.stringify({ users: [rowData?._id] })}
+            isEdit
+            apiURL='user'
+            setEditDialogOpen={setEditDialogOpen}>
+            <EditEmployeeForm
+              formData={formEditData}
+              setFormData={setFormEditData}
             />
           </CustomDialog>
           {alertOpen && (
@@ -242,7 +303,19 @@ const EmployeesPage = () => {
               onClose={() => setAlertOpen(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity="success"
+              severity='success'
+              actions={false}
+            />
+          )}
+          {alert1Open && (
+            <Alert
+              open={alert1Open}
+              message={`Employee updated successfully.`}
+              duration={2000}
+              onClose={() => setAlert1Open(false)}
+              vertical={"bottom"}
+              horizontal={"center"}
+              severity='success'
               actions={false}
             />
           )}
@@ -257,9 +330,8 @@ const CustomButton = ({ children, disabled }) => {
     <Button
       className={classes.btns}
       disabled={disabled}
-      variant="contained"
-      color="primary"
-    >
+      variant='contained'
+      color='primary'>
       <span className={classes.btnText}>{children}</span>
     </Button>
   );
@@ -270,8 +342,7 @@ const CustomPaper = ({ children }) => {
     <Paper
       elevation={0}
       className={classes.papers}
-      style={{ cursor: "pointer" }}
-    >
+      style={{ cursor: "pointer" }}>
       {children}
     </Paper>
   );

@@ -38,11 +38,9 @@ export default class TestTransferList extends React.Component {
   }
 
   filterOption(inputValue, option) {
-    console.log(inputValue, option);
   }
 
   handleChange(nextTargetKeys, _direction, _moveKeys) {
-    console.log(nextTargetKeys, _direction, _moveKeys);
     this.setState({ targetKeys: nextTargetKeys }, () => {
       this.props.setFormData({
         ...this.props.formData,
@@ -52,7 +50,6 @@ export default class TestTransferList extends React.Component {
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevState.targetKeys !== this.state.targetKeys) {
-      console.log(this.state.targetKeys);
       this.props.setFormData({
         ...this.props.formData,
         permissions: [this.state.selectedKeys],
@@ -61,7 +58,6 @@ export default class TestTransferList extends React.Component {
   }
 
   handleSelectChange(sourceSelectedKeys, targetSelectedKeys) {
-    console.log(sourceSelectedKeys, targetSelectedKeys);
     this.setState(
       {
         selectedKeys: [...sourceSelectedKeys, ...targetSelectedKeys],

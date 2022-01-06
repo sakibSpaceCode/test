@@ -41,7 +41,6 @@ export const putFormData =
         Authorization: userInfo?.data.token,
       },
     };
-    console.log(config);
 
     let url = `${CONSTANTS.BASEURL}${collection}/edit`;
 
@@ -71,10 +70,8 @@ export const deleteFormData =
         Authorization: userInfo?.data.token,
       },
     };
-    console.log(config);
 
     let url = `${CONSTANTS.BASEURL}${collection}/delete`;
-    console.log(id);
 
     const { data } = await axios.delete(url, {
       data: id,

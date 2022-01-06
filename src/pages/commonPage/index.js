@@ -69,6 +69,7 @@ const CommonPage = (props) => {
   const [sixthDropdown, setSixthDropdown] = useState("");
   const [eightDropdown, setEightDropdown] = useState("");
   const [search, setSearch] = useState("");
+  const [checked, setChecked] = useState(false);
   const [addPermission, setAddPermission] = useState(false);
   const [editPermission, setEditPermission] = useState(false);
   const { userInfo } = useSelector((state) => state.userLogin);
@@ -77,7 +78,6 @@ const CommonPage = (props) => {
     (state) => state.getData
   );
   const { options } = useSelector((state) => state.getDropdown);
-
   isEdit &&
     mData?.fields?.forEach((field) => {
       let fieldValue = rowData[field.name];
@@ -87,14 +87,11 @@ const CommonPage = (props) => {
         return;
       } else if (field.name === "status" || field.name === "Status") {
         if (typeof fieldValue === "object") {
-          console.log("cal obj");
-
           field.value = rowData?.status?._id || rowData?.Status?._id;
 
           return;
         } else {
           field.value = fieldValue;
-          console.log("cal");
           return;
         }
 
@@ -123,19 +120,40 @@ const CommonPage = (props) => {
         field.value = rowData[field?.name];
       }
     });
-  console.log(rowData);
   const [projectName, setProjectName] = useState("");
   const emptyValuesFiltered =
     mData?.fields?.length > 0 &&
     mData?.fields?.filter((v) => v.value !== undefined || v.value !== null);
-
-  console.log(urlEndPoint, "cxcx");
+  console.log(urlEndPoint, "urlEnd");
   const submitCallback = (e) => {
     let object = {};
 
     emptyValuesFiltered?.map((m) => (object[m.name] = m.value));
+    object.is_completed = checked;
     if (urlEndPoint === "design-department/corrective-action") {
       object.brand_name = projectName;
+    }
+    if (
+      urlEndPoint === "corrective-action-report" ||
+      urlEndPoint === "material-update"
+    ) {
+      object.name = projectName;
+    }
+    if (
+      urlEndPoint === "acrylic-supplier" ||
+      urlEndPoint === "electrical-supplier" ||
+      urlEndPoint === "fabric-supplier" ||
+      urlEndPoint === "glass-supplier" ||
+      urlEndPoint === "laminate-supplier" ||
+      urlEndPoint === "mdf-supplier" ||
+      urlEndPoint === "marble-supplier" ||
+      urlEndPoint === "metal-supplier" ||
+      urlEndPoint === "outsourced-material" ||
+      urlEndPoint === "paint-supplier" ||
+      urlEndPoint === "special-supplier" ||
+      urlEndPoint === "veneer-supplier"
+    ) {
+      object.Project_Name = projectName;
     }
     if (isEdit) {
       object._id = rowData._id;
@@ -147,19 +165,16 @@ const CommonPage = (props) => {
       dispatch(postFormData(apiURL, json));
     }
   };
-  console.log(rowData);
   React.useEffect(() => {
     userInfo?.data?.permissions?.map((val) => {
-      if (val.codename == `${apiURL}/add`) {
-        console.log("triggered");
+      if (val.codename === `${apiURL}/add`) {
         setAddPermission(true);
       }
-      if (val.codename == `${apiURL}/edit`) {
+      if (val.codename === `${apiURL}/edit`) {
         setEditPermission(true);
       }
     });
   }, []);
-  console.log(addPermission);
   const [
     inputs,
     onFormChange,
@@ -245,7 +260,6 @@ const CommonPage = (props) => {
       dispatch(clear2ndDiffDropDownResponse());
     };
   }, [urlEndPoint]);
-  console.log(rowData);
   useEffect(() => {
     urlEndPoint === "job-card" &&
       setSecondDropdown(
@@ -332,7 +346,6 @@ const CommonPage = (props) => {
         })
       );
   }, [urlEndPoint]);
-  console.log(apiURL, "apiURL");
   useEffect(() => {
     apiURL === "job_card" &&
       secondDropdown &&
@@ -432,11 +445,9 @@ const CommonPage = (props) => {
     setSearch("");
     dispatch(getData(apiURL));
   };
-  console.log(mData.addForm, mData, data);
   // useEffect(() => {
   //   dispatch(getData(apiURL, search));
   // }, [search]);
-  console.log(urlEndPoint, "urlEndPoint");
   return (
     <>
       {loading ? (
@@ -445,12 +456,11 @@ const CommonPage = (props) => {
         <>
           <Grid
             container
-            alignItems="center"
-            justify="space-between"
-            spacing={8}
-          >
+            alignItems='center'
+            justify='space-between'
+            spacing={8}>
             <Grid item xs={6}>
-              <Grid container direction="column" spacing={2}>
+              <Grid container direction='column' spacing={2}>
                 <Grid item xs={12}>
                   <CustomSearch
                     value={search}
@@ -463,14 +473,13 @@ const CommonPage = (props) => {
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justify="flex-end" spacing={2}>
+              <Grid container justify='flex-end' spacing={2}>
                 {mData.addForm && (
                   <Grid item>
                     <CustomButton
-                      width="150px"
-                      variant="outlined"
-                      onClick={() => addPermission && handleAddDialog()}
-                    >
+                      width='150px'
+                      variant='outlined'
+                      onClick={() => addPermission && handleAddDialog()}>
                       {label === "Job Card" ? "Add Job Card" : "Add"}
                     </CustomButton>
                   </Grid>
@@ -479,18 +488,16 @@ const CommonPage = (props) => {
                 <Grid item>
                   <CustomButton
                     onClick={handleImportDialog}
-                    width="150px"
-                    variant="outlined"
-                  >
+                    width='150px'
+                    variant='outlined'>
                     Import
                   </CustomButton>
                 </Grid>
                 <Grid item>
                   <CustomButton
                     onClick={handleExportDialog}
-                    width="150px"
-                    variant="outlined"
-                  >
+                    width='150px'
+                    variant='outlined'>
                     Export
                   </CustomButton>
                 </Grid>
@@ -525,8 +532,7 @@ const CommonPage = (props) => {
             json={JSON.stringify({ _id: rowData?._id })}
             disabled={inputs?.length === 0}
             resetFormData={resetFormData}
-            setEditDialogOpen={setEditDialogOpen}
-          >
+            setEditDialogOpen={setEditDialogOpen}>
             <FormContainer
               inputs={inputs}
               urlEndPoint={urlEndPoint}
@@ -537,6 +543,8 @@ const CommonPage = (props) => {
               isEdit={isEdit}
               setProjectName={setProjectName}
               projectName={projectName}
+              setChecked={setChecked}
+              checked={checked}
             />
           </CustomDialog>
           <CustomDialog
@@ -557,8 +565,7 @@ const CommonPage = (props) => {
             json={JSON.stringify({ _id: rowData?._id })}
             disabled={inputs?.length === 0}
             resetFormData={resetFormData}
-            setEditDialogOpen={setEditDialogOpen}
-          >
+            setEditDialogOpen={setEditDialogOpen}>
             <FormContainer
               inputs={inputs}
               urlEndPoint={urlEndPoint}
@@ -569,6 +576,8 @@ const CommonPage = (props) => {
               isEdit={isEdit}
               setProjectName={setProjectName}
               projectName={projectName}
+              setChecked={setChecked}
+              checked={checked}
             />
           </CustomDialog>
           <ImportDialog
@@ -589,7 +598,7 @@ const CommonPage = (props) => {
               onClose={() => setAlertOpen(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity="success"
+              severity='success'
               actions={false}
             />
           )}
@@ -601,7 +610,7 @@ const CommonPage = (props) => {
               onClose={() => setAlertOpen2(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity="success"
+              severity='success'
               actions={false}
             />
           )}

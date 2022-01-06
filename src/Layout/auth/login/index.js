@@ -25,7 +25,6 @@ const LoginPage = () => {
   const checkAtLeastLength = (expression, length) =>
     expression && expression.trim().length >= length;
   const isValidFun = (expression) => checkAtLeastLength(expression, 0);
-  console.log(userInfo, error);
   React.useEffect(() => {
     if (userInfo) {
       history.push("/dashboard");
@@ -47,7 +46,6 @@ const LoginPage = () => {
     dispatch(login(email, password));
   }
 
-  console.log("user info", userInfo?.data?.token);
   const handleClose = () => {
     setMessage("");
     setOpen(false);
@@ -59,7 +57,6 @@ const LoginPage = () => {
   }, [error]);
   const [pageLoading, setPageLoading] = useState(true);
   React.useEffect(() => {
-    console.log("h");
     setPageLoading(false);
   }, []);
   return (

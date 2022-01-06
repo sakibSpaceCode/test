@@ -1675,7 +1675,7 @@
         "name": "Job",
         "label": "Job ID *",
         "type": "select",
-        "disable": true,
+        
         "validators": [
           {
             "alert": "is required",
@@ -1685,7 +1685,7 @@
       },
       {
         "name": "Project_Name",
-        "label": "Project Name*",
+        "label": "Project Name",
         "type": "text",
         "validators": [
           {
@@ -2739,7 +2739,7 @@
           },
           {
             "name": "name",
-            "label": "Project Name *",
+            "label": "Project Name",
             "type": "text",
             "validators": [
               {
@@ -2951,7 +2951,7 @@
       },
       {
         "name": "name",
-        "label": "Project Name *",
+        "label": "Project Name",
         "type": "text",
         "validators": [
           {

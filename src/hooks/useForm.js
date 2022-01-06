@@ -24,7 +24,6 @@ const useForm = (
     setInputs(initModel);
   }, [initModel]);
   const handleChange = (e, newValue, flag = false) => {
-    console.log(e.target.checked, newValue, "swithc");
 
     setNextClick(false);
     inputs?.forEach((i) => {
@@ -63,7 +62,6 @@ const useForm = (
     setInputs([...inputs]);
   };
   const handleEditChange = (e) => {
-    console.log(e.target.name, e.target, "ooiuig");
     let temp = rowData;
     temp[e.target.name] = e.target.value;
     setRowData({ ...rowData, temp });

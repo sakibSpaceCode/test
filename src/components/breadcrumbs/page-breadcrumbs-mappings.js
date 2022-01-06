@@ -23,7 +23,6 @@ export default function pageBreadcrumbsMappings() {
       mObj.push(drawerOption);
     } else {
       for (let item of objElement.items) {
-        console.log(item);
         let breadcrumbs = [];
         let drawerOption = {};
         drawerOption.name = item.path;

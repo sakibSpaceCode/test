@@ -13,7 +13,6 @@ export const login = (email, password) => async (dispatch) => {
     let url = `${CONSTANTS.BASEURL}user/admin_login`;
     const loginResponse = await axios.post(url, { email, password }, config);
     const { data } = loginResponse;
-    console.log(data);
 
     if (data.success === true) {
       dispatch({

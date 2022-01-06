@@ -18,7 +18,6 @@ import Logo from "../../../../common/Assets/loginImage/logo.png";
 import { useSidebarStyles } from "./style";
 import { useSelector } from "react-redux";
 
-// import myConsole from '../common/myConsoleLog';
 
 function getItemsAll(items) {
   return items.reduce((allItems, item) => {
