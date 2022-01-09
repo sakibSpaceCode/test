@@ -23,6 +23,7 @@ import {
   getDropdownReducer,
   postFieldsReducer,
   postImageReducer,
+  postUpdatePasswordReducer,
   putFieldsReducer,
 } from "./reducers/commonFormReducers";
 import {
