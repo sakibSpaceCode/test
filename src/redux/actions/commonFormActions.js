@@ -372,6 +372,70 @@ export const get8thDropdown = (formData) => async (dispatch, getState) => {
   }
 };
 
+export const postUserImage =
+  (formData) => async (dispatch, getState) => {
+    dispatch({ type: "UPLOAD_IMAGE_REQUEST" });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: userInfo?.data?.token,
+      },
+    };
+    let url = `${CONSTANTS.BASEURL}$user/profile`;
+    const { data } = await axios.post(url, formData, config);
+    if (data.success === true) {
+      dispatch({
+        type: "UPLOAD_IMAGE_SUCCESS",
+        payload: data,
+      });
+    } else {
+      dispatch({
+        type: "UPLOAD_IMAGE_ERROR",
+        payload: data.message,
+      });
+    }
+  };
+  export const clearImageResponse = () => {
+    return {
+      type: "CLEAR_UPLOAD_IMAGE",
+    };
+  };
+export const updatePassword =
+  (formData) => async (dispatch, getState) => {
+    dispatch({ type: "UPDATE_PASSWORD_REQUEST" });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: userInfo?.data?.token,
+      },
+    };
+    let url = `${CONSTANTS.BASEURL}$user/profile`;
+    const { data } = await axios.post(url, formData, config);
+    if (data.success === true) {
+      dispatch({
+        type: "UPDATE_PASSWORD_SUCCESS",
+        payload: data,
+      });
+    } else {
+      dispatch({
+        type: "UPDATE_PASSWORD_ERROR",
+        payload: data.message,
+      });
+    }
+  };
+  export const clearPassChangeResponse = () => {
+    return {
+      type: "CLEAR_UPDATE_PASSWORD",
+    };
+  };
 export const clearDropDownResponse = () => {
   return {
     type: "CLEAR_DROP_DOWN",

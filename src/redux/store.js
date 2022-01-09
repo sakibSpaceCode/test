@@ -22,6 +22,7 @@ import {
   getDiffDropdownReducer,
   getDropdownReducer,
   postFieldsReducer,
+  postImageReducer,
   putFieldsReducer,
 } from "./reducers/commonFormReducers";
 import {
@@ -52,6 +53,8 @@ const reducer = combineReducers({
   getDiffDropdown: getDiffDropdownReducer,
   get2ndDiffDropdown: get2ndDiffDropdownReducer,
   getNotifications: getNotificationsReducer,
+  postImage: postImageReducer,
+  postUpdatePassword: postUpdatePasswordReducer,
 });
 const persistConfig = {
   key: "root",
