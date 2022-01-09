@@ -1,10 +1,7 @@
-
-
 .card {
- 
   display: flex;
   justify-content: center;
- 
+
   animation: open 0.5s;
 }
 @keyframes open {
@@ -33,7 +30,7 @@ input[type="file"] {
 
 .custom-file-upload {
   border-radius: 50%;
- 
+
   margin-bottom: 25px;
 }
 
@@ -59,7 +56,6 @@ input[type="file"] {
   border-radius: 50%;
   opacity: 0;
   transition: 0.5s ease;
-
 }
 .img-upload:hover:before {
   opacity: 1;
@@ -113,8 +109,6 @@ button {
   transition: 0.5s;
   border-radius: 10px;
   cursor: pointer;
- 
-
 }
 .save {
   font-weight: 600;
@@ -166,4 +160,7 @@ button:focus {
   color: #caff81;
   transition: all 0.1s linear;
   cursor: pointer;
+}
+.uploadPicturesWrapper {
+  width: 50%;
 }
