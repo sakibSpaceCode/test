@@ -144,7 +144,7 @@ const RetroPlanPage = (props) => {
       if (val.codename == "retro_plan/add") {
         setAddPermission(true);
       }
-      if (val.codename == "retro_plan/add") {
+      if (val.codename == "retro_plan/edit") {
         setEditPermission(true);
       }
     });
@@ -203,42 +203,45 @@ const RetroPlanPage = (props) => {
         <Loader />
       ) : (
         <>
-          <Grid container justifyContent='space-between' spacing={8}>
+          <Grid container justifyContent="space-between" spacing={8}>
             <Grid item xs={6}>
-              <Grid container direction='column' spacing={2}>
+              <Grid container direction="column" spacing={2}>
                 <Grid item xs={12}>
                   <CustomSearch
                     value={search}
                     handleSearchDelete={handleSearchDelete}
                     handleChange={handleSearch}
                     handleSearch={handleSearchClick}
-                    placeholder='Search to view'
+                    placeholder="Search to view"
                   />
                 </Grid>
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justifyContent='flex-end' spacing={2}>
+              <Grid container justifyContent="flex-end" spacing={2}>
+                {addPermission && (
+                  <Grid item>
+                    <CustomButton
+                      width="110px"
+                      variant="outlined"
+                      onClick={() => addPermission && handleOpenDialog()}
+                    >
+                      Add Retro Plan
+                    </CustomButton>
+                  </Grid>
+                )}
                 <Grid item>
-                  <CustomButton
-                    width='110px'
-                    variant='outlined'
-                    onClick={() => addPermission && handleOpenDialog()}>
-                    Add Retro Plan
-                  </CustomButton>
-                </Grid>
-                <Grid item>
-                  <CustomButton width='110px' variant='outlined'>
+                  <CustomButton width="110px" variant="outlined">
                     Import
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width='110px' variant='outlined'>
+                  <CustomButton width="110px" variant="outlined">
                     Export
                   </CustomButton>
                 </Grid>
                 <Grid item>
-                  <CustomButton width='110px' variant='outlined'>
+                  <CustomButton width="110px" variant="outlined">
                     View in excel
                   </CustomButton>
                 </Grid>
@@ -248,10 +251,10 @@ const RetroPlanPage = (props) => {
           <div style={{ marginTop: 30 }}>
             <BorderPaper>
               <CustomTable
-                setEditDialogOpen={editPermission && handleEditDialog}
+                setEditDialogOpen={handleEditDialog}
                 height={500}
                 setRowData={setRowData}
-                response={editPermission && responseData}
+                response={responseData}
               />
             </BorderPaper>
           </div>
@@ -274,7 +277,9 @@ const RetroPlanPage = (props) => {
         json={JSON.stringify({ _id: rowData?._id })}
         resetFormData={resetFormData}
         disabled={inputs?.length === 0}
-        onRetroClick={onRetroClick}>
+        onRetroClick={onRetroClick}
+        editPermission={addPermission}
+      >
         <FormContainer
           inputs={inputs}
           urlEndPoint={urlEndPoint}
@@ -287,6 +292,7 @@ const RetroPlanPage = (props) => {
           projectName={projectName}
           setChecked={setChecked}
           checked={checked}
+          editPermission={addPermission}
         />
       </CustomDialog>{" "}
       <CustomDialog
@@ -307,7 +313,9 @@ const RetroPlanPage = (props) => {
         json={JSON.stringify({ _id: rowData?._id })}
         disabled={inputs?.length === 0}
         resetFormData={resetFormData}
-        setEditDialogOpen={setEditDialogOpen}>
+        setEditDialogOpen={setEditDialogOpen}
+        editPermission={editPermission}
+      >
         <FormContainer
           inputs={inputs}
           urlEndPoint={urlEndPoint}
@@ -320,17 +328,18 @@ const RetroPlanPage = (props) => {
           projectName={projectName}
           setChecked={setChecked}
           checked={checked}
+          editPermission={editPermission}
         />
       </CustomDialog>
       {alertOpen && (
         <Alert
           open={alertOpen}
-          message='Retro Plan added successfully'
+          message="Retro Plan added successfully"
           duration={2000}
           onClose={() => setAlertOpen(false)}
           vertical={"bottom"}
           horizontal={"center"}
-          severity='success'
+          severity="success"
           actions={false}
         />
       )}
@@ -342,7 +351,7 @@ const RetroPlanPage = (props) => {
           onClose={() => setAlertOpen2(false)}
           vertical={"bottom"}
           horizontal={"center"}
-          severity='success'
+          severity="success"
           actions={false}
         />
       )}

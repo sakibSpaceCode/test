@@ -125,7 +125,7 @@ const ProjectDetails = (props) => {
       if (val.codename == "project/add") {
         setAddPermission(true);
       }
-      if (val.codename == "project/add") {
+      if (val.codename == "project/edit") {
         setEditPermission(true);
       }
     });
@@ -220,26 +220,28 @@ const ProjectDetails = (props) => {
         <>
           <Grid
             container
-            direction='column'
+            direction="column"
             style={{ padding: "20px 30px" }}
-            spacing={2}>
-            <Grid container direction='column'>
+            spacing={2}
+          >
+            <Grid container direction="column">
               <Grid item xs>
-                <Grid container justify='space-between'>
+                <Grid container justify="space-between">
                   <Grid item xs={6}>
                     <CustomSearch
                       value={search}
                       handleSearchDelete={handleSearchDelete}
                       handleChange={handleSearch}
                       handleSearch={handleSearchClick}
-                      placeholder='Search to view'
+                      placeholder="Search to view"
                     />
                   </Grid>
                   <Grid item>
-                    <Grid container justify='flex-end'>
+                    <Grid container justify="flex-end">
                       <Grid item xs>
                         <CustomButton
-                          onClick={() => addPermission && handleOpenDialog()}>
+                          onClick={() => addPermission && handleOpenDialog()}
+                        >
                           Add Project Details
                         </CustomButton>
                       </Grid>
@@ -256,10 +258,11 @@ const ProjectDetails = (props) => {
                       }
                       item
                       xs={3}
-                      className={classes.cardContainer}>
-                      <Grid container direction='column'>
+                      className={classes.cardContainer}
+                    >
+                      <Grid container direction="column">
                         <Grid className={classes.img} item>
-                          <img style={{ width: "68px" }} src={Image} alt='' />
+                          <img style={{ width: "68px" }} src={Image} alt="" />
                         </Grid>
                         <Grid item>
                           <p className={classes.projectName}>
@@ -267,7 +270,7 @@ const ProjectDetails = (props) => {
                           </p>
                         </Grid>
                         <Grid item>
-                          <Divider variant='middle' />
+                          <Divider variant="middle" />
                         </Grid>
                         <Grid item>
                           <p className={classes.jobId}>
@@ -300,15 +303,17 @@ const ProjectDetails = (props) => {
             onSaveClick={handleCompleteButtonClick}
             loading={postLoading}
             error={errorMessage}
-            apiURL='project'
+            apiURL="project"
             setIsEdit={setIsEdit}
             setEditDialogOpen={setEditDialogOpen}
             json={JSON.stringify({ _id: rowData?._id })}
             resetFormData={resetFormData}
-            disabled={inputs?.length === 0}>
+            disabled={inputs?.length === 0}
+            editPermission={addPermission}
+          >
             <FormContainer
               inputs={inputs}
-              urlEndPoint='projectDepartment'
+              urlEndPoint="projectDepartment"
               onFormChange={onFormChange}
               handleEditChange={handleEditChange}
               //  rowData={rowData}
@@ -317,6 +322,7 @@ const ProjectDetails = (props) => {
               projectName={projectName}
               setChecked={setChecked}
               checked={checked}
+              editPermission={addPermission}
             />
           </CustomDialog>{" "}
           <CustomDialog
@@ -333,14 +339,16 @@ const ProjectDetails = (props) => {
             loading={putLoading}
             error={errorMessage}
             isEdit={isEdit}
-            apiURL='project'
+            apiURL="project"
             json={JSON.stringify({ _id: rowData?._id })}
             disabled={inputs?.length === 0}
             resetFormData={resetFormData}
-            setEditDialogOpen={setEditDialogOpen}>
+            setEditDialogOpen={setEditDialogOpen}
+            editPermission={editPermission}
+          >
             <FormContainer
               inputs={inputs}
-              urlEndPoint='projectDetails'
+              urlEndPoint="projectDetails"
               onFormChange={onFormChange}
               handleEditChange={handleEditChange}
               rowData={rowData}
@@ -350,17 +358,18 @@ const ProjectDetails = (props) => {
               projectName={projectName}
               setChecked={setChecked}
               checked={checked}
+              editPermission={editPermission}
             />
           </CustomDialog>
           {alertOpen && (
             <Alert
               open={alertOpen}
-              message='Project details added successfully'
+              message="Project details added successfully"
               duration={2000}
               onClose={() => setAlertOpen(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity='success'
+              severity="success"
               actions={false}
             />
           )}
@@ -372,7 +381,7 @@ const ProjectDetails = (props) => {
               onClose={() => setAlertOpen2(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity='success'
+              severity="success"
               actions={false}
             />
           )}

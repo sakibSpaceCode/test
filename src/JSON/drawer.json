@@ -1050,6 +1050,19 @@
             ]
           },
           {
+            "name": "drawing_link",
+            "label": "Drawing Link *",
+            "type": "text",
+            "link": true,
+
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
             "name": "final_approval",
             "label": "Final Approval",
             "type": "date",
@@ -1686,7 +1699,7 @@
         "name": "Job",
         "label": "Job ID *",
         "type": "select",
-        
+
         "validators": [
           {
             "alert": "is required",
@@ -1772,10 +1785,11 @@
         ]
       },
       {
-        "name": "Drawing_Link",
+        "name": "drawing_link",
         "label": "Drawing Link *",
         "type": "text",
         "link": true,
+        "disable": true,
         "validators": [
           {
             "alert": "is required",
@@ -1932,6 +1946,19 @@
             ]
           },
           {
+            "name": "drawing_link",
+            "label": "Drawing Link *",
+            "type": "text",
+            "link": true,
+
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
             "name": "Last",
             "label": "Last Updated *",
             "type": "date",
@@ -1967,6 +1994,7 @@
               }
             ]
           },
+
           {
             "name": "is_completed",
             "label": "Toggle",
@@ -2113,6 +2141,19 @@
             ]
           },
           {
+            "name": "drawing_link",
+            "label": "Drawing Link *",
+            "type": "text",
+            "link": true,
+            "disable": true,
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
             "name": "is_completed",
             "label": "Toggle",
             "type": "toggle",
@@ -2226,6 +2267,19 @@
             "label": "Quality Inspection By",
             "type": "text",
             "bigSize": true,
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
+            "name": "drawing_link",
+            "label": "Drawing Link *",
+            "type": "text",
+            "link": true,
+            "disable": true,
             "validators": [
               {
                 "alert": "is required",
@@ -2381,6 +2435,19 @@
             ]
           },
           {
+            "name": "drawing_link",
+            "label": "Drawing Link *",
+            "type": "text",
+            "link": true,
+            "disable": true,
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
             "name": "is_completed",
             "label": "Toggle",
             "type": "toggle",
@@ -2507,6 +2574,19 @@
             "type": "text",
             "bigSize": true,
             "bigInput": true,
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
+            "name": "drawing_link",
+            "label": "Drawing Link *",
+            "type": "text",
+            "link": true,
+            "disable": true,
             "validators": [
               {
                 "alert": "is required",
@@ -2696,6 +2776,19 @@
             "type": "text",
             "bigSize": true,
             "bigInput": true,
+            "validators": [
+              {
+                "alert": "is required",
+                "valId": "SCVAL001"
+              }
+            ]
+          },
+          {
+            "name": "drawing_link",
+            "label": "Drawing Link *",
+            "type": "text",
+            "link": true,
+            "disable": true,
             "validators": [
               {
                 "alert": "is required",
@@ -3333,7 +3426,7 @@
         ]
       },
       {
-        "name": "Drawing_Link",
+        "name": "drawing_link",
         "label": "Drawing Link",
         "type": "text",
         "link": true,
@@ -3529,7 +3622,7 @@
       {
         "name": "Job",
         "label": "Job ID ",
-        "type": "text",
+        "type": "select",
         "validators": [
           {
             "alert": "is required",
@@ -3671,7 +3764,7 @@
     "icon": "fa fa-cogs",
     "type": "common",
     "isDrawer": true,
-    "apiUrl": "electrical-supplier",
+    "apiUrl": "electrical_supplier",
     "fields": [
       {
         "name": "Name",
@@ -3687,7 +3780,7 @@
       {
         "name": "Job",
         "label": "Job ID ",
-        "type": "text",
+        "type": "select",
         "validators": [
           {
             "alert": "is required",
@@ -3829,7 +3922,7 @@
     "icon": "fa fa-cogs",
     "type": "common",
     "isDrawer": true,
-    "apiUrl": "fabric-supplier",
+    "apiUrl": "fabric_supplier",
     "fields": [
       {
         "name": "fabric_name",
@@ -3845,7 +3938,7 @@
       {
         "name": "Job",
         "label": "Job ID ",
-        "type": "text",
+        "type": "select",
         "validators": [
           {
             "alert": "is required",
@@ -3987,7 +4080,7 @@
     "addForm": true,
     "type": "common",
     "isDrawer": true,
-    "apiUrl": "glass-supplier",
+    "apiUrl": "glass",
     "fields": [
       {
         "name": "glass_name",
@@ -4003,7 +4096,7 @@
       {
         "name": "Job",
         "label": "Job ID ",
-        "type": "text",
+        "type": "select",
         "validators": [
           {
             "alert": "is required",
@@ -4146,7 +4239,7 @@
     "type": "common",
     "addForm": true,
     "isDrawer": true,
-    "apiUrl": "laminate-supplier",
+    "apiUrl": "laminate_supplier",
     "fields": [
       {
         "name": "laminate_name",
@@ -4162,7 +4255,7 @@
       {
         "name": "Job",
         "label": "Job ID ",
-        "type": "text",
+        "type": "select",
         "validators": [
           {
             "alert": "is required",
@@ -4304,7 +4397,7 @@
     "addForm": true,
     "type": "common",
     "isDrawer": true,
-    "apiUrl": "mdf-supplier",
+    "apiUrl": "mdf_supplier",
     "fields": [
       {
         "name": "mdf_name",
@@ -4320,7 +4413,7 @@
       {
         "name": "Job",
         "label": "Job ID ",
-        "type": "text",
+        "type": "select",
         "validators": [
           {
             "alert": "is required",
@@ -4462,7 +4555,7 @@
     "type": "common",
     "addForm": true,
     "isDrawer": true,
-    "apiUrl": "marble-supplier",
+    "apiUrl": "marble_supplier",
     "fields": [
       {
         "name": "marble_name",
@@ -4478,7 +4571,7 @@
       {
         "name": "Job",
         "label": "Job ID ",
-        "type": "text",
+        "type": "select",
         "validators": [
           {
             "alert": "is required",
@@ -4620,7 +4713,7 @@
     "addForm": true,
     "type": "common",
     "isDrawer": true,
-    "apiUrl": "metal-supplier",
+    "apiUrl": "metal_supplier",
     "fields": [
       {
         "name": "metal_name",
@@ -4636,7 +4729,7 @@
       {
         "name": "Job",
         "label": "Job ID ",
-        "type": "text",
+        "type": "select",
         "validators": [
           {
             "alert": "is required",
@@ -4777,7 +4870,7 @@
     "icon": "fa fa-cogs",
     "type": "common",
     "addForm": true,
-    "apiUrl": "outsourced-material",
+    "apiUrl": "outsourced",
     "isDrawer": true,
     "fields": [
       {
@@ -4794,7 +4887,7 @@
       {
         "name": "Job",
         "label": "Job ID ",
-        "type": "text",
+        "type": "select",
         "validators": [
           {
             "alert": "is required",
@@ -4935,7 +5028,7 @@
     "icon": "fa fa-cogs",
     "addForm": true,
     "type": "common",
-    "apiUrl": "paint-supplier",
+    "apiUrl": "paint_supplier",
     "isDrawer": true,
     "fields": [
       {
@@ -4952,7 +5045,7 @@
       {
         "name": "Job",
         "label": "Job ID ",
-        "type": "text",
+        "type": "select",
         "validators": [
           {
             "alert": "is required",
@@ -5094,7 +5187,7 @@
     "addForm": true,
     "type": "common",
     "isDrawer": true,
-    "apiUrl": "special-supplier",
+    "apiUrl": "special_material",
     "fields": [
       {
         "name": "special_name",
@@ -5110,7 +5203,7 @@
       {
         "name": "Job",
         "label": "Job ID ",
-        "type": "text",
+        "type": "select",
         "validators": [
           {
             "alert": "is required",
@@ -5241,7 +5334,7 @@
     "addForm": true,
     "type": "common",
     "isDrawer": true,
-    "apiUrl": "veneer-supplier",
+    "apiUrl": "veneer",
     "fields": [
       {
         "name": "veneer_name",
@@ -5257,7 +5350,7 @@
       {
         "name": "Job",
         "label": "Job ID ",
-        "type": "text",
+        "type": "select",
         "validators": [
           {
             "alert": "is required",

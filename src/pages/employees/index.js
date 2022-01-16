@@ -141,16 +141,16 @@ const EmployeesPage = () => {
         <Loader />
       ) : (
         <>
-          <Grid container justify='space-between' spacing={8}>
+          <Grid container justify="space-between" spacing={8}>
             <Grid item xs={6}>
-              <Grid container direction='column' spacing={2}>
+              <Grid container direction="column" spacing={2}>
                 <Grid item xs={12}>
                   <CustomSearch
                     value={search}
                     handleSearchDelete={handleSearchDelete}
                     handleChange={handleSearch}
                     handleSearch={handleSearchClick}
-                    placeholder='Search for employees'
+                    placeholder="Search for employees"
                   />
                 </Grid>
                 <Grid item xs={10}>
@@ -164,11 +164,13 @@ const EmployeesPage = () => {
                             flexDirection: "column",
                             justifyContent: "center",
                             alignItems: "center",
-                          }}>
-                          <RemoveIcon fontSize='large' />
+                          }}
+                        >
+                          <RemoveIcon fontSize="large" />
                           <Typography
                             style={{ fontWeight: "bold" }}
-                            variant='subtitle1'>
+                            variant="subtitle1"
+                          >
                             Delete User
                           </Typography>
                         </div>
@@ -184,12 +186,14 @@ const EmployeesPage = () => {
                             justifyContent: "center",
                             alignItems: "center",
                           }}
-                          onClick={() => addPermission && handleOpenDialog()}>
-                          <AddIcon fontSize='large' />
+                          onClick={() => addPermission && handleOpenDialog()}
+                        >
+                          <AddIcon fontSize="large" />
                           <Typography
                             style={{ fontWeight: "bold" }}
-                            variant='subtitle1'
-                            fontWeight='bold'>
+                            variant="subtitle1"
+                            fontWeight="bold"
+                          >
                             Add User
                           </Typography>
                         </div>
@@ -200,7 +204,7 @@ const EmployeesPage = () => {
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid container justify='flex-end'>
+              <Grid container justify="flex-end">
                 <Grid item>
                   <Paper className={classes.filterpaper}>
                     <Typography className={classes.filterBy}>
@@ -271,7 +275,9 @@ const EmployeesPage = () => {
             loading={postLoading}
             error={errorMessage}
             // disabled={inputs?.length === 0}>
-            setEditDialogOpen={setEditDialogOpen}>
+            editPermission={addPermission}
+            setEditDialogOpen={setEditDialogOpen}
+          >
             <AddEmployeeForm
               permission={permission}
               formData={formData}
@@ -288,8 +294,10 @@ const EmployeesPage = () => {
             error={errorMessage}
             json={JSON.stringify({ users: [rowData?._id] })}
             isEdit
-            apiURL='user'
-            setEditDialogOpen={setEditDialogOpen}>
+            apiURL="user"
+            setEditDialogOpen={setEditDialogOpen}
+            editPermission={true}
+          >
             <EditEmployeeForm
               formData={formEditData}
               setFormData={setFormEditData}
@@ -303,7 +311,7 @@ const EmployeesPage = () => {
               onClose={() => setAlertOpen(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity='success'
+              severity="success"
               actions={false}
             />
           )}
@@ -315,7 +323,7 @@ const EmployeesPage = () => {
               onClose={() => setAlert1Open(false)}
               vertical={"bottom"}
               horizontal={"center"}
-              severity='success'
+              severity="success"
               actions={false}
             />
           )}
@@ -330,8 +338,9 @@ const CustomButton = ({ children, disabled }) => {
     <Button
       className={classes.btns}
       disabled={disabled}
-      variant='contained'
-      color='primary'>
+      variant="contained"
+      color="primary"
+    >
       <span className={classes.btnText}>{children}</span>
     </Button>
   );
@@ -342,7 +351,8 @@ const CustomPaper = ({ children }) => {
     <Paper
       elevation={0}
       className={classes.papers}
-      style={{ cursor: "pointer" }}>
+      style={{ cursor: "pointer" }}
+    >
       {children}
     </Paper>
   );

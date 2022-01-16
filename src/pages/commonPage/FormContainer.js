@@ -68,7 +68,8 @@ const FormContainer = (props) => {
     checked,
     setChecked,
     setInternal,
-    internal
+    internal,
+    editPermission,
   } = props;
 
   const { options } = useSelector((state) => state.getDropdown);
@@ -134,7 +135,8 @@ const FormContainer = (props) => {
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}>
+        key={input.name}
+      >
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomInput
           key={input.name}
@@ -151,7 +153,9 @@ const FormContainer = (props) => {
           disabled={
             (input.label === "Name *" ||
               input.name === "brand_name" ||
-              input.label === "Project Name") &&
+              input.label === "Project Name" ||
+              input.disable ||
+              !editPermission) &&
             true
           }
           style={{ width: 300 }}
@@ -177,7 +181,8 @@ const FormContainer = (props) => {
         item
         md={input.bigSize ? 12 : 6}
         className={classes.inputField}
-        key={input.name}>
+        key={input.name}
+      >
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <CustomSelect
           key={input.name}
@@ -190,8 +195,8 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          disabled={input.disable}
-          size='lg'
+          disabled={input.disable || !editPermission}
+          size="lg"
           urlEndPoint={urlEndPoint}
           setInternal={setInternal}
           options={
@@ -297,12 +302,12 @@ const FormContainer = (props) => {
     ) : input?.type === "select" &&
       input?.name === "if_internal" &&
       internal ? (
-      <Grid item md={6} className={classes.inputField} key='if_internal'>
+      <Grid item md={6} className={classes.inputField} key="if_internal">
         <InputLabel className={classes.inputLabel}>If Internal</InputLabel>
         <CustomSelect
-          key='if_internal'
+          key="if_internal"
           onChange={isEdit ? handleEditChange : onFormChange}
-          name='if_internal'
+          name="if_internal"
           value={input.value ?? ""}
           type={input.type}
           helperText={input.alert}
@@ -310,8 +315,8 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          disabled={input.disable}
-          size='lg'
+          disabled={input.disable || !editPermission}
+          size="lg"
           urlEndPoint={urlEndPoint}
           setInternal={setInternal}
           options={
@@ -340,14 +345,16 @@ const FormContainer = (props) => {
         md={6}
         lg={6}
         className={classes.inputField}
-        key={input.name}>
+        key={input.name}
+      >
         <InputLabel className={classes.inputLabel}>{input.label}</InputLabel>
         <DatePicker
-          inputVariant='outlined'
-          format='dd-MM-yyyy'
-          placeholder='DD-MM-YYYY'
+          inputVariant="outlined"
+          format="dd-MM-yyyy"
+          placeholder="DD-MM-YYYY"
           fullWidth
           width={"100%"}
+          disabled={!editPermission}
           height={50}
           value={input.value ?? ""}
           handleDate={(date) => handleDateChange(input.name, date)}
@@ -368,13 +375,13 @@ const FormContainer = (props) => {
           fullWidth
           style={{ width: 300 }}
           className={classes.textField}
-          size='lg'
+          size="lg"
           options={options}
           isJob
         />
       </Grid>
     ) : input.type === "toggle" ? (
-      <Grid container justify='flex-end' key={input.name}>
+      <Grid container justify="flex-end" key={input.name}>
         <Grid item>
           <FormControlLabel
             control={
@@ -383,7 +390,8 @@ const FormContainer = (props) => {
                 checked={checked}
                 onChange={(e) => setChecked(e.target.checked)}
                 name={input.name}
-                color='primary'
+                color="primary"
+                disabled={!editPermission}
               />
             }
             name={input.name}
@@ -399,7 +407,7 @@ const FormContainer = (props) => {
     <Grid>
       <Grid container spacing={5}>
         {inputs?.length === 0 ? (
-          <Typography variant='body2' className={classes.nofields}>
+          <Typography variant="body2" className={classes.nofields}>
             No Fields Available.
           </Typography>
         ) : (
